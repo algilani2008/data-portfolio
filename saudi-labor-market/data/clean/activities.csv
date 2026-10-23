@@ -1,0 +1,23 @@
+﻿activity_id,activity_code,name_en,name_ar
+1,Agriculture,"Agriculture, forestry and fishing",الزراعة والحراجة وصيد الأسماك
+2,Mining,Mining and quarrying,التعدين واستغلال المحاجر
+3,Manufacturing,Manufacturing,الصناعات التحويلية
+4,Electricity,"Electricity, gas, steam and air conditioning supply",الكهرباء والغاز والتكييف
+5,Water,"Water supply, sewerage and waste management",المياه والصرف الصحي وإدارة النفايات
+6,Construction,Construction,التشييد
+7,Trade,Wholesale and retail trade; repair of motor vehicles,تجارة الجملة والتجزئة وإصلاح المركبات
+8,Transport,Transportation and storage,النقل والتخزين
+9,Accommodation,Accommodation and food service activities,الإقامة وخدمات الطعام
+10,ICT,Information and communication,المعلومات والاتصالات
+11,Finance,Financial and insurance activities,الأنشطة المالية والتأمين
+12,RealEstate,Real estate activities,الأنشطة العقارية
+13,Professional,"Professional, scientific and technical activities",الأنشطة المهنية والعلمية والتقنية
+14,Admin,Administrative and support service activities,الخدمات الإدارية وخدمات الدعم
+15,Public,Public administration and defence; compulsory social security,الإدارة العامة والدفاع والضمان الاجتماعي
+16,Education,Education,التعليم
+17,Health,Human health and social work activities,الصحة البشرية والعمل الاجتماعي
+18,Arts,"Arts, entertainment and recreation",الفنون والترفيه والتسلية
+19,OtherServices,Other service activities,أنشطة الخدمات الأخرى
+20,Households,Activities of households as employers,الأسر المعيشية بصفتها صاحبة عمل
+21,Extraterritorial,Activities of extraterritorial organizations,المنظمات والهيئات الدولية
+22,NotSpecified,Not specified,غير محدد
