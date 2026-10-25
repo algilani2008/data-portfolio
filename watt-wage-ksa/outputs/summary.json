@@ -135,5 +135,102 @@
       "water_avg_bill_old_year": 1723,
       "water_avg_bill_new_year": 2731
     }
+  },
+  "business": {
+    "sector_extra": [
+      {
+        "sector": "commercial",
+        "sector_ar": "التجاري",
+        "gwh_2024": 58894,
+        "rate_change_halala": 5.0,
+        "energy_extra_bn": 2.94,
+        "fixed_extra_bn": 5.52,
+        "total_extra_bn": 8.46
+      },
+      {
+        "sector": "industrial",
+        "sector_ar": "الصناعي",
+        "gwh_2024": 63320,
+        "rate_change_halala": 5.0,
+        "energy_extra_bn": 3.17,
+        "fixed_extra_bn": 0.28,
+        "total_extra_bn": 3.45
+      },
+      {
+        "sector": "government",
+        "sector_ar": "الحكومي",
+        "gwh_2024": 37447,
+        "rate_change_halala": 3.0,
+        "energy_extra_bn": 1.12,
+        "fixed_extra_bn": 1.01,
+        "total_extra_bn": 2.13
+      },
+      {
+        "sector": "agricultural",
+        "sector_ar": "الزراعي وغيره",
+        "gwh_2024": 19405,
+        "rate_change_halala": 3.0,
+        "energy_extra_bn": 0.58,
+        "fixed_extra_bn": 0.2,
+        "total_extra_bn": 0.79
+      }
+    ],
+    "passthrough_check": {
+      "private_sector_extra_bn": 12.7,
+      "government_extra_bn": 2.1,
+      "cpi_pp_if_30pct_passed": 0.23,
+      "cpi_pp_if_50pct_passed": 0.38,
+      "cpi_pp_if_70pct_passed": 0.54
+    }
+  },
+  "society": {
+    "coverage": {
+      "saudi_households_m": 4.2,
+      "saudi_covered_m": 2.94,
+      "saudi_not_covered_m": 1.26,
+      "expat_households_m": 2.5,
+      "covered_share_of_metered_pct": 43.9
+    },
+    "response": {
+      "elasticity": -0.1,
+      "residential_kwh_change_pct": -3.08,
+      "gwh_saved_year": 4967,
+      "co2_mt_saved_year": 3.44,
+      "oil_barrels_saved_m_year": 2.6,
+      "oil_value_usd_m_year": 182.0,
+      "water_use_change_pct": -7.53
+    }
+  },
+  "solutions": {
+    "bundles": {
+      "apartment": {
+        "profile": "apartment",
+        "bundle_cost": 1350.0,
+        "bundle_saving_year": 701,
+        "bill_increase_year": 2060,
+        "offset_pct": 34.0
+      },
+      "typical": {
+        "profile": "typical",
+        "bundle_cost": 1350.0,
+        "bundle_saving_year": 1797,
+        "bill_increase_year": 2812,
+        "offset_pct": 64.0
+      },
+      "villa": {
+        "profile": "villa",
+        "bundle_cost": 1350.0,
+        "bundle_saving_year": 4240,
+        "bill_increase_year": 4337,
+        "offset_pct": 98.0
+      },
+      "mansion": {
+        "profile": "mansion",
+        "bundle_cost": 1350.0,
+        "bundle_saving_year": 9267,
+        "bill_increase_year": 5910,
+        "offset_pct": 157.0
+      }
+    }
   }
 }

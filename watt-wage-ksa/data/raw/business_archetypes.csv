@@ -1,0 +1,15 @@
+id,group,sector,name_ar,name_en,kwh_month,breaker_a,revenue_month_sar,net_margin_pct,saudi_staff,saudi_wages_sar,note
+grocery,commercial,commercial,بقالة / تموينات,Grocery store,3500,60,90000,6,1,4200,"fridges and lighting run 18 h a day"
+restaurant,commercial,commercial,مطعم متوسط,Mid-size restaurant,9000,150,250000,9,3,"4000|4500|6000","kitchen + dining AC"
+salon,commercial,commercial,محل خدمات صغير,Small service shop,1500,60,40000,12,1,4000,"barber, laundry, phone shop"
+office,commercial,commercial,مكتب شركة (300 م²),Company office (300 m2),8000,150,600000,10,12,"4000|4200|4500|5000|5500|6000|7000|8000|9000|11000|14000|18000",
+clinic,commercial,commercial,عيادة خاصة,Private clinic,15000,250,700000,12,10,"4500|5000|5000|6000|7000|8000|9000|12000|15000|20000","moves to the commercial tariff in 2027"
+school,commercial,commercial,مدرسة أهلية,Private school,40000,350,1500000,8,45,"4000x15|5000x15|6500x10|9000x5","moves to the commercial tariff in 2027"
+mall,commercial,commercial,مجمع تجاري,Shopping centre,600000,350,6000000,15,30,"4000x10|5000x10|7000x6|12000x4","landlord-metered common areas"
+coldstore,commercial,commercial,مستودع تبريد,Cold-storage warehouse,120000,350,900000,8,6,"4000|4500|5000|6000|8000|12000",
+light_factory,industrial,industrial,مصنع بلاستيك صغير,Small plastics plant,250000,350,2500000,7,20,"4000x8|4500x6|6000x4|10000x2","~800 kWh per tonne"
+food_plant,industrial,industrial,مصنع أغذية,Food processing plant,800000,350,9000000,9,60,"4000x20|5000x20|6500x12|10000x8",
+steel_mill,industrial,industrial,مصنع حديد (فرن قوس كهربائي),Steel mill (electric arc),25000000,350,150000000,6,400,"4500x120|5500x150|7000x90|12000x40","~500 kWh per tonne of steel"
+cement,industrial,industrial,مصنع إسمنت,Cement plant,9000000,350,40000000,18,250,"4500x80|5500x90|7500x60|12000x20","~100 kWh per tonne"
+farm,agricultural,agricultural,مزرعة متوسطة,Mid-size farm,20000,150,150000,10,2,"4000|5000","pumping and cooling"
+charity,charity,charities,جمعية خيرية,Charity,4000,60,0,0,4,"4000|4500|5000|6000",

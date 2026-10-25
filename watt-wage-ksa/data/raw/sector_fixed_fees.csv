@@ -1,0 +1,21 @@
+fee_group,schedule,breaker_from_a,breaker_to_a,fee_sar,source,note
+nonresidential,2018,0,100,10,"SEC tariff schedule 2022 (ESMAP RISE)","meter reading, maintenance and billing fee; one schedule for all sectors"
+nonresidential,2018,100,200,15,"same as above",
+nonresidential,2018,200,300,21,"same as above",
+nonresidential,2018,300,400,22,"same as above",
+nonresidential,2018,400,401,25,"same as above",
+nonresidential,2018,401,,30,"same as above",
+nonresidential,2027,0,100,350,"https://ajel.sa/economy/akkj28rot","commercial, industrial, government, private health and education"
+nonresidential,2027,100,200,500,"https://ajel.sa/economy/akkj28rot",
+nonresidential,2027,200,300,700,"https://ajel.sa/economy/akkj28rot",
+nonresidential,2027,300,,900,"https://ajel.sa/economy/akkj28rot",
+agri_charity,2018,0,100,10,"SEC tariff schedule 2022 (ESMAP RISE)",
+agri_charity,2018,100,200,15,"same as above",
+agri_charity,2018,200,300,21,"same as above",
+agri_charity,2018,300,400,22,"same as above",
+agri_charity,2018,400,401,25,"same as above",
+agri_charity,2018,401,,30,"same as above",
+agri_charity,2027,0,100,140,"https://ajel.sa/economy/akkj28rot","band mapping inferred: four amounts listed by the four breaker categories"
+agri_charity,2027,100,200,160,"https://ajel.sa/economy/akkj28rot",
+agri_charity,2027,200,300,180,"https://ajel.sa/economy/akkj28rot",
+agri_charity,2027,300,,200,"https://ajel.sa/economy/akkj28rot",

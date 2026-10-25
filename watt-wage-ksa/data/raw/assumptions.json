@@ -1,56 +1,297 @@
 {
   "_note": "Every value here is either a published figure (type=fact, with source) or a modelling assumption (type=assumption, with a range used in sensitivity and Monte Carlo runs). Change a value and re-run `python -m wattwage.build`.",
-
-  "residential_electricity_gwh_2024": {"type": "fact", "value": 161207,
-    "source": "GASTAT Household Energy Statistics 2024"},
-  "residential_kwh_per_household_year_2024": {"type": "fact", "value": 18590,
-    "source": "GASTAT Electrical Energy Statistics 2024"},
-  "residential_kwh_per_consumer_year_2024": {"type": "fact", "value": 17595,
-    "source": "GASTAT Electrical Energy Statistics 2024"},
-  "residential_accounts_million": {"type": "derived", "value": 9.16,
-    "how": "161,207 GWh / 17,595 kWh per consumer"},
-  "electricity_consumption_growth_2024": {"type": "fact", "value": 4.1,
-    "source": "GASTAT Electrical Energy Statistics 2024 (total consumption, %)"},
-
-  "monthly_seasonality": {"type": "assumption",
-    "value": [0.55, 0.55, 0.70, 0.90, 1.20, 1.45, 1.60, 1.60, 1.40, 1.00, 0.65, 0.55],
-    "how": "Relative to the annual monthly mean (averages to 1.0). Typical Saudi residential load shape: summer cooling roughly 3x winter."},
-  "consumption_lognormal_sigma": {"type": "assumption", "value": 0.75, "low": 0.55, "high": 0.95,
-    "how": "Spread of monthly household consumption around the mean"},
-  "breaker_mix": {"type": "assumption",
-    "value": {"20-99A": 0.55, "100-199A": 0.30, "200-299A": 0.10, "300A+": 0.05},
-    "how": "Share of residential accounts by breaker size; SEC does not publish this split"},
-
-  "price_elasticity_short_run": {"type": "fact+range", "value": -0.10, "low": -0.05, "high": -0.20,
-    "source": "KAPSARC (2020): short-run residential elasticity about -0.1 after the 2018 reform; residential use fell 9.1%"},
-
-  "water_litres_per_capita_day": {"type": "assumption", "value": 263, "low": 200, "high": 300,
-    "how": "Commonly cited Saudi residential per-capita use; household size 5.5"},
-  "household_size": {"type": "assumption", "value": 5.5},
-
-  "cpi_weight_electricity_pct": {"type": "derived", "value": 1.9, "low": 1.4, "high": 2.4,
-    "how": "Residential electricity spending (~30 bn SAR + 15% VAT) / private consumption (~1.65 tn SAR, CEIC 2024). GASTAT does not publish the sub-group weight in the sources used."},
-  "cpi_weight_water_pct": {"type": "derived", "value": 0.4, "low": 0.2, "high": 0.6,
-    "how": "Low end: ~9.2m accounts x ~30 SAR/month / private consumption; high end: the simulated average water bill (~1,700 SAR/year) x 9.2m / private consumption. Many flats share one meter, so the true weight sits between."},
-  "indirect_passthrough_ratio": {"type": "assumption", "value": 0.35, "low": 0.15, "high": 0.60,
-    "how": "Second-round effect from higher commercial, industrial and government tariffs, as a share of the direct household effect"},
-
-  "baseline_cpi_window_start": {"type": "assumption", "value": "2022-01",
-    "how": "Post-VAT regime used to fit the no-reform baseline"},
-
-  "support_2018_cost_bn_sar_year": {"type": "fact", "value": 50,
-    "source": "Al-Jarida (7 Jan 2018), citing Saudi officials: 1,000 SAR employees, 500 SAR retirees and social security"},
-  "beneficiaries_million": {"type": "assumption",
-    "value": {"employees": 2.9, "retirees": 1.6, "social_security_families": 0.85},
-    "low": {"employees": 2.4, "retirees": 1.3, "social_security_families": 0.7},
-    "high": {"employees": 3.3, "retirees": 1.9, "social_security_families": 1.0},
-    "how": "Calibrated so the 2018 package (1,000/500/500 SAR) costs about 50 bn SAR a year; government sector workers in GOSI = 1.139m (NLO Q2 2026) plus military"},
-  "support_monthly_sar": {"type": "fact", "value": 500,
-    "source": "SPA via Al Jazeera, 25 Oct 2026"},
-
-  "gosi_employer_rate_saudi_pct": {"type": "fact", "value": 11.75,
-    "source": "setupinsaudi.com summary of GOSI rates from 1 Jul 2026"},
-  "nitaqat_phase1_date": {"type": "assumption", "value": "2027-04-25", "alt": "2027-07-01",
-    "how": "Six months after the measures start; start read as the decision date (alt: tariff start date)"},
-  "nitaqat_phase2_date": {"type": "assumption", "value": "2028-04-25", "alt": "2028-07-01"}
+  "residential_electricity_gwh_2024": {
+    "type": "fact",
+    "value": 161207,
+    "source": "GASTAT Household Energy Statistics 2024"
+  },
+  "residential_kwh_per_household_year_2024": {
+    "type": "fact",
+    "value": 18590,
+    "source": "GASTAT Electrical Energy Statistics 2024"
+  },
+  "residential_kwh_per_consumer_year_2024": {
+    "type": "fact",
+    "value": 17595,
+    "source": "GASTAT Electrical Energy Statistics 2024"
+  },
+  "residential_accounts_million": {
+    "type": "derived",
+    "value": 9.16,
+    "how": "161,207 GWh / 17,595 kWh per consumer"
+  },
+  "electricity_consumption_growth_2024": {
+    "type": "fact",
+    "value": 4.1,
+    "source": "GASTAT Electrical Energy Statistics 2024 (total consumption, %)"
+  },
+  "monthly_seasonality": {
+    "type": "assumption",
+    "value": [
+      0.55,
+      0.55,
+      0.7,
+      0.9,
+      1.2,
+      1.45,
+      1.6,
+      1.6,
+      1.4,
+      1.0,
+      0.65,
+      0.55
+    ],
+    "how": "Relative to the annual monthly mean (averages to 1.0). Typical Saudi residential load shape: summer cooling roughly 3x winter."
+  },
+  "consumption_lognormal_sigma": {
+    "type": "assumption",
+    "value": 0.75,
+    "low": 0.55,
+    "high": 0.95,
+    "how": "Spread of monthly household consumption around the mean"
+  },
+  "breaker_mix": {
+    "type": "assumption",
+    "value": {
+      "20-99A": 0.55,
+      "100-199A": 0.3,
+      "200-299A": 0.1,
+      "300A+": 0.05
+    },
+    "how": "Share of residential accounts by breaker size; SEC does not publish this split"
+  },
+  "price_elasticity_short_run": {
+    "type": "fact+range",
+    "value": -0.1,
+    "low": -0.05,
+    "high": -0.2,
+    "source": "KAPSARC (2020): short-run residential elasticity about -0.1 after the 2018 reform; residential use fell 9.1%"
+  },
+  "water_litres_per_capita_day": {
+    "type": "assumption",
+    "value": 263,
+    "low": 200,
+    "high": 300,
+    "how": "Commonly cited Saudi residential per-capita use; household size 5.5"
+  },
+  "household_size": {
+    "type": "assumption",
+    "value": 5.5
+  },
+  "cpi_weight_electricity_pct": {
+    "type": "derived",
+    "value": 1.9,
+    "low": 1.4,
+    "high": 2.4,
+    "how": "Residential electricity spending (~30 bn SAR + 15% VAT) / private consumption (~1.65 tn SAR, CEIC 2024). GASTAT does not publish the sub-group weight in the sources used."
+  },
+  "cpi_weight_water_pct": {
+    "type": "derived",
+    "value": 0.4,
+    "low": 0.2,
+    "high": 0.6,
+    "how": "Low end: ~9.2m accounts x ~30 SAR/month / private consumption; high end: the simulated average water bill (~1,700 SAR/year) x 9.2m / private consumption. Many flats share one meter, so the true weight sits between."
+  },
+  "indirect_passthrough_ratio": {
+    "type": "assumption",
+    "value": 0.35,
+    "low": 0.15,
+    "high": 0.6,
+    "how": "Second-round effect from higher commercial, industrial and government tariffs, as a share of the direct household effect"
+  },
+  "baseline_cpi_window_start": {
+    "type": "assumption",
+    "value": "2022-01",
+    "how": "Post-VAT regime used to fit the no-reform baseline"
+  },
+  "support_2018_cost_bn_sar_year": {
+    "type": "fact",
+    "value": 50,
+    "source": "Al-Jarida (7 Jan 2018), citing Saudi officials: 1,000 SAR employees, 500 SAR retirees and social security"
+  },
+  "beneficiaries_million": {
+    "type": "assumption",
+    "value": {
+      "employees": 2.9,
+      "retirees": 1.6,
+      "social_security_families": 0.85
+    },
+    "low": {
+      "employees": 2.4,
+      "retirees": 1.3,
+      "social_security_families": 0.7
+    },
+    "high": {
+      "employees": 3.3,
+      "retirees": 1.9,
+      "social_security_families": 1.0
+    },
+    "how": "Calibrated so the 2018 package (1,000/500/500 SAR) costs about 50 bn SAR a year; government sector workers in GOSI = 1.139m (NLO Q2 2026) plus military"
+  },
+  "support_monthly_sar": {
+    "type": "fact",
+    "value": 500,
+    "source": "SPA via Al Jazeera, 25 Oct 2026"
+  },
+  "gosi_employer_rate_saudi_pct": {
+    "type": "fact",
+    "value": 11.75,
+    "source": "setupinsaudi.com summary of GOSI rates from 1 Jul 2026"
+  },
+  "nitaqat_phase1_date": {
+    "type": "assumption",
+    "value": "2027-04-25",
+    "alt": "2027-07-01",
+    "how": "Six months after the measures start; start read as the decision date (alt: tariff start date)"
+  },
+  "nitaqat_phase2_date": {
+    "type": "assumption",
+    "value": "2028-04-25",
+    "alt": "2028-07-01"
+  },
+  "total_electricity_gwh_2024": {
+    "type": "fact",
+    "value": 340430,
+    "source": "GASTAT Electrical Energy Statistics 2024"
+  },
+  "sector_shares_2024": {
+    "type": "fact",
+    "value": {
+      "residential": 47.4,
+      "industrial": 18.6,
+      "commercial": 17.3,
+      "government": 11.0,
+      "other": 5.7
+    },
+    "source": "GASTAT Electrical Energy Statistics 2024 (% of consumption)"
+  },
+  "nonres_accounts_million": {
+    "type": "assumption",
+    "value": {
+      "commercial": 1.0,
+      "government": 0.15,
+      "industrial": 0.03,
+      "agricultural": 0.12
+    },
+    "low": {
+      "commercial": 0.8,
+      "government": 0.1,
+      "industrial": 0.02,
+      "agricultural": 0.08
+    },
+    "high": {
+      "commercial": 1.3,
+      "government": 0.2,
+      "industrial": 0.05,
+      "agricultural": 0.16
+    },
+    "how": "Account counts are not published by sector; ~12.5m smart meters minus ~9.2m residential accounts"
+  },
+  "nonres_breaker_mix": {
+    "type": "assumption",
+    "value": {
+      "commercial": {
+        "20-99A": 0.55,
+        "100-199A": 0.25,
+        "200-299A": 0.12,
+        "300A+": 0.08
+      },
+      "government": {
+        "20-99A": 0.3,
+        "100-199A": 0.3,
+        "200-299A": 0.2,
+        "300A+": 0.2
+      },
+      "industrial": {
+        "20-99A": 0.05,
+        "100-199A": 0.1,
+        "200-299A": 0.15,
+        "300A+": 0.7
+      },
+      "agricultural": {
+        "20-99A": 0.5,
+        "100-199A": 0.3,
+        "200-299A": 0.12,
+        "300A+": 0.08
+      }
+    }
+  },
+  "grid_co2_kg_per_kwh": {
+    "type": "fact",
+    "value": 0.692,
+    "source": "Ember / Our World in Data 2024 via inzonex Power Atlas: 692 gCO2/kWh; gas 63%, oil 34%"
+  },
+  "oil_share_generation": {
+    "type": "fact",
+    "value": 0.34,
+    "source": "same"
+  },
+  "kwh_per_barrel_electric": {
+    "type": "assumption",
+    "value": 650,
+    "how": "1 barrel ~1.7 MWh thermal at ~38% plant efficiency"
+  },
+  "oil_price_usd": {
+    "type": "assumption",
+    "value": 70,
+    "low": 55,
+    "high": 90
+  },
+  "saudi_population_m": {
+    "type": "fact",
+    "value": 18.8,
+    "source": "Census 2022 (Saudipedia)"
+  },
+  "nonsaudi_population_m": {
+    "type": "fact",
+    "value": 13.4,
+    "source": "Census 2022 (Saudipedia)"
+  },
+  "saudi_households_m": {
+    "type": "fact",
+    "value": 4.2,
+    "source": "Census 2022: 4.2m Saudi households, 4.8 persons each"
+  },
+  "expat_metered_households_m": {
+    "type": "assumption",
+    "value": 2.5,
+    "low": 2.0,
+    "high": 3.0,
+    "how": "Non-Saudi families with their own meter; many single workers live in employer housing billed as non-residential"
+  },
+  "saudi_hh_with_allowance_share": {
+    "type": "assumption",
+    "value": 0.7,
+    "low": 0.55,
+    "high": 0.85,
+    "how": "Share of Saudi households with at least one state employee, retiree or social-security member"
+  },
+  "solar_cost_sar_per_kwp": {
+    "type": "fact",
+    "value": 4688,
+    "source": "USD 1,250/kWp incl. VAT, Alghamdi et al., Energies 2025 (Jeddah villas)"
+  },
+  "solar_yield_kwh_per_kwp_year": {
+    "type": "assumption",
+    "value": 1650,
+    "low": 1050,
+    "high": 2000,
+    "how": "4.8-5.8 kWh/kWp/day literature range; Jeddah measurement with export curtailment ~1,025"
+  },
+  "solar_self_consumption": {
+    "type": "assumption",
+    "value": 0.85
+  },
+  "solar_export_sar_per_kwh": {
+    "type": "fact",
+    "value": 0.07,
+    "source": "Existing net-billing credit of 7 halalas (Alghamdi et al., 2025)"
+  },
+  "residential_growth_pct_year": {
+    "type": "assumption",
+    "value": 3.0,
+    "low": 2.0,
+    "high": 4.0,
+    "how": "Recent total consumption growth 4.1% (2024); per-household growth 2.2%"
+  }
 }

@@ -1,0 +1,9 @@
+id,target,name_ar,name_en,end_use,end_use_share,saving_of_end_use,cost_sar,life_years,source
+thermostat,electricity,ضبط المكيف على 24 درجة بدل 21,Set AC to 24°C instead of 21°C,cooling,0.70,0.15,0,10,"AC = 70% of household electricity (IIR); ~5% of cooling energy per degree (rule of thumb)"
+inverter,electricity,استبدال المكيفات القديمة بمكيفات انفرتر,Replace old units with inverter ACs,cooling,0.70,0.30,10000,12,"Inverter split units save up to 30% (IIR / SASO EER standards)"
+insulation,electricity,عزل السطح وتظليل النوافذ,Roof insulation and window shading,cooling,0.70,0.15,6000,20,"assumption: 10-20% of cooling load"
+led,electricity,إضاءة LED,LED lighting,lighting,0.08,0.60,600,8,"assumption: lighting ~8% of household use"
+smart_plugs,electricity,إطفاء الأجهزة في وضع الاستعداد,Cut standby loads,standby,0.05,0.50,200,5,"assumption"
+solar,electricity,ألواح شمسية على السطح 5 كيلوواط,5 kWp rooftop solar,generation,0,0,23440,25,"USD 1,250/kWp incl. VAT (Alghamdi et al., Energies 2025)"
+aerators,water,رشاشات ومرشدات المياه,Tap aerators and low-flow showers,indoor,0.60,0.30,300,8,"assumption"
+leaks,water,إصلاح التسربات والسيفون,Fix leaks and cisterns,all,1.00,0.10,250,5,"assumption"

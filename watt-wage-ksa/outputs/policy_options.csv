@@ -1,0 +1,6 @@
+id,name_ar,name_en,cost_bn,households_helped_m,covers_expats,covers_private_sector,note_en,note_ar,cost_per_household_sar
+package,الحزمة المعلنة: 500 ريال للمستحقين,Announced package: 500 SAR to eligible groups,32.1,2.94,False,False,Cash to individuals; helps beyond the bill increase,نقد للأفراد يتجاوز زيادة الفاتورة,10918.0
+lifeline,"شريحة حماية: أول 1,000 كيلوواط بالسعر القديم","Lifeline block: first 1,000 kWh at the old price",3.0,9.16,True,True,"Helps every account; keeps the price signal above 1,000 kWh",يشمل كل الحسابات ويُبقي إشارة السعر للاستهلاك الأعلى,328.0
+small_fixed,خفض الرسم الثابت للقواطع الصغيرة إلى 30 ريالاً,Cut the small-breaker fixed charge to 30 SAR,2.8,5.04,True,True,Targets the most regressive part of the reform,يعالج الجزء الأكثر عبئاً على صغار المستهلكين,556.0
+rebate_low,استرداد كامل الزيادة لأصغر 30% من المستهلكين,Refund the increase to the smallest 30% of users,2.8,2.75,True,True,Cheapest way to protect low users; needs bill-level targeting,أرخص طريقة لحماية صغار المستهلكين وتحتاج استهدافاً عبر الفاتورة,1018.0
+hrdf,دعم نصف زيادة الأجر عبر صندوق الموارد البشرية (السنة الأولى),Subsidise half the Nitaqat raise for a year (HRDF-style),5.7,1.3,False,True,Eases phase 1 for small firms; cost shared with employers,يخفف المرحلة الأولى على المنشآت الصغيرة,4385.0

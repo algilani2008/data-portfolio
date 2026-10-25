@@ -1,0 +1,8 @@
+id,name_ar,name_en,profile,income_year,bill_increase_year,bill_increase_pct_income,allowance_year,wage_uplift_2027_year,wage_uplift_2028_year,net_2028_year,net_pct_income,status
+ss_family,أسرة مستفيدة من الضمان الاجتماعي,Social-security family,apartment,54000,2060,3.81,6000,0,0,3940,7.3,gain
+gov_family,أسرة موظف حكومي,State-employee family,typical,168000,2812,1.67,6000,0,0,3188,1.9,gain
+retiree,أسرة متقاعد,Retiree household,typical,108000,2812,2.6,6000,0,0,3188,2.95,gain
+private_low,"أسرة موظف قطاع خاص (4,200 ريال)","Private-sector worker family (4,200 SAR)",apartment,78000,2060,2.64,0,9600,21600,19540,25.05,gain
+private_mid,"أسرة موظف قطاع خاص (9,000 ريال)","Private-sector worker family (9,000 SAR)",typical,144000,2812,1.95,0,0,0,-2812,-1.95,loss
+expat_family,أسرة مقيمة,Expatriate family,apartment,66888,2060,3.08,0,0,0,-2060,-3.08,loss
+villa_owner,أسرة دخل مرتفع (فيلا كبيرة),High-income villa household,villa,480000,4337,0.9,0,0,0,-4337,-0.9,loss

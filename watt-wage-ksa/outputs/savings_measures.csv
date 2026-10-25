@@ -1,0 +1,33 @@
+profile,measure,name_ar,name_en,target,cost_sar,saving_old_year,saving_new_year,payback_old_years,payback_new_years,life_years
+apartment,thermostat,ضبط المكيف على 24 درجة بدل 21,Set AC to 24°C instead of 21°C,electricity,0.0,209,243,0.0,0.0,10
+apartment,inverter,استبدال المكيفات القديمة بمكيفات انفرتر,Replace old units with inverter ACs,electricity,10000.0,417,487,24.0,20.5,12
+apartment,insulation,عزل السطح وتظليل النوافذ,Roof insulation and window shading,electricity,6000.0,209,243,28.8,24.6,20
+apartment,led,إضاءة LED,LED lighting,electricity,600.0,95,111,6.3,5.4,8
+apartment,smart_plugs,إطفاء الأجهزة في وضع الاستعداد,Cut standby loads,electricity,200.0,50,58,4.0,3.5,5
+apartment,solar,ألواح شمسية على السطح 5 كيلوواط,5 kWp rooftop solar,electricity,23440.0,1513,1749,15.5,13.4,25
+apartment,aerators,رشاشات ومرشدات المياه,Tap aerators and low-flow showers,water,300.0,93,186,3.2,1.6,8
+apartment,leaks,إصلاح التسربات والسيفون,Fix leaks and cisterns,water,250.0,52,103,4.8,2.4,5
+typical,thermostat,ضبط المكيف على 24 درجة بدل 21,Set AC to 24°C instead of 21°C,electricity,0.0,404,472,0.0,0.0,10
+typical,inverter,استبدال المكيفات القديمة بمكيفات انفرتر,Replace old units with inverter ACs,electricity,10000.0,809,943,12.4,10.6,12
+typical,insulation,عزل السطح وتظليل النوافذ,Roof insulation and window shading,electricity,6000.0,404,472,14.8,12.7,20
+typical,led,إضاءة LED,LED lighting,electricity,600.0,185,216,3.2,2.8,8
+typical,smart_plugs,إطفاء الأجهزة في وضع الاستعداد,Cut standby loads,electricity,200.0,96,112,2.1,1.8,5
+typical,solar,ألواح شمسية على السطح 5 كيلوواط,5 kWp rooftop solar,electricity,23440.0,1538,1780,15.2,13.2,25
+typical,aerators,رشاشات ومرشدات المياه,Tap aerators and low-flow showers,water,300.0,481,641,0.6,0.5,8
+typical,leaks,إصلاح التسربات والسيفون,Fix leaks and cisterns,water,250.0,267,356,0.9,0.7,5
+villa,thermostat,ضبط المكيف على 24 درجة بدل 21,Set AC to 24°C instead of 21°C,electricity,0.0,913,1065,0.0,0.0,10
+villa,inverter,استبدال المكيفات القديمة بمكيفات انفرتر,Replace old units with inverter ACs,electricity,10000.0,1826,2130,5.5,4.7,12
+villa,insulation,عزل السطح وتظليل النوافذ,Roof insulation and window shading,electricity,6000.0,913,1065,6.6,5.6,20
+villa,led,إضاءة LED,LED lighting,electricity,600.0,417,487,1.4,1.2,8
+villa,smart_plugs,إطفاء الأجهزة في وضع الاستعداد,Cut standby loads,electricity,200.0,217,254,0.9,0.8,5
+villa,solar,ألواح شمسية على السطح 5 كيلوواط,5 kWp rooftop solar,electricity,23440.0,1538,1780,15.2,13.2,25
+villa,aerators,رشاشات ومرشدات المياه,Tap aerators and low-flow showers,water,300.0,1457,1565,0.2,0.2,8
+villa,leaks,إصلاح التسربات والسيفون,Fix leaks and cisterns,water,250.0,869,869,0.3,0.3,5
+mansion,thermostat,ضبط المكيف على 24 درجة بدل 21,Set AC to 24°C instead of 21°C,electricity,0.0,2683,2987,0.0,0.0,10
+mansion,inverter,استبدال المكيفات القديمة بمكيفات انفرتر,Replace old units with inverter ACs,electricity,10000.0,5261,5869,1.9,1.7,12
+mansion,insulation,عزل السطح وتظليل النوافذ,Roof insulation and window shading,electricity,6000.0,2683,2987,2.2,2.0,20
+mansion,led,إضاءة LED,LED lighting,electricity,600.0,1243,1382,0.5,0.4,8
+mansion,smart_plugs,إطفاء الأجهزة في وضع الاستعداد,Cut standby loads,electricity,200.0,653,725,0.3,0.3,5
+mansion,solar,ألواح شمسية على السطح 5 كيلوواط,5 kWp rooftop solar,electricity,23440.0,2100,2342,11.2,10.0,25
+mansion,aerators,رشاشات ومرشدات المياه,Tap aerators and low-flow showers,water,300.0,2683,2683,0.1,0.1,8
+mansion,leaks,إصلاح التسربات والسيفون,Fix leaks and cisterns,water,250.0,1490,1490,0.2,0.2,5

@@ -90,3 +90,25 @@ def assumptions() -> dict:
 def a(key: str, field: str = "value"):
     """Shortcut: value (or low/high) of an assumption."""
     return assumptions()[key][field]
+
+
+@lru_cache(maxsize=None)
+def sector_fixed_fees() -> pd.DataFrame:
+    df = _read("sector_fixed_fees.csv")
+    df["schedule"] = df["schedule"].astype(str)
+    return df
+
+
+@lru_cache(maxsize=None)
+def business_archetypes() -> pd.DataFrame:
+    return _read("business_archetypes.csv")
+
+
+@lru_cache(maxsize=None)
+def savings_measures() -> pd.DataFrame:
+    return _read("savings_measures.csv")
+
+
+@lru_cache(maxsize=None)
+def society_households() -> pd.DataFrame:
+    return _read("society_households.csv")

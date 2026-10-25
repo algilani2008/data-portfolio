@@ -183,3 +183,31 @@ def sector_comparison() -> pd.DataFrame:
         row["tier2_change_pct"] = round(100 * (row["tier2_2027"] / row["tier2_2018"] - 1), 1)
         out.append(row)
     return pd.DataFrame(out)
+
+
+# --- non-residential sectors ------------------------------------------------
+def _fee_group(sector: str) -> str:
+    return "agri_charity" if sector in ("agricultural", "charities") else "nonresidential"
+
+
+def sector_fixed_fee(breaker_a: float, sector: str, schedule: str) -> float:
+    if sector == "residential":
+        return electricity_fixed_fee(breaker_a, schedule)
+    f = data.sector_fixed_fees()
+    f = f[(f["fee_group"] == _fee_group(sector)) & (f["schedule"] == schedule)]
+    for _, row in f.sort_values("breaker_from_a").iterrows():
+        hi = row["breaker_to_a"] if pd.notna(row["breaker_to_a"]) else np.inf
+        if row["breaker_from_a"] <= breaker_a < hi:
+            return float(row["fee_sar"])
+    return float(f["fee_sar"].max())
+
+
+def sector_bill(kwh: float, breaker_a: float, sector: str, schedule: str, vat: float = 0.0) -> Bill:
+    """Monthly bill for any sector under the 2018 or 2027 schedule (businesses: VAT excluded by default)."""
+    t = data.sector_tariffs()
+    t = t[(t["sector"] == sector) & (t["schedule"] == schedule)].assign(rate_sar=lambda d: d["rate_halala"] / 100)
+    if t.empty:
+        raise ValueError(f"no tariff for {sector}/{schedule}")
+    energy = progressive_charge(kwh, t, "tier_from_kwh", "tier_to_kwh", "rate_sar")
+    fixed = sector_fixed_fee(breaker_a, sector, schedule)
+    return Bill(kwh, energy, fixed, (energy + fixed) * vat)

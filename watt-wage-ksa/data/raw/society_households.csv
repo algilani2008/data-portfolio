@@ -1,0 +1,8 @@
+id,name_ar,name_en,profile,monthly_income_sar,allowance_sar,wage_uplift_phase1_sar,wage_uplift_phase2_sar,note
+ss_family,أسرة مستفيدة من الضمان الاجتماعي,Social-security family,apartment,4500,500,0,0,"income = benefit + other; assumption"
+gov_family,أسرة موظف حكومي,State-employee family,typical,14000,500,0,0,"assumption near the Saudi median"
+retiree,أسرة متقاعد,Retiree household,typical,9000,500,0,0,"assumption"
+private_low,"أسرة موظف قطاع خاص (4,200 ريال)","Private-sector worker family (4,200 SAR)",apartment,6500,0,800,1800,"Nitaqat lifts the 4,200 wage to 5,000 then 6,000 if the employer complies"
+private_mid,"أسرة موظف قطاع خاص (9,000 ريال)","Private-sector worker family (9,000 SAR)",typical,12000,0,0,0,"above both thresholds"
+expat_family,أسرة مقيمة,Expatriate family,apartment,5574,0,0,0,"non-Saudi household spending, GASTAT HIES 2023"
+villa_owner,أسرة دخل مرتفع (فيلا كبيرة),High-income villa household,villa,40000,0,0,0,"assumption"
