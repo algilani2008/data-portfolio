@@ -1,0 +1,4 @@
+scenario,direct_electricity_pp,direct_water_pp,direct_pp,indirect_pp,total_pp
+low,0.44,0.09,0.53,0.08,0.61
+central,0.66,0.23,0.89,0.31,1.21
+high,0.88,0.39,1.27,0.76,2.03

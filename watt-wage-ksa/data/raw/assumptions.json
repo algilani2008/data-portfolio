@@ -1,0 +1,56 @@
+{
+  "_note": "Every value here is either a published figure (type=fact, with source) or a modelling assumption (type=assumption, with a range used in sensitivity and Monte Carlo runs). Change a value and re-run `python -m wattwage.build`.",
+
+  "residential_electricity_gwh_2024": {"type": "fact", "value": 161207,
+    "source": "GASTAT Household Energy Statistics 2024"},
+  "residential_kwh_per_household_year_2024": {"type": "fact", "value": 18590,
+    "source": "GASTAT Electrical Energy Statistics 2024"},
+  "residential_kwh_per_consumer_year_2024": {"type": "fact", "value": 17595,
+    "source": "GASTAT Electrical Energy Statistics 2024"},
+  "residential_accounts_million": {"type": "derived", "value": 9.16,
+    "how": "161,207 GWh / 17,595 kWh per consumer"},
+  "electricity_consumption_growth_2024": {"type": "fact", "value": 4.1,
+    "source": "GASTAT Electrical Energy Statistics 2024 (total consumption, %)"},
+
+  "monthly_seasonality": {"type": "assumption",
+    "value": [0.55, 0.55, 0.70, 0.90, 1.20, 1.45, 1.60, 1.60, 1.40, 1.00, 0.65, 0.55],
+    "how": "Relative to the annual monthly mean (averages to 1.0). Typical Saudi residential load shape: summer cooling roughly 3x winter."},
+  "consumption_lognormal_sigma": {"type": "assumption", "value": 0.75, "low": 0.55, "high": 0.95,
+    "how": "Spread of monthly household consumption around the mean"},
+  "breaker_mix": {"type": "assumption",
+    "value": {"20-99A": 0.55, "100-199A": 0.30, "200-299A": 0.10, "300A+": 0.05},
+    "how": "Share of residential accounts by breaker size; SEC does not publish this split"},
+
+  "price_elasticity_short_run": {"type": "fact+range", "value": -0.10, "low": -0.05, "high": -0.20,
+    "source": "KAPSARC (2020): short-run residential elasticity about -0.1 after the 2018 reform; residential use fell 9.1%"},
+
+  "water_litres_per_capita_day": {"type": "assumption", "value": 263, "low": 200, "high": 300,
+    "how": "Commonly cited Saudi residential per-capita use; household size 5.5"},
+  "household_size": {"type": "assumption", "value": 5.5},
+
+  "cpi_weight_electricity_pct": {"type": "derived", "value": 1.9, "low": 1.4, "high": 2.4,
+    "how": "Residential electricity spending (~30 bn SAR + 15% VAT) / private consumption (~1.65 tn SAR, CEIC 2024). GASTAT does not publish the sub-group weight in the sources used."},
+  "cpi_weight_water_pct": {"type": "derived", "value": 0.4, "low": 0.2, "high": 0.6,
+    "how": "Low end: ~9.2m accounts x ~30 SAR/month / private consumption; high end: the simulated average water bill (~1,700 SAR/year) x 9.2m / private consumption. Many flats share one meter, so the true weight sits between."},
+  "indirect_passthrough_ratio": {"type": "assumption", "value": 0.35, "low": 0.15, "high": 0.60,
+    "how": "Second-round effect from higher commercial, industrial and government tariffs, as a share of the direct household effect"},
+
+  "baseline_cpi_window_start": {"type": "assumption", "value": "2022-01",
+    "how": "Post-VAT regime used to fit the no-reform baseline"},
+
+  "support_2018_cost_bn_sar_year": {"type": "fact", "value": 50,
+    "source": "Al-Jarida (7 Jan 2018), citing Saudi officials: 1,000 SAR employees, 500 SAR retirees and social security"},
+  "beneficiaries_million": {"type": "assumption",
+    "value": {"employees": 2.9, "retirees": 1.6, "social_security_families": 0.85},
+    "low": {"employees": 2.4, "retirees": 1.3, "social_security_families": 0.7},
+    "high": {"employees": 3.3, "retirees": 1.9, "social_security_families": 1.0},
+    "how": "Calibrated so the 2018 package (1,000/500/500 SAR) costs about 50 bn SAR a year; government sector workers in GOSI = 1.139m (NLO Q2 2026) plus military"},
+  "support_monthly_sar": {"type": "fact", "value": 500,
+    "source": "SPA via Al Jazeera, 25 Oct 2026"},
+
+  "gosi_employer_rate_saudi_pct": {"type": "fact", "value": 11.75,
+    "source": "setupinsaudi.com summary of GOSI rates from 1 Jul 2026"},
+  "nitaqat_phase1_date": {"type": "assumption", "value": "2027-04-25", "alt": "2027-07-01",
+    "how": "Six months after the measures start; start read as the decision date (alt: tariff start date)"},
+  "nitaqat_phase2_date": {"type": "assumption", "value": "2028-04-25", "alt": "2028-07-01"}
+}

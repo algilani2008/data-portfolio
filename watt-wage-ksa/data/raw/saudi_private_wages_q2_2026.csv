@@ -1,0 +1,12 @@
+metric,value,unit,source
+saudi_private_workers,2689000,persons,"National Labor Observatory, Labor Snapshot Q2 2026: https://nlo.gov.sa/en/download/labor-snopshot-q2-2026/"
+saudi_private_workers_male,1563000,persons,same
+saudi_private_workers_female,1126000,persons,same
+share_below_4000,2.5,pct,same
+share_4000_8000,68.1,pct,same
+share_8000_15000,14.6,pct,same
+share_above_15000,14.8,pct,same
+mean_wage,9493,SAR/month,same
+median_wage,5050,SAR/month,same
+government_sector_workers,1139000,persons,same
+saudis_benefiting_4000_threshold_2020,660497,persons,"GOSI via Okaz (19 Nov 2020): https://www.okaz.com.sa/economy/saudi/2048826"
