@@ -113,3 +113,55 @@ def test_forecast_shock_window():
 def test_arima_beats_naive_backtest():
     bt = forecast.backtest()
     assert bt["mae_arima"] <= bt["mae_naive"]
+
+
+# --- business, society, solutions, outlook ---------------------------------
+from wattwage import business, outlook, society, solutions
+
+
+def test_commercial_fixed_charges_2027():
+    assert tariffs.sector_fixed_fee(60, "commercial", "2027") == 350
+    assert tariffs.sector_fixed_fee(350, "industrial", "2027") == 900
+    assert tariffs.sector_fixed_fee(150, "agricultural", "2027") == 160
+    assert tariffs.sector_fixed_fee(60, "commercial", "2018") == 10
+
+
+def test_commercial_bill_tiers():
+    b = tariffs.sector_bill(8000, 150, "commercial", "2027")
+    assert b.energy == pytest.approx(6000 * 0.25 + 2000 * 0.35)
+    assert b.fixed == 500
+
+
+def test_parse_wages():
+    assert business.parse_wages("4000x2|5500") == [4000, 4000, 5500]
+    assert business.nitaqat_raise([4000, 4500, 7000], 5000) == 1500
+
+
+def test_archetypes_are_consistent():
+    t = business.archetype_table()
+    assert (t["elec_new_year"] > t["elec_old_year"]).all()
+    assert (t["wage_cost_6000_year"] >= t["wage_cost_5000_year"]).all()
+
+
+def test_burden_signs():
+    b = society.burden_table().set_index("id")
+    assert b.loc["expat_family", "net_2028_year"] < 0
+    assert b.loc["ss_family", "net_2028_year"] > 0
+
+
+def test_price_response_reduces_use():
+    r = society.consumption_response()
+    assert -10 < r["residential_kwh_change_pct"] < 0
+    assert r["co2_mt_saved_year"] > 0
+
+
+def test_measures_pay_back_faster_under_new_tariff():
+    m = solutions.measure_table()
+    m = m[m["cost_sar"] > 0]
+    assert (m["saving_new_year"] >= m["saving_old_year"]).all()
+
+
+def test_outlook_years():
+    o = outlook.outlook_table()
+    assert list(o["year"]) == list(range(2025, 2031))
+    assert (o.loc[o.year >= 2027, "gwh_saved"] > 0).all()
