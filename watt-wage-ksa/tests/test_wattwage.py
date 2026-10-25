@@ -201,3 +201,36 @@ def test_catalog_pnl_lines():
     p = catalog.pnl(inp)
     assert p.loc["total_cost", 2028] > p.loc["total_cost", 2026]
     assert p.loc["revenue", 2026] == 12 * 15 * 17000
+
+
+# --- Nitaqat calculator ------------------------------------------------------
+from wattwage import nitaqat
+
+
+def test_nitaqat_formula_matches_published_example():
+    r = nitaqat.required(7, 100, 2026)  # manufacturing, 100 staff (noqta.tn example)
+    assert r["lg"] == pytest.approx(22.82, abs=0.01)
+    assert r["mg"] == pytest.approx(30.48, abs=0.01)
+    assert r["hg"] == pytest.approx(33.55, abs=0.01)
+    assert r["pl"] == pytest.approx(39.45, abs=0.01)
+
+
+def test_hires_needed_example():
+    assert nitaqat.hires_needed(30, 20, 100) == 15
+
+
+def test_threshold_changes_counting():
+    staff = {"saudi_full": [4500] * 10 + [7000] * 10, "non_saudi": 80}
+    a26 = nitaqat.assess(7, staff, 2026)
+    a27 = nitaqat.assess(7, staff, 2027)
+    assert a26["weighted_saudis"] == 20
+    assert a27["weighted_saudis"] == 15          # 4,500 SAR staff count half once the threshold is 5,000
+    assert a27["saudization_pct"] < a26["saudization_pct"]
+
+
+def test_isic_classes_complete():
+    d = data.isic4_classes()
+    assert len(d) >= 395 and not d["code"].duplicated().any()
+    acts = set(data.activity_catalog()["id"])
+    assert set(d["profile"]) <= acts
+    assert set(d["nitaqat_id"]) <= set(data.nitaqat_activities()["id"])

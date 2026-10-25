@@ -77,3 +77,9 @@ poultry,agricultural,A0146,دواجن (لاحم وبياض),Poultry,agricultural
 dairy_farm,agricultural,A0141,مزرعة أبقار حلوب,Dairy herd farm,agricultural,100,4000,30000,60,2,8,0.2,0.5,0.15,8500,2200,0,
 fish_farm,agricultural,A0322,استزراع سمكي,Fish farming,agricultural,20,5000,30000,50,3,10,0.2,0.6,0.15,8000,2000,0,
 livestock,agricultural,A0144,مواشي وأغنام,Sheep & livestock,agricultural,8,800,15000,60,3,8,0.15,0.7,0.1,7000,1700,0,
+wholesale,commercial,G4690,تجارة الجملة,Wholesale trade,commercial,15,600,80000,85,3,4,0.3,0.6,0.15,9000,3000,1,
+fuel_station,commercial,G4730,محطة وقود,Fuel station,commercial,8,1500,40000,85,4,4,0.2,0.7,0.1,7000,2000,2,fuel margins are regulated
+telecom_operator,commercial,J6120,مشغل اتصالات,Telecom operator,commercial,300,2000,150000,20,3,18,0.8,0.1,0.1,16000,9000,1,
+mining_quarry,industrial,B0810,محاجر وتعدين,Mining & quarrying,industrial,60,5000,50000,30,1,12,0.3,0.5,0.15,10000,2600,5,
+utility_services,industrial,D3510,خدمات الطاقة والمياه والنفايات,"Energy, water & waste services",industrial,200,3000,60000,40,1,10,0.6,0.3,0.2,12000,3500,5,
+charity,commercial,S9499,جمعية خيرية ومنظمة غير ربحية,Charity & non-profit,charities,10,500,12000,20,10,3,0.6,0.5,0.2,8000,3000,1,revenue = grants and donations; charity tariff 17/21 halalas
