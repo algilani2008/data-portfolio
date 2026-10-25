@@ -1,0 +1,6 @@
+schedule,meter_from_mm,meter_to_mm,water_fee_sar,sewage_fee_sar,extra_unit_water_sar,extra_unit_sewage_sar,source
+2027,0,20,20,10,20,10,"https://news50.sa/reports/saudi-500-riyal-support-electricity-water-2027/"
+2027,21,40,40,20,20,10,"same as above"
+2027,41,65,60,30,20,10,"same as above"
+2027,66,100,80,40,20,10,"same as above"
+2027,101,,100,50,20,10,"same as above"

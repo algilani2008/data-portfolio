@@ -1,0 +1,139 @@
+{
+  "generated": "2026-10-25",
+  "electricity": {
+    "avg_bill_change_pct": 34.8,
+    "avg_bill_old_year": 3860,
+    "avg_bill_new_year": 5201,
+    "decile1_change_pct": 105.3,
+    "decile10_change_pct": 24.0
+  },
+  "water": {
+    "avg_bill_change_pct": 58.5
+  },
+  "typical_household": {
+    "old_year": 5206,
+    "new_year": 8018,
+    "increase_year": 2812,
+    "increase_pct": 54.0,
+    "support_year": 6000
+  },
+  "inflation": {
+    "baseline_2027": 1.91,
+    "central_2027": 3.11,
+    "low_2027": 2.52,
+    "high_2027": 3.93,
+    "central_2028": 1.93,
+    "mc_p10_p50_p90_2027": [
+      2.49,
+      3.06,
+      3.66
+    ],
+    "shock_total_pp": 1.21,
+    "shock_direct_pp": 0.89,
+    "backtest": {
+      "holdout_months": 12,
+      "from": "2025-10",
+      "to": "2026-09",
+      "mae_arima": 0.286,
+      "mae_naive": 0.333
+    }
+  },
+  "past_reforms": [
+    {
+      "month": "2016-01",
+      "name_ar": "إصلاح الطاقة والمياه 2016",
+      "name_en": "2016 energy & water reform",
+      "includes_en": "electricity upper tiers, new water tariff, gasoline +50%",
+      "yoy_month_before": 0.99,
+      "yoy_reform_month": 3.26,
+      "jump_pp": 2.27,
+      "reversal_pp_12m_later": -2.52,
+      "symmetry_ratio": 1.11,
+      "avg_yoy_12m_before": 1.19,
+      "avg_yoy_12m_after": 2.92,
+      "excess_pp": 1.73
+    },
+    {
+      "month": "2018-01",
+      "name_ar": "إصلاح الكهرباء + ضريبة 5% (2018)",
+      "name_en": "2018 electricity reform + 5% VAT",
+      "includes_en": "electricity 18/30 halalas, 5% VAT, gasoline price rise",
+      "yoy_month_before": -1.05,
+      "yoy_reform_month": 3.06,
+      "jump_pp": 4.11,
+      "reversal_pp_12m_later": -4.95,
+      "symmetry_ratio": 1.2,
+      "avg_yoy_12m_before": -0.86,
+      "avg_yoy_12m_after": 2.47,
+      "excess_pp": 3.33
+    },
+    {
+      "month": "2020-07",
+      "name_ar": "رفع الضريبة إلى 15% (2020)",
+      "name_en": "VAT raised to 15% (2020)",
+      "includes_en": "VAT 5% to 15%",
+      "yoy_month_before": -0.01,
+      "yoy_reform_month": 6.07,
+      "jump_pp": 6.08,
+      "reversal_pp_12m_later": -6.02,
+      "symmetry_ratio": 0.99,
+      "avg_yoy_12m_before": -0.36,
+      "avg_yoy_12m_after": 5.59,
+      "excess_pp": 5.95
+    }
+  ],
+  "wages": {
+    "workers_below_5000": 1300360,
+    "share_below_5000_pct": 48.4,
+    "employer_cost_5000_bn": 12.64,
+    "workers_below_6000": 1521503,
+    "share_below_6000_pct": 56.6,
+    "employer_cost_6000_bn": 31.75,
+    "history": {
+      "below_4000_2020": 660497,
+      "below_4000_q2_2026": 67225,
+      "reduction_pct": 89.8,
+      "median_wage_q2_2026": 5050
+    }
+  },
+  "fiscal": {
+    "support_cost_bn": [
+      {
+        "level": "low",
+        "employees_m": 2.4,
+        "retirees_m": 1.3,
+        "social_security_families_m": 0.7,
+        "beneficiaries_m": 4.4,
+        "cost_bn_sar_year": 26.4
+      },
+      {
+        "level": "value",
+        "employees_m": 2.9,
+        "retirees_m": 1.6,
+        "social_security_families_m": 0.85,
+        "beneficiaries_m": 5.35,
+        "cost_bn_sar_year": 32.1
+      },
+      {
+        "level": "high",
+        "employees_m": 3.3,
+        "retirees_m": 1.9,
+        "social_security_families_m": 1.0,
+        "beneficiaries_m": 6.2,
+        "cost_bn_sar_year": 37.2
+      }
+    ],
+    "calibration_2018": {
+      "model_cost_bn": 49.5,
+      "reported_cost_bn": 50
+    },
+    "residential_revenue": {
+      "elec_extra_bn_sar_year": 12.3,
+      "water_extra_bn_sar_year_upper": 9.2,
+      "elec_avg_bill_old_year": 3860,
+      "elec_avg_bill_new_year": 5201,
+      "water_avg_bill_old_year": 1723,
+      "water_avg_bill_new_year": 2731
+    }
+  }
+}

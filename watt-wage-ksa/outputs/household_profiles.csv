@@ -1,0 +1,5 @@
+id,name_ar,name_en,kwh_month,breaker,water_m3,elec_old_year,elec_new_year,water_old_year,water_new_year,total_old_year,total_new_year,total_new_year_with_response,increase_year,increase_pct,increase_year_with_response,net_if_supported,support_covers_pct
+apartment,شقة صغيرة,Small apartment,800,20-99A,25,2125,3284,238,1139,2363,4423,4176,2060,87.2,1813,3940,291.0
+typical,منزل متوسط (متوسط المملكة),Typical home (national average),1550,100-199A,43,4057,5596,1149,2422,5206,8018,7621,2812,54.0,2415,3188,213.0
+villa,فيلا كبيرة,Large villa,3500,200-299A,70,8984,11385,3757,5693,12741,17078,16487,4337,34.0,3746,1663,138.0
+mansion,قصر / فيلا كبيرة جداً,Very large villa,7000,300A+,120,20625,24600,9967,11903,30592,36502,35741,5910,19.3,5149,90,102.0

@@ -1,0 +1,11 @@
+schedule,breaker_from_a,breaker_to_a,fee_sar,confidence,source
+2018,0,100,10,high,"SEC tariff schedule 2022 (ESMAP RISE library): https://rise.esmap.org/sites/default/files/library/saudi-arabia/Renewable%20Energy/Saudi%20Arabia%20Tariff%20Schedule_2022.pdf"
+2018,100,200,15,high,"same as above"
+2018,200,300,21,high,"same as above"
+2018,300,400,22,high,"same as above"
+2018,400,401,25,high,"same as above (exactly 400 A)"
+2018,401,,30,high,"same as above (above 400 A)"
+2027,0,100,70,high,"https://news50.sa/reports/saudi-500-riyal-support-electricity-water-2027/ ; https://www.cairomubasher.com/245816"
+2027,100,200,80,high,"same as above"
+2027,200,300,90,high,"same as above"
+2027,300,,100,high,"same as above"

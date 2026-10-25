@@ -1,0 +1,21 @@
+sector,sector_ar,schedule,tier_from_kwh,tier_to_kwh,rate_halala,source,note
+residential,السكني,2018,0,6000,18,"https://saudigazette.com.sa/article/525167",
+residential,السكني,2018,6000,,30,"https://saudigazette.com.sa/article/525167",
+residential,السكني,2027,0,6000,21,"https://www.aleqaria.com.eg/post/details/355756",
+residential,السكني,2027,6000,,33,"https://www.aleqaria.com.eg/post/details/355756",
+commercial,التجاري,2018,0,6000,20,"https://www.saudi-expatriates.com/2017/12/increase-in-electricity-tariffs-from-2018.html","Okaz (Jun 2025) reported 22-32 halalas for commercial; 2018 schedule kept as baseline"
+commercial,التجاري,2018,6000,,30,"https://www.saudi-expatriates.com/2017/12/increase-in-electricity-tariffs-from-2018.html",
+commercial,التجاري,2027,0,6000,25,"https://www.aleqaria.com.eg/post/details/355756","includes private health and education from 2027"
+commercial,التجاري,2027,6000,,35,"https://www.aleqaria.com.eg/post/details/355756",
+industrial,الصناعي,2018,0,,18,"https://www.saudi-expatriates.com/2017/12/increase-in-electricity-tariffs-from-2018.html",
+industrial,الصناعي,2027,0,,23,"https://www.aleqaria.com.eg/post/details/355756",
+government,الحكومي,2018,0,,32,"https://www.saudi-expatriates.com/2017/12/increase-in-electricity-tariffs-from-2018.html",
+government,الحكومي,2027,0,,35,"https://www.aleqaria.com.eg/post/details/355756",
+agricultural,الزراعي,2018,0,6000,16,"https://www.saudi-expatriates.com/2017/12/increase-in-electricity-tariffs-from-2018.html",
+agricultural,الزراعي,2018,6000,,20,"https://www.saudi-expatriates.com/2017/12/increase-in-electricity-tariffs-from-2018.html",
+agricultural,الزراعي,2027,0,6000,19,"https://www.aleqaria.com.eg/post/details/355756",
+agricultural,الزراعي,2027,6000,,23,"https://www.aleqaria.com.eg/post/details/355756",
+charities,الجمعيات الخيرية,2018,0,6000,16,"https://www.saudi-expatriates.com/2017/12/increase-in-electricity-tariffs-from-2018.html",
+charities,الجمعيات الخيرية,2018,6000,,20,"https://www.saudi-expatriates.com/2017/12/increase-in-electricity-tariffs-from-2018.html",
+charities,الجمعيات الخيرية,2027,0,6000,17,"https://www.aleqaria.com.eg/post/details/355756",
+charities,الجمعيات الخيرية,2027,6000,,21,"https://www.aleqaria.com.eg/post/details/355756",

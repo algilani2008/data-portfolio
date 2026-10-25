@@ -1,0 +1,6 @@
+input_en,input_ar,low,high,center,swing
+CPI weight: electricity,وزن الكهرباء في السلة,0.97,1.44,1.21,0.47
+Second-round pass-through,الأثر غير المباشر,1.03,1.43,1.21,0.3999999999999999
+CPI weight: water,وزن المياه في السلة,1.05,1.37,1.21,0.32000000000000006
+Elasticity (strong response),المرونة (استجابة قوية),1.06,1.21,1.21,0.1499999999999999
+Elasticity (weak response),المرونة (استجابة ضعيفة),1.21,1.29,1.21,0.08000000000000007
