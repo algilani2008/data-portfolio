@@ -112,3 +112,14 @@ def savings_measures() -> pd.DataFrame:
 @lru_cache(maxsize=None)
 def society_households() -> pd.DataFrame:
     return _read("society_households.csv")
+
+
+@lru_cache(maxsize=None)
+def activity_catalog() -> pd.DataFrame:
+    return _read("activity_catalog.csv")
+
+
+@lru_cache(maxsize=None)
+def cpi_divisions() -> pd.DataFrame:
+    df = pd.read_csv(RAW / "cpi_divisions_q1_2026.csv", encoding="utf-8-sig", dtype={"code": str})
+    return df

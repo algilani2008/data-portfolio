@@ -165,3 +165,39 @@ def test_outlook_years():
     o = outlook.outlook_table()
     assert list(o["year"]) == list(range(2025, 2031))
     assert (o.loc[o.year >= 2027, "gwh_saved"] > 0).all()
+
+
+# --- inflation by category, salary, activity catalogue -----------------------
+from wattwage import catalog, inflation, salary
+
+
+def test_division_forecast_adds_up_to_headline():
+    scen = forecast.scenarios()
+    t = inflation.division_table(scen)
+    assert t["weight"].sum() == pytest.approx(100, abs=0.2)
+    h = inflation.headline_check(t)
+    assert h["headline_2027"] == pytest.approx(forecast.annual_average(scen, "central", 2027), abs=0.05)
+    assert h["headline_2028"] == pytest.approx(forecast.annual_average(scen, "baseline", 2028), abs=0.05)
+
+
+def test_salary_nitaqat_and_allowance():
+    assert salary.take_home(4300, "private_saudi", 2029) == pytest.approx(6000 * (1 - 0.0975))
+    assert salary.take_home(9000, "gov", 2027) == 9500
+    assert salary.take_home(9000, "expat", 2028) == 9000
+
+
+def test_catalog_margins_match_benchmarks():
+    t = catalog.catalog_table()
+    acts = data.activity_catalog().set_index("id")
+    ok = (t.set_index("id")["margin_2026"] - acts["margin_pct"]).abs() < 0.01
+    assert ok.mean() > 0.9   # 'other' balances to the benchmark margin unless costs already exceed it
+    assert len(t) >= 70
+    assert (t["d_electricity"] > 0).all()
+
+
+def test_catalog_pnl_lines():
+    row = data.activity_catalog().set_index("id").loc["restaurant"]
+    inp = catalog.inputs_from_activity(row.reset_index().set_index("index")[row.name] if False else row)
+    p = catalog.pnl(inp)
+    assert p.loc["total_cost", 2028] > p.loc["total_cost", 2026]
+    assert p.loc["revenue", 2026] == 12 * 15 * 17000

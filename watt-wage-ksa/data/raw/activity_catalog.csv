@@ -1,0 +1,79 @@
+id,group,isic,name_ar,name_en,tariff,employees,kwh_per_emp,revenue_per_emp,materials_pct,rent_pct,margin_pct,saudi_share,saudi_low_share,saudi_mid_share,saudi_high_wage,expat_wage,water_m3_per_emp,note
+grocery,commercial,G4711,بقالة وتموينات,Grocery store,commercial,3,1200,30000,75,6,6,0.34,0.8,0.1,8000,2500,1,fridges and lighting 18 h a day
+supermarket,commercial,G4711,سوبرماركت وهايبرماركت,Supermarket / hypermarket,commercial,60,1500,45000,76,4,4,0.35,0.6,0.15,9000,2600,1.5,
+bakery_shop,commercial,G4721,مخبز وحلويات,Bakery & sweets shop,commercial,10,1000,14000,40,8,10,0.2,0.7,0.1,7500,2300,4,
+butcher,commercial,G4722,ملحمة ومحل خضار,Butcher & greengrocer,commercial,5,900,25000,70,7,7,0.2,0.7,0.1,7000,2300,3,
+restaurant,commercial,I5610,مطعم,Restaurant,commercial,15,600,17000,33,10,9,0.2,0.6,0.15,8000,2400,6,
+fastfood,commercial,I5610,مطعم وجبات سريعة,Fast-food outlet,commercial,20,650,18000,32,9,8,0.25,0.7,0.1,7500,2300,5,
+cafe,commercial,I5630,مقهى,Café,commercial,8,700,15000,28,14,12,0.3,0.7,0.1,7500,2600,4,
+catering,commercial,I5621,إعاشة وتموين,Catering,commercial,50,500,16000,45,4,7,0.15,0.6,0.15,8000,2200,5,
+clothing,commercial,G4771,ملابس وأحذية,Clothing & footwear,commercial,5,400,25000,52,18,10,0.4,0.6,0.15,8000,2800,1,
+electronics,commercial,G4742,إلكترونيات وأجهزة,Electronics & appliances,commercial,6,450,60000,78,8,5,0.4,0.6,0.15,9000,3000,1,
+telecom_shop,commercial,G4741,جوالات واتصالات,Mobile & telecom shop,commercial,3,300,35000,70,10,6,0.6,0.6,0.2,8000,2800,0.5,
+pharmacy,commercial,G4773,صيدلية,Pharmacy,commercial,4,500,55000,70,8,8,0.35,0.3,0.2,10000,6000,1,
+optics_perfume,commercial,G4775,عطور وبصريات وتجميل,Perfume / optics / cosmetics,commercial,4,400,35000,55,15,12,0.5,0.6,0.15,8000,3000,0.5,
+jewelry,commercial,G4777,ذهب ومجوهرات,Gold & jewellery,commercial,5,400,120000,86,4,4,0.5,0.4,0.2,9000,3500,0.5,
+furniture_shop,commercial,G4759,أثاث ومفروشات,Furniture & furnishings,commercial,8,400,35000,60,12,9,0.3,0.6,0.15,8000,2700,1,
+building_materials,commercial,G4752,مواد بناء وأدوات صحية,Building materials & hardware,commercial,8,400,50000,78,6,6,0.25,0.6,0.15,8000,2600,1,
+auto_parts,commercial,G4530,قطع غيار سيارات,Auto parts,commercial,5,350,40000,70,8,8,0.3,0.6,0.15,8000,2600,1,
+car_showroom,commercial,G4510,معرض سيارات,Car showroom,commercial,20,500,150000,88,3,3,0.5,0.4,0.2,10000,4000,2,
+car_workshop,commercial,G4520,ورشة صيانة سيارات,Car repair workshop,commercial,8,700,12000,35,12,10,0.15,0.6,0.15,7500,2300,4,
+car_wash,commercial,G4520,مغسلة سيارات,Car wash,commercial,6,900,7000,15,15,12,0.15,0.7,0.1,7000,1800,25,
+car_rental,commercial,N7710,تأجير سيارات,Car rental,commercial,15,300,30000,30,8,10,0.5,0.6,0.15,8500,3000,2,
+salon,commercial,S9602,حلاقة وصالون تجميل,Barber & beauty salon,commercial,4,400,9000,10,18,12,0.2,0.8,0.1,7000,2200,3,
+laundry,commercial,S9601,مغسلة ملابس,Laundry,commercial,4,1500,8000,10,15,12,0.15,0.8,0.1,7000,1900,20,
+gym,commercial,R9311,نادٍ رياضي,Gym & fitness club,commercial,12,1500,12000,5,20,12,0.5,0.6,0.15,8000,3500,6,
+entertainment,commercial,R9321,مركز ترفيه وألعاب,Entertainment centre,commercial,25,1200,15000,10,18,10,0.5,0.6,0.15,8000,2800,3,
+hotel,commercial,I5510,فندق,Hotel,commercial,60,1800,20000,15,5,12,0.35,0.5,0.15,9000,3000,10,
+furnished_apts,commercial,I5590,شقق مفروشة,Serviced apartments,commercial,10,2500,25000,5,30,15,0.4,0.6,0.15,8000,2500,15,
+private_school,commercial,P8510,مدرسة أهلية,Private school,commercial,60,700,22000,8,12,10,0.6,0.35,0.25,9000,5000,3,moves to the commercial tariff in 2027
+training,commercial,P8549,معهد ومركز تدريب,Training institute,commercial,12,400,18000,10,15,12,0.6,0.4,0.2,9000,5000,1,
+clinic,commercial,Q8620,عيادة ومجمع طبي,Clinic / medical centre,commercial,20,900,35000,20,8,12,0.35,0.3,0.2,12000,7000,3,moves to the commercial tariff in 2027
+hospital,commercial,Q8610,مستشفى خاص,Private hospital,commercial,400,1500,40000,30,4,10,0.4,0.25,0.2,14000,8000,8,moves to the commercial tariff in 2027
+lab_radiology,commercial,Q8690,مختبر وأشعة,Lab & radiology centre,commercial,15,1500,40000,25,8,15,0.45,0.3,0.2,11000,6500,2,
+consulting,commercial,M7020,استشارات وخدمات مهنية,Consulting & professional services,commercial,25,300,35000,5,8,12,0.6,0.2,0.15,14000,9000,0.5,
+it_company,commercial,J6201,برمجيات وتقنية معلومات,Software & IT services,commercial,30,350,45000,10,6,14,0.55,0.15,0.15,15000,10000,0.5,
+data_center,commercial,J6311,مركز بيانات,Data centre,commercial,20,150000,500000,10,5,20,0.6,0.1,0.1,16000,12000,5,power is the main input
+real_estate,commercial,L6820,مكتب عقار وإدارة أملاك,Real-estate brokerage,commercial,5,250,30000,0,15,20,0.6,0.5,0.2,9000,3500,0.5,
+logistics,commercial,H5210,مستودع ولوجستيات,Warehouse & logistics,commercial,30,1200,25000,20,15,8,0.3,0.6,0.15,8500,2600,1,
+cold_storage,commercial,H5210,مستودع تبريد,Cold storage,commercial,10,10000,60000,10,12,8,0.3,0.6,0.15,8500,2600,1,
+transport,commercial,H4923,نقل بضائع بالشاحنات,Road freight,commercial,40,150,20000,40,5,7,0.25,0.7,0.1,8000,2500,0.5,"fuel is the main energy cost, not electricity"
+contracting,commercial,F4100,مقاولات وبناء,Construction contracting,commercial,100,150,25000,55,2,6,0.15,0.6,0.15,9000,2300,2,site power often from generators
+security_cleaning,commercial,N8110,حراسة ونظافة وتشغيل,"Security, cleaning ,Security, cleaning & facility services, facility services",commercial,200,50,6000,10,2,6,0.3,0.8,0.1,7000,1800,0.3,labour-heavy
+bank_branch,commercial,K6419,خدمات مالية وتأمين,Finance & insurance office,commercial,15,500,80000,0,8,25,0.8,0.1,0.15,16000,9000,0.5,
+mall,commercial,L6810,مجمع تجاري (المالك),Shopping centre (landlord),commercial,30,20000,200000,5,0,15,0.5,0.4,0.2,10000,3000,15,common areas metered to the landlord
+food_processing,industrial,C1079,تصنيع أغذية,Food processing,industrial,120,2500,60000,60,2,9,0.25,0.5,0.15,9000,2600,10,
+dairy,industrial,C1050,ألبان وعصائر,Dairy & juice,industrial,300,3000,55000,55,1,10,0.3,0.4,0.2,10000,2800,15,
+beverages,industrial,C1104,مياه معبأة ومشروبات,Bottled water & beverages,industrial,80,3500,50000,45,2,12,0.25,0.5,0.15,9000,2600,30,
+bakery_ind,industrial,C1071,مخابز صناعية,Industrial bakery,industrial,60,2500,30000,45,3,9,0.2,0.6,0.15,8500,2400,6,
+meat_poultry_proc,industrial,C1010,مسالخ وتجهيز لحوم,Meat & poultry processing,industrial,150,3000,45000,65,1,7,0.2,0.6,0.15,8500,2300,20,
+textiles,industrial,C1392,منسوجات وخياطة,Textiles & garments,industrial,50,2500,25000,55,3,6,0.2,0.6,0.15,8000,2200,5,
+printing,industrial,C1811,طباعة وتغليف,Printing & packaging,industrial,60,3000,40000,55,3,8,0.25,0.6,0.15,8500,2500,2,
+paper,industrial,C1701,ورق وكرتون,Paper & cardboard,industrial,80,6000,60000,55,2,8,0.25,0.5,0.15,9000,2600,20,
+plastics,industrial,C2220,منتجات بلاستيكية,Plastic products,industrial,40,6000,60000,60,3,7,0.25,0.5,0.15,9000,2600,3,
+chemicals,industrial,C2011,كيماويات أساسية,Basic chemicals,industrial,100,8000,150000,60,1,12,0.35,0.3,0.2,12000,3500,15,
+petrochemicals,industrial,C2013,بتروكيماويات,Petrochemicals,industrial,1000,25000,600000,55,0,18,0.6,0.1,0.1,16000,6000,20,large complexes often self-generate
+fertilizers,industrial,C2012,أسمدة,Fertilisers,industrial,300,15000,200000,55,0,15,0.5,0.2,0.15,13000,4000,15,
+pharma,industrial,C2100,أدوية ومستلزمات طبية,Pharmaceuticals,industrial,150,2500,70000,40,2,15,0.4,0.3,0.2,12000,4500,5,
+paints,industrial,C2022,دهانات وعوازل,Paints & coatings,industrial,50,2000,60000,60,3,10,0.3,0.5,0.15,9000,2800,3,
+detergents,industrial,C2023,منظفات ومستحضرات,Detergents & cosmetics,industrial,80,2500,50000,55,2,10,0.3,0.5,0.15,9000,2700,8,
+glass,industrial,C2310,زجاج,Glass,industrial,150,15000,50000,40,1,9,0.25,0.5,0.15,9500,2700,5,
+ceramics,industrial,C2392,سيراميك وبورسلان,Ceramic tiles,industrial,200,9000,45000,40,1,8,0.25,0.5,0.15,9000,2500,5,
+cement,industrial,C2394,إسمنت,Cement,industrial,250,36000,160000,35,0,18,0.45,0.3,0.2,11000,3000,5,
+concrete,industrial,C2395,خرسانة وبلك,Ready-mix concrete & blocks,industrial,40,2000,40000,65,2,8,0.2,0.6,0.15,8500,2400,15,
+steel,industrial,C2410,حديد وصلب,Iron & steel,industrial,400,62500,375000,70,0,6,0.35,0.3,0.25,11000,3000,10,electric-arc furnace ~500 kWh/t
+aluminium,industrial,C2420,ألمنيوم ومعادن غير حديدية,Aluminium & non-ferrous,industrial,500,100000,400000,60,0,10,0.45,0.2,0.2,13000,3500,10,smelters often have captive power
+metal_products,industrial,C2511,منتجات معدنية وهياكل,Metal products & structures,industrial,60,2500,35000,60,3,8,0.2,0.6,0.15,8500,2400,2,
+machinery,industrial,C2829,آلات ومعدات,Machinery & equipment,industrial,80,2000,45000,60,3,8,0.3,0.4,0.2,10000,3000,2,
+electrical_eq,industrial,C2732,كابلات ومعدات كهربائية,Cables & electrical equipment,industrial,100,3500,80000,70,2,8,0.3,0.4,0.2,10000,3000,2,
+auto_parts_ind,industrial,C2930,سيارات وقطع غيار,Vehicles & parts,industrial,150,3000,60000,70,2,7,0.3,0.4,0.2,10000,3000,3,
+furniture_ind,industrial,C3100,تصنيع أثاث,Furniture manufacturing,industrial,50,1500,25000,50,4,8,0.2,0.6,0.15,8000,2300,1,
+recycling,industrial,E3830,إعادة تدوير,Recycling,industrial,40,4000,30000,30,5,8,0.25,0.6,0.15,8000,2200,5,
+ice_factory,industrial,C1079,مصنع ثلج,Ice factory,industrial,10,25000,40000,5,5,12,0.2,0.7,0.1,7500,2200,60,
+greenhouse,agricultural,A0113,بيوت محمية وخضار,Greenhouses & vegetables,agricultural,15,3000,15000,35,5,10,0.1,0.7,0.1,7000,1800,0,water from own wells
+fodder,agricultural,A0111,أعلاف وحبوب (مكشوف),Open-field fodder & grain,agricultural,10,8000,20000,35,5,10,0.1,0.7,0.1,7000,1800,0,pumping is the main load
+dates,agricultural,A0122,مزرعة نخيل وتمور,Date palm farm,agricultural,12,3000,12000,25,3,15,0.15,0.7,0.1,7000,1800,0,
+poultry,agricultural,A0146,دواجن (لاحم وبياض),Poultry,agricultural,40,3500,35000,65,2,7,0.15,0.6,0.15,8000,2000,0,
+dairy_farm,agricultural,A0141,مزرعة أبقار حلوب,Dairy herd farm,agricultural,100,4000,30000,60,2,8,0.2,0.5,0.15,8500,2200,0,
+fish_farm,agricultural,A0322,استزراع سمكي,Fish farming,agricultural,20,5000,30000,50,3,10,0.2,0.6,0.15,8000,2000,0,
+livestock,agricultural,A0144,مواشي وأغنام,Sheep & livestock,agricultural,8,800,15000,60,3,8,0.15,0.7,0.1,7000,1700,0,

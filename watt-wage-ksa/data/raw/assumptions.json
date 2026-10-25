@@ -293,5 +293,72 @@
     "low": 2.0,
     "high": 4.0,
     "how": "Recent total consumption growth 4.1% (2024); per-household growth 2.2%"
+  },
+  "gosi_employee_rate_saudi_pct": {
+    "type": "fact",
+    "value": 9.75,
+    "source": "setupinsaudi.com summary of GOSI rates from 1 Jul 2026 (existing-system Saudi employees)"
+  },
+  "saudi_low_wage_default": {
+    "type": "assumption",
+    "value": 4300,
+    "how": "Average wage of Saudis below 5,000 SAR (most sit just above today's 4,000 threshold)"
+  },
+  "saudi_mid_wage_default": {
+    "type": "assumption",
+    "value": 5500
+  },
+  "expat_wage_growth_pct": {
+    "type": "assumption",
+    "value": 2.0,
+    "low": 0.0,
+    "high": 4.0
+  },
+  "saudi_wage_growth_pct": {
+    "type": "assumption",
+    "value": 3.0,
+    "low": 1.0,
+    "high": 5.0,
+    "how": "Annual raise for Saudis above the thresholds"
+  },
+  "nonres_water_sar_per_m3": {
+    "type": "assumption",
+    "value": 9.0,
+    "low": 6.0,
+    "high": 12.0,
+    "how": "Non-residential water + sewage; the 2027 non-residential schedule was not published in the sources used"
+  },
+  "nonres_water_change_pct": {
+    "type": "assumption",
+    "value": 50,
+    "low": 25,
+    "high": 80,
+    "how": "Assumed in line with the residential average change (~58%)"
+  },
+  "rent_inflation_pct": {
+    "type": "fact+range",
+    "value": 4.1,
+    "low": 2.0,
+    "high": 7.0,
+    "source": "Housing division inflation, Q1 2026 (SAMA)"
+  },
+  "indirect_energy_intensity": {
+    "type": "assumption",
+    "value": {
+      "01": 1.2,
+      "02": 0.3,
+      "03": 0.6,
+      "04": 0.5,
+      "05": 0.8,
+      "06": 0.6,
+      "07": 1.0,
+      "08": 0.4,
+      "09": 0.8,
+      "10": 0.8,
+      "11": 1.5,
+      "12": 0.3,
+      "13": 0.8
+    },
+    "how": "Relative weight used to spread the second-round effect across CPI divisions (restaurants and food most exposed)"
   }
 }

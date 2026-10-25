@@ -4,7 +4,7 @@
 
 مشروع تحليل بيانات متكامل عن قرارات 25 أكتوبر 2026: رفع تعرفة الكهرباء والمياه من 1 يناير 2027، وبدل 500 ريال، ورفع حد احتساب السعودي في نطاقات إلى 5,000 ثم 6,000 ريال. يحلل المشروع الأثر على أربعة مستويات: الأسرة، والمجتمع، والقطاع التجاري، والقطاع الصناعي. ويقارن خيارات الحلول للأسر والمنشآت والسياسة العامة، ويقدّم توقعات حتى 2030.
 
-**لوحة المؤشرات التفاعلية:** [`dashboard/index.html`](dashboard/index.html). فيها 9 تبويبات بالعربية والإنجليزية: نظرة عامة، والأفراد، والمجتمع، والتجاري، والصناعي، وسوق العمل، ومختبر التضخم، والحلول، والمنهجية. وتتضمن حاسبة فاتورة الأسرة مع تقدير الاستهلاك من المكيفات، وحاسبة المنشأة (الكهرباء + أجور نطاقات)، ومحاكي حد الأجور ونسبة الامتثال، ومختبر تضخم بمؤشرات قابلة للتحريك، ومحاكي إجراءات الترشيد والطاقة الشمسية.
+**الموقع التفاعلي:** [`dashboard/index.html`](dashboard/index.html). موقع بالعربية والإنجليزية فيه 12 صفحة. يبدأ بصفحة رئيسية تختار فيها وضعك (فرد، تاجر، مصنع، مزرعة). وفيه صفحة **التضخم القادم** مع حاسبة التضخم الشخصي وحاسبة الراتب الحقيقي ومختبر التوقعات، و**حاسبة منشأة لـ 78 نشاطاً** (43 تجارياً وخدمياً، و28 صناعياً، و7 زراعية) تعطي قائمة دخل لـ 2026 – 2028، وصفحات للقطاعات، وأسئلة شائعة قابلة للبحث، وصندوق أسئلة مدعوم بـ Claude (يعمل عند فتح الصفحة داخل Claude). وفي كل صفحة **حاسبة تضخم سريعة** تحوّل أي مبلغ إلى قيمته في 2027 و2028.
 
 ![التضخم: التاريخ والتوقع](reports/figures/cpi_forecast.png)
 
@@ -34,6 +34,30 @@
 <td><img src="reports/figures/tariff_history.png" alt="تاريخ التعرفة"></td>
 <td><img src="reports/figures/event_study.png" alt="أثر الإصلاحات السابقة"></td>
 </tr></table>
+
+## التضخم القادم حسب فئة الإنفاق
+
+| الفئة | الوزن % | 2027 بدون القرار | 2027 مع القرار | 2028 |
+|---|---|---|---|---|
+| الكهرباء والمياه | 2.3 | 0.0 | **38.9** | 0.0 |
+| السكن (إيجار وصيانة وغاز) | 17.9 | 4.4 | 4.6 | 4.5 |
+| المطاعم والفنادق | 8.4 | 1.8 | 2.4 | 1.8 |
+| النقل | 14.5 | 1.4 | 1.8 | 1.4 |
+| الأغذية والمشروبات | 21.9 | 0.2 | 0.7 | 0.2 |
+| **الإجمالي** | 100 | **1.9** | **3.1** | **1.9** |
+
+1,000 ريال من إنفاق اليوم تصير نحو 1,031 ريالاً في 2027، ونحو 1,051 ريالاً في 2028. التوزيع على الفئات يقسم الأثر غير المباشر حسب كثافة استخدام كل فئة للطاقة، ومجموعه يطابق توقع التضخم العام.
+
+**حاسبة الراتب الحقيقي:** موظف سعودي في القطاع الخاص راتبه 4,300 ريال يصبح صافيه نحو 5,114 ريالاً في 2028 بعد خصم التأمينات 9.75%، وترتفع قوته الشرائية نحو 25% إذا التزمت منشأته بحد نطاقات. أما المقيم الذي لا يتغير راتبه، فتنخفض قوته الشرائية نحو 5% حتى 2028.
+
+## حاسبة المنشأة: 78 نشاطاً
+
+لكل نشاط قيم استرشادية مصنّفة حسب ISIC: الإيراد والاستهلاك لكل موظف، وحصة المواد والإيجار، وهامش الربح، ونسبة السعودة، وتوزيع الأجور. تتغير هذه القيم مع عدد الموظفين الذي تدخله، ويمكن تعديل أي رقم منها. الحاسبة تحسب لكل سنة من 2026 إلى 2028: الكهرباء بتعرفة القطاع، والمياه، ورواتب السعوديين مع مرحلتي نطاقات، والتأمينات، ورواتب غير السعوديين، وتضخم المواد والإيجار والتكاليف الأخرى. والنتيجة هامش الربح، ورفع السعر اللازم للحفاظ على الربح.
+
+- **وسيط رفع السعر اللازم حتى 2028:** نحو 5.6% من الإيراد. أغلبه تضخم عام في المدخلات كان سيحدث على أي حال.
+- **الأعلى:** المغاسل ومغاسل السيارات (11 – 12%)، وخدمات الحراسة والنظافة (10%، بسبب كثافة العمالة السعودية منخفضة الأجر)، والصالونات والأندية الرياضية (نحو 10%).
+- **الكهرباء الأثقل نسبةً:** مصانع الثلج (11% من الإيراد)، ومراكز البيانات (9%)، والزجاج والألمنيوم والإسمنت (4 – 5%).
+- منطق الحاسبة مكتوب في Python (`catalog.py`) وفي JavaScript داخل الموقع. وتحققت أن الاثنين يعطيان النتيجة نفسها لنشاط المطعم: إجمالي التكاليف 2,784,600 ريال في 2026.
 
 ## الأثر على المجتمع: من يربح ومن يخسر؟
 
@@ -98,10 +122,10 @@
 |---|---|
 | [`data/raw/`](data/raw/) | بيانات خام موثّقة، ولكل صف مصدره: التعرفة السكنية (4 جداول زمنية)، والقطاعية، والرسوم الثابتة لكل القطاعات، والمياه، والتضخم الشهري 2014 – 2026، والقرارات، وأجور السعوديين، و14 منشأة نموذجية، وإجراءات الترشيد، وأنماط الأسر، و[`assumptions.json`](data/raw/assumptions.json) |
 | [`src/wattwage/`](src/wattwage/) | حزمة Python: حاسبة الفواتير، ومحاكاة الأسر، ودراسة الأحداث، والتوقع، والأجور، والمالية العامة |
-| [`outputs/`](outputs/) | 20 جدول نتائج CSV و`summary.json` |
+| [`outputs/`](outputs/) | 22 جدول نتائج CSV و`summary.json` |
 | [`dashboard/`](dashboard/) | لوحة تفاعلية ثنائية اللغة بـ 9 تبويبات (HTML + Chart.js) |
 | [`sql/`](sql/) | الجداول و7 استعلامات تحليلية (`LAG()`، `RANK()`، شرائح تصاعدية) |
-| [`tests/`](tests/) | 24 اختباراً، منها مطابقة أمثلة الفواتير المنشورة مع إعلان 2027 |
+| [`tests/`](tests/) | 28 اختباراً، منها مطابقة أمثلة الفواتير المنشورة مع إعلان 2027 |
 | [`reports/figures/`](reports/figures/) | الرسوم الثابتة |
 
 ### الوحدات
@@ -117,6 +141,9 @@
 | `business.py` | 14 منشأة نموذجية تجارية وصناعية وزراعية: الكهرباء + أجور نطاقات كنسبة من الإيراد والربح، والتكلفة الإضافية لكل قطاع، وفحص التمرير للأسعار |
 | `society.py` | صافي وضع 7 أنماط أسر، وفجوة التغطية، والأثر البيئي (كهرباء، CO₂، نفط، مياه) |
 | `solutions.py` | 8 إجراءات ترشيد وطاقة شمسية بفترات الاسترداد، و5 خيارات سياسة مقارنة بالتكلفة والوصول |
+| `inflation.py` | التضخم حسب 14 فئة إنفاق لـ 2027 و2028، وقيمة أي مبلغ مستقبلاً، والتضخم الشخصي |
+| `salary.py` | صافي الراتب 2026 – 2028 بعد البدل أو رفع حد نطاقات والتأمينات، وقيمته الحقيقية |
+| `catalog.py` | قائمة دخل 2026 – 2028 لأي نشاط من 78 نشاطاً، بقيم استرشادية قابلة للتعديل |
 | `outlook.py` | جدول سنوي 2025 – 2030: الطلب، والتضخم، والأجور، والتكلفة المالية، والانبعاثات |
 
 ## التشغيل
@@ -125,7 +152,7 @@
 cd watt-wage-ksa
 pip install -r requirements.txt
 PYTHONPATH=src python -m wattwage.build     # يعيد بناء كل النتائج واللوحة والرسوم
-python -m pytest -q                          # 24 اختباراً
+python -m pytest -q                          # 28 اختباراً
 
 # SQL
 sqlite3 ww.db < sql/01_schema.sql && sqlite3 ww.db < sql/02_data.sql
@@ -150,6 +177,7 @@ sqlite3 -header -column ww.db < sql/03_analysis.sql
 - **موعد مرحلتي نطاقات تقديري:** نفترض أبريل 2027 ثم أبريل 2028، لأن تاريخ "بدء الإجراءات" لم يُحدد رسمياً.
 - **عدد مستحقي البدل غير منشور.** لذلك جرت معايرته بحيث تكلّف حزمة 2018 (1,000/500/500 ريال) نحو 50 مليار ريال، كما أعلن وقتها.
 - **التضخم الشهري** مصدره بيانات OECD عبر inflationtool، وقد يختلف قليلاً عن أرقام الهيئة العامة للإحصاء المقرّبة.
+- **قيم الأنشطة الـ 78** متوسطات استرشادية للبدء، وليست إحصاءات رسمية للقطاعات، فعدّلها في الحاسبة لتطابق منشأتك. وتعرفة المياه غير السكنية لـ 2027 لم تُنشر في المصادر المستخدمة، فافترضنا 9 ريالات للمتر وزيادة 50%.
 - **المنشآت النموذجية وأنماط الأسر** أرقام افتراضية تمثل حالات شائعة، وليست بيانات منشآت أو أسر حقيقية. كذلك عدد الحسابات غير السكنية وعدد الأسر المقيمة افتراضات.
 - **مطابقة الرسوم الثابتة للزراعي والخيري** مع فئات القاطع استنتاج، لأن المصدر ذكر المبالغ الأربعة فقط.
 
@@ -176,6 +204,8 @@ An end-to-end data project on Saudi Arabia's 25 October 2026 package: higher ele
 **Key results:** the average residential electricity bill rises **34.8%**, and water and sewage rise **58.5%**. The new fixed charges push the smallest users' bills up **105%**, against **24%** for the largest. Inflation is forecast at **3.1% in 2027** (no-reform baseline 1.9%; P10–P90 2.5–3.7%) and back to **1.9% in 2028**. Past reforms in 2016, 2018 and 2020 behaved as one-off level shocks that reversed after exactly 12 months. About **1.3m Saudi private-sector workers** earn below 5,000 SAR; lifting them costs employers about 12.6 bn SAR a year, and about 31.8 bn SAR at 6,000. The 500 SAR allowance costs the state about 32 bn SAR a year.
 
 **Society:** low-paid private-sector Saudis gain most once Nitaqat lifts their pay; expatriate families lose about 3% of income; only about 44% of metered households get an allowance. **Business:** extra electricity cost is about 8.5 bn SAR for commerce (mostly the new 350–900 SAR fixed charges) and 3.5 bn for industry; for small shops the wage threshold costs far more than power, for heavy industry the reverse. **Solutions:** near-free household steps offset about 64% of a typical home's increase; bill-based policy options (lifeline block, lower small-breaker charge, rebate to small users) cost about 3 bn SAR a year and reach expatriates, against 32 bn for the announced package.
+
+**Site:** a coming-inflation page with personal-inflation and real-salary calculators, a quick inflation converter on every page, a P&L calculator covering 78 activities (43 commercial, 28 industrial, 7 agricultural; ISIC-coded indicative benchmarks, every field editable), a searchable FAQ and a Claude-powered question box.
 
 **Stack:** Python (pandas, statsmodels ARIMA, NumPy Monte Carlo), SQL (SQLite window functions), and a bilingual 9-tab Chart.js dashboard with live calculators and an inflation lab. Every input row carries its source, and every assumption has a range in `data/raw/assumptions.json`.
 

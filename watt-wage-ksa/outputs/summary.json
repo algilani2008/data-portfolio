@@ -232,5 +232,33 @@
         "offset_pct": 157.0
       }
     }
+  },
+  "inflation_by_category": {
+    "headline_2027": 3.12,
+    "headline_2028": 1.93
+  },
+  "catalog": {
+    "activities": 78,
+    "median_price_rise_pct": 5.665,
+    "max_price_rise": [
+      {
+        "id": "laundry",
+        "name_ar": "مغسلة ملابس",
+        "name_en": "Laundry",
+        "price_rise_to_keep_profit_pct": 12.07
+      },
+      {
+        "id": "car_wash",
+        "name_ar": "مغسلة سيارات",
+        "name_en": "Car wash",
+        "price_rise_to_keep_profit_pct": 10.92
+      },
+      {
+        "id": "security_cleaning",
+        "name_ar": "حراسة ونظافة وتشغيل",
+        "name_en": "Security, cleaning ,Security, cleaning & facility services, facility services",
+        "price_rise_to_keep_profit_pct": 9.93
+      }
+    ]
   }
 }
