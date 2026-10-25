@@ -123,3 +123,13 @@ def activity_catalog() -> pd.DataFrame:
 def cpi_divisions() -> pd.DataFrame:
     df = pd.read_csv(RAW / "cpi_divisions_q1_2026.csv", encoding="utf-8-sig", dtype={"code": str})
     return df
+
+
+@lru_cache(maxsize=None)
+def isic4_classes() -> pd.DataFrame:
+    return pd.read_csv(RAW / "isic4_classes.csv", encoding="utf-8", dtype={"code": str})
+
+
+@lru_cache(maxsize=None)
+def nitaqat_activities() -> pd.DataFrame:
+    return pd.read_csv(RAW / "nitaqat_activities.csv", encoding="utf-8")

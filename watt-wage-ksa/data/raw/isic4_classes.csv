@@ -1,0 +1,401 @@
+code,section,section_ar,section_en,name_ar,name_en,profile,group,tariff,nitaqat_id
+0111,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة الحبوب والبقوليات والبذور الزيتية,"Growing of cereals, leguminous crops and oil seeds",fodder,agricultural,agricultural,1
+0112,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة الأرز,Growing of rice,greenhouse,agricultural,agricultural,1
+0113,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة الخضروات والبطيخ والجذور والدرنات,"Growing of vegetables, melons, roots and tubers",greenhouse,agricultural,agricultural,1
+0114,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة قصب السكر,Growing of sugar cane,greenhouse,agricultural,agricultural,1
+0115,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة التبغ,Growing of tobacco,greenhouse,agricultural,agricultural,1
+0116,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة المحاصيل الليفية,Growing of fibre crops,greenhouse,agricultural,agricultural,1
+0119,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة المحاصيل غير الدائمة الأخرى (منها الأعلاف والزهور),Growing of other non-perennial crops (incl. fodder and flowers),fodder,agricultural,agricultural,1
+0121,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة العنب,Growing of grapes,greenhouse,agricultural,agricultural,1
+0122,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة الفواكه الاستوائية وشبه الاستوائية (منها التمور),Growing of tropical and subtropical fruits (incl. dates),dates,agricultural,agricultural,1
+0123,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة الحمضيات,Growing of citrus fruits,greenhouse,agricultural,agricultural,1
+0124,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة التفاحيات وذات النوى,Growing of pome and stone fruits,greenhouse,agricultural,agricultural,1
+0125,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة فواكه الأشجار والشجيرات والمكسرات الأخرى,Growing of other tree and bush fruits and nuts,greenhouse,agricultural,agricultural,1
+0126,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة الثمار الزيتية (منها الزيتون),Growing of oleaginous fruits (incl. olives),greenhouse,agricultural,agricultural,1
+0127,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة محاصيل المشروبات (منها البن),Growing of beverage crops (incl. coffee),greenhouse,agricultural,agricultural,1
+0128,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة التوابل والنباتات العطرية والطبية,"Growing of spices, aromatic, drug and pharmaceutical crops",greenhouse,agricultural,agricultural,1
+0129,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة المحاصيل الدائمة الأخرى,Growing of other perennial crops,greenhouse,agricultural,agricultural,1
+0130,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",إكثار النباتات والمشاتل,Plant propagation and nurseries,greenhouse,agricultural,agricultural,1
+0141,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",تربية الأبقار والجاموس,Raising of cattle and buffaloes,dairy_farm,agricultural,agricultural,1
+0142,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",تربية الخيول,Raising of horses,livestock,agricultural,agricultural,1
+0143,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",تربية الإبل,Raising of camels,livestock,agricultural,agricultural,1
+0144,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",تربية الأغنام والماعز,Raising of sheep and goats,livestock,agricultural,agricultural,1
+0146,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",تربية الدواجن,Raising of poultry,poultry,agricultural,agricultural,1
+0149,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",تربية الحيوانات الأخرى (منها النحل),Raising of other animals (incl. bees),livestock,agricultural,agricultural,1
+0150,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",الزراعة المختلطة,Mixed farming,greenhouse,agricultural,agricultural,1
+0161,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",الأنشطة الداعمة للإنتاج النباتي,Support activities for crop production,greenhouse,agricultural,agricultural,1
+0162,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",الأنشطة الداعمة للإنتاج الحيواني,Support activities for animal production,greenhouse,agricultural,agricultural,1
+0163,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",أنشطة ما بعد الحصاد,Post-harvest crop activities,greenhouse,agricultural,agricultural,1
+0164,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",معالجة البذور للإكثار,Seed processing for propagation,greenhouse,agricultural,agricultural,1
+0170,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",الصيد البري وخدماته,"Hunting, trapping and related services",greenhouse,agricultural,agricultural,1
+0210,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",زراعة الغابات وأنشطة الحراجة,Silviculture and forestry,fodder,agricultural,agricultural,1
+0220,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",قطع الأخشاب,Logging,fodder,agricultural,agricultural,1
+0230,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",جمع المنتجات الحرجية غير الخشبية,Gathering of non-wood forest products,fodder,agricultural,agricultural,1
+0240,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",خدمات دعم الحراجة,Support services to forestry,fodder,agricultural,agricultural,1
+0311,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",صيد الأسماك البحرية,Marine fishing,fish_farm,agricultural,agricultural,1
+0312,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",صيد أسماك المياه العذبة,Freshwater fishing,fish_farm,agricultural,agricultural,1
+0321,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",الاستزراع المائي البحري,Marine aquaculture,fish_farm,agricultural,agricultural,1
+0322,A,الزراعة والحراجة وصيد الأسماك,"Agriculture, forestry & fishing",الاستزراع المائي في المياه العذبة,Freshwater aquaculture,fish_farm,agricultural,agricultural,1
+0510,B,التعدين واستغلال المحاجر,Mining & quarrying,تعدين الفحم الحجري,Mining of hard coal,mining_quarry,industrial,industrial,4
+0520,B,التعدين واستغلال المحاجر,Mining & quarrying,تعدين الليغنيت,Mining of lignite,mining_quarry,industrial,industrial,4
+0610,B,التعدين واستغلال المحاجر,Mining & quarrying,استخراج النفط الخام,Extraction of crude petroleum,petrochemicals,industrial,industrial,2
+0620,B,التعدين واستغلال المحاجر,Mining & quarrying,استخراج الغاز الطبيعي,Extraction of natural gas,petrochemicals,industrial,industrial,2
+0710,B,التعدين واستغلال المحاجر,Mining & quarrying,تعدين خامات الحديد,Mining of iron ores,mining_quarry,industrial,industrial,3
+0721,B,التعدين واستغلال المحاجر,Mining & quarrying,تعدين خامات اليورانيوم والثوريوم,Mining of uranium and thorium ores,mining_quarry,industrial,industrial,3
+0729,B,التعدين واستغلال المحاجر,Mining & quarrying,تعدين خامات المعادن غير الحديدية الأخرى (منها الذهب والنحاس),"Mining of other non-ferrous metal ores (incl. gold, copper)",mining_quarry,industrial,industrial,3
+0810,B,التعدين واستغلال المحاجر,Mining & quarrying,استغلال محاجر الأحجار والرمل والطين,"Quarrying of stone, sand and clay",mining_quarry,industrial,industrial,5
+0891,B,التعدين واستغلال المحاجر,Mining & quarrying,تعدين المعادن الكيميائية ومعادن الأسمدة (منها الفوسفات),Mining of chemical and fertilizer minerals (incl. phosphate),mining_quarry,industrial,industrial,4
+0892,B,التعدين واستغلال المحاجر,Mining & quarrying,استخراج الخث,Extraction of peat,mining_quarry,industrial,industrial,4
+0893,B,التعدين واستغلال المحاجر,Mining & quarrying,استخراج الملح,Extraction of salt,mining_quarry,industrial,industrial,4
+0899,B,التعدين واستغلال المحاجر,Mining & quarrying,أنشطة التعدين واستغلال المحاجر الأخرى,Other mining and quarrying n.e.c.,mining_quarry,industrial,industrial,4
+0910,B,التعدين واستغلال المحاجر,Mining & quarrying,الأنشطة الداعمة لاستخراج النفط والغاز,Support activities for petroleum and natural gas extraction,mining_quarry,industrial,industrial,2
+0990,B,التعدين واستغلال المحاجر,Mining & quarrying,الأنشطة الداعمة للتعدين الآخر,Support activities for other mining and quarrying,mining_quarry,industrial,industrial,2
+1010,C,الصناعات التحويلية,Manufacturing,تجهيز اللحوم وحفظها,Processing and preserving of meat,meat_poultry_proc,industrial,industrial,7
+1020,C,الصناعات التحويلية,Manufacturing,تجهيز الأسماك وحفظها,Processing and preserving of fish,food_processing,industrial,industrial,7
+1030,C,الصناعات التحويلية,Manufacturing,تجهيز الفواكه والخضروات وحفظها,Processing and preserving of fruit and vegetables,food_processing,industrial,industrial,7
+1040,C,الصناعات التحويلية,Manufacturing,صناعة الزيوت والدهون النباتية والحيوانية,Manufacture of vegetable and animal oils and fats,food_processing,industrial,industrial,7
+1050,C,الصناعات التحويلية,Manufacturing,صناعة منتجات الألبان,Manufacture of dairy products,dairy,industrial,industrial,7
+1061,C,الصناعات التحويلية,Manufacturing,صناعة منتجات المطاحن,Manufacture of grain mill products,food_processing,industrial,industrial,7
+1062,C,الصناعات التحويلية,Manufacturing,صناعة النشا ومنتجاته,Manufacture of starches and starch products,food_processing,industrial,industrial,7
+1071,C,الصناعات التحويلية,Manufacturing,صناعة منتجات المخابز,Manufacture of bakery products,bakery_ind,industrial,industrial,7
+1072,C,الصناعات التحويلية,Manufacturing,صناعة السكر,Manufacture of sugar,food_processing,industrial,industrial,7
+1073,C,الصناعات التحويلية,Manufacturing,صناعة الكاكاو والشوكولاتة والحلويات السكرية,"Manufacture of cocoa, chocolate and sugar confectionery",food_processing,industrial,industrial,7
+1074,C,الصناعات التحويلية,Manufacturing,صناعة المعكرونة والشعيرية وما شابهها,"Manufacture of macaroni, noodles and similar products",food_processing,industrial,industrial,7
+1075,C,الصناعات التحويلية,Manufacturing,صناعة الوجبات والأطباق الجاهزة,Manufacture of prepared meals and dishes,food_processing,industrial,industrial,7
+1079,C,الصناعات التحويلية,Manufacturing,صناعة المنتجات الغذائية الأخرى (منها تعبئة التمور والثلج),"Manufacture of other food products n.e.c. (incl. dates processing, ice)",food_processing,industrial,industrial,7
+1080,C,الصناعات التحويلية,Manufacturing,صناعة الأعلاف الحيوانية,Manufacture of prepared animal feeds,food_processing,industrial,industrial,7
+1104,C,الصناعات التحويلية,Manufacturing,صناعة المشروبات الغازية والمياه المعبأة,Manufacture of soft drinks and bottled waters,beverages,industrial,industrial,7
+1200,C,الصناعات التحويلية,Manufacturing,صناعة منتجات التبغ,Manufacture of tobacco products,food_processing,industrial,industrial,7
+1311,C,الصناعات التحويلية,Manufacturing,تحضير الألياف النسيجية وغزلها,Preparation and spinning of textile fibres,textiles,industrial,industrial,7
+1312,C,الصناعات التحويلية,Manufacturing,نسج المنسوجات,Weaving of textiles,textiles,industrial,industrial,7
+1313,C,الصناعات التحويلية,Manufacturing,تجهيز المنسوجات وتشطيبها,Finishing of textiles,textiles,industrial,industrial,7
+1391,C,الصناعات التحويلية,Manufacturing,صناعة الأقمشة المحبوكة,Manufacture of knitted and crocheted fabrics,textiles,industrial,industrial,7
+1392,C,الصناعات التحويلية,Manufacturing,صناعة المصنوعات النسيجية الجاهزة,Manufacture of made-up textile articles,textiles,industrial,industrial,7
+1393,C,الصناعات التحويلية,Manufacturing,صناعة السجاد والبسط,Manufacture of carpets and rugs,textiles,industrial,industrial,7
+1394,C,الصناعات التحويلية,Manufacturing,صناعة الحبال والشباك,"Manufacture of cordage, rope and netting",textiles,industrial,industrial,7
+1399,C,الصناعات التحويلية,Manufacturing,صناعة المنسوجات الأخرى,Manufacture of other textiles n.e.c.,textiles,industrial,industrial,7
+1410,C,الصناعات التحويلية,Manufacturing,صناعة الملابس,Manufacture of wearing apparel,textiles,industrial,industrial,7
+1420,C,الصناعات التحويلية,Manufacturing,صناعة المصنوعات الفرائية,Manufacture of articles of fur,textiles,industrial,industrial,7
+1430,C,الصناعات التحويلية,Manufacturing,صناعة الملابس المحبوكة,Manufacture of knitted apparel,textiles,industrial,industrial,7
+1511,C,الصناعات التحويلية,Manufacturing,دباغة الجلود وتهيئتها,Tanning and dressing of leather,textiles,industrial,industrial,7
+1512,C,الصناعات التحويلية,Manufacturing,صناعة الحقائب ومستلزمات السروج,"Manufacture of luggage, handbags and saddlery",textiles,industrial,industrial,7
+1520,C,الصناعات التحويلية,Manufacturing,صناعة الأحذية,Manufacture of footwear,textiles,industrial,industrial,7
+1610,C,الصناعات التحويلية,Manufacturing,نشر الخشب وتسويته,Sawmilling and planing of wood,furniture_ind,industrial,industrial,7
+1621,C,الصناعات التحويلية,Manufacturing,صناعة القشرة الخشبية والألواح,Manufacture of veneer sheets and wood-based panels,furniture_ind,industrial,industrial,7
+1622,C,الصناعات التحويلية,Manufacturing,صناعة منتجات النجارة للمباني,Manufacture of builders' carpentry and joinery,furniture_ind,industrial,industrial,7
+1623,C,الصناعات التحويلية,Manufacturing,صناعة العبوات الخشبية,Manufacture of wooden containers,furniture_ind,industrial,industrial,7
+1629,C,الصناعات التحويلية,Manufacturing,صناعة المنتجات الخشبية الأخرى,Manufacture of other wood products,furniture_ind,industrial,industrial,7
+1701,C,الصناعات التحويلية,Manufacturing,صناعة العجينة الورقية والورق والكرتون,"Manufacture of pulp, paper and paperboard",paper,industrial,industrial,7
+1702,C,الصناعات التحويلية,Manufacturing,صناعة الورق المضلع والعبوات الورقية,Manufacture of corrugated paper and containers,paper,industrial,industrial,7
+1709,C,الصناعات التحويلية,Manufacturing,صناعة المنتجات الورقية الأخرى,Manufacture of other articles of paper,paper,industrial,industrial,7
+1811,C,الصناعات التحويلية,Manufacturing,الطباعة,Printing,printing,industrial,industrial,7
+1812,C,الصناعات التحويلية,Manufacturing,الخدمات المتصلة بالطباعة,Service activities related to printing,printing,industrial,industrial,7
+1820,C,الصناعات التحويلية,Manufacturing,استنساخ الوسائط المسجلة,Reproduction of recorded media,printing,industrial,industrial,7
+1910,C,الصناعات التحويلية,Manufacturing,صناعة منتجات أفران الكوك,Manufacture of coke oven products,petrochemicals,industrial,industrial,7
+1920,C,الصناعات التحويلية,Manufacturing,صناعة المنتجات النفطية المكررة,Manufacture of refined petroleum products,petrochemicals,industrial,industrial,7
+2011,C,الصناعات التحويلية,Manufacturing,صناعة الكيماويات الأساسية,Manufacture of basic chemicals,chemicals,industrial,industrial,7
+2012,C,الصناعات التحويلية,Manufacturing,صناعة الأسمدة ومركبات النيتروجين,Manufacture of fertilizers and nitrogen compounds,fertilizers,industrial,industrial,7
+2013,C,الصناعات التحويلية,Manufacturing,صناعة اللدائن والمطاط الصناعي في أشكالها الأولية,Manufacture of plastics and synthetic rubber in primary forms,petrochemicals,industrial,industrial,7
+2021,C,الصناعات التحويلية,Manufacturing,صناعة المبيدات والكيماويات الزراعية,Manufacture of pesticides and agrochemicals,chemicals,industrial,industrial,7
+2022,C,الصناعات التحويلية,Manufacturing,صناعة الدهانات والورنيش والأحبار والمعاجين,"Manufacture of paints, varnishes, inks and mastics",paints,industrial,industrial,7
+2023,C,الصناعات التحويلية,Manufacturing,صناعة الصابون والمنظفات ومستحضرات التجميل,"Manufacture of soap, detergents, cleaning and toilet preparations",detergents,industrial,industrial,7
+2029,C,الصناعات التحويلية,Manufacturing,صناعة المنتجات الكيميائية الأخرى,Manufacture of other chemical products n.e.c.,chemicals,industrial,industrial,7
+2030,C,الصناعات التحويلية,Manufacturing,صناعة الألياف الاصطناعية,Manufacture of man-made fibres,chemicals,industrial,industrial,7
+2100,C,الصناعات التحويلية,Manufacturing,صناعة المستحضرات الصيدلانية والأدوية,Manufacture of pharmaceuticals and medicinal products,pharma,industrial,industrial,7
+2211,C,الصناعات التحويلية,Manufacturing,صناعة الإطارات والأنابيب المطاطية,Manufacture of rubber tyres and tubes,plastics,industrial,industrial,7
+2219,C,الصناعات التحويلية,Manufacturing,صناعة المنتجات المطاطية الأخرى,Manufacture of other rubber products,plastics,industrial,industrial,7
+2220,C,الصناعات التحويلية,Manufacturing,صناعة المنتجات البلاستيكية,Manufacture of plastics products,plastics,industrial,industrial,7
+2310,C,الصناعات التحويلية,Manufacturing,صناعة الزجاج ومنتجاته,Manufacture of glass and glass products,glass,industrial,industrial,7
+2391,C,الصناعات التحويلية,Manufacturing,صناعة المنتجات الحرارية,Manufacture of refractory products,ceramics,industrial,industrial,7
+2392,C,الصناعات التحويلية,Manufacturing,صناعة مواد البناء الطينية,Manufacture of clay building materials,ceramics,industrial,industrial,7
+2393,C,الصناعات التحويلية,Manufacturing,صناعة منتجات البورسلين والخزف الأخرى,Manufacture of other porcelain and ceramic products,ceramics,industrial,industrial,7
+2394,C,الصناعات التحويلية,Manufacturing,صناعة الإسمنت والجير والجبس,"Manufacture of cement, lime and plaster",cement,industrial,industrial,7
+2395,C,الصناعات التحويلية,Manufacturing,صناعة منتجات الخرسانة والإسمنت والجبس,"Manufacture of articles of concrete, cement and plaster",concrete,industrial,industrial,7
+2396,C,الصناعات التحويلية,Manufacturing,قطع الأحجار وتشكيلها وتشطيبها,"Cutting, shaping and finishing of stone",concrete,industrial,industrial,7
+2399,C,الصناعات التحويلية,Manufacturing,صناعة منتجات المعادن اللافلزية الأخرى,Manufacture of other non-metallic mineral products,ceramics,industrial,industrial,7
+2410,C,الصناعات التحويلية,Manufacturing,صناعة الحديد والصلب الأساسية,Manufacture of basic iron and steel,steel,industrial,industrial,7
+2420,C,الصناعات التحويلية,Manufacturing,صناعة المعادن الثمينة وغير الحديدية الأساسية,Manufacture of basic precious and non-ferrous metals,aluminium,industrial,industrial,7
+2431,C,الصناعات التحويلية,Manufacturing,سبك الحديد والصلب,Casting of iron and steel,steel,industrial,industrial,7
+2432,C,الصناعات التحويلية,Manufacturing,سبك المعادن غير الحديدية,Casting of non-ferrous metals,aluminium,industrial,industrial,7
+2511,C,الصناعات التحويلية,Manufacturing,صناعة المنتجات المعدنية الإنشائية,Manufacture of structural metal products,metal_products,industrial,industrial,7
+2512,C,الصناعات التحويلية,Manufacturing,صناعة الخزانات والصهاريج المعدنية,"Manufacture of tanks, reservoirs and containers of metal",metal_products,industrial,industrial,7
+2513,C,الصناعات التحويلية,Manufacturing,صناعة مولدات البخار,Manufacture of steam generators,metal_products,industrial,industrial,7
+2520,C,الصناعات التحويلية,Manufacturing,صناعة الأسلحة والذخائر,Manufacture of weapons and ammunition,metal_products,industrial,industrial,7
+2591,C,الصناعات التحويلية,Manufacturing,طرق المعادن وكبسها وختمها ودرفلتها,"Forging, pressing, stamping and roll-forming of metal",metal_products,industrial,industrial,7
+2592,C,الصناعات التحويلية,Manufacturing,معالجة المعادن وطلاؤها؛ التشغيل الآلي,Treatment and coating of metals; machining,metal_products,industrial,industrial,7
+2593,C,الصناعات التحويلية,Manufacturing,صناعة أدوات المائدة والعدد اليدوية والخردوات,"Manufacture of cutlery, hand tools and general hardware",metal_products,industrial,industrial,7
+2599,C,الصناعات التحويلية,Manufacturing,صناعة المنتجات المعدنية المشكلة الأخرى,Manufacture of other fabricated metal products,metal_products,industrial,industrial,7
+2610,C,الصناعات التحويلية,Manufacturing,صناعة المكونات واللوحات الإلكترونية,Manufacture of electronic components and boards,electrical_eq,industrial,industrial,7
+2620,C,الصناعات التحويلية,Manufacturing,صناعة الحواسيب وملحقاتها,Manufacture of computers and peripheral equipment,electrical_eq,industrial,industrial,7
+2630,C,الصناعات التحويلية,Manufacturing,صناعة معدات الاتصالات,Manufacture of communication equipment,electrical_eq,industrial,industrial,7
+2640,C,الصناعات التحويلية,Manufacturing,صناعة الإلكترونيات الاستهلاكية,Manufacture of consumer electronics,electrical_eq,industrial,industrial,7
+2651,C,الصناعات التحويلية,Manufacturing,صناعة معدات القياس والاختبار والتحكم,"Manufacture of measuring, testing and control equipment",electrical_eq,industrial,industrial,7
+2652,C,الصناعات التحويلية,Manufacturing,صناعة الساعات,Manufacture of watches and clocks,electrical_eq,industrial,industrial,7
+2660,C,الصناعات التحويلية,Manufacturing,صناعة معدات الإشعاع والأجهزة الطبية الكهربائية,Manufacture of irradiation and electromedical equipment,electrical_eq,industrial,industrial,7
+2670,C,الصناعات التحويلية,Manufacturing,صناعة الأجهزة البصرية ومعدات التصوير,Manufacture of optical instruments and photographic equipment,electrical_eq,industrial,industrial,7
+2680,C,الصناعات التحويلية,Manufacturing,صناعة الوسائط المغناطيسية والبصرية,Manufacture of magnetic and optical media,electrical_eq,industrial,industrial,7
+2710,C,الصناعات التحويلية,Manufacturing,صناعة المحركات والمولدات والمحولات الكهربائية,"Manufacture of electric motors, generators and transformers",electrical_eq,industrial,industrial,7
+2720,C,الصناعات التحويلية,Manufacturing,صناعة البطاريات والمراكم,Manufacture of batteries and accumulators,electrical_eq,industrial,industrial,7
+2731,C,الصناعات التحويلية,Manufacturing,صناعة كابلات الألياف البصرية,Manufacture of fibre optic cables,electrical_eq,industrial,industrial,7
+2732,C,الصناعات التحويلية,Manufacturing,صناعة الأسلاك والكابلات الكهربائية الأخرى,Manufacture of other electronic and electric wires and cables,electrical_eq,industrial,industrial,7
+2733,C,الصناعات التحويلية,Manufacturing,صناعة أجهزة التوصيلات الكهربائية,Manufacture of wiring devices,electrical_eq,industrial,industrial,7
+2740,C,الصناعات التحويلية,Manufacturing,صناعة معدات الإنارة الكهربائية,Manufacture of electric lighting equipment,electrical_eq,industrial,industrial,7
+2750,C,الصناعات التحويلية,Manufacturing,صناعة الأجهزة المنزلية (منها المكيفات),Manufacture of domestic appliances (incl. air conditioners),electrical_eq,industrial,industrial,7
+2790,C,الصناعات التحويلية,Manufacturing,صناعة المعدات الكهربائية الأخرى,Manufacture of other electrical equipment,electrical_eq,industrial,industrial,7
+2811,C,الصناعات التحويلية,Manufacturing,صناعة المحركات والتوربينات,Manufacture of engines and turbines,machinery,industrial,industrial,7
+2812,C,الصناعات التحويلية,Manufacturing,صناعة معدات القدرة الهيدروليكية,Manufacture of fluid power equipment,machinery,industrial,industrial,7
+2813,C,الصناعات التحويلية,Manufacturing,صناعة المضخات والضواغط والصمامات,"Manufacture of other pumps, compressors, taps and valves",machinery,industrial,industrial,7
+2814,C,الصناعات التحويلية,Manufacturing,صناعة المحامل والتروس وعناصر الإدارة,"Manufacture of bearings, gears and driving elements",machinery,industrial,industrial,7
+2815,C,الصناعات التحويلية,Manufacturing,صناعة الأفران والمواقد,"Manufacture of ovens, furnaces and furnace burners",machinery,industrial,industrial,7
+2816,C,الصناعات التحويلية,Manufacturing,صناعة معدات الرفع والمناولة,Manufacture of lifting and handling equipment,machinery,industrial,industrial,7
+2817,C,الصناعات التحويلية,Manufacturing,صناعة الآلات المكتبية,Manufacture of office machinery,machinery,industrial,industrial,7
+2818,C,الصناعات التحويلية,Manufacturing,صناعة العدد اليدوية الكهربائية,Manufacture of power-driven hand tools,machinery,industrial,industrial,7
+2819,C,الصناعات التحويلية,Manufacturing,صناعة الآلات العامة الأخرى (منها معدات التبريد),Manufacture of other general-purpose machinery (incl. cooling),machinery,industrial,industrial,7
+2821,C,الصناعات التحويلية,Manufacturing,صناعة الآلات الزراعية,Manufacture of agricultural and forestry machinery,machinery,industrial,industrial,7
+2822,C,الصناعات التحويلية,Manufacturing,صناعة آلات تشكيل المعادن والعدد الآلية,Manufacture of metal-forming machinery and machine tools,machinery,industrial,industrial,7
+2823,C,الصناعات التحويلية,Manufacturing,صناعة آلات التعدين والفلزات,Manufacture of machinery for metallurgy,machinery,industrial,industrial,7
+2824,C,الصناعات التحويلية,Manufacturing,صناعة آلات التعدين والمحاجر والتشييد,"Manufacture of mining, quarrying and construction machinery",machinery,industrial,industrial,7
+2825,C,الصناعات التحويلية,Manufacturing,صناعة آلات تجهيز الأغذية والمشروبات,"Manufacture of food, beverage and tobacco processing machinery",machinery,industrial,industrial,7
+2826,C,الصناعات التحويلية,Manufacturing,صناعة آلات النسيج والملابس والجلود,"Manufacture of textile, apparel and leather machinery",machinery,industrial,industrial,7
+2829,C,الصناعات التحويلية,Manufacturing,صناعة الآلات الخاصة الأخرى,Manufacture of other special-purpose machinery,machinery,industrial,industrial,7
+2910,C,الصناعات التحويلية,Manufacturing,صناعة المركبات ذات المحركات,Manufacture of motor vehicles,auto_parts_ind,industrial,industrial,7
+2920,C,الصناعات التحويلية,Manufacturing,صناعة هياكل المركبات والمقطورات,"Manufacture of vehicle bodies, trailers and semi-trailers",auto_parts_ind,industrial,industrial,7
+2930,C,الصناعات التحويلية,Manufacturing,صناعة قطع غيار المركبات وملحقاتها,Manufacture of parts and accessories for motor vehicles,auto_parts_ind,industrial,industrial,7
+3011,C,الصناعات التحويلية,Manufacturing,بناء السفن والهياكل العائمة,Building of ships and floating structures,machinery,industrial,industrial,7
+3012,C,الصناعات التحويلية,Manufacturing,بناء قوارب النزهة والرياضة,Building of pleasure and sporting boats,machinery,industrial,industrial,7
+3020,C,الصناعات التحويلية,Manufacturing,صناعة القاطرات وعربات السكك الحديدية,Manufacture of railway locomotives and rolling stock,machinery,industrial,industrial,7
+3030,C,الصناعات التحويلية,Manufacturing,صناعة الطائرات والمركبات الفضائية,Manufacture of air and spacecraft,machinery,industrial,industrial,7
+3040,C,الصناعات التحويلية,Manufacturing,صناعة المركبات العسكرية القتالية,Manufacture of military fighting vehicles,machinery,industrial,industrial,7
+3091,C,الصناعات التحويلية,Manufacturing,صناعة الدراجات النارية,Manufacture of motorcycles,machinery,industrial,industrial,7
+3092,C,الصناعات التحويلية,Manufacturing,صناعة الدراجات الهوائية وعربات المعاقين,Manufacture of bicycles and invalid carriages,machinery,industrial,industrial,7
+3099,C,الصناعات التحويلية,Manufacturing,صناعة معدات النقل الأخرى,Manufacture of other transport equipment,machinery,industrial,industrial,7
+3100,C,الصناعات التحويلية,Manufacturing,صناعة الأثاث,Manufacture of furniture,furniture_ind,industrial,industrial,7
+3211,C,الصناعات التحويلية,Manufacturing,صناعة المجوهرات,Manufacture of jewellery,metal_products,industrial,industrial,7
+3212,C,الصناعات التحويلية,Manufacturing,صناعة المجوهرات المقلدة,Manufacture of imitation jewellery,metal_products,industrial,industrial,7
+3220,C,الصناعات التحويلية,Manufacturing,صناعة الآلات الموسيقية,Manufacture of musical instruments,metal_products,industrial,industrial,7
+3230,C,الصناعات التحويلية,Manufacturing,صناعة الأدوات الرياضية,Manufacture of sports goods,metal_products,industrial,industrial,7
+3240,C,الصناعات التحويلية,Manufacturing,صناعة الألعاب,Manufacture of games and toys,metal_products,industrial,industrial,7
+3250,C,الصناعات التحويلية,Manufacturing,صناعة الأدوات والمستلزمات الطبية وطب الأسنان,Manufacture of medical and dental instruments and supplies,metal_products,industrial,industrial,7
+3290,C,الصناعات التحويلية,Manufacturing,الصناعات التحويلية الأخرى,Other manufacturing n.e.c.,metal_products,industrial,industrial,7
+3311,C,الصناعات التحويلية,Manufacturing,إصلاح المنتجات المعدنية المشكلة,Repair of fabricated metal products,machinery,industrial,industrial,7
+3312,C,الصناعات التحويلية,Manufacturing,إصلاح الآلات,Repair of machinery,machinery,industrial,industrial,7
+3313,C,الصناعات التحويلية,Manufacturing,إصلاح المعدات الإلكترونية والبصرية,Repair of electronic and optical equipment,machinery,industrial,industrial,7
+3314,C,الصناعات التحويلية,Manufacturing,إصلاح المعدات الكهربائية,Repair of electrical equipment,machinery,industrial,industrial,7
+3315,C,الصناعات التحويلية,Manufacturing,إصلاح معدات النقل عدا المركبات,Repair of transport equipment (except vehicles),machinery,industrial,industrial,7
+3319,C,الصناعات التحويلية,Manufacturing,إصلاح المعدات الأخرى,Repair of other equipment,machinery,industrial,industrial,7
+3320,C,الصناعات التحويلية,Manufacturing,تركيب الآلات والمعدات الصناعية,Installation of industrial machinery and equipment,machinery,industrial,industrial,7
+3510,D,إمدادات الكهرباء والغاز والبخار والتكييف,"Electricity, gas, steam & air conditioning",توليد الكهرباء ونقلها وتوزيعها,"Electric power generation, transmission and distribution",utility_services,industrial,industrial,6
+3520,D,إمدادات الكهرباء والغاز والبخار والتكييف,"Electricity, gas, steam & air conditioning",صناعة الغاز وتوزيع الوقود الغازي,Manufacture of gas; distribution of gaseous fuels,utility_services,industrial,industrial,6
+3530,D,إمدادات الكهرباء والغاز والبخار والتكييف,"Electricity, gas, steam & air conditioning",إمدادات البخار والتكييف (منها التبريد المركزي),Steam and air conditioning supply (incl. district cooling),utility_services,industrial,industrial,6
+3600,E,إمدادات المياه والصرف الصحي وإدارة النفايات,"Water supply, sewerage & waste",تجميع المياه ومعالجتها وتوزيعها (منها التحلية),"Water collection, treatment and supply (incl. desalination)",utility_services,industrial,industrial,6
+3700,E,إمدادات المياه والصرف الصحي وإدارة النفايات,"Water supply, sewerage & waste",الصرف الصحي,Sewerage,utility_services,industrial,industrial,6
+3811,E,إمدادات المياه والصرف الصحي وإدارة النفايات,"Water supply, sewerage & waste",جمع النفايات غير الخطرة,Collection of non-hazardous waste,recycling,industrial,industrial,9
+3812,E,إمدادات المياه والصرف الصحي وإدارة النفايات,"Water supply, sewerage & waste",جمع النفايات الخطرة,Collection of hazardous waste,recycling,industrial,industrial,9
+3821,E,إمدادات المياه والصرف الصحي وإدارة النفايات,"Water supply, sewerage & waste",معالجة النفايات غير الخطرة والتخلص منها,Treatment and disposal of non-hazardous waste,recycling,industrial,industrial,9
+3822,E,إمدادات المياه والصرف الصحي وإدارة النفايات,"Water supply, sewerage & waste",معالجة النفايات الخطرة والتخلص منها,Treatment and disposal of hazardous waste,recycling,industrial,industrial,9
+3830,E,إمدادات المياه والصرف الصحي وإدارة النفايات,"Water supply, sewerage & waste",استرجاع المواد (إعادة التدوير),Materials recovery (recycling),recycling,industrial,industrial,9
+3900,E,إمدادات المياه والصرف الصحي وإدارة النفايات,"Water supply, sewerage & waste",أنشطة المعالجة وخدمات إدارة النفايات الأخرى,Remediation and other waste management services,recycling,industrial,industrial,9
+4100,F,التشييد,Construction,تشييد المباني,Construction of buildings,contracting,commercial,commercial,8
+4210,F,التشييد,Construction,إنشاء الطرق والسكك الحديدية,Construction of roads and railways,contracting,commercial,commercial,8
+4220,F,التشييد,Construction,إنشاء مشاريع المرافق,Construction of utility projects,contracting,commercial,commercial,8
+4290,F,التشييد,Construction,إنشاء مشاريع الهندسة المدنية الأخرى,Construction of other civil engineering projects,contracting,commercial,commercial,8
+4311,F,التشييد,Construction,الهدم,Demolition,contracting,commercial,commercial,8
+4312,F,التشييد,Construction,تجهيز المواقع,Site preparation,contracting,commercial,commercial,8
+4321,F,التشييد,Construction,التمديدات الكهربائية,Electrical installation,contracting,commercial,commercial,8
+4322,F,التشييد,Construction,تمديدات السباكة والتدفئة والتكييف,"Plumbing, heat and air-conditioning installation",contracting,commercial,commercial,8
+4329,F,التشييد,Construction,التركيبات الإنشائية الأخرى,Other construction installation,contracting,commercial,commercial,8
+4330,F,التشييد,Construction,إكمال المباني وتشطيبها,Building completion and finishing,contracting,commercial,commercial,8
+4390,F,التشييد,Construction,أنشطة التشييد المتخصصة الأخرى,Other specialized construction activities,contracting,commercial,commercial,8
+4510,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",بيع المركبات,Sale of motor vehicles,car_showroom,commercial,commercial,11
+4520,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",صيانة المركبات وإصلاحها,Maintenance and repair of motor vehicles,car_workshop,commercial,commercial,11
+4530,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",بيع قطع غيار المركبات وملحقاتها,Sale of motor vehicle parts and accessories,auto_parts,commercial,commercial,11
+4540,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",بيع الدراجات النارية وصيانتها,"Sale, maintenance and repair of motorcycles",car_workshop,commercial,commercial,11
+4610,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة مقابل رسم أو عقد,Wholesale on a fee or contract basis,wholesale,commercial,commercial,11
+4620,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة للمواد الخام الزراعية والحيوانات الحية,Wholesale of agricultural raw materials and live animals,wholesale,commercial,commercial,11
+4630,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة للأغذية والمشروبات والتبغ,"Wholesale of food, beverages and tobacco",wholesale,commercial,commercial,11
+4641,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة للمنسوجات والملابس والأحذية,"Wholesale of textiles, clothing and footwear",wholesale,commercial,commercial,11
+4649,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة للسلع المنزلية الأخرى,Wholesale of other household goods,wholesale,commercial,commercial,11
+4651,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة للحواسيب والبرمجيات,Wholesale of computers and software,wholesale,commercial,commercial,11
+4652,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة لمعدات الإلكترونيات والاتصالات,Wholesale of electronic and telecom equipment,wholesale,commercial,commercial,11
+4653,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة للآلات الزراعية,Wholesale of agricultural machinery,wholesale,commercial,commercial,11
+4659,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة للآلات والمعدات الأخرى,Wholesale of other machinery and equipment,wholesale,commercial,commercial,11
+4661,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة للوقود,Wholesale of fuels,wholesale,commercial,commercial,11
+4662,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة للمعادن وخاماتها,Wholesale of metals and metal ores,wholesale,commercial,commercial,11
+4663,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة لمواد البناء والأدوات الصحية,Wholesale of construction materials and hardware,wholesale,commercial,commercial,11
+4669,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة للخردة والمنتجات الأخرى,"Wholesale of waste, scrap and other products",wholesale,commercial,commercial,11
+4690,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالجملة غير المتخصص,Non-specialized wholesale trade,wholesale,commercial,commercial,11
+4711,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة في المتاجر غير المتخصصة يغلب عليها الغذاء,"Retail in non-specialized stores, food predominating",supermarket,commercial,commercial,11
+4719,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة الآخر في المتاجر غير المتخصصة,Other retail sale in non-specialized stores,supermarket,commercial,commercial,11
+4721,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للأغذية في متاجر متخصصة,Retail sale of food in specialized stores,butcher,commercial,commercial,11
+4722,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للمشروبات في متاجر متخصصة,Retail sale of beverages in specialized stores,grocery,commercial,commercial,11
+4723,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة لمنتجات التبغ,Retail sale of tobacco products,grocery,commercial,commercial,11
+4730,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة لوقود المركبات,Retail sale of automotive fuel,fuel_station,commercial,commercial,39
+4741,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للحواسيب والجوالات ومعدات الاتصالات,"Retail sale of computers, software and telecom equipment",telecom_shop,commercial,commercial,14
+4742,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للأجهزة الصوتية والمرئية,Retail sale of audio and video equipment,electronics,commercial,commercial,13
+4751,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للأقمشة,Retail sale of textiles,clothing,commercial,commercial,11
+4752,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للأدوات والدهانات والزجاج,"Retail sale of hardware, paints and glass",building_materials,commercial,commercial,11
+4753,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للسجاد وأغطية الجدران والأرضيات,"Retail sale of carpets, rugs, wall and floor coverings",furniture_shop,commercial,commercial,11
+4759,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للأجهزة المنزلية والأثاث والإنارة,"Retail sale of electrical household appliances, furniture and lighting",furniture_shop,commercial,commercial,11
+4761,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للكتب والصحف والقرطاسية,"Retail sale of books, newspapers and stationery",clothing,commercial,commercial,13
+4762,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للتسجيلات الصوتية والمرئية,Retail sale of music and video recordings,electronics,commercial,commercial,13
+4763,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للأدوات الرياضية,Retail sale of sporting equipment,clothing,commercial,commercial,13
+4764,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للألعاب,Retail sale of games and toys,clothing,commercial,commercial,13
+4771,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للملابس والأحذية والمصنوعات الجلدية,"Retail sale of clothing, footwear and leather articles",clothing,commercial,commercial,13
+4772,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للأدوية والمستلزمات الطبية ومستحضرات التجميل,"Retail sale of pharmaceutical and medical goods, cosmetics",pharmacy,commercial,commercial,37
+4773,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للسلع الجديدة الأخرى (منها العطور والساعات والمجوهرات والهدايا),"Other retail sale of new goods (incl. perfumes, watches, jewellery, gifts)",optics_perfume,commercial,commercial,12
+4774,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للسلع المستعملة,Retail sale of second-hand goods,furniture_shop,commercial,commercial,11
+4781,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للأغذية في الأكشاك والأسواق,Retail sale via stalls and markets of food,butcher,commercial,commercial,11
+4782,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للأقمشة والملابس في الأكشاك والأسواق,Retail sale via stalls and markets of textiles and clothing,clothing,commercial,commercial,13
+4789,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة للسلع الأخرى في الأكشاك والأسواق,Retail sale via stalls and markets of other goods,clothing,commercial,commercial,13
+4791,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة عبر الإنترنت والطلب البريدي,Retail sale via mail order houses or the internet,logistics,commercial,commercial,11
+4799,G,تجارة الجملة والتجزئة وإصلاح المركبات,"Wholesale & retail trade, vehicle repair",البيع بالتجزئة الآخر خارج المتاجر,"Other retail sale not in stores, stalls or markets",grocery,commercial,commercial,11
+4911,H,النقل والتخزين,Transport & storage,النقل بالسكك الحديدية للركاب بين المدن,"Passenger rail transport, interurban",transport,commercial,commercial,22
+4912,H,النقل والتخزين,Transport & storage,نقل البضائع بالسكك الحديدية,Freight rail transport,transport,commercial,commercial,22
+4921,H,النقل والتخزين,Transport & storage,النقل البري للركاب داخل المدن وضواحيها,Urban and suburban passenger land transport,transport,commercial,commercial,22
+4922,H,النقل والتخزين,Transport & storage,النقل البري الآخر للركاب (منه الأجرة والحافلات),"Other passenger land transport (incl. taxis, buses)",car_rental,commercial,commercial,22
+4923,H,النقل والتخزين,Transport & storage,نقل البضائع على الطرق,Freight transport by road,transport,commercial,commercial,22
+4930,H,النقل والتخزين,Transport & storage,النقل عبر خطوط الأنابيب,Transport via pipeline,transport,commercial,commercial,22
+5011,H,النقل والتخزين,Transport & storage,النقل البحري والساحلي للركاب,Sea and coastal passenger water transport,transport,commercial,commercial,23
+5012,H,النقل والتخزين,Transport & storage,النقل البحري والساحلي للبضائع,Sea and coastal freight water transport,transport,commercial,commercial,23
+5021,H,النقل والتخزين,Transport & storage,النقل المائي الداخلي للركاب,Inland passenger water transport,transport,commercial,commercial,23
+5022,H,النقل والتخزين,Transport & storage,النقل المائي الداخلي للبضائع,Inland freight water transport,transport,commercial,commercial,23
+5110,H,النقل والتخزين,Transport & storage,النقل الجوي للركاب,Passenger air transport,transport,commercial,commercial,23
+5120,H,النقل والتخزين,Transport & storage,النقل الجوي للبضائع,Freight air transport,transport,commercial,commercial,23
+5210,H,النقل والتخزين,Transport & storage,التخزين والمستودعات (منها التبريد),Warehousing and storage (incl. cold storage),cold_storage,commercial,commercial,22
+5221,H,النقل والتخزين,Transport & storage,الخدمات المتصلة بالنقل البري,Service activities incidental to land transportation,logistics,commercial,commercial,22
+5222,H,النقل والتخزين,Transport & storage,الخدمات المتصلة بالنقل المائي,Service activities incidental to water transportation,logistics,commercial,commercial,22
+5223,H,النقل والتخزين,Transport & storage,الخدمات المتصلة بالنقل الجوي,Service activities incidental to air transportation,logistics,commercial,commercial,22
+5224,H,النقل والتخزين,Transport & storage,مناولة البضائع,Cargo handling,logistics,commercial,commercial,22
+5229,H,النقل والتخزين,Transport & storage,أنشطة دعم النقل الأخرى (منها التخليص الجمركي),Other transportation support activities (incl. customs clearance),logistics,commercial,commercial,22
+5310,H,النقل والتخزين,Transport & storage,أنشطة البريد,Postal activities,logistics,commercial,commercial,16
+5320,H,النقل والتخزين,Transport & storage,أنشطة البريد السريع والتوصيل,Courier and delivery activities,logistics,commercial,commercial,16
+5510,I,أنشطة الإقامة والخدمات الغذائية,Accommodation & food services,الإقامة قصيرة المدى (الفنادق والشقق المخدومة),"Short-term accommodation (hotels, serviced apartments)",hotel,commercial,commercial,38
+5520,I,أنشطة الإقامة والخدمات الغذائية,Accommodation & food services,المخيمات ومواقف المركبات الترفيهية,Camping grounds and recreational vehicle parks,furnished_apts,commercial,commercial,38
+5590,I,أنشطة الإقامة والخدمات الغذائية,Accommodation & food services,الإقامة الأخرى (منها سكن العمال والطلاب),Other accommodation (incl. workers' and student housing),furnished_apts,commercial,commercial,38
+5610,I,أنشطة الإقامة والخدمات الغذائية,Accommodation & food services,المطاعم وخدمات الطعام المتنقلة,Restaurants and mobile food service,restaurant,commercial,commercial,24
+5621,I,أنشطة الإقامة والخدمات الغذائية,Accommodation & food services,تموين الحفلات والمناسبات,Event catering,catering,commercial,commercial,27
+5629,I,أنشطة الإقامة والخدمات الغذائية,Accommodation & food services,أنشطة خدمات الطعام الأخرى (الإعاشة),Other food service activities (contract catering),catering,commercial,commercial,27
+5630,I,أنشطة الإقامة والخدمات الغذائية,Accommodation & food services,تقديم المشروبات (المقاهي ومحلات العصير),"Beverage serving activities (cafés, juice shops)",cafe,commercial,commercial,26
+5811,J,المعلومات والاتصالات,Information & communication,نشر الكتب,Book publishing,consulting,commercial,commercial,30
+5812,J,المعلومات والاتصالات,Information & communication,نشر الأدلة وقوائم العناوين,Publishing of directories and mailing lists,consulting,commercial,commercial,30
+5813,J,المعلومات والاتصالات,Information & communication,نشر الصحف والمجلات والدوريات,"Publishing of newspapers, journals and periodicals",consulting,commercial,commercial,30
+5819,J,المعلومات والاتصالات,Information & communication,أنشطة النشر الأخرى,Other publishing activities,consulting,commercial,commercial,30
+5820,J,المعلومات والاتصالات,Information & communication,نشر البرمجيات,Software publishing,it_company,commercial,commercial,30
+5911,J,المعلومات والاتصالات,Information & communication,إنتاج الأفلام والفيديو والبرامج التلفزيونية,"Motion picture, video and TV programme production",consulting,commercial,commercial,30
+5912,J,المعلومات والاتصالات,Information & communication,أنشطة ما بعد الإنتاج,Post-production activities,consulting,commercial,commercial,30
+5913,J,المعلومات والاتصالات,Information & communication,توزيع الأفلام والفيديو والبرامج,"Motion picture, video and TV programme distribution",consulting,commercial,commercial,30
+5914,J,المعلومات والاتصالات,Information & communication,عرض الأفلام (دور السينما),Motion picture projection (cinemas),entertainment,commercial,commercial,30
+5920,J,المعلومات والاتصالات,Information & communication,التسجيل الصوتي ونشر الموسيقى,Sound recording and music publishing,consulting,commercial,commercial,30
+6010,J,المعلومات والاتصالات,Information & communication,البث الإذاعي,Radio broadcasting,consulting,commercial,commercial,30
+6020,J,المعلومات والاتصالات,Information & communication,البرمجة والبث التلفزيوني,Television programming and broadcasting,consulting,commercial,commercial,30
+6110,J,المعلومات والاتصالات,Information & communication,الاتصالات السلكية,Wired telecommunications,telecom_operator,commercial,commercial,15
+6120,J,المعلومات والاتصالات,Information & communication,الاتصالات اللاسلكية,Wireless telecommunications,telecom_operator,commercial,commercial,15
+6130,J,المعلومات والاتصالات,Information & communication,الاتصالات الفضائية,Satellite telecommunications,telecom_operator,commercial,commercial,15
+6190,J,المعلومات والاتصالات,Information & communication,أنشطة الاتصالات الأخرى,Other telecommunications activities,telecom_operator,commercial,commercial,15
+6201,J,المعلومات والاتصالات,Information & communication,البرمجة الحاسوبية,Computer programming,it_company,commercial,commercial,21
+6202,J,المعلومات والاتصالات,Information & communication,الاستشارات الحاسوبية وإدارة المرافق الحاسوبية,IT consultancy and facilities management,it_company,commercial,commercial,21
+6209,J,المعلومات والاتصالات,Information & communication,أنشطة الخدمات الحاسوبية الأخرى,Other IT and computer service activities,it_company,commercial,commercial,21
+6311,J,المعلومات والاتصالات,Information & communication,معالجة البيانات والاستضافة ومراكز البيانات,"Data processing, hosting and data centres",data_center,commercial,commercial,17
+6312,J,المعلومات والاتصالات,Information & communication,بوابات الويب,Web portals,it_company,commercial,commercial,21
+6391,J,المعلومات والاتصالات,Information & communication,أنشطة وكالات الأنباء,News agency activities,it_company,commercial,commercial,21
+6399,J,المعلومات والاتصالات,Information & communication,أنشطة خدمات المعلومات الأخرى,Other information service activities,it_company,commercial,commercial,21
+6419,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,الوساطة النقدية الأخرى (البنوك),Other monetary intermediation (banks),bank_branch,commercial,commercial,29
+6420,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,أنشطة الشركات القابضة,Activities of holding companies,bank_branch,commercial,commercial,29
+6430,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,الصناديق والكيانات المالية المماثلة,"Trusts, funds and similar financial entities",bank_branch,commercial,commercial,29
+6491,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,التأجير التمويلي,Financial leasing,bank_branch,commercial,commercial,29
+6492,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,منح الائتمان الآخر (شركات التمويل),Other credit granting (finance companies),bank_branch,commercial,commercial,29
+6499,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,أنشطة الخدمات المالية الأخرى,Other financial service activities,bank_branch,commercial,commercial,29
+6511,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,التأمين على الحياة (التكافل العائلي),Life insurance (family takaful),bank_branch,commercial,commercial,29
+6512,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,التأمين على غير الحياة,Non-life insurance,bank_branch,commercial,commercial,29
+6520,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,إعادة التأمين,Reinsurance,bank_branch,commercial,commercial,29
+6530,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,صناديق التقاعد,Pension funding,bank_branch,commercial,commercial,29
+6611,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,إدارة الأسواق المالية,Administration of financial markets,bank_branch,commercial,commercial,29
+6612,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,الوساطة في الأوراق المالية والسلع,Security and commodity contracts brokerage,bank_branch,commercial,commercial,29
+6619,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,الأنشطة المساعدة للخدمات المالية (منها الصرافة),Other activities auxiliary to financial services (incl. money exchange),bank_branch,commercial,commercial,29
+6621,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,تقييم المخاطر والأضرار,Risk and damage evaluation,bank_branch,commercial,commercial,29
+6622,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,أنشطة وكلاء التأمين ووسطائه,Activities of insurance agents and brokers,bank_branch,commercial,commercial,29
+6629,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,الأنشطة المساعدة للتأمين الأخرى,Other activities auxiliary to insurance,bank_branch,commercial,commercial,29
+6630,K,الأنشطة المالية وأنشطة التأمين,Finance & insurance,أنشطة إدارة الصناديق,Fund management activities,bank_branch,commercial,commercial,29
+6810,L,الأنشطة العقارية,Real estate,الأنشطة العقارية في الممتلكات المملوكة أو المؤجرة,Real estate activities with own or leased property,mall,commercial,commercial,30
+6820,L,الأنشطة العقارية,Real estate,الأنشطة العقارية مقابل رسم أو عقد (الوساطة),Real estate activities on a fee or contract basis,real_estate,commercial,commercial,30
+6910,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",الأنشطة القانونية (المحاماة),Legal activities,consulting,commercial,commercial,30
+6920,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",المحاسبة والتدقيق والاستشارات الضريبية,"Accounting, bookkeeping, auditing and tax consultancy",consulting,commercial,commercial,30
+7010,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",أنشطة المكاتب الرئيسية,Activities of head offices,consulting,commercial,commercial,30
+7020,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",الاستشارات الإدارية,Management consultancy activities,consulting,commercial,commercial,30
+7110,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",الأنشطة المعمارية والهندسية,Architectural and engineering activities,consulting,commercial,commercial,30
+7120,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",الاختبارات والتحاليل الفنية,Technical testing and analysis,consulting,commercial,commercial,30
+7210,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",البحث والتطوير في العلوم الطبيعية والهندسة,R&D on natural sciences and engineering,consulting,commercial,commercial,30
+7220,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",البحث والتطوير في العلوم الاجتماعية والإنسانية,R&D on social sciences and humanities,consulting,commercial,commercial,30
+7310,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",الدعاية والإعلان,Advertising,consulting,commercial,commercial,30
+7320,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",أبحاث السوق واستطلاعات الرأي,Market research and public opinion polling,consulting,commercial,commercial,30
+7410,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",أنشطة التصميم المتخصصة,Specialized design activities,consulting,commercial,commercial,30
+7420,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",أنشطة التصوير الفوتوغرافي,Photographic activities,consulting,commercial,commercial,30
+7490,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",الأنشطة المهنية والعلمية الأخرى (منها الترجمة),"Other professional, scientific and technical activities (incl. translation)",consulting,commercial,commercial,30
+7500,M,الأنشطة المهنية والعلمية والتقنية,"Professional, scientific & technical",الأنشطة البيطرية,Veterinary activities,clinic,commercial,commercial,37
+7710,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,تأجير المركبات,Renting and leasing of motor vehicles,car_rental,commercial,commercial,30
+7721,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,تأجير السلع الترفيهية والرياضية,Renting of recreational and sports goods,car_rental,commercial,commercial,30
+7722,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,تأجير أشرطة وأقراص الفيديو,Renting of video tapes and disks,car_rental,commercial,commercial,30
+7729,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,تأجير السلع الشخصية والمنزلية الأخرى,Renting of other personal and household goods,car_rental,commercial,commercial,30
+7730,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,تأجير الآلات والمعدات الأخرى,"Renting of other machinery, equipment and goods",car_rental,commercial,commercial,30
+7740,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,تأجير الملكية الفكرية,Leasing of intellectual property,car_rental,commercial,commercial,30
+7810,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة وكالات التوظيف,Activities of employment placement agencies,security_cleaning,commercial,commercial,28
+7820,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة وكالات التوظيف المؤقت,Temporary employment agency activities,security_cleaning,commercial,commercial,28
+7830,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,توفير الموارد البشرية الأخرى (شركات الاستقدام),Other human resources provision (manpower companies),security_cleaning,commercial,commercial,28
+7911,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة وكالات السفر,Travel agency activities,consulting,commercial,commercial,38
+7912,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة منظمي الرحلات,Tour operator activities,consulting,commercial,commercial,38
+7990,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,خدمات الحجز الأخرى (منها خدمات الحج والعمرة),Other reservation service activities (incl. Hajj and Umrah services),consulting,commercial,commercial,38
+8010,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة الحراسات الأمنية الخاصة,Private security activities,security_cleaning,commercial,commercial,28
+8020,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,خدمات أنظمة الأمن,Security systems service activities,security_cleaning,commercial,commercial,30
+8030,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة التحري,Investigation activities,security_cleaning,commercial,commercial,28
+8110,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة الدعم المتكاملة للمرافق,Combined facilities support activities,security_cleaning,commercial,commercial,9
+8121,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,التنظيف العام للمباني,General cleaning of buildings,security_cleaning,commercial,commercial,10
+8129,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة التنظيف الأخرى للمباني والمنشآت الصناعية,Other building and industrial cleaning activities,security_cleaning,commercial,commercial,10
+8130,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,تنسيق الحدائق وصيانتها,Landscape care and maintenance,security_cleaning,commercial,commercial,9
+8211,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,الخدمات الإدارية المكتبية المتكاملة,Combined office administrative service activities,consulting,commercial,commercial,30
+8219,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,التصوير وإعداد المستندات (منها مكاتب الخدمات العامة),Photocopying and document preparation (incl. government services offices),consulting,commercial,commercial,30
+8220,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة مراكز الاتصال,Activities of call centres,consulting,commercial,commercial,30
+8230,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,تنظيم المؤتمرات والمعارض,Organization of conventions and trade shows,consulting,commercial,commercial,30
+8291,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,وكالات التحصيل ومكاتب الائتمان,Collection agencies and credit bureaus,consulting,commercial,commercial,30
+8292,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة التعبئة والتغليف,Packaging activities,printing,industrial,industrial,30
+8299,N,الخدمات الإدارية وخدمات الدعم,Administrative & support services,أنشطة خدمات دعم الأعمال الأخرى,Other business support service activities,consulting,commercial,commercial,30
+8510,P,التعليم,Education,التعليم ما قبل الابتدائي والابتدائي,Pre-primary and primary education,private_school,commercial,commercial,35
+8521,P,التعليم,Education,التعليم الثانوي العام,General secondary education,private_school,commercial,commercial,40
+8522,P,التعليم,Education,التعليم الثانوي الفني والمهني,Technical and vocational secondary education,private_school,commercial,commercial,40
+8530,P,التعليم,Education,التعليم العالي,Higher education,private_school,commercial,commercial,33
+8541,P,التعليم,Education,التعليم الرياضي والترفيهي,Sports and recreation education,training,commercial,commercial,30
+8542,P,التعليم,Education,التعليم الثقافي,Cultural education,training,commercial,commercial,30
+8549,P,التعليم,Education,التعليم الآخر (منه مراكز التدريب ومدارس القيادة),"Other education n.e.c. (incl. training centres, driving schools)",training,commercial,commercial,30
+8550,P,التعليم,Education,أنشطة دعم التعليم,Educational support activities,training,commercial,commercial,30
+8610,Q,الصحة البشرية والعمل الاجتماعي,Human health & social work,أنشطة المستشفيات,Hospital activities,hospital,commercial,commercial,37
+8620,Q,الصحة البشرية والعمل الاجتماعي,Human health & social work,أنشطة العيادات الطبية وعيادات الأسنان,Medical and dental practice activities,clinic,commercial,commercial,37
+8690,Q,الصحة البشرية والعمل الاجتماعي,Human health & social work,أنشطة الصحة البشرية الأخرى (منها المختبرات والأشعة والرعاية المنزلية),"Other human health activities (incl. labs, radiology, home care)",lab_radiology,commercial,commercial,37
+8710,Q,الصحة البشرية والعمل الاجتماعي,Human health & social work,مرافق الرعاية التمريضية الإيوائية,Residential nursing care facilities,clinic,commercial,commercial,31
+8720,Q,الصحة البشرية والعمل الاجتماعي,Human health & social work,الرعاية الإيوائية للصحة النفسية والإدمان,Residential care for mental health and substance abuse,clinic,commercial,commercial,31
+8730,Q,الصحة البشرية والعمل الاجتماعي,Human health & social work,الرعاية الإيوائية لكبار السن وذوي الإعاقة,Residential care for the elderly and disabled,clinic,commercial,commercial,31
+8790,Q,الصحة البشرية والعمل الاجتماعي,Human health & social work,أنشطة الرعاية الإيوائية الأخرى,Other residential care activities,clinic,commercial,commercial,31
+8810,Q,الصحة البشرية والعمل الاجتماعي,Human health & social work,العمل الاجتماعي بدون إيواء لكبار السن وذوي الإعاقة,Social work without accommodation for the elderly and disabled,training,commercial,commercial,31
+8890,Q,الصحة البشرية والعمل الاجتماعي,Human health & social work,العمل الاجتماعي الآخر بدون إيواء (منه حضانات الأطفال),Other social work without accommodation (incl. child day care),training,commercial,commercial,31
+9000,R,الفنون والترفيه والتسلية,"Arts, entertainment & recreation",الأنشطة الإبداعية والفنون والترفيه,"Creative, arts and entertainment activities",entertainment,commercial,commercial,38
+9101,R,الفنون والترفيه والتسلية,"Arts, entertainment & recreation",أنشطة المكتبات ودور المحفوظات,Library and archives activities,entertainment,commercial,commercial,38
+9102,R,الفنون والترفيه والتسلية,"Arts, entertainment & recreation",المتاحف والمواقع التاريخية,Museums and historical sites,entertainment,commercial,commercial,38
+9103,R,الفنون والترفيه والتسلية,"Arts, entertainment & recreation",الحدائق النباتية والحيوانية والمحميات,Botanical and zoological gardens and nature reserves,entertainment,commercial,commercial,38
+9311,R,الفنون والترفيه والتسلية,"Arts, entertainment & recreation",تشغيل المرافق الرياضية,Operation of sports facilities,gym,commercial,commercial,38
+9312,R,الفنون والترفيه والتسلية,"Arts, entertainment & recreation",أنشطة الأندية الرياضية,Activities of sports clubs,gym,commercial,commercial,38
+9319,R,الفنون والترفيه والتسلية,"Arts, entertainment & recreation",الأنشطة الرياضية الأخرى,Other sports activities,gym,commercial,commercial,38
+9321,R,الفنون والترفيه والتسلية,"Arts, entertainment & recreation",أنشطة مدن الملاهي والحدائق الترفيهية,Activities of amusement and theme parks,entertainment,commercial,commercial,38
+9329,R,الفنون والترفيه والتسلية,"Arts, entertainment & recreation",أنشطة التسلية والترفيه الأخرى,Other amusement and recreation activities,entertainment,commercial,commercial,38
+9411,S,أنشطة الخدمات الأخرى,Other service activities,أنشطة منظمات الأعمال وأصحاب العمل,Activities of business and employers membership organizations,charity,commercial,charities,31
+9412,S,أنشطة الخدمات الأخرى,Other service activities,أنشطة المنظمات المهنية,Activities of professional membership organizations,charity,commercial,charities,31
+9491,S,أنشطة الخدمات الأخرى,Other service activities,أنشطة المنظمات الدينية,Activities of religious organizations,charity,commercial,charities,31
+9499,S,أنشطة الخدمات الأخرى,Other service activities,أنشطة المنظمات الأخرى (منها الجمعيات الخيرية),Activities of other membership organizations (incl. charities),charity,commercial,charities,31
+9511,S,أنشطة الخدمات الأخرى,Other service activities,إصلاح الحواسيب وملحقاتها,Repair of computers and peripheral equipment,telecom_shop,commercial,commercial,32
+9512,S,أنشطة الخدمات الأخرى,Other service activities,إصلاح معدات الاتصالات (منها الجوالات),Repair of communication equipment (incl. mobile phones),telecom_shop,commercial,commercial,14
+9521,S,أنشطة الخدمات الأخرى,Other service activities,إصلاح الإلكترونيات الاستهلاكية,Repair of consumer electronics,car_workshop,commercial,commercial,32
+9522,S,أنشطة الخدمات الأخرى,Other service activities,إصلاح الأجهزة المنزلية ومعدات الحدائق,Repair of household appliances and home and garden equipment,car_workshop,commercial,commercial,32
+9523,S,أنشطة الخدمات الأخرى,Other service activities,إصلاح الأحذية والمصنوعات الجلدية,Repair of footwear and leather goods,car_workshop,commercial,commercial,32
+9524,S,أنشطة الخدمات الأخرى,Other service activities,إصلاح الأثاث والمفروشات,Repair of furniture and home furnishings,car_workshop,commercial,commercial,32
+9529,S,أنشطة الخدمات الأخرى,Other service activities,إصلاح السلع الشخصية والمنزلية الأخرى (منها الخياطة),Repair of other personal and household goods (incl. tailoring),salon,commercial,commercial,32
+9601,S,أنشطة الخدمات الأخرى,Other service activities,غسيل المنسوجات وكيّها,Washing and dry-cleaning of textile and fur products,laundry,commercial,commercial,10
+9602,S,أنشطة الخدمات الأخرى,Other service activities,الحلاقة والتجميل,Hairdressing and other beauty treatment,salon,commercial,commercial,32
+9603,S,أنشطة الخدمات الأخرى,Other service activities,أنشطة تجهيز الموتى,Funeral and related activities,salon,commercial,commercial,32
+9609,S,أنشطة الخدمات الأخرى,Other service activities,أنشطة الخدمات الشخصية الأخرى,Other personal service activities n.e.c.,salon,commercial,commercial,32

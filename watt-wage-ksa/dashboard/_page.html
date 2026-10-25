@@ -127,7 +127,8 @@ a { color: var(--accent) }
 footer { padding-block: 16px 30px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-3) }
 .hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 18px }
 .hero-txt { display: grid; gap: 6px }
-.roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px }
+.roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px }
+@media (max-width: 1100px) { .roles { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
 .role { display: grid; gap: 2px; padding: 12px 14px; border-radius: var(--r); background: var(--accent-soft); color: var(--ink); text-decoration: none; border: 1px solid transparent }
 .role:hover { border-color: var(--accent) }
 .role b { font-size: 15px } .role span { font-size: 12.5px; color: var(--ink-2) }
@@ -168,6 +169,15 @@ textarea { resize: vertical; min-height: 44px; flex: 1 }
 .faq details { padding: 10px 14px }
 .faq details p { margin-top: 8px; font-size: 14px; color: var(--ink-2) }
 .faq .go { font-size: 12.5px; margin-top: 6px; display: inline-block }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; max-height: 340px; overflow-y: auto }
+.chip { font: inherit; font-size: 12.5px; text-align: start; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 999px; padding: 4px 10px; cursor: pointer }
+.chip:hover { border-color: var(--accent); background: var(--accent-soft) }
+.chip .num { color: var(--ink-3); font-size: 11.5px }
+ul.tips { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px }
+ul.tips li { display: grid; gap: 2px; border-inline-start: 3px solid var(--accent); padding-inline-start: 10px }
+ul.tips b { font-size: 14px } ul.tips span { font-size: 13.5px; color: var(--ink-2) }
+pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 1.8; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 14px; margin: 0 }
+#sa-act { min-height: 0 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important } }
 </style>
 
@@ -190,6 +200,8 @@ textarea { resize: vertical; min-height: 44px; flex: 1 }
   <a href="#agri" data-v="agri" data-ar="الزراعي" data-en="Agricultural"></a>
   <a href="#society" data-v="society" data-ar="المجتمع" data-en="Society"></a>
   <a href="#labour" data-v="labour" data-ar="سوق العمل" data-en="Labour market"></a>
+  <a href="#saudization" data-v="saudization" data-ar="حاسبة التوطين" data-en="Saudization"></a>
+  <a href="#trust" data-v="trust" data-ar="مجاراة التضخم والثقة" data-en="Pricing &amp; trust"></a>
   <a href="#solutions" data-v="solutions" data-ar="الحلول" data-en="Solutions"></a>
   <a href="#faq" data-v="faq" data-ar="أسئلة واستفسارات" data-en="Questions"></a>
   <a href="#method" data-v="method" data-ar="المنهجية والمصادر" data-en="Method &amp; sources"></a>
@@ -206,9 +218,11 @@ textarea { resize: vertical; min-height: 44px; flex: 1 }
     </div>
     <div class="roles" id="roles">
       <a href="#household" data-go="household" class="role"><b data-ar="فرد أو أسرة" data-en="Individual or family"></b><span data-ar="الفاتورة، والراتب، والتضخم الشخصي" data-en="Bills, pay and personal inflation"></span></a>
-      <a href="#business" data-go="business" data-grp="commercial" class="role"><b data-ar="منشأة تجارية أو خدمية" data-en="Shop or service business"></b><span data-ar="43 نشاطاً: تجزئة، مطاعم، صحة، تعليم..." data-en="43 activities: retail, food, health, education..."></span></a>
-      <a href="#business" data-go="business" data-grp="industrial" class="role"><b data-ar="مصنع" data-en="Factory"></b><span data-ar="28 صناعة: أغذية، كيماويات، حديد، إسمنت..." data-en="28 industries: food, chemicals, steel, cement..."></span></a>
-      <a href="#business" data-go="business" data-grp="agricultural" class="role"><b data-ar="مزرعة" data-en="Farm"></b><span data-ar="7 أنشطة: بيوت محمية، نخيل، دواجن، ألبان..." data-en="7 activities: greenhouses, dates, poultry, dairy..."></span></a>
+      <a href="#business" data-go="business" data-grp="commercial" class="role"><b data-ar="منشأة تجارية أو خدمية" data-en="Shop or service business"></b><span data-ar="أكثر من 200 نشاط: تجزئة، مطاعم، صحة، تعليم..." data-en="200+ activities: retail, food, health, education..."></span></a>
+      <a href="#business" data-go="business" data-grp="industrial" class="role"><b data-ar="مصنع" data-en="Factory"></b><span data-ar="160 صناعة: أغذية، كيماويات، حديد، إسمنت..." data-en="160 industries: food, chemicals, steel, cement..."></span></a>
+      <a href="#saudization" data-go="saudization" class="role"><b data-ar="حاسبة التوطين" data-en="Saudization calculator"></b><span data-ar="نطاقك في نطاقات 2026 – 2028 وكم تحتاج" data-en="Your Nitaqat band 2026–2028 and what you need"></span></a>
+      <a href="#trust" data-go="trust" class="role"><b data-ar="الأسعار وثقة العملاء" data-en="Prices &amp; customer trust"></b><span data-ar="خطة رفع أسعار ورسالة جاهزة لعملائك" data-en="A price plan and a ready message for customers"></span></a>
+      <a href="#business" data-go="business" data-grp="agricultural" class="role"><b data-ar="مزرعة" data-en="Farm"></b><span data-ar="37 نشاطاً: بيوت محمية، نخيل، دواجن، ألبان..." data-en="37 activities: greenhouses, dates, poultry, dairy..."></span></a>
     </div>
   </div>
   <div class="kpis" id="ov-kpis"></div>
@@ -329,6 +343,93 @@ textarea { resize: vertical; min-height: 44px; flex: 1 }
   <div class="panel"><div class="tablewrap"><table id="t-profiles"></table></div></div>
 </section>
 
+<!-- SAUDIZATION -->
+<section class="view" id="v-saudization" hidden>
+  <div class="vhead"><h2 data-ar="حاسبة التوطين (نطاقات المطوّر)" data-en="Saudization calculator (Nitaqat Mutawar)"></h2>
+    <p class="muted" data-ar="اختر نشاطك وأدخل موظفيك حسب الراتب. تحسب نسبة التوطين المحتسبة ونطاقك في 2026 و2027 و2028، والنسبة المطلوبة لكل نطاق، وكم سعودياً تحتاج توظيفه أو كم تكلّف زيادة الرواتب. رفع حد الاحتساب إلى 5,000 ثم 6,000 ريال قد ينزلك نطاقاً بدون أن يتغير عدد موظفيك." data-en="Pick your activity and enter staff by pay. You get your counted Saudization rate and band for 2026, 2027 and 2028, the rate each band requires, and how many Saudis to hire or what raising pay would cost. The full-count wage rising to 5,000 then 6,000 SAR can drop you a band with no change in headcount."></p></div>
+  <div class="g-ctl">
+    <div class="panel ctl">
+      <div class="field"><label for="sa-q" data-ar="ابحث عن نشاطك" data-en="Find your activity"></label><input type="search" id="sa-q" class="search"></div>
+      <div class="field"><label for="sa-act" data-ar="النشاط (رمز ISIC)" data-en="Activity (ISIC code)"></label><select id="sa-act"></select></div>
+      <div class="field"><label for="sa-n" data-ar="نشاط نطاقات المطبّق" data-en="Nitaqat activity applied"></label><select id="sa-n"></select></div>
+      <fieldset class="fs"><legend data-ar="الموظفون السعوديون بدوام كامل حسب الأجر الخاضع للتأمينات" data-en="Full-time Saudis by GOSI contributory wage"></legend>
+        <div class="staff">
+          <span class="small" data-ar="6,000 ريال فأكثر" data-en="6,000 SAR or more"></span><input type="number" id="sa-b6" min="0" aria-label="6000+"><span></span>
+          <span class="small" data-ar="5,000 – 5,999" data-en="5,000 – 5,999"></span><input type="number" id="sa-b5" min="0" aria-label="5000-5999"><span></span>
+          <span class="small" data-ar="4,000 – 4,999" data-en="4,000 – 4,999"></span><input type="number" id="sa-b4" min="0" aria-label="4000-4999"><span></span>
+          <span class="small" data-ar="3,000 – 3,999" data-en="3,000 – 3,999"></span><input type="number" id="sa-b3" min="0" aria-label="3000-3999"><span></span>
+          <span class="small" data-ar="أقل من 3,000" data-en="Below 3,000"></span><input type="number" id="sa-b0" min="0" aria-label="<3000"><span></span>
+        </div></fieldset>
+      <fieldset class="fs"><legend data-ar="فئات خاصة" data-en="Special categories"></legend>
+        <div class="row2">
+          <div class="field"><label for="sa-pt" data-ar="دوام جزئي" data-en="Part-time"></label><input type="number" id="sa-pt" min="0" value="0"></div>
+          <div class="field"><label for="sa-st" data-ar="طلاب" data-en="Students"></label><input type="number" id="sa-st" min="0" value="0"></div>
+          <div class="field"><label for="sa-fx" data-ar="عمل مرن" data-en="Flexible work"></label><input type="number" id="sa-fx" min="0" value="0"></div>
+          <div class="field"><label for="sa-ds" data-ar="ذوو إعاقة فوق الحد" data-en="Disabled, at full wage"></label><input type="number" id="sa-ds" min="0" value="0"></div>
+        </div></fieldset>
+      <div class="field"><label for="sa-ns" data-ar="الموظفون غير السعوديين" data-en="Non-Saudi staff"></label><input type="number" id="sa-ns" min="0"></div>
+      <button class="btn" type="button" id="sa-import" data-ar="انقل الموظفين من حاسبة المنشأة" data-en="Bring staff from the business calculator"></button>
+    </div>
+    <div class="panel">
+      <div class="tablewrap"><table id="t-sa"></table></div>
+      <div id="sa-verdict" style="display:grid;gap:6px"></div>
+      <div class="chart"><canvas id="c-sa"></canvas></div>
+      <h3 data-ar="الخياران لاستعادة نطاقك في 2028" data-en="Two ways to keep your band in 2028"></h3>
+      <div class="stat3" id="sa-opts"></div>
+    </div>
+  </div>
+  <p class="small" data-ar="المعادلة: النسبة المطلوبة = م × لو(عدد العاملين) + ث، بثوابت لكل نشاط ونطاق وسنة من الملحق 1 للدليل الإجرائي لنطاقات المطوّر 2026. الثوابت مستخرجة آلياً من ملف PDF، فتحقق من نطاقك الرسمي في منصة قوى. احتساب نصف موظف تحت الحد الجديد افتراض لأن القرار حدد حد الاحتساب الكامل فقط." data-en="Formula: required % = m × ln(headcount) + c, with constants per activity, band and year from Annex 1 of HRSD's 2026 Nitaqat Mutawar guide. Constants were machine-extracted from the PDF; check your official band in Qiwa. Half-counting below the new threshold is an assumption, as the decision sets only the full-count wage."></p>
+</section>
+
+<!-- KEEPING PACE & TRUST -->
+<section class="view" id="v-trust" hidden>
+  <div class="vhead"><h2 data-ar="مجاراة التضخم وكسب ثقة العملاء" data-en="Keeping pace with inflation and winning customers' trust"></h2>
+    <p class="muted" data-ar="كيف ترفع أسعارك بقدر التكلفة الحقيقية فقط، وفي الوقت الصحيح، وبطريقة تحافظ على عملائك." data-en="How to raise prices only by your real cost increase, at the right time, in a way that keeps your customers."></p></div>
+  <div class="story" id="tr-why"></div>
+  <div class="g-ctl">
+    <div class="panel ctl">
+      <h3 data-ar="مخطط رفع الأسعار" data-en="Price-rise planner"></h3>
+      <div class="field"><label for="tr-need" data-ar="الزيادة اللازمة للحفاظ على الربح %" data-en="Rise needed to keep profit %"></label><input type="number" id="tr-need" step="0.1" min="0"></div>
+      <button class="btn" type="button" id="tr-from" data-ar="خذها من حاسبة المنشأة" data-en="Take it from the business calculator"></button>
+      <div class="field"><label for="tr-eff" id="tr-eff-l"></label><input type="range" id="tr-eff" min="0" max="60" step="5" value="25"></div>
+      <div class="field"><label for="tr-anc" id="tr-anc-l"></label><input type="range" id="tr-anc" min="0" max="60" step="5" value="20"></div>
+      <div class="field"><label for="tr-plan" data-ar="التوقيت" data-en="Timing"></label>
+        <select id="tr-plan">
+          <option value="1" data-ar="دفعة واحدة في يناير 2027" data-en="One step in January 2027"></option>
+          <option value="2" selected data-ar="دفعتان: يناير ومايو 2027" data-en="Two steps: January and May 2027"></option>
+          <option value="3" data-ar="ثلاث دفعات: يناير 2027، مايو 2027، مايو 2028" data-en="Three steps: Jan 2027, May 2027, May 2028"></option>
+        </select></div>
+    </div>
+    <div class="panel">
+      <div class="stat3" id="tr-out"></div>
+      <div class="tablewrap"><table id="t-tr"></table></div>
+      <div class="chart s"><canvas id="c-tr"></canvas></div>
+    </div>
+  </div>
+  <div class="g2">
+    <div class="panel"><h3 data-ar="مجاراة التضخم: ماذا تفعل المنشأة؟" data-en="Keeping pace: what a business can do"></h3><div id="tr-pace"></div></div>
+    <div class="panel"><h3 data-ar="كسب ثقة العملاء" data-en="Winning customers' trust"></h3><div id="tr-trust"></div></div>
+  </div>
+  <div class="g-ctl">
+    <div class="panel ctl">
+      <h3 data-ar="رسالة لعملائك" data-en="A message to your customers"></h3>
+      <div class="field"><label for="ms-name" data-ar="اسم المنشأة" data-en="Business name"></label><input type="text" id="ms-name" class="search"></div>
+      <div class="field"><span class="lab" data-ar="أسباب التعديل" data-en="Reasons"></span>
+        <label class="check"><input type="checkbox" id="ms-r1" checked><span data-ar="تعرفة الكهرباء والمياه الجديدة" data-en="The new electricity and water tariffs"></span></label>
+        <label class="check"><input type="checkbox" id="ms-r2" checked><span data-ar="رفع رواتب موظفينا السعوديين" data-en="Higher pay for our Saudi staff"></span></label>
+        <label class="check"><input type="checkbox" id="ms-r3"><span data-ar="ارتفاع أسعار الموردين" data-en="Higher supplier prices"></span></label></div>
+      <div class="field"><span class="lab" data-ar="التزاماتك" data-en="Your commitments"></span>
+        <label class="check"><input type="checkbox" id="ms-c1" checked><span data-ar="أسعار المنتجات الأساسية ثابتة" data-en="Essential items keep their price"></span></label>
+        <label class="check"><input type="checkbox" id="ms-c2" checked><span data-ar="لن نخفض الجودة أو الكميات" data-en="No cut in quality or portion size"></span></label>
+        <label class="check"><input type="checkbox" id="ms-c3"><span data-ar="خصم للعملاء الدائمين" data-en="A discount for loyal customers"></span></label></div>
+    </div>
+    <div class="panel">
+      <pre class="msg" id="ms-out"></pre>
+      <div class="row"><button class="btn solid" type="button" id="ms-copy" data-ar="انسخ الرسالة" data-en="Copy message"></button><span class="small" id="ms-copied"></span></div>
+    </div>
+  </div>
+</section>
+
 <!-- SOCIETY -->
 <section class="view" id="v-society" hidden>
   <div class="vhead"><h2 data-ar="من يربح ومن يخسر؟" data-en="Who gains and who loses?"></h2><p class="muted" data-ar="صافي وضع كل أسرة بعد زيادة الفواتير، والبدل، ورفع الأجر عبر نطاقات (بحلول 2028)، كنسبة من دخلها." data-en="Each household's net position after higher bills, the allowance and the Nitaqat wage uplift (by 2028), as a share of income."></p></div>
@@ -353,6 +454,7 @@ textarea { resize: vertical; min-height: 44px; flex: 1 }
           <select id="b-grp"><option value="commercial" data-ar="تجاري وخدمي" data-en="Commercial &amp; services"></option><option value="industrial" data-ar="صناعي" data-en="Industrial"></option><option value="agricultural" data-ar="زراعي" data-en="Agricultural"></option></select></div>
         <div class="field"><label for="b-emp" data-ar="عدد الموظفين" data-en="Employees"></label><input type="number" id="b-emp" min="1" max="20000" step="1"></div>
       </div>
+      <div class="field"><label for="b-q" data-ar="ابحث عن نشاطك (بالاسم أو رمز ISIC)" data-en="Find your activity (name or ISIC code)"></label><input type="search" id="b-q" class="search"></div>
       <div class="field"><label for="b-act" data-ar="النشاط" data-en="Activity"></label><select id="b-act"></select></div>
       <p class="small" id="b-note"></p>
       <fieldset class="fs"><legend data-ar="الإيرادات والتكاليف الشهرية (ريال)" data-en="Monthly revenue and costs (SAR)"></legend>
@@ -401,6 +503,7 @@ textarea { resize: vertical; min-height: 44px; flex: 1 }
 <section class="view" id="v-commercial" hidden>
   <div class="vhead"><h2 data-ar="القطاع التجاري والخدمي: 43 نشاطاً" data-en="Commercial and services: 43 activities"></h2><p class="muted" data-ar="رفع السعر اللازم في 2028 ليحافظ كل نشاط على ربحه، موزّعاً على مصادره. اضغط على أي نشاط لفتحه في الحاسبة." data-en="The price rise each activity needs by 2028 to keep its profit, split by source. Click any activity to open it in the calculator."></p></div>
   <div class="panel"><div class="legend" id="lg-cat-commercial"></div><div class="chart xl" id="box-commercial"><canvas id="c-cat-commercial"></canvas></div></div>
+  <div class="panel"><label for="q-commercial" class="lab" data-ar="ابحث في كل الأنشطة التجارية والخدمية (اضغط على أي نشاط لحسابه)" data-en="Search every commercial and service activity (click one to work it out)"></label><div class="row"><input type="search" id="q-commercial" class="search"><span class="small" id="ic-commercial"></span></div><div class="chips" id="il-commercial"></div></div>
   <div class="panel"><div class="tablewrap"><table id="t-cat-commercial" class="clickable"></table></div></div>
   <div class="g2">
     <div class="panel"><h3 data-ar="التعرفة حسب القطاع (هللة/كيلوواط ساعة)" data-en="Tariff by sector (halalas/kWh)"></h3><div class="tablewrap"><table id="t-sectors"></table></div></div>
@@ -417,6 +520,7 @@ textarea { resize: vertical; min-height: 44px; flex: 1 }
     <div class="panel"><h3 data-ar="حصة الكهرباء من الإيراد: الحالي و2027" data-en="Electricity as a share of revenue: now and 2027"></h3><div class="chart t"><canvas id="c-ind"></canvas></div></div>
     <div class="panel"><h3 data-ar="التكلفة الإضافية على القطاعات (مليار ريال/سنة)" data-en="Extra electricity cost by sector (bn SAR/yr)"></h3><div class="chart"><canvas id="c-sec"></canvas></div><p class="small" id="pt-note"></p></div>
   </div>
+  <div class="panel"><label for="q-industrial" class="lab" data-ar="ابحث في كل الأنشطة الصناعية (اضغط على أي نشاط لحسابه)" data-en="Search every industrial activity (click one to work it out)"></label><div class="row"><input type="search" id="q-industrial" class="search"><span class="small" id="ic-industrial"></span></div><div class="chips" id="il-industrial"></div></div>
   <div class="panel"><div class="tablewrap"><table id="t-cat-industrial" class="clickable"></table></div></div>
 </section>
 
@@ -424,6 +528,7 @@ textarea { resize: vertical; min-height: 44px; flex: 1 }
 <section class="view" id="v-agri" hidden>
   <div class="vhead"><h2 data-ar="القطاع الزراعي" data-en="Agriculture"></h2><p class="muted" data-ar="التعرفة الزراعية ترتفع من 16/20 إلى 19/23 هللة، والرسم الثابت من 10 – 30 إلى 140 – 200 ريال. أغلب المزارع تسحب المياه من آبارها، فالكهرباء (الضخ والتبريد) هي البند الأهم." data-en="The agricultural rate rises from 16/20 to 19/23 halalas, and the fixed charge from 10–30 to 140–200 SAR. Most farms draw water from their own wells, so electricity (pumping and cooling) is the key line."></p></div>
   <div class="panel"><div class="legend" id="lg-cat-agricultural"></div><div class="chart" id="box-agricultural"><canvas id="c-cat-agricultural"></canvas></div></div>
+  <div class="panel"><label for="q-agricultural" class="lab" data-ar="ابحث في كل الأنشطة الزراعية (اضغط على أي نشاط لحسابه)" data-en="Search every agricultural activity (click one to work it out)"></label><div class="row"><input type="search" id="q-agricultural" class="search"><span class="small" id="ic-agricultural"></span></div><div class="chips" id="il-agricultural"></div></div>
   <div class="panel"><div class="tablewrap"><table id="t-cat-agricultural" class="clickable"></table></div></div>
 </section>
 
@@ -800,14 +905,11 @@ function pnlJS(p, inf, comply) {
   return { out, rev, oth0 };
 }
 let BSTATE = null;
-function bActOptions() {
-  const g = $("b-grp").value, cur = $("b-act").value;
-  const list = ACT.filter((a) => a.group === g);
-  $("b-act").innerHTML = list.map((a) => `<option value="${a.id}">${name(a)} · ${a.isic}</option>`).join("");
-  if (list.some((a) => a.id === cur)) $("b-act").value = cur;
-}
+function bActOptions() { const q = $("b-q").value; activityOptions($("b-act"), q ? null : $("b-grp").value, q, $("b-act").value); }
 function bLoad(keepEmp) {
-  const a = ACT.find((x) => x.id === $("b-act").value) || ACT[0];
+  const res = resolveActivity($("b-act").value) || resolveActivity("p:" + ACT.find((x) => x.group === $("b-grp").value).id);
+  const a = res.a;
+  if ($("b-q").value) $("b-grp").value = a.group;
   const emp = keepEmp ? +$("b-emp").value || a.employees : a.employees;
   $("b-emp").value = emp;
   const p = actInputs(a, emp), inf = { materials: [HL.headline_2027, HL.headline_2028], other: [HL.headline_2027, HL.headline_2028], rent: [G.rent, G.rent] };
@@ -816,8 +918,8 @@ function bLoad(keepEmp) {
   set("b-rev", p.rev); set("b-mat", p.mat); set("b-rent", p.rent); set("b-oth", r.oth0 / 12); set("b-kwh", p.kwh); $("b-br").value = p.br; set("b-m3", p.m3);
   set("b-n1", p.n1); set("b-w1", p.w1); set("b-n2", p.n2); set("b-w2", p.w2); set("b-n3", p.n3); set("b-w3", p.w3); set("b-n4", p.n4); set("b-w4", p.w4);
   $("b-im").value = HL.headline_2027; $("b-ir").value = G.rent; $("b-io").value = HL.headline_2027;
-  $("b-note").textContent = (a.note ? a.note + " · " : "") + L(`قيم استرشادية: ${fmt(a.revenue_per_emp)} ريال إيراد و${fmt(a.kwh_per_emp)} كيلوواط ساعة لكل موظف شهرياً، وهامش ربح ${a.margin_pct}%.`, `Indicative: ${fmt(a.revenue_per_emp)} SAR revenue and ${fmt(a.kwh_per_emp)} kWh per employee a month, ${a.margin_pct}% margin.`);
-  BSTATE = { act: a };
+  $("b-note").textContent = L(`${res.label} — قيم تكاليف من ملف «${a.name_ar}». `, `${res.label} — cost values from the "${a.name_en}" profile. `) + (a.note ? a.note + " · " : "") + L(`قيم استرشادية: ${fmt(a.revenue_per_emp)} ريال إيراد و${fmt(a.kwh_per_emp)} كيلوواط ساعة لكل موظف شهرياً، وهامش ربح ${a.margin_pct}%.`, `Indicative: ${fmt(a.revenue_per_emp)} SAR revenue and ${fmt(a.kwh_per_emp)} kWh per employee a month, ${a.margin_pct}% margin.`);
+  BSTATE = { act: a, res };
   business();
 }
 function business() {
@@ -856,9 +958,17 @@ function business() {
   mk("c-bsteps", { type: "bar", data: { labels: parts.map((x) => x[0]), datasets: [{ label: L("ريال/سنة", "SAR/yr"), data: parts.map((x) => x[1]), backgroundColor: parts.map((x) => x[2]), borderRadius: 3, barPercentage: 0.6 }] },
     options: base({ h: true, yt: { font: { size: 11 } }, tip: { label: (x) => `${sgn(x.raw)} ${L("ريال/سنة", "SAR/yr")} (${fmt(dTot ? (100 * x.raw) / dTot : 0, 0)}%)` } }) });
 }
+function bNeed() {
+  if (!BSTATE) return 5;
+  const v = (id) => +$(id).value || 0;
+  const p = { tariff: BSTATE.act.tariff, rev: v("b-rev"), mat: v("b-mat"), rent: v("b-rent"), oth: v("b-oth"), kwh: v("b-kwh"), br: +$("b-br").value, m3: v("b-m3"), n1: v("b-n1"), w1: v("b-w1"), n2: v("b-n2"), w2: v("b-w2"), n3: v("b-n3"), w3: v("b-w3"), n4: v("b-n4"), w4: v("b-w4"), margin: BSTATE.act.margin_pct };
+  const inf = { materials: [v("b-im"), HL.headline_2028], rent: [v("b-ir"), v("b-ir")], other: [v("b-io"), HL.headline_2028] };
+  const { out, rev } = pnlJS(p, inf, $("b-comply").checked);
+  return rev ? (100 * (out[2028].total - out[2026].total)) / rev : 0;
+}
 function openInCalc(id) {
   const a = ACT.find((x) => x.id === id); if (!a) return;
-  $("b-grp").value = a.group; bActOptions(); $("b-act").value = id;
+  $("b-grp").value = a.group; $("b-q").value = ""; bActOptions(); $("b-act").value = "p:" + id;
   show("business"); bLoad(false);
   try { history.replaceState(null, "", "#business"); } catch (e) {}
   window.scrollTo({ top: 0 });
@@ -925,12 +1035,16 @@ function faqItems() {
     ["solutions", "كيف أخفف الزيادة؟", "How can I soften the increase?", `ضبط المكيف على 24، وإضاءة LED، وإطفاء الأجهزة، ومرشّدات المياه. تكلفتها نحو 1,350 ريالاً، وتعوّض نحو ${fmt(S.solutions.bundles.typical.offset_pct)}% من زيادة المنزل المتوسط.`, `Set AC to 24°C, LEDs, cut standby, tap aerators. About 1,350 SAR, offsetting about ${fmt(S.solutions.bundles.typical.offset_pct)}% of a typical home's increase.`],
     ["solutions", "هل تستحق الألواح الشمسية؟", "Is rooftop solar worth it?", "للمنازل، الاسترداد نحو 13 سنة لأن بيع الفائض للشبكة بـ 7 هللات فقط. للمنشآت التجارية أجدى لأن سعر الكيلوواط 25 – 35 هللة.", "For homes, payback is about 13 years because exports earn only 7 halalas. For commercial users it is better, as they pay 25–35 halalas."],
     ["society", "كم يكلّف البدل الدولة؟", "What does the allowance cost the state?", `نحو ${fmt(S.fiscal.support_cost_bn[1].cost_bn_sar_year, 0)} مليار ريال سنوياً، مقابل نحو ${fmt(S.fiscal.residential_revenue.elec_extra_bn_sar_year, 0)} مليار إيراداً إضافياً من الكهرباء السكنية.`, `About ${fmt(S.fiscal.support_cost_bn[1].cost_bn_sar_year, 0)} bn SAR a year, against about ${fmt(S.fiscal.residential_revenue.elec_extra_bn_sar_year, 0)} bn of extra residential power revenue.`],
+    ["saudization", "هل يؤثر رفع حد الأجور على نطاقي في نطاقات؟", "Will the higher wage threshold change my Nitaqat band?", "نعم. السعودي الذي راتبه أقل من حد الاحتساب الكامل (5,000 ثم 6,000 ريال) قد يُحتسب نصف موظف، فتنخفض نسبتك المحتسبة وقد تنزل نطاقاً بدون أي تغيير في موظفيك. حاسبة التوطين توضح نطاقك لكل سنة وكم تحتاج.", "Yes. A Saudi paid below the full-count wage (5,000 then 6,000 SAR) may count as half, lowering your counted rate and possibly your band with no change in staff. The Saudization calculator shows your band each year and what you need."],
+    ["saudization", "كيف تُحسب النسبة المطلوبة في نطاقات المطوّر؟", "How is the required Nitaqat rate set?", "النسبة المطلوبة = م × لو(عدد العاملين) + ث، بثوابت لكل نشاط ونطاق وسنة من الدليل الإجرائي 2026. المنشآت التي فيها 5 عمال أو أقل تحتاج سعودياً واحداً.", "Required % = m × ln(headcount) + c, with constants per activity, band and year from the 2026 procedural guide. Establishments with 5 or fewer workers need one Saudi."],
+    ["trust", "كيف أرفع أسعاري بدون أن أخسر عملائي؟", "How do I raise prices without losing customers?", "ارفع بقدر التكلفة الحقيقية فقط، وأعلن قبل التطبيق مع السبب، وثبّت أسعار المنتجات الأساسية، وتدرّج على دفعتين مرتبطتين بموعدي التعرفة ونطاقات، ولا تخفض الجودة أو الكمية سراً. صفحة مجاراة التضخم تعطيك خطة ورسالة جاهزة.", "Raise only by your real cost, announce ahead with the reason, keep essentials fixed, go in two steps tied to the tariff and Nitaqat dates, and never cut quality or size quietly. The pricing page gives you a plan and a ready message."],
+    ["business", "هل كل أنشطة المركز السعودي للأعمال موجودة؟", "Are all Saudi Business Center activities covered?", "الموقع يضم كل فئات التصنيف الدولي ISIC4 المرخصة في المملكة (400 فئة)، وكل نشاط تفصيلي في المركز السعودي للأعمال من 6 خانات يقع تحت إحداها: ابحث بأول 4 أرقام من رمز نشاطك أو باسمه.", "The site covers every ISIC4 class licensable in the Kingdom (400 classes). Every 6-digit Saudi Business Center activity sits under one of them: search by the first four digits of your activity code or by name."],
     ["method", "ما مدى دقة هذه الأرقام؟", "How accurate are these figures?", "التعرفة والبدل وحدود نطاقات أرقام رسمية معلنة. أما التضخم وأثر المنشآت فتقديرات من نماذج، وأهم افتراضاتها مذكورة مع نطاقاتها في تبويب المنهجية. قيم الأنشطة استرشادية، وعدّلها لتطابق منشأتك.", "Tariffs, the allowance and the Nitaqat thresholds are official figures. Inflation and business effects are model estimates; key assumptions and ranges are in the Method tab. Activity values are indicative; edit them to match your business."],
   ];
   return Q.map(([tab, qa, qe, aa, ae]) => ({ tab, q: L(qa, qe), a: L(aa, ae) }));
 }
 function faqRender() {
-  const s = ($("faq-s").value || "").trim().toLowerCase(), tabN = { household: L("الأفراد", "Households"), inflation: L("التضخم القادم", "Inflation"), labour: L("سوق العمل", "Labour"), business: L("حاسبة المنشأة", "Business calculator"), society: L("المجتمع", "Society"), solutions: L("الحلول", "Solutions"), method: L("المنهجية", "Method") };
+  const s = ($("faq-s").value || "").trim().toLowerCase(), tabN = { household: L("الأفراد", "Households"), inflation: L("التضخم القادم", "Inflation"), labour: L("سوق العمل", "Labour"), business: L("حاسبة المنشأة", "Business calculator"), society: L("المجتمع", "Society"), solutions: L("الحلول", "Solutions"), method: L("المنهجية", "Method"), saudization: L("حاسبة التوطين", "Saudization"), trust: L("مجاراة التضخم والثقة", "Pricing & trust") };
   const items = faqItems().filter((x) => !s || (x.q + " " + x.a).toLowerCase().includes(s));
   $("faq-list").innerHTML = items.length ? items.map((x, i) => `<details${i === 0 && s ? " open" : ""}><summary>${x.q}</summary><p>${x.a}</p><a href="#${x.tab}" class="go" data-go="${x.tab}">${L("افتح", "Open")}: ${tabN[x.tab] || x.tab}</a></details>`).join("") : `<p class="muted">${L("لا توجد نتيجة. جرّب كلمة أخرى أو اكتب سؤالك أعلاه.", "No match. Try another word or type your question above.")}</p>`;
   $("faq-list").querySelectorAll("[data-go]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); show(a.dataset.go); window.scrollTo({ top: 0 }); }));
@@ -946,6 +1060,8 @@ function askContext() {
     inflation_by_category_2027: DIV.map((d) => ({ cat: d.name_en, weight: d.weight, f2027: d.forecast_2027, f2028: d.forecast_2028 })),
     activities: CAT.map((r) => ({ id: r.id, name: r.name_en, group: r.group, staff: r.employees, revenue_year: r.revenue_year, power_rise: r.d_electricity, nitaqat_wages: r.d_nitaqat_wages, cost_rise_pct: r.cost_increase_2028_pct, price_rise_needed_pct: r.price_rise_to_keep_profit_pct })),
   };
+  ctx.nitaqat = "Required % = m*ln(headcount)+c per activity/band/year (HRSD 2026 Annex 1). Weights: Saudi >= full-count wage (4,000 in 2026, 5,000 from ~Apr 2027, 6,000 from ~Apr 2028) = 1; 3,000 to threshold = 0.5 (assumed after 2026); part-time/student 0.5; flexible 1/3; disabled 4. <=5 workers need 1 Saudi.";
+  ctx.isic_classes_covered = ISIC.length;
   if (BSTATE) ctx.user_business_calculator = { activity: BSTATE.act.name_en, kpis: $("b-kpis").innerText };
   return JSON.stringify(ctx);
 }
@@ -1125,16 +1241,199 @@ function method() {
   $("sources").innerHTML = src.map(([l, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${l}</a></li>`).join("");
 }
 
+// ---------- ISIC CLASSES (all activities) ----------
+const ISIC = D.isic, SECS = D.sections, NQ = D.nitaqat;
+const isicName = (r) => (AR() ? r.ar : r.en);
+const nqName = (id) => { const r = NQ.find((x) => x.id === id); return r ? (AR() ? r.name_ar : r.name_en) : ""; };
+const profByCode = (code) => { const r = ISIC.find((x) => x.c === code); return r ? r.n : 41; };
+function actById(id) { return ACT.find((x) => x.id === id) || ACT[0]; }
+function nqForProfile(a) { const digits = (a.isic || "").replace(/\D/g, "").slice(0, 4); return profByCode(digits); }
+function norm(s) { return (s || "").toLowerCase().replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/ى/g, "ي"); }
+function matches(q, ...fields) { if (!q) return true; const n = norm(q); return fields.some((f) => norm(String(f)).includes(n)); }
+// options: detailed profiles + every ISIC class, filtered by group and search
+function activityOptions(selectEl, group, q, cur) {
+  const prof = ACT.filter((a) => (!group || a.group === group) && matches(q, a.name_ar, a.name_en, a.isic));
+  const cls = ISIC.filter((r) => (!group || actById(r.p).group === group) && matches(q, r.ar, r.en, r.c));
+  let html = prof.length ? `<optgroup label="${L("أنشطة بقيم تفصيلية", "Activities with detailed values")}">` + prof.map((a) => `<option value="p:${a.id}">${name(a)} · ${a.isic}</option>`).join("") + "</optgroup>" : "";
+  const bySec = {};
+  cls.forEach((r) => { (bySec[r.s] = bySec[r.s] || []).push(r); });
+  Object.keys(bySec).sort().forEach((s) => { html += `<optgroup label="${s} · ${AR() ? SECS[s][0] : SECS[s][1]}">` + bySec[s].map((r) => `<option value="i:${r.c}">${r.c} · ${isicName(r)}</option>`).join("") + "</optgroup>"; });
+  selectEl.innerHTML = html || `<option value="">${L("لا توجد نتيجة", "No match")}</option>`;
+  if (cur && [...selectEl.options].some((o) => o.value === cur)) selectEl.value = cur;
+}
+function resolveActivity(val) {
+  if (!val) return null;
+  const [k, id] = val.split(":");
+  if (k === "p") { const a = actById(id); return { a, label: name(a), code: a.isic, nq: nqForProfile(a) }; }
+  const r = ISIC.find((x) => x.c === id); if (!r) return null;
+  return { a: actById(r.p), label: `${r.c} · ${isicName(r)}`, code: r.c, nq: r.n };
+}
+
+// ---------- SAUDIZATION ----------
+const BANDK = ["lg", "mg", "hg", "pl"];
+const BANDN = () => ({ red: L("أحمر", "Red"), lg: L("أخضر منخفض", "Low green"), mg: L("أخضر متوسط", "Medium green"), hg: L("أخضر مرتفع", "High green"), pl: L("بلاتيني", "Platinum") });
+const fullWage = (y) => (y <= 2026 ? 4000 : y === 2027 ? 5000 : 6000);
+function nqRequired(id, n, y) {
+  const a = NQ.find((x) => x.id === id) || NQ[NQ.length - 1], yy = String(Math.min(Math.max(y, 2026), 2028)).slice(2), out = {};
+  let prev = 0;
+  BANDK.forEach((b) => { let r = a["m_" + b] * Math.log(Math.max(1, n)) + a[`c${yy}_${b}`]; r = Math.min(100, Math.max(0, r, prev)); out[b] = r; prev = r; });
+  return out;
+}
+function saStaff() { const v = (id) => Math.max(0, +$(id).value || 0); return { b6: v("sa-b6"), b5: v("sa-b5"), b4: v("sa-b4"), b3: v("sa-b3"), b0: v("sa-b0"), pt: v("sa-pt"), st: v("sa-st"), fx: v("sa-fx"), ds: v("sa-ds"), ns: v("sa-ns") }; }
+function saAssess(id, s, y) {
+  const t = fullWage(y), w = (lo) => (lo >= t ? 1 : lo >= 3000 ? 0.5 : 0);
+  let num = s.b6 * w(6000) + s.b5 * w(5000) + s.b4 * w(4000) + s.b3 * w(3000) + 0.5 * s.pt + 0.5 * s.st + s.fx / 3 + 4 * s.ds;
+  const den = s.b6 + s.b5 + s.b4 + s.b3 + s.b0 + s.pt + s.st + s.fx + s.ds * 4 + s.ns, heads = s.b6 + s.b5 + s.b4 + s.b3 + s.b0 + s.pt + s.st + s.fx + s.ds + s.ns;
+  const rate = den ? (100 * num) / den : 0;
+  if (heads <= 5) return { t, num, den, rate, heads, small: true, band: num >= 1 ? "pl" : "red", req: null, hires: { lg: num >= 1 ? 0 : 1, mg: num >= 1 ? 0 : 1, hg: num >= 1 ? 0 : 1, pl: num >= 1 ? 0 : 1 } };
+  const req = nqRequired(id, Math.round(den), y);
+  let band = "red"; BANDK.forEach((b) => { if (rate >= req[b] - 1e-9) band = b; });
+  const hires = {}; BANDK.forEach((b) => { const tg = req[b] / 100; hires[b] = tg >= 1 ? Infinity : Math.max(0, Math.ceil((tg * den - num) / (1 - tg) - 1e-9)); });
+  return { t, num, den, rate, heads, small: false, band, req, hires };
+}
+function saOptions() {
+  activityOptions($("sa-act"), null, $("sa-q").value, $("sa-act").value || "p:restaurant");
+  const cur = +$("sa-n").value || 0;
+  $("sa-n").innerHTML = NQ.map((r) => `<option value="${r.id}">${r.id}. ${AR() ? r.name_ar : r.name_en}</option>`).join("");
+  if (cur) $("sa-n").value = cur;
+}
+function saPickActivity() { const r = resolveActivity($("sa-act").value); if (r) $("sa-n").value = r.nq; saudization(); }
+function saImport() {
+  const v = (id) => +$(id).value || 0, w1 = v("b-w1"), w2 = v("b-w2"), w3 = v("b-w3");
+  ["sa-b6", "sa-b5", "sa-b4", "sa-b3", "sa-b0"].forEach((id) => ($(id).value = 0));
+  const put = (n, w) => { const id = w >= 6000 ? "sa-b6" : w >= 5000 ? "sa-b5" : w >= 4000 ? "sa-b4" : w >= 3000 ? "sa-b3" : "sa-b0"; $(id).value = (+$(id).value || 0) + n; };
+  put(v("b-n1"), w1); put(v("b-n2"), w2); put(v("b-n3"), w3); $("sa-ns").value = v("b-n4");
+  if (BSTATE) { const cur = $("b-act").value; if ([...$("sa-act").options].some((o) => o.value === cur)) $("sa-act").value = cur; const r = resolveActivity(cur); if (r) $("sa-n").value = r.nq; }
+  saudization();
+}
+function saudization() {
+  const id = +$("sa-n").value || 41, s = saStaff(), yrs = [2026, 2027, 2028], R = yrs.map((y) => saAssess(id, s, y)), BN = BANDN(), c = C();
+  const bandPill = (b) => `<span class="pill ${b === "red" ? "bad" : b === "lg" ? "warn" : "good"}">${BN[b]}</span>`;
+  $("t-sa").innerHTML = `<thead><tr><th></th>${yrs.map((y) => `<th class="n">${y}</th>`).join("")}</tr></thead><tbody>
+    <tr><td>${L("حد الاحتساب الكامل", "Full-count wage")}</td>${R.map((r) => `<td class="n">${fmt(r.t)}</td>`).join("")}</tr>
+    <tr><td>${L("السعوديون المحتسبون", "Counted Saudis")}</td>${R.map((r) => `<td class="n">${fmt(r.num, 1)}</td>`).join("")}</tr>
+    <tr class="sel"><td>${L("نسبة التوطين", "Saudization rate")}</td>${R.map((r) => `<td class="n">${fmt(r.rate, 1)}%</td>`).join("")}</tr>
+    <tr><td>${L("النطاق", "Band")}</td>${R.map((r) => `<td class="n">${bandPill(r.band)}</td>`).join("")}</tr>
+    ${BANDK.map((b) => `<tr><td class="small">${L("المطلوب", "Required")}: ${BN[b]}</td>${R.map((r) => `<td class="n small">${r.small ? L("سعودي واحد", "1 Saudi") : fmt(r.req[b], 1) + "%"}</td>`).join("")}</tr>`).join("")}
+    </tbody>`;
+  const r26 = R[0], r28 = R[2], order = ["red", ...BANDK], drop = order.indexOf(r28.band) < order.indexOf(r26.band);
+  $("sa-verdict").innerHTML = R[0].heads === 0 ? `<span class="small">${L("أدخل موظفيك.", "Enter your staff.")}</span>` :
+    (drop ? `<span class="pill bad">! ${L(`تنزل من ${BN[r26.band]} إلى ${BN[r28.band]} بحلول 2028 بسبب رفع حد الاحتساب، بدون أي تغيير في موظفيك`, `You drop from ${BN[r26.band]} to ${BN[r28.band]} by 2028 because of the higher full-count wage, with no change in your staff`)}</span>` :
+      `<span class="pill good">✓ ${L(`تبقى في نطاق ${BN[r28.band]} أو أعلى حتى 2028`, `You stay in ${BN[r28.band]} or better through 2028`)}</span>`) +
+    (R[0].small ? `<span class="small">${L("المنشآت التي فيها 5 عمال أو أقل تحتاج سعودياً واحداً محتسباً.", "Establishments with 5 or fewer workers need one counted Saudi.")}</span>` : "");
+  // options to keep the 2026 band in 2028
+  const tgt = r26.band === "red" ? "lg" : r26.band, g = 1 + A.gosi_employer_rate_saudi_pct.value / 100;
+  const hires = r28.small ? r28.hires[tgt] : r28.hires[tgt];
+  const hireCost = hires === Infinity ? null : hires * 6000 * 12 * g;
+  const raiseCost = (s.b5 * Math.max(0, 6000 - 5500) + s.b4 * (6000 - 4500) + s.b3 * (6000 - 3500)) * 12 * g;
+  const raiseRate = saAssess(id, { ...s, b6: s.b6 + s.b5 + s.b4 + s.b3, b5: 0, b4: 0, b3: 0 }, 2028);
+  $("sa-opts").innerHTML = `<div><span class="small">${L("الهدف", "Target")}</span><b>${BN[tgt]}</b><span class="small">${L("نطاقك في 2026", "your 2026 band")}</span></div>` +
+    `<div><span class="small">${L("أ) توظيف سعوديين جدد براتب 6,000", "A) Hire new Saudis at 6,000")}</span><b>${hires === Infinity ? "–" : fmt(hires)}</b><span class="small">${hireCost == null ? "" : fmt(hireCost) + L(" ريال/سنة", " SAR/yr")}</span></div>` +
+    `<div><span class="small">${L("ب) رفع رواتب الحاليين إلى 6,000", "B) Lift current Saudis to 6,000")}</span><b>${fmt(raiseCost)}</b><span class="small">${L("ريال/سنة · النطاق", "SAR/yr · band")}: ${BN[raiseRate.band]}</span></div>`;
+  // chart: rate vs required by year
+  const req = (b) => R.map((r) => (r.small ? null : r.req[b]));
+  mk("c-sa", { type: "line", data: { labels: yrs.map(String), datasets: [
+    { label: L("نسبتك المحتسبة", "Your counted rate"), data: R.map((r) => r.rate), borderColor: c.nw, backgroundColor: c.nw, borderWidth: 3, pointRadius: 5 },
+    { label: BN.lg, data: req("lg"), borderColor: c.aux2, backgroundColor: c.aux2, borderDash: [4, 3], borderWidth: 1.5, pointRadius: 0 },
+    { label: BN.mg, data: req("mg"), borderColor: c.aux, backgroundColor: c.aux, borderDash: [4, 3], borderWidth: 1.5, pointRadius: 0 },
+    { label: BN.hg, data: req("hg"), borderColor: c.old, backgroundColor: c.old, borderDash: [4, 3], borderWidth: 1.5, pointRadius: 0 },
+    { label: BN.pl, data: req("pl"), borderColor: c.aux3, backgroundColor: c.aux3, borderDash: [4, 3], borderWidth: 1.5, pointRadius: 0 }] },
+    options: base({ legend: true, yt: { callback: (v) => v + "%" }, tip: { label: (x) => `${x.dataset.label}: ${fmt(x.raw, 1)}%` } }) });
+}
+
+// ---------- KEEPING PACE & TRUST ----------
+function trustStatic() {
+  $("tr-why").innerHTML = [
+    [L("الصدمة لمرة واحدة", "A one-off shock"), L("التعرفة ترتفع مرة واحدة في يناير 2027، وأجور نطاقات على مرحلتين في أبريل 2027 وأبريل 2028. لا داعي لرفع الأسعار كل شهر.", "Tariffs rise once in January 2027 and Nitaqat wages in two steps, April 2027 and April 2028. No need to raise prices every month.")],
+    [L("ارفع بقدر التكلفة فقط", "Raise only by your cost"), L("الحاسبة تعطيك الرقم الحقيقي. معظم الأنشطة تحتاج 4 – 7% موزعة على سنتين، وأغلبها تضخم عام كان سيحدث على أي حال.", "The calculator gives you the real figure. Most activities need 4–7% over two years, much of it general inflation that would have happened anyway.")],
+    [L("العميل يعرف السبب", "Customers know the cause"), L("قرار التعرفة معلن ومعروف. الشفافية في شرح نصيبه من زيادتك تبني الثقة، أما المبالغة فتضرها.", "The tariff decision is public. Being open about how much of your rise it explains builds trust; overstating it destroys trust.")],
+    [L("الأنظمة واضحة", "The rules are clear"), L("التزم بإعلان الأسعار بوضوح وبأنظمة وزارة التجارة وحماية المستهلك، ولا ترفع أسعار السلع الأساسية بلا مبرر.", "Display prices clearly, follow Ministry of Commerce and consumer-protection rules, and do not raise essential-goods prices without cause.")],
+  ].map(([h, p]) => `<div class="st"><b>${h}</b><p>${p}</p></div>`).join("");
+  const list = (items) => `<ul class="tips">${items.map(([h, p]) => `<li><b>${h}</b><span>${p}</span></li>`).join("")}</ul>`;
+  $("tr-pace").innerHTML = list(AR() ? [
+    ["خفّض فاتورة الطاقة أولاً", "التكييف والإضاءة وخفض سعة القاطع (من 300+ إلى 200–299 أمبير يوفر 2,400 ريال سنوياً)، وجدولة الأحمال، والطاقة الشمسية للأسطح التجارية."],
+    ["خطط للأجور قبل أبريل 2027", "حدّد السعوديين تحت 5,000 و6,000، واربط الزيادة بالأداء والإنتاجية، واستفد من برامج دعم الأجور والتدريب في صندوق تنمية الموارد البشرية (هدف)."],
+    ["ثبّت أسعار الموردين", "عقود سنوية بأسعار ثابتة، وشراء جماعي، وتنويع الموردين، ومخزون مدروس قبل يناير 2027."],
+    ["راجع المنتجات والخدمات", "اعرف هامش كل منتج، وأوقف ما يخسر، وركّز على ما يحقق قيمة أعلى للعميل."],
+    ["استخدم الحاسبات هنا", "احسب أثر القرار على قائمة دخلك ونطاقك في نطاقات قبل أن تقرر أي تغيير في السعر."],
+  ] : [
+    ["Cut the energy bill first", "Cooling, lighting, downsizing the breaker (300 A+ to 200–299 A saves 2,400 SAR a year), load scheduling, rooftop solar for commercial roofs."],
+    ["Plan wages before April 2027", "List Saudis below 5,000 and 6,000, tie raises to performance and productivity, and use HRDF (Hadaf) wage-support and training programmes."],
+    ["Lock in supplier prices", "Annual fixed-price contracts, group buying, more than one supplier, and sensible stock before January 2027."],
+    ["Review your range", "Know each item's margin, drop loss-makers, focus on what gives customers more value."],
+    ["Use the calculators here", "Work out the effect on your P&L and your Nitaqat band before you change any price."],
+  ]);
+  $("tr-trust").innerHTML = list(AR() ? [
+    ["أعلن قبل التطبيق", "أخبر عملاءك قبل أسبوعين على الأقل، وبيّن التاريخ والسبب والنسبة."],
+    ["كن دقيقاً في السبب", "قل كم من الزيادة سببه الكهرباء والأجور فعلاً. العميل يقدّر الصدق، ويستطيع أن يحسب بنفسه."],
+    ["ثبّت ما يهم العميل أكثر", "أبقِ أسعار المنتجات الأساسية والأكثر طلباً كما هي، ووزّع الزيادة على غيرها."],
+    ["لا تخفّض الجودة أو الكمية سراً", "تقليص الكمية بنفس السعر يكتشفه العميل ويفقد ثقته. إذا غيّرت الحجم فأعلن ذلك."],
+    ["كافئ الولاء", "خصم أو نقاط للعملاء الدائمين، وباقات بقيمة أفضل."],
+    ["تدرّج", "زيادتان صغيرتان مرتبطتان بموعدي التعرفة ونطاقات أسهل على العميل من قفزة واحدة كبيرة."],
+  ] : [
+    ["Announce before you apply", "Tell customers at least two weeks ahead: date, reason and size."],
+    ["Be precise about the cause", "Say how much of the rise really comes from power and wages. Customers value honesty and can do the maths."],
+    ["Protect what matters most", "Keep essentials and best-sellers at their price and spread the rise across the rest."],
+    ["No hidden quality or size cuts", "Shrinking portions at the same price is noticed and costs trust. If you change a size, say so."],
+    ["Reward loyalty", "Discounts or points for regulars, and better-value bundles."],
+    ["Go step by step", "Two small rises tied to the tariff and Nitaqat dates are easier on customers than one big jump."],
+  ]);
+}
+function trust() {
+  const need = Math.max(0, +$("tr-need").value || 0), eff = +$("tr-eff").value / 100, anc = +$("tr-anc").value / 100, steps = +$("tr-plan").value;
+  $("tr-eff-l").textContent = L(`ما تمتصه بالكفاءة وخفض التكاليف: ${fmt(eff * 100)}% من الزيادة`, `Absorbed through efficiency and cost cuts: ${fmt(eff * 100)}% of the rise`);
+  $("tr-anc-l").textContent = L(`مبيعات منتجات تبقى أسعارها ثابتة: ${fmt(anc * 100)}%`, `Sales of items whose price stays fixed: ${fmt(anc * 100)}%`);
+  const avg = need * (1 - eff), other = anc < 1 ? avg / (1 - anc) : avg;
+  const dates = steps === 1 ? [[L("يناير 2027", "Jan 2027"), 1]] : steps === 2 ? [[L("يناير 2027", "Jan 2027"), 0.55], [L("مايو 2027", "May 2027"), 0.45]] : [[L("يناير 2027", "Jan 2027"), 0.4], [L("مايو 2027", "May 2027"), 0.3], [L("مايو 2028", "May 2028"), 0.3]];
+  $("tr-out").innerHTML = `<div><span class="small">${L("متوسط زيادة سعر ما يدفعه العميل", "Average rise on what customers pay")}</span><b>${fmt(avg, 2)}%</b><span class="small">${L("بدل", "instead of")} ${fmt(need, 2)}%</span></div><div><span class="small">${L("على المنتجات غير الثابتة", "On items not held fixed")}</span><b>${fmt(other, 2)}%</b><span class="small">${L("منتجاتك الأساسية بدون تغيير", "essentials unchanged")}</span></div><div><span class="small">${L("أكبر دفعة واحدة", "Largest single step")}</span><b>${fmt(other * Math.max(...dates.map((d) => d[1])), 2)}%</b><span class="small">${L(steps === 1 ? "دفعة واحدة" : steps === 2 ? "دفعتان" : "3 دفعات", steps === 1 ? "one step" : steps + " steps")}</span></div>`;
+  let cum = 0;
+  $("t-tr").innerHTML = `<thead><tr><th>${L("الموعد", "When")}</th><th class="n">${L("الزيادة", "Rise")}</th><th class="n">${L("التراكمي", "Cumulative")}</th><th>${L("المرتبط به", "Tied to")}</th></tr></thead><tbody>` +
+    dates.map(([d, sh], i) => { cum += other * sh; const why = i === 0 ? L("تعرفة الكهرباء والمياه", "Power & water tariffs") : i === 1 ? L("حد نطاقات 5,000", "Nitaqat 5,000") : L("حد نطاقات 6,000", "Nitaqat 6,000"); return `<tr><td>${d}</td><td class="n">+${fmt(other * sh, 2)}%</td><td class="n">${fmt(cum, 2)}%</td><td class="small">${why}</td></tr>`; }).join("") + "</tbody>";
+  const c = C();
+  mk("c-tr", { type: "bar", data: { labels: [L("الزيادة اللازمة", "Needed"), L("بعد الكفاءة", "After efficiency"), L("متوسط العميل", "Customer average"), L("المنتجات غير الثابتة", "Non-fixed items")], datasets: [{ label: "%", data: [need, need * (1 - eff), avg, other], backgroundColor: [c.ink2, c.aux, c.old, c.nw], borderRadius: 3, barPercentage: 0.55 }] },
+    options: base({ yt: { callback: (v) => v + "%" }, tip: { label: (x) => fmt(x.raw, 2) + "%" } }) });
+  message(avg, dates.length);
+}
+function message(avg, nSteps) {
+  const nm = ($("ms-name").value || "").trim(), n = nm || L("", "us"), r = [], cm = [];
+  if ($("ms-r1").checked) r.push(L("تعرفة الكهرباء والمياه الجديدة التي تبدأ في 1 يناير 2027", "the new electricity and water tariffs from 1 January 2027"));
+  if ($("ms-r2").checked) r.push(L("رفع رواتب زملائنا السعوديين وفق برنامج نطاقات", "higher pay for our Saudi colleagues under the Nitaqat programme"));
+  if ($("ms-r3").checked) r.push(L("ارتفاع أسعار بعض الموردين", "higher prices from some suppliers"));
+  if ($("ms-c1").checked) cm.push(L("أسعار منتجاتنا الأساسية تبقى كما هي", "our essential items keep their current price"));
+  if ($("ms-c2").checked) cm.push(L("لن نغيّر الجودة ولا الكميات", "we will not change quality or portion sizes"));
+  if ($("ms-c3").checked) cm.push(L("عملاؤنا الدائمون يحصلون على خصم خاص", "regular customers get a special discount"));
+  const join = (a) => (a.length <= 1 ? a.join("") : a.slice(0, -1).join(AR() ? "، و" : ", ") + (AR() ? "، و" : " and ") + a[a.length - 1]);
+  $("ms-out").textContent = AR()
+    ? `عملاءنا الكرام،\n\n${nm ? `نشكر ثقتكم بـ${nm}.` : "نشكر ثقتكم بنا."} نود إبلاغكم مسبقاً بتعديل بعض أسعارنا بمتوسط ${fmt(avg, 1)}%${nSteps > 1 ? ` على ${nSteps === 2 ? "مرحلتين" : "3 مراحل"} خلال 2027${nSteps > 2 ? " و2028" : ""}` : " ابتداءً من يناير 2027"}.\n\n${r.length ? `سبب التعديل: ${join(r)}. ` : ""}امتصصنا جزءاً من هذه التكاليف بتحسين كفاءتنا، ونمرر الجزء المتبقي فقط.\n\n${cm.length ? `التزامنا لكم: ${join(cm)}.\n\n` : ""}نسعد باستفساراتكم في أي وقت.\n${nm || "إدارة المنشأة"}`
+    : `Dear customers,\n\nThank you for trusting ${n}. We are letting you know in advance that some of our prices will change by an average of ${fmt(avg, 1)}%${nSteps > 1 ? ` in ${nSteps} steps during 2027${nSteps > 2 ? " and 2028" : ""}` : " from January 2027"}.\n\n${r.length ? `The reason: ${join(r)}. ` : ""}We have absorbed part of these costs by working more efficiently and are passing on only the rest.\n\n${cm.length ? `Our commitment: ${join(cm)}.\n\n` : ""}We are happy to answer any question.\n${nm || "The management"}`;
+}
+function sectorSearch(group) {
+  const box = $("il-" + group); if (!box) return;
+  const q = $("q-" + group).value, rows = ISIC.filter((r) => actById(r.p).group === group && matches(q, r.ar, r.en, r.c));
+  box.innerHTML = rows.slice(0, 80).map((r) => `<button type="button" class="chip" data-c="${r.c}"><span class="num">${r.c}</span> ${isicName(r)}</button>`).join("") + (rows.length > 80 ? `<span class="small">+${rows.length - 80} ${L("نشاطاً آخر، حدّد البحث", "more, narrow the search")}</span>` : "") + (rows.length ? "" : `<span class="small">${L("لا توجد نتيجة", "No match")}</span>`);
+  box.querySelectorAll("[data-c]").forEach((b) => b.addEventListener("click", () => openClass(b.dataset.c)));
+  $("ic-" + group).textContent = L(`${fmt(rows.length)} نشاطاً`, `${fmt(rows.length)} activities`);
+}
+function openClass(code) {
+  const r = ISIC.find((x) => x.c === code); if (!r) return;
+  $("b-grp").value = actById(r.p).group; $("b-q").value = ""; bActOptions(); $("b-act").value = "i:" + code;
+  show("business"); bLoad(false);
+  try { history.replaceState(null, "", "#business"); } catch (e) {}
+  window.scrollTo({ top: 0 });
+}
+
 // ---------- routing & language ----------
-const VIEWS = ["overview", "inflation", "household", "business", "commercial", "industrial", "agri", "society", "labour", "solutions", "faq", "method"];
+const VIEWS = ["overview", "inflation", "household", "business", "saudization", "trust", "commercial", "industrial", "agri", "society", "labour", "solutions", "faq", "method"];
 function draw(v) {
   if (v === "overview") overview();
   if (v === "inflation") { inflationPage(); forecastView(); forecastStatic(); }
   if (v === "household") { household(); profilesCharts(); }
   if (v === "business") business();
-  if (v === "commercial") { catalogView("commercial"); tariffTables(); }
-  if (v === "industrial") industrialView();
-  if (v === "agri") catalogView("agricultural");
+  if (v === "commercial") { catalogView("commercial"); tariffTables(); sectorSearch("commercial"); }
+  if (v === "industrial") { industrialView(); sectorSearch("industrial"); }
+  if (v === "agri") { catalogView("agricultural"); sectorSearch("agricultural"); }
+  if (v === "saudization") saudization();
+  if (v === "trust") { trustStatic(); if (!$("tr-need").value) $("tr-need").value = bNeed().toFixed(2); trust(); }
   if (v === "society") society();
   if (v === "labour") labour();
   if (v === "solutions") { solutionsStatic(); solutionsView(); }
@@ -1157,6 +1456,10 @@ function applyLang() {
   $("l-ar").setAttribute("aria-pressed", AR()); $("l-en").setAttribute("aria-pressed", !AR());
   $("gen").textContent = L(" · آخر بناء للبيانات: ", " · Data built: ") + S.generated;
   bActOptions();
+  saOptions();
+  ["commercial", "industrial", "agricultural"].forEach((g) => { $("q-" + g).placeholder = L("مثال: مطعم، 4711، أدوية، خرسانة", "e.g. restaurant, 4711, pharma, concrete"); });
+  $("b-q").placeholder = $("sa-q").placeholder = L("مثال: صيدلية، 5610، بلاستيك", "e.g. pharmacy, 5610, plastics");
+  $("ms-name").placeholder = L("مثال: مطعم الواحة", "e.g. Oasis Restaurant");
   miniLang();
   if (PI_STATE) piCats();
 }
@@ -1173,6 +1476,17 @@ link("kwh-r", "kwh", household); link("m3-r", "m3", household);
 $("ac-use").addEventListener("click", () => { const v = acEstimate(); $("kwh").value = v; $("kwh-r").value = Math.min(10000, v); household(); });
 $("b-grp").addEventListener("change", () => { bActOptions(); bLoad(false); });
 $("b-act").addEventListener("change", () => bLoad(false));
+$("b-q").addEventListener("input", () => { bActOptions(); if ($("b-act").value) bLoad(false); });
+$("sa-q").addEventListener("input", () => { saOptions(); saPickActivity(); });
+$("sa-act").addEventListener("change", saPickActivity);
+$("sa-n").addEventListener("change", saudization);
+["sa-b6", "sa-b5", "sa-b4", "sa-b3", "sa-b0", "sa-pt", "sa-st", "sa-fx", "sa-ds", "sa-ns"].forEach((id) => $(id).addEventListener("input", saudization));
+$("sa-import").addEventListener("click", saImport);
+["commercial", "industrial", "agricultural"].forEach((g) => $("q-" + g).addEventListener("input", () => sectorSearch(g)));
+["tr-need", "tr-eff", "tr-anc", "tr-plan", "ms-name", "ms-r1", "ms-r2", "ms-r3", "ms-c1", "ms-c2", "ms-c3"].forEach((id) => $(id).addEventListener("input", trust));
+$("tr-from").addEventListener("click", () => { $("tr-need").value = bNeed().toFixed(2); trust(); });
+$("ms-copy").addEventListener("click", () => { const t = $("ms-out").textContent; const ok = () => { $("ms-copied").textContent = L("نُسخت", "Copied"); }; try { navigator.clipboard.writeText(t).then(ok, () => { selectMsg(); }); } catch (e) { selectMsg(); } });
+function selectMsg() { const r = document.createRange(); r.selectNodeContents($("ms-out")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); $("ms-copied").textContent = L("حدّد النص وانسخه", "Text selected: copy it"); }
 $("b-emp").addEventListener("change", () => bLoad(true));
 $("b-reset").addEventListener("click", () => bLoad(true));
 ["b-rev", "b-mat", "b-rent", "b-oth", "b-kwh", "b-br", "b-m3", "b-n1", "b-w1", "b-n2", "b-w2", "b-n3", "b-w3", "b-n4", "b-w4", "b-im", "b-ir", "b-io", "b-comply", "b-price"].forEach((id) => $(id).addEventListener("input", business));
@@ -1193,8 +1507,10 @@ miniInit();
 askInit();
 $("b-grp").value = "commercial";
 applyLang();
-$("b-act").value = "restaurant";
+$("b-act").value = "p:restaurant";
 bLoad(false);
+saOptions(); $("sa-act").value = "p:restaurant"; $("sa-n").value = profByCode("5610");
+saImport();
 const h0 = (location.hash || "").replace("#", "");
 show(VIEWS.includes(h0) ? h0 : "overview");
 })();
