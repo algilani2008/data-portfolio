@@ -125,6 +125,49 @@ details summary { cursor: pointer; font-weight: 600 }
 details ul { margin: 10px 0 0; padding-inline-start: 20px; display: grid; gap: 5px; font-size: 13.5px; color: var(--ink-2) }
 a { color: var(--accent) }
 footer { padding-block: 16px 30px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-3) }
+.hero { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 18px }
+.hero-txt { display: grid; gap: 6px }
+.roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px }
+.role { display: grid; gap: 2px; padding: 12px 14px; border-radius: var(--r); background: var(--accent-soft); color: var(--ink); text-decoration: none; border: 1px solid transparent }
+.role:hover { border-color: var(--accent) }
+.role b { font-size: 15px } .role span { font-size: 12.5px; color: var(--ink-2) }
+@media (max-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr) } }
+@media (max-width: 460px) { .roles { grid-template-columns: minmax(0, 1fr) } }
+.mini { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; background: var(--panel-2); border: 1px solid var(--line); border-radius: var(--r); padding: 8px 12px; font-size: 13.5px }
+.mini b { font-weight: 600 } .mini .mo { font-family: var(--mono); font-variant-numeric: tabular-nums }
+.mini input { width: 110px } .mini select { width: auto; max-width: 220px }
+.row2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px }
+.row2 input[type=number] { width: 100% }
+.fs { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px 10px; margin: 0; display: grid; gap: 8px; background: var(--panel) }
+.fs legend { font-size: 12.5px; font-weight: 600; color: var(--ink-2); padding: 0 4px }
+.staff { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) minmax(0, 1fr); gap: 6px 8px; align-items: center }
+.staff input { width: 100% }
+.kpis-s { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) }
+.kpis-s .kpi .v { font-size: 20px }
+table.pnl td:first-child { color: var(--ink-2) }
+table.pnl tr.sum td { font-weight: 600; border-top: 1px solid var(--ink-3) }
+table.clickable tbody tr { cursor: pointer }
+table.clickable tbody tr:hover td { background: var(--panel-2) }
+.chart.xl { height: 900px }
+.story { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px }
+.story .st { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; display: grid; gap: 4px; align-content: start }
+.story .st .big { font-size: 28px }
+.story .st p { font-size: 13.5px; color: var(--ink-2) }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px }
+.steps li { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 10px; font-size: 13.5px }
+.steps .d { font-family: var(--mono); color: var(--new); font-size: 12.5px }
+.cats { display: grid; gap: 6px }
+.cat { display: grid; grid-template-columns: minmax(0, 1fr) 96px 52px; gap: 8px; align-items: center; font-size: 13px }
+.cat input { width: 100% } .cat .r { font-family: var(--mono); font-size: 12px; color: var(--ink-3); text-align: end }
+.search, textarea { font: inherit; font-size: 14px; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; width: 100% }
+textarea { resize: vertical; min-height: 44px; flex: 1 }
+.btn.solid { background: var(--accent); color: var(--accent-ink) }
+.answer { white-space: pre-wrap; font-size: 14.5px; line-height: 1.7; color: var(--ink) }
+.answer:empty { display: none }
+.faq { display: grid; gap: 8px }
+.faq details { padding: 10px 14px }
+.faq details p { margin-top: 8px; font-size: 14px; color: var(--ink-2) }
+.faq .go { font-size: 12.5px; margin-top: 6px; display: inline-block }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important } }
 </style>
 
@@ -138,14 +181,17 @@ footer { padding-block: 16px 30px; border-top: 1px solid var(--line); font-size:
 </div></header>
 
 <nav class="tabs gut" aria-label="Sections"><div class="inner" id="tabs">
-  <a href="#overview" data-v="overview" data-ar="نظرة عامة" data-en="Overview"></a>
-  <a href="#household" data-v="household" data-ar="الأفراد والأسر" data-en="Households"></a>
+  <a href="#overview" data-v="overview" data-ar="الرئيسية" data-en="Home"></a>
+  <a href="#inflation" data-v="inflation" data-ar="التضخم القادم" data-en="Coming inflation"></a>
+  <a href="#household" data-v="household" data-ar="الأفراد والرواتب" data-en="Households &amp; pay"></a>
+  <a href="#business" data-v="business" data-ar="حاسبة المنشأة" data-en="Business calculator"></a>
+  <a href="#commercial" data-v="commercial" data-ar="التجاري" data-en="Commercial"></a>
+  <a href="#industrial" data-v="industrial" data-ar="الصناعي" data-en="Industrial"></a>
+  <a href="#agri" data-v="agri" data-ar="الزراعي" data-en="Agricultural"></a>
   <a href="#society" data-v="society" data-ar="المجتمع" data-en="Society"></a>
-  <a href="#commercial" data-v="commercial" data-ar="القطاع التجاري" data-en="Commercial"></a>
-  <a href="#industrial" data-v="industrial" data-ar="القطاع الصناعي" data-en="Industrial"></a>
   <a href="#labour" data-v="labour" data-ar="سوق العمل" data-en="Labour market"></a>
-  <a href="#forecast" data-v="forecast" data-ar="التضخم والتوقعات" data-en="Inflation &amp; forecasts"></a>
   <a href="#solutions" data-v="solutions" data-ar="الحلول" data-en="Solutions"></a>
+  <a href="#faq" data-v="faq" data-ar="أسئلة واستفسارات" data-en="Questions"></a>
   <a href="#method" data-v="method" data-ar="المنهجية والمصادر" data-en="Method &amp; sources"></a>
 </div></nav>
 
@@ -153,12 +199,93 @@ footer { padding-block: 16px 30px; border-top: 1px solid var(--line); font-size:
 
 <!-- OVERVIEW -->
 <section class="view" id="v-overview">
+  <div class="hero">
+    <div class="hero-txt">
+      <h2 data-ar="ماذا تعني قرارات 2027 لك؟" data-en="What do the 2027 decisions mean for you?"></h2>
+      <p class="muted" data-ar="اختر وضعك واحسب الأثر بأرقامك: فاتورة البيت، والراتب، والتضخم، وتكاليف منشأتك مهما كان نشاطها." data-en="Pick your situation and work out the impact with your own numbers: home bills, pay, inflation, and your business costs whatever its activity."></p>
+    </div>
+    <div class="roles" id="roles">
+      <a href="#household" data-go="household" class="role"><b data-ar="فرد أو أسرة" data-en="Individual or family"></b><span data-ar="الفاتورة، والراتب، والتضخم الشخصي" data-en="Bills, pay and personal inflation"></span></a>
+      <a href="#business" data-go="business" data-grp="commercial" class="role"><b data-ar="منشأة تجارية أو خدمية" data-en="Shop or service business"></b><span data-ar="43 نشاطاً: تجزئة، مطاعم، صحة، تعليم..." data-en="43 activities: retail, food, health, education..."></span></a>
+      <a href="#business" data-go="business" data-grp="industrial" class="role"><b data-ar="مصنع" data-en="Factory"></b><span data-ar="28 صناعة: أغذية، كيماويات، حديد، إسمنت..." data-en="28 industries: food, chemicals, steel, cement..."></span></a>
+      <a href="#business" data-go="business" data-grp="agricultural" class="role"><b data-ar="مزرعة" data-en="Farm"></b><span data-ar="7 أنشطة: بيوت محمية، نخيل، دواجن، ألبان..." data-en="7 activities: greenhouses, dates, poultry, dairy..."></span></a>
+    </div>
+  </div>
   <div class="kpis" id="ov-kpis"></div>
   <div class="insights" id="ov-ins"></div>
   <div class="g2">
     <div class="panel"><h3 data-ar="التوقعات 2025 – 2030" data-en="Outlook 2025 – 2030"></h3><div class="legend" id="lg-ov"></div><div class="chart"><canvas id="c-ov"></canvas></div>
       <div class="tablewrap"><table id="t-outlook"></table></div></div>
     <div class="panel"><h3 data-ar="الخط الزمني للقرارات" data-en="Policy timeline"></h3><ul class="timeline" id="timeline"></ul></div>
+  </div>
+</section>
+
+<!-- COMING INFLATION -->
+<section class="view" id="v-inflation" hidden>
+  <div class="vhead"><h2 data-ar="التضخم القادم: ماذا سيحدث للأسعار؟" data-en="The coming inflation: what happens to prices?"></h2></div>
+  <div class="story" id="inf-story"></div>
+  <div class="g2">
+    <div class="panel"><h3 data-ar="التضخم المتوقع 2027 حسب فئة الإنفاق (%)" data-en="Forecast 2027 inflation by spending category (%)"></h3><div class="legend" id="lg-div"></div><div class="chart t"><canvas id="c-div"></canvas></div>
+      <p class="small" data-ar="الكهرباء والمياه ترتفع نحو 39% (خارج المقياس، موضّحة بالرقم). بقية الفئات ترتفع قليلاً بسبب تمرير تكاليف المنشآت." data-en="Electricity and water rise about 39% (off the scale, labelled). Other categories edge up as businesses pass on costs."></p></div>
+    <div class="panel"><h3 data-ar="كم تصير 1,000 ريال من إنفاقك؟" data-en="What does 1,000 SAR of spending become?"></h3><div class="tablewrap"><table id="t-1000"></table></div>
+      <h3 data-ar="الجدول الزمني للصدمة" data-en="Timeline of the shock"></h3><ul class="steps" id="inf-steps"></ul></div>
+  </div>
+
+  <div class="vhead"><h2 data-ar="حاسبة التضخم الشخصي" data-en="Personal inflation calculator"></h2><p class="muted" data-ar="أدخل إنفاقك الشهري، أو وزّعه على الفئات بنفسك. ستعرف معدل تضخمك الخاص وكم ستدفع إضافياً." data-en="Enter your monthly spending, or split it across categories yourself, to get your own inflation rate and how much more you will pay."></p></div>
+  <div class="g-ctl">
+    <div class="panel ctl">
+      <div class="field"><label for="pi-tot" data-ar="إجمالي الإنفاق الشهري (ريال)" data-en="Total monthly spending (SAR)"></label><input type="number" id="pi-tot" min="0" step="100" value="10000"></div>
+      <button class="btn" type="button" id="pi-split" data-ar="وزّع حسب سلة الأسعار الرسمية" data-en="Split like the official basket"></button>
+      <label class="check"><input type="checkbox" id="pi-bills"><span data-ar="استخدم فواتيري من حاسبة الأفراد" data-en="Use my bills from the household calculator"></span></label>
+      <div class="cats" id="pi-cats"></div>
+    </div>
+    <div class="panel">
+      <div class="stat3" id="pi-out"></div>
+      <div class="chart s"><canvas id="c-pi"></canvas></div>
+    </div>
+  </div>
+
+  <div class="vhead"><h2 data-ar="حاسبة الراتب الحقيقي" data-en="Real salary calculator"></h2><p class="muted" data-ar="كم يصير راتبك بعد البدل أو رفع حد نطاقات، وكم يساوي فعلاً بعد التضخم؟ يستخدم تضخمك الشخصي من الحاسبة أعلاه." data-en="What your pay becomes after the allowance or the Nitaqat threshold, and what it is really worth after inflation. Uses your personal inflation from above."></p></div>
+  <div class="g-ctl">
+    <div class="panel ctl">
+      <div class="field"><label for="sl-g" data-ar="الراتب الشهري الإجمالي (ريال)" data-en="Gross monthly salary (SAR)"></label><input type="number" id="sl-g" min="0" step="100" value="4300"></div>
+      <div class="field"><label for="sl-k" data-ar="الوضع" data-en="Situation"></label>
+        <select id="sl-k">
+          <option value="private_saudi" data-ar="سعودي في القطاع الخاص" data-en="Saudi, private sector"></option>
+          <option value="gov" data-ar="موظف حكومي (مدني أو عسكري)" data-en="State employee (civil or military)"></option>
+          <option value="retiree" data-ar="متقاعد" data-en="Retiree"></option>
+          <option value="ss" data-ar="مستفيد من الضمان الاجتماعي" data-en="Social-security beneficiary"></option>
+          <option value="expat" data-ar="مقيم (غير سعودي)" data-en="Expatriate"></option>
+        </select></div>
+      <div class="field"><label for="sl-r" data-ar="زيادة سنوية متوقعة في راتبك %" data-en="Expected annual raise %"></label><input type="number" id="sl-r" min="0" max="30" step="0.5" value="0"></div>
+      <label class="check"><input type="checkbox" id="sl-c" checked><span data-ar="منشأتي تلتزم بحد نطاقات" data-en="My employer complies with the Nitaqat threshold"></span></label>
+    </div>
+    <div class="panel">
+      <div class="tablewrap"><table id="t-sal"></table></div>
+      <div id="sl-verdict"></div>
+      <div class="chart s"><canvas id="c-sal"></canvas></div>
+    </div>
+  </div>
+
+  <div class="vhead"><h2 data-ar="مختبر التوقعات" data-en="Forecast lab"></h2><p class="muted" data-ar="حرّك الافتراضات وشاهد أثرها على تضخم 2027." data-en="Move the assumptions and watch 2027 inflation respond."></p></div>
+  <div class="g-ctl">
+    <div class="panel ctl">
+      <div class="field"><label for="s-we" id="s-we-l"></label><input type="range" id="s-we" min="1.0" max="3.0" step="0.1" value="1.9"></div>
+      <div class="field"><label for="s-ww" id="s-ww-l"></label><input type="range" id="s-ww" min="0.1" max="0.8" step="0.05" value="0.4"></div>
+      <div class="field"><label for="s-pt" id="s-pt-l"></label><input type="range" id="s-pt" min="0" max="80" step="5" value="35"></div>
+      <div class="field"><label for="s-el" id="s-el-l"></label><input type="range" id="s-el" min="-0.30" max="0" step="0.025" value="-0.1"></div>
+      <button class="btn" type="button" id="s-reset" data-ar="إعادة الافتراضات المركزية" data-en="Reset to central"></button>
+    </div>
+    <div class="panel">
+      <div class="stat3" id="lab-out"></div>
+      <div class="legend" id="lg-cpi"></div>
+      <div class="chart t"><canvas id="c-cpi"></canvas></div>
+    </div>
+  </div>
+  <div class="g3">
+    <div class="panel"><h3 data-ar="الإصلاحات السابقة" data-en="Past reforms"></h3><div class="chart s"><canvas id="c-events"></canvas></div><div class="tablewrap"><table id="t-events"></table></div></div>
+    <div class="panel"><h3 data-ar="2,000 محاكاة لتضخم 2027" data-en="2,000 simulations of 2027 inflation"></h3><div class="chart s"><canvas id="c-mc"></canvas></div><p class="small" id="mc-note"></p></div>
+    <div class="panel"><h3 data-ar="أكثر المدخلات تأثيراً (نقطة مئوية)" data-en="Most influential inputs (pp)"></h3><div class="chart s"><canvas id="c-tornado"></canvas></div></div>
   </div>
 </section>
 
@@ -215,47 +342,89 @@ footer { padding-block: 16px 30px; border-top: 1px solid var(--line); font-size:
   <div class="kpis" id="env-kpis"></div>
 </section>
 
-<!-- COMMERCIAL -->
-<section class="view" id="v-commercial" hidden>
-  <div class="vhead"><h2 data-ar="حاسبة المنشأة" data-en="Business calculator"></h2><p class="muted" data-ar="اختر نشاطاً نموذجياً أو أدخل أرقام منشأتك: فاتورة الكهرباء (بدون الضريبة القابلة للاسترداد) + تكلفة رفع رواتب السعوديين لحد نطاقات." data-en="Pick an example business or enter your own: the electricity bill (VAT excluded, as businesses reclaim it) plus the cost of lifting Saudi salaries to the Nitaqat threshold."></p></div>
+<!-- BUSINESS CALCULATOR -->
+<section class="view" id="v-business" hidden>
+  <div class="vhead"><h2 data-ar="حاسبة المنشأة: كم ستكلّفك 2027 و2028؟" data-en="Business calculator: what will 2027 and 2028 cost you?"></h2>
+    <p class="muted" data-ar="اختر نشاطك وعدد موظفيك، فتُملأ الحقول بقيم استرشادية لنشاطك. عدّل أي رقم ليطابق منشأتك. الحساب يشمل الكهرباء والمياه وأجور نطاقات والتأمينات وتضخم المدخلات والإيجار، بدون ضريبة القيمة المضافة لأنها قابلة للاسترداد." data-en="Choose your activity and headcount; the fields fill with indicative values for that activity. Edit any number to match your business. Covers electricity, water, Nitaqat wages, GOSI, input inflation and rent, excluding reclaimable VAT."></p></div>
   <div class="g-ctl">
     <div class="panel ctl">
-      <div class="field"><label for="bz-a" data-ar="نشاط نموذجي" data-en="Example business"></label><select id="bz-a"></select></div>
-      <div class="field"><label for="bz-sec" data-ar="فئة التعرفة" data-en="Tariff class"></label>
-        <select id="bz-sec"><option value="commercial" data-ar="تجاري (يشمل الصحي والتعليمي الخاص)" data-en="Commercial (incl. private health & education)"></option><option value="industrial" data-ar="صناعي" data-en="Industrial"></option><option value="agricultural" data-ar="زراعي" data-en="Agricultural"></option><option value="charities" data-ar="جمعيات خيرية" data-en="Charities"></option><option value="government" data-ar="حكومي" data-en="Government"></option></select></div>
-      <div class="field"><label for="bz-kwh" data-ar="الاستهلاك الشهري (كيلوواط ساعة)" data-en="Monthly use (kWh)"></label><input type="number" id="bz-kwh" min="0" step="100"></div>
-      <div class="field"><label for="bz-br" data-ar="سعة القاطع" data-en="Breaker size"></label>
-        <select id="bz-br"><option value="60">20 – 99 A</option><option value="150">100 – 199 A</option><option value="250">200 – 299 A</option><option value="350">300 A +</option></select></div>
-      <div class="field"><label for="bz-rev" data-ar="الإيرادات الشهرية (ريال)" data-en="Monthly revenue (SAR)"></label><input type="number" id="bz-rev" min="0" step="1000"></div>
-      <div class="field"><label for="bz-mg" data-ar="هامش صافي الربح %" data-en="Net margin %"></label><input type="number" id="bz-mg" min="0" max="80" step="0.5"></div>
-      <div class="field"><span class="lab" data-ar="الموظفون السعوديون تحت 6,000 ريال" data-en="Saudi staff below 6,000 SAR"></span>
-        <div class="row"><input type="number" id="bz-n1" min="0" aria-label="count < 5000"><span class="small" data-ar="عدد تحت 5,000 بمتوسط" data-en="below 5,000 at avg"></span><input type="number" id="bz-w1" min="0" step="50" aria-label="avg wage < 5000"></div>
-        <div class="row"><input type="number" id="bz-n2" min="0" aria-label="count 5000-6000"><span class="small" data-ar="عدد بين 5,000 و6,000 بمتوسط" data-en="5,000–6,000 at avg"></span><input type="number" id="bz-w2" min="0" step="50" aria-label="avg wage 5000-6000"></div></div>
+      <div class="row2">
+        <div class="field"><label for="b-grp" data-ar="القطاع" data-en="Sector"></label>
+          <select id="b-grp"><option value="commercial" data-ar="تجاري وخدمي" data-en="Commercial &amp; services"></option><option value="industrial" data-ar="صناعي" data-en="Industrial"></option><option value="agricultural" data-ar="زراعي" data-en="Agricultural"></option></select></div>
+        <div class="field"><label for="b-emp" data-ar="عدد الموظفين" data-en="Employees"></label><input type="number" id="b-emp" min="1" max="20000" step="1"></div>
+      </div>
+      <div class="field"><label for="b-act" data-ar="النشاط" data-en="Activity"></label><select id="b-act"></select></div>
+      <p class="small" id="b-note"></p>
+      <fieldset class="fs"><legend data-ar="الإيرادات والتكاليف الشهرية (ريال)" data-en="Monthly revenue and costs (SAR)"></legend>
+        <div class="row2">
+          <div class="field"><label for="b-rev" data-ar="الإيرادات" data-en="Revenue"></label><input type="number" id="b-rev" min="0" step="100"></div>
+          <div class="field"><label for="b-mat" data-ar="المواد والبضاعة" data-en="Materials &amp; goods"></label><input type="number" id="b-mat" min="0" step="100"></div>
+          <div class="field"><label for="b-rent" data-ar="الإيجار" data-en="Rent"></label><input type="number" id="b-rent" min="0" step="100"></div>
+          <div class="field"><label for="b-oth" data-ar="تكاليف أخرى" data-en="Other costs"></label><input type="number" id="b-oth" min="0" step="100"></div>
+        </div></fieldset>
+      <fieldset class="fs"><legend data-ar="الطاقة والمياه" data-en="Energy &amp; water"></legend>
+        <div class="row2">
+          <div class="field"><label for="b-kwh" data-ar="كيلوواط ساعة/شهر" data-en="kWh per month"></label><input type="number" id="b-kwh" min="0" step="100"></div>
+          <div class="field"><label for="b-br" data-ar="القاطع" data-en="Breaker"></label><select id="b-br"><option value="60">20 – 99 A</option><option value="150">100 – 199 A</option><option value="250">200 – 299 A</option><option value="350">300 A +</option></select></div>
+          <div class="field"><label for="b-m3" data-ar="مياه م³/شهر" data-en="Water m³/month"></label><input type="number" id="b-m3" min="0" step="1"></div>
+        </div></fieldset>
+      <fieldset class="fs"><legend data-ar="الموظفون والرواتب الشهرية" data-en="Staff and monthly wages"></legend>
+        <div class="staff">
+          <span></span><span class="small" data-ar="العدد" data-en="Count"></span><span class="small" data-ar="متوسط الراتب" data-en="Avg wage"></span>
+          <span class="small" data-ar="سعوديون تحت 5,000" data-en="Saudis below 5,000"></span><input type="number" id="b-n1" min="0" aria-label="n1"><input type="number" id="b-w1" min="0" step="50" aria-label="w1">
+          <span class="small" data-ar="سعوديون 5,000 – 6,000" data-en="Saudis 5,000–6,000"></span><input type="number" id="b-n2" min="0" aria-label="n2"><input type="number" id="b-w2" min="0" step="50" aria-label="w2">
+          <span class="small" data-ar="سعوديون فوق 6,000" data-en="Saudis above 6,000"></span><input type="number" id="b-n3" min="0" aria-label="n3"><input type="number" id="b-w3" min="0" step="50" aria-label="w3">
+          <span class="small" data-ar="غير سعوديين" data-en="Non-Saudis"></span><input type="number" id="b-n4" min="0" aria-label="n4"><input type="number" id="b-w4" min="0" step="50" aria-label="w4">
+        </div></fieldset>
+      <fieldset class="fs"><legend data-ar="التضخم المتوقع للتكاليف (%)" data-en="Expected cost inflation (%)"></legend>
+        <div class="row2">
+          <div class="field"><label for="b-im" data-ar="المواد 2027" data-en="Materials 2027"></label><input type="number" id="b-im" step="0.1"></div>
+          <div class="field"><label for="b-ir" data-ar="الإيجار سنوياً" data-en="Rent per year"></label><input type="number" id="b-ir" step="0.1"></div>
+          <div class="field"><label for="b-io" data-ar="أخرى 2027" data-en="Other 2027"></label><input type="number" id="b-io" step="0.1"></div>
+        </div>
+        <p class="small" data-ar="مملوءة من توقع التضخم (المواد والأخرى: العام، الإيجار: تضخم السكن). لـ 2028 يُستخدم توقع 2028." data-en="Filled from the inflation forecast (materials and other: headline; rent: housing). 2028 uses the 2028 forecast."></p></fieldset>
+      <label class="check"><input type="checkbox" id="b-comply" checked><span data-ar="أرفع رواتب السعوديين لحد نطاقات" data-en="I will lift Saudi salaries to the Nitaqat threshold"></span></label>
+      <label class="check"><input type="checkbox" id="b-price"><span data-ar="أرفع أسعاري بمعدل التضخم العام" data-en="I will raise my prices with headline inflation"></span></label>
+      <button class="btn" type="button" id="b-reset" data-ar="إعادة القيم الاسترشادية للنشاط" data-en="Reset to the activity's indicative values"></button>
     </div>
     <div class="panel">
-      <div class="readout" id="bz-out"></div>
-      <div class="stat3" id="bz-stat"></div>
-      <div id="bz-verdict"></div>
-      <div class="chart s"><canvas id="c-bz"></canvas></div>
+      <div class="kpis kpis-s" id="b-kpis"></div>
+      <div id="b-verdict"></div>
+      <div class="tablewrap"><table id="b-pnl" class="pnl"></table></div>
+      <h3 data-ar="من أين تأتي الزيادة حتى 2028؟" data-en="Where the increase to 2028 comes from"></h3>
+      <div class="chart s"><canvas id="c-bsteps"></canvas></div>
     </div>
-  </div>
-  <div class="g2">
-    <div class="panel"><h3 data-ar="التكلفة الإضافية حسب النشاط (% من الإيرادات، 2028)" data-en="Extra cost by business type (% of revenue, 2028)"></h3><div class="legend" id="lg-biz"></div><div class="chart t"><canvas id="c-biz"></canvas></div>
-      <p class="small" data-ar="في أغلب الأنشطة التجارية، رفع حد نطاقات أثقل من رفع الكهرباء. الأرقام لمنشآت نموذجية وليست بيانات منشآت حقيقية." data-en="For most commercial activities the Nitaqat threshold weighs more than the electricity rise. Figures are for typical businesses, not data on real firms."></p></div>
-    <div class="panel"><h3 data-ar="التعرفة حسب القطاع (هللة/كيلوواط ساعة) والرسوم الثابتة" data-en="Tariff by sector (halalas/kWh) and fixed charges"></h3><div class="tablewrap"><table id="t-sectors"></table></div>
-      <div class="tablewrap"><table id="t-fees"></table></div></div>
   </div>
 </section>
 
-<!-- INDUSTRIAL -->
-<section class="view" id="v-industrial" hidden>
-  <div class="vhead"><h2 data-ar="الصناعة: كثافة الطاقة تحدد الأثر" data-en="Industry: energy intensity decides the hit"></h2><p class="muted" data-ar="التعرفة الصناعية ترتفع من 18 إلى 23 هللة (+28%) دون شرائح، والرسم الثابت إلى 900 ريال للقواطع الكبيرة. الأثر على الإيراد يعتمد على حصة الكهرباء من التكلفة." data-en="The industrial rate rises from 18 to 23 halalas (+28%) with no tiers, and the fixed charge to 900 SAR for large breakers. The revenue hit depends on electricity's share of cost."></p></div>
-  <div class="kpis" id="ind-kpis"></div>
+<!-- COMMERCIAL CATALOGUE -->
+<section class="view" id="v-commercial" hidden>
+  <div class="vhead"><h2 data-ar="القطاع التجاري والخدمي: 43 نشاطاً" data-en="Commercial and services: 43 activities"></h2><p class="muted" data-ar="رفع السعر اللازم في 2028 ليحافظ كل نشاط على ربحه، موزّعاً على مصادره. اضغط على أي نشاط لفتحه في الحاسبة." data-en="The price rise each activity needs by 2028 to keep its profit, split by source. Click any activity to open it in the calculator."></p></div>
+  <div class="panel"><div class="legend" id="lg-cat-commercial"></div><div class="chart xl" id="box-commercial"><canvas id="c-cat-commercial"></canvas></div></div>
+  <div class="panel"><div class="tablewrap"><table id="t-cat-commercial" class="clickable"></table></div></div>
   <div class="g2">
-    <div class="panel"><h3 data-ar="حصة الكهرباء من الإيراد: قبل وبعد" data-en="Electricity as a share of revenue: before and after"></h3><div class="chart"><canvas id="c-ind"></canvas></div></div>
-    <div class="panel"><h3 data-ar="التكلفة الإضافية على القطاعات (مليار ريال/سنة)" data-en="Extra cost by sector (bn SAR/yr)"></h3><div class="chart"><canvas id="c-sec"></canvas></div><p class="small" id="pt-note"></p></div>
+    <div class="panel"><h3 data-ar="التعرفة حسب القطاع (هللة/كيلوواط ساعة)" data-en="Tariff by sector (halalas/kWh)"></h3><div class="tablewrap"><table id="t-sectors"></table></div></div>
+    <div class="panel"><h3 data-ar="الرسوم الثابتة الشهرية حسب القاطع" data-en="Monthly fixed charge by breaker"></h3><div class="tablewrap"><table id="t-fees"></table></div></div>
   </div>
-  <div class="panel"><div class="tablewrap"><table id="t-ind"></table></div></div>
+</section>
+
+<!-- INDUSTRIAL CATALOGUE -->
+<section class="view" id="v-industrial" hidden>
+  <div class="vhead"><h2 data-ar="القطاع الصناعي: 28 صناعة" data-en="Industry: 28 industries"></h2><p class="muted" data-ar="التعرفة الصناعية ترتفع من 18 إلى 23 هللة (+28%) والرسم الثابت إلى 900 ريال للقواطع الكبيرة. كلما زادت كثافة الطاقة زاد الأثر." data-en="The industrial rate rises from 18 to 23 halalas (+28%) and the fixed charge to 900 SAR for large breakers. The more energy-intensive, the bigger the hit."></p></div>
+  <div class="kpis" id="ind-kpis"></div>
+  <div class="panel"><div class="legend" id="lg-cat-industrial"></div><div class="chart xl" id="box-industrial"><canvas id="c-cat-industrial"></canvas></div></div>
+  <div class="g2">
+    <div class="panel"><h3 data-ar="حصة الكهرباء من الإيراد: الحالي و2027" data-en="Electricity as a share of revenue: now and 2027"></h3><div class="chart t"><canvas id="c-ind"></canvas></div></div>
+    <div class="panel"><h3 data-ar="التكلفة الإضافية على القطاعات (مليار ريال/سنة)" data-en="Extra electricity cost by sector (bn SAR/yr)"></h3><div class="chart"><canvas id="c-sec"></canvas></div><p class="small" id="pt-note"></p></div>
+  </div>
+  <div class="panel"><div class="tablewrap"><table id="t-cat-industrial" class="clickable"></table></div></div>
+</section>
+
+<!-- AGRICULTURE CATALOGUE -->
+<section class="view" id="v-agri" hidden>
+  <div class="vhead"><h2 data-ar="القطاع الزراعي" data-en="Agriculture"></h2><p class="muted" data-ar="التعرفة الزراعية ترتفع من 16/20 إلى 19/23 هللة، والرسم الثابت من 10 – 30 إلى 140 – 200 ريال. أغلب المزارع تسحب المياه من آبارها، فالكهرباء (الضخ والتبريد) هي البند الأهم." data-en="The agricultural rate rises from 16/20 to 19/23 halalas, and the fixed charge from 10–30 to 140–200 SAR. Most farms draw water from their own wells, so electricity (pumping and cooling) is the key line."></p></div>
+  <div class="panel"><div class="legend" id="lg-cat-agricultural"></div><div class="chart" id="box-agricultural"><canvas id="c-cat-agricultural"></canvas></div></div>
+  <div class="panel"><div class="tablewrap"><table id="t-cat-agricultural" class="clickable"></table></div></div>
 </section>
 
 <!-- LABOUR -->
@@ -274,29 +443,7 @@ footer { padding-block: 16px 30px; border-top: 1px solid var(--line); font-size:
   <div class="panel"><h3 data-ar="التكلفة على المنشآت ومكسب العاملين حسب الحد" data-en="Employer cost and worker gain by threshold"></h3><div class="chart s"><canvas id="c-thr"></canvas></div></div>
 </section>
 
-<!-- FORECAST -->
-<section class="view" id="v-forecast" hidden>
-  <div class="vhead"><h2 data-ar="مختبر التضخم" data-en="Inflation lab"></h2><p class="muted" data-ar="حرّك الافتراضات وشاهد أثرها على التضخم 2027 مباشرة. الصدمة تظهر 12 شهراً ثم تخرج من المقارنة السنوية، كما حدث في 2016 و2018 و2020." data-en="Move the assumptions and watch 2027 inflation respond. The shock lasts 12 months and then drops out of the year-on-year comparison, as in 2016, 2018 and 2020."></p></div>
-  <div class="g-ctl">
-    <div class="panel ctl">
-      <div class="field"><label for="s-we" id="s-we-l"></label><input type="range" id="s-we" min="1.0" max="3.0" step="0.1" value="1.9"></div>
-      <div class="field"><label for="s-ww" id="s-ww-l"></label><input type="range" id="s-ww" min="0.1" max="0.8" step="0.05" value="0.4"></div>
-      <div class="field"><label for="s-pt" id="s-pt-l"></label><input type="range" id="s-pt" min="0" max="80" step="5" value="35"></div>
-      <div class="field"><label for="s-el" id="s-el-l"></label><input type="range" id="s-el" min="-0.30" max="0" step="0.025" value="-0.1"></div>
-      <button class="btn" type="button" id="s-reset" data-ar="إعادة الافتراضات المركزية" data-en="Reset to central"></button>
-    </div>
-    <div class="panel">
-      <div class="stat3" id="lab-out"></div>
-      <div class="legend" id="lg-cpi"></div>
-      <div class="chart t"><canvas id="c-cpi"></canvas></div>
-    </div>
-  </div>
-  <div class="g3">
-    <div class="panel"><h3 data-ar="الإصلاحات السابقة" data-en="Past reforms"></h3><div class="chart s"><canvas id="c-events"></canvas></div><div class="tablewrap"><table id="t-events"></table></div></div>
-    <div class="panel"><h3 data-ar="2,000 محاكاة لتضخم 2027" data-en="2,000 simulations of 2027 inflation"></h3><div class="chart s"><canvas id="c-mc"></canvas></div><p class="small" id="mc-note"></p></div>
-    <div class="panel"><h3 data-ar="أكثر المدخلات تأثيراً (نقطة مئوية)" data-en="Most influential inputs (pp)"></h3><div class="chart s"><canvas id="c-tornado"></canvas></div></div>
-  </div>
-</section>
+
 
 <!-- SOLUTIONS -->
 <section class="view" id="v-solutions" hidden>
@@ -318,6 +465,19 @@ footer { padding-block: 16px 30px; border-top: 1px solid var(--line); font-size:
     <div class="panel"><div class="tablewrap"><table id="t-pol"></table></div>
       <h3 data-ar="حلول للمنشآت" data-en="For businesses"></h3><ul id="biz-sol" style="margin:0;padding-inline-start:20px;display:grid;gap:4px;font-size:13.5px;color:var(--ink-2)"></ul></div>
   </div>
+</section>
+
+<!-- FAQ & ASK -->
+<section class="view" id="v-faq" hidden>
+  <div class="vhead"><h2 data-ar="أسئلة واستفسارات" data-en="Questions"></h2><p class="muted" data-ar="ابحث في الأسئلة الشائعة، أو اكتب سؤالك." data-en="Search the common questions, or type your own."></p></div>
+  <div class="panel ask" id="ask-box" hidden>
+    <label for="ask-q" class="lab" data-ar="اسأل عن القرارات أو أرقام الموقع" data-en="Ask about the decisions or the site's figures"></label>
+    <div class="row"><textarea id="ask-q" rows="2" data-ph-ar="مثال: أملك مطعماً فيه 12 موظفاً، كم تزيد تكاليفي؟" data-ph-en="Example: I run a restaurant with 12 staff, how much will my costs rise?"></textarea><button class="btn solid" type="button" id="ask-go" data-ar="اسأل" data-en="Ask"></button></div>
+    <div class="answer" id="ask-a" aria-live="polite"></div>
+    <p class="small" data-ar="الإجابات مولّدة آلياً من بيانات هذا الموقع وتقديراته، وليست استشارة مالية أو قانونية." data-en="Answers are generated from this site's data and estimates; they are not financial or legal advice."></p>
+  </div>
+  <div class="field"><label for="faq-s" class="lab" data-ar="بحث" data-en="Search"></label><input type="search" id="faq-s" class="search"></div>
+  <div class="faq" id="faq-list"></div>
 </section>
 
 <!-- METHOD -->
@@ -379,7 +539,7 @@ function base(o = {}) {
     plugins: { legend: { display: !!o.legend, labels: { color: ink2, boxWidth: 14, boxHeight: 3 } },
       tooltip: { rtl, backgroundColor: css("--panel"), titleColor: css("--ink"), bodyColor: ink2, borderColor: line, borderWidth: 1, callbacks: o.tip || {} } },
     scales: {
-      x: { reverse: rtl && !o.h ? true : (o.h ? rtl : false), ticks: { color: ink2, maxRotation: 0, autoSkipPadding: 10, ...(o.xt || {}) }, grid: { color: line, display: !!o.h }, border: { color: line }, title: o.xtitle ? { display: true, text: o.xtitle, color: css("--ink-3") } : undefined, stacked: !!o.stack, min: o.xmin },
+      x: { reverse: rtl && !o.h ? true : (o.h ? rtl : false), ticks: { color: ink2, maxRotation: 0, autoSkipPadding: 10, ...(o.xt || {}) }, grid: { color: line, display: !!o.h }, border: { color: line }, title: o.xtitle ? { display: true, text: o.xtitle, color: css("--ink-3") } : undefined, stacked: !!o.stack, min: o.xmin, max: o.xmax },
       y: { position: rtl ? "right" : "left", ticks: { color: ink2, ...(o.yt || {}) }, grid: { color: line, display: !o.h }, border: { display: false }, title: o.ytitle ? { display: true, text: o.ytitle, color: css("--ink-3") } : undefined, stacked: !!o.stack, display: o.ydisplay !== false },
     } };
 }
@@ -429,6 +589,7 @@ function household() {
   const eo = eoM.reduce((a, b) => a + b, 0), en = enM.reduce((a, b) => a + b, 0);
   const wo = 12 * waterBill(m3, "2016", sew), wn = 12 * waterBill(m3, "2027", sew);
   const to = eo + wo, tn = en + wn, inc = tn - to;
+  HH = { oldMonth: to / 12, changePct: to ? 100 * (tn / to - 1) : 0 };
   const pc = (a, b) => (a > 0 ? ` <span class="small">(${sgn(100 * (b / a - 1))}%)</span>` : "");
   $("readout").innerHTML = `<div class="h">${L("سنوياً (ريال)", "Per year (SAR)")}</div><div class="h" style="text-align:end">${L("الحالي", "Current")}</div><div class="h" style="text-align:end">2027</div>
     <div class="k">${L("الكهرباء", "Electricity")}</div><div class="o">${fmt(eo)}</div><div class="n">${fmt(en)}${pc(eo, en)}</div>
@@ -482,43 +643,241 @@ function society() {
   ].map(([v, l]) => `<div class="kpi dn"><div class="l">${l}</div><div class="v">${v}</div></div>`).join("");
 }
 
-// ---------- COMMERCIAL ----------
-const BZ = D.business;
-function bzLoad(id) {
-  const b = BZ.find((x) => x.id === id) || BZ[0];
-  $("bz-sec").value = b.sector; $("bz-kwh").value = b.kwh_month; $("bz-br").value = b.breaker_a; $("bz-rev").value = Math.round(b.revenue_year / 12);
-  const w = parseW(b.id);
-  const g1 = w.filter((x) => x < 5000), g2 = w.filter((x) => x >= 5000 && x < 6000);
-  $("bz-n1").value = g1.length; $("bz-w1").value = g1.length ? Math.round(g1.reduce((a, b) => a + b, 0) / g1.length) : 4000;
-  $("bz-n2").value = g2.length; $("bz-w2").value = g2.length ? Math.round(g2.reduce((a, b) => a + b, 0) / g2.length) : 5500;
-  $("bz-mg").value = MARGIN[b.id] ?? 8;
+// ---------- INFLATION HELPERS ----------
+const DIV = D.divisions, HL = S.inflation_by_category;
+const divName = (d) => (AR() ? d.name_ar : d.name_en);
+function divRate(code, year) { if (!code || code === "all") return year === 2027 ? HL.headline_2027 : HL.headline_2028; const d = DIV.find((x) => x.code === code); return d ? d["forecast_" + year] : 0; }
+
+// mini converter injected at the top of every view
+let MINI_N = 0;
+function miniInit() {
+  document.querySelectorAll("section.view").forEach((sec) => {
+    if (["v-method", "v-faq"].includes(sec.id)) return;
+    const n = ++MINI_N, box = document.createElement("div");
+    box.className = "mini"; box.dataset.mini = n;
+    box.innerHTML = `<b class="mini-t"></b><input type="number" id="mi-a${n}" min="0" step="10" value="1000" aria-label="amount"><select id="mi-c${n}" aria-label="category"></select><span class="mo" id="mi-o${n}"></span>`;
+    sec.prepend(box);
+    $(`mi-a${n}`).addEventListener("input", () => miniRender(n));
+    $(`mi-c${n}`).addEventListener("change", () => miniRender(n));
+  });
 }
-const WAGES = {}, MARGIN = {};
-function parseW(id) { return WAGES[id] || []; }
-function commercial() {
-  const sec = $("bz-sec").value, kwh = +$("bz-kwh").value || 0, amps = +$("bz-br").value, rev = 12 * (+$("bz-rev").value || 0), mg = (+$("bz-mg").value || 0) / 100;
-  const o = sectorBill(kwh, amps, sec, "2018"), n = sectorBill(kwh, amps, sec, "2027");
-  const eo = 12 * (o.energy + o.fixed), en = 12 * (n.energy + n.fixed), de = en - eo;
-  const n1 = +$("bz-n1").value || 0, w1 = +$("bz-w1").value || 0, n2 = +$("bz-n2").value || 0, w2 = +$("bz-w2").value || 0, g = 1 + A.gosi_employer_rate_saudi_pct.value / 100;
-  const p1 = 12 * g * n1 * Math.max(0, 5000 - w1), p2 = 12 * g * (n1 * Math.max(0, 6000 - w1) + n2 * Math.max(0, 6000 - w2));
-  const tot = de + p2, prof = rev * mg;
-  $("bz-out").innerHTML = `<div class="h">${L("سنوياً (ريال، بدون ضريبة)", "Per year (SAR, ex-VAT)")}</div><div class="h" style="text-align:end">${L("الحالي", "Current")}</div><div class="h" style="text-align:end">2027</div>
-    <div class="k">${L("استهلاك الكهرباء", "Energy charge")}</div><div class="o">${fmt(12 * o.energy)}</div><div class="n">${fmt(12 * n.energy)}</div>
-    <div class="k">${L("الرسم الثابت", "Fixed charge")}</div><div class="o">${fmt(12 * o.fixed)}</div><div class="n">${fmt(12 * n.fixed)}</div>
-    <div class="k tot">${L("فاتورة الكهرباء", "Electricity bill")}</div><div class="o tot">${fmt(eo)}</div><div class="n tot">${fmt(en)} <span class="small">(${sgn(eo ? 100 * (en / eo - 1) : 0)}%)</span></div>`;
-  $("bz-stat").innerHTML = `<div><span class="small">${L("زيادة الكهرباء", "Electricity rise")}</span><b>+${fmt(de)}</b></div><div><span class="small">${L("أجور نطاقات 5,000 / 6,000", "Nitaqat wages 5,000 / 6,000")}</span><b>+${fmt(p1)} / ${fmt(p2)}</b></div><div><span class="small">${L("الإجمالي 2028", "Total 2028")}</span><b>+${fmt(tot)}</b></div>`;
-  const pr = rev ? (100 * tot) / rev : null, pp = prof ? (100 * tot) / prof : null;
-  $("bz-verdict").innerHTML = rev ? `<span class="pill ${pp > 30 ? "bad" : pp > 10 ? "warn" : "good"}">${L(`= ${fmt(pr, 2)}% من الإيرادات · ${fmt(pp, 0)}% من صافي الربح · رفع الأسعار ${fmt(pr, 2)}% يعوّضها`, `= ${fmt(pr, 2)}% of revenue · ${fmt(pp, 0)}% of net profit · a ${fmt(pr, 2)}% price rise covers it`)}</span>` : `<span class="small">${L("أدخل الإيرادات لحساب النسب", "Enter revenue to see shares")}</span>`;
+function miniLang() {
+  for (let n = 1; n <= MINI_N; n++) {
+    const sel = $(`mi-c${n}`), cur = sel.value || "all";
+    sel.innerHTML = `<option value="all">${L("كل الإنفاق (التضخم العام)", "All spending (headline)")}</option>` + DIV.map((d) => `<option value="${d.code}">${divName(d)}</option>`).join("");
+    sel.value = cur;
+    document.querySelector(`[data-mini="${n}"] .mini-t`).textContent = L("حاسبة التضخم السريعة: مبلغ اليوم", "Quick inflation calculator: today's amount");
+    miniRender(n);
+  }
+}
+function miniRender(n) {
+  const a = +$(`mi-a${n}`).value || 0, c = $(`mi-c${n}`).value, r7 = divRate(c, 2027), r8 = divRate(c, 2028);
+  const v7 = a * (1 + r7 / 100), v8 = v7 * (1 + r8 / 100);
+  $(`mi-o${n}`).textContent = L(`← ${fmt(v7, 0)} ريال في 2027 (${sgn(r7, 1)}%) ← ${fmt(v8, 0)} ريال في 2028`, `→ ${fmt(v7, 0)} SAR in 2027 (${sgn(r7, 1)}%) → ${fmt(v8, 0)} SAR in 2028`);
+}
+
+// ---------- COMING INFLATION PAGE ----------
+let PI_STATE = null;
+function inflationPage() {
+  const inf = S.inflation, c = C(), util = DIV.find((d) => d.code === "04u");
+  $("inf-story").innerHTML = [
+    [fmt(inf.central_2027, 1) + "%", L("التضخم المتوقع في 2027", "Forecast inflation in 2027"), L(`مقابل ${fmt(inf.baseline_2027, 1)}% لو لم ترتفع التعرفة. الفرق ${fmt(inf.shock_total_pp, 1)} نقطة: ${fmt(inf.shock_direct_pp, 1)} مباشرة من الفواتير، والباقي من تمرير المنشآت تكاليفها للأسعار.`, `vs ${fmt(inf.baseline_2027, 1)}% had tariffs stayed put. The ${fmt(inf.shock_total_pp, 1)} pp gap: ${fmt(inf.shock_direct_pp, 1)} directly from bills, the rest from businesses passing costs on.`)],
+    ["+" + fmt(util.forecast_2027, 0) + "%", L("الكهرباء والمياه في سلة الأسعار", "Electricity & water in the CPI basket"), L("أكبر قفزة بين كل الفئات. بقية الفئات ترتفع أقل من نقطة إضافية.", "The biggest jump of any category. Every other category rises by less than one extra point.")],
+    [fmt(inf.central_2028, 1) + "%", L("التضخم في 2028", "Inflation in 2028"), L("يعود للمعدل الطبيعي لأن الأسعار ترتفع مرة واحدة ولا تستمر في الارتفاع. الأسعار نفسها لا تنخفض.", "Back to normal because prices jump once rather than keep rising. Prices themselves do not fall back.")],
+    [fmt(inf.mc_p10_p50_p90_2027[0], 1) + " – " + fmt(inf.mc_p10_p50_p90_2027[2], 1) + "%", L("نطاق عدم اليقين لـ 2027", "2027 uncertainty range"), L("80% من 2,000 محاكاة تقع في هذا النطاق. أكبر مصدر للشك: وزن الكهرباء في سلة الأسعار.", "80% of 2,000 simulations fall here. The biggest unknown is electricity's weight in the basket.")],
+  ].map(([v, h, p]) => `<div class="st"><span class="small">${h}</span><span class="big">${v}</span><p>${p}</p></div>`).join("");
+  const rows = DIV.filter((d) => d.code !== "04u");
+  const pairs = [...rows].sort((a, b) => b.forecast_2027 - a.forecast_2027);
+  mk("c-div", { type: "bar", data: { labels: [divName(util) + " (+" + fmt(util.forecast_2027, 0) + "%)"].concat(pairs.map(divName)), datasets: [
+    { label: L("بدون القرار", "No reform"), data: [0].concat(pairs.map((d) => d.baseline_2027)), backgroundColor: c.old, borderRadius: 2 },
+    { label: L("مع القرار", "With reform"), data: [10].concat(pairs.map((d) => d.forecast_2027)), backgroundColor: c.nw, borderRadius: 2 }] },
+    options: base({ h: true, xmin: -1, xmax: 10, xt: { callback: (v) => v + "%" }, yt: { font: { size: 10.5 }, autoSkip: false }, tip: { label: (x) => { const d = x.dataIndex === 0 ? util : pairs[x.dataIndex - 1]; const v = x.datasetIndex === 0 ? d.baseline_2027 : d.forecast_2027; return `${x.dataset.label}: ${fmt(v, 2)}%`; } } }) });
+  legend("lg-div", [[c.old, L("بدون القرار", "No reform")], [c.nw, L("مع القرار", "With reform")]]);
+  $("t-1000").innerHTML = `<thead><tr><th>${L("الفئة", "Category")}</th><th class="n">2026</th><th class="n">2027</th><th class="n">2028</th></tr></thead><tbody>` +
+    [{ code: "all", name_ar: "كل الإنفاق", name_en: "All spending" }].concat(DIV).map((d) => { const v7 = 1000 * (1 + divRate(d.code, 2027) / 100), v8 = v7 * (1 + divRate(d.code, 2028) / 100); return `<tr${d.code === "all" ? ' class="sel"' : ""}><td>${divName(d)}</td><td class="n">1,000</td><td class="n">${fmt(v7)}</td><td class="n">${fmt(v8)}</td></tr>`; }).join("") + "</tbody>";
+  $("inf-steps").innerHTML = (AR() ? [
+    ["25 أكتوبر 2026", "إعلان التعرفة الجديدة وحزمة الدعم."],
+    ["1 يناير 2027", "تبدأ التعرفة. فواتير يناير تجمع بين السعرين حسب أيام الاستهلاك."],
+    ["يناير 2027", "يقفز التضخم السنوي من نحو 1.9% إلى نحو 3%."],
+    ["أبريل 2027 (متوقع)", "حد نطاقات 5,000 ريال: رواتب نحو 1.3 مليون سعودي ترتفع."],
+    ["يناير 2028", "تخرج صدمة الكهرباء من المقارنة السنوية ويعود التضخم إلى نحو 1.9%."],
+    ["أبريل 2028 (متوقع)", "حد نطاقات 6,000 ريال."],
+  ] : [
+    ["25 Oct 2026", "New tariffs and the support package announced."],
+    ["1 Jan 2027", "Tariffs start; January bills mix old and new prices by days of use."],
+    ["Jan 2027", "Year-on-year inflation jumps from about 1.9% to about 3%."],
+    ["Apr 2027 (exp.)", "Nitaqat threshold 5,000 SAR: pay rises for about 1.3m Saudis."],
+    ["Jan 2028", "The power shock drops out of the comparison; inflation back near 1.9%."],
+    ["Apr 2028 (exp.)", "Nitaqat threshold 6,000 SAR."],
+  ]).map(([d, t]) => `<li><span class="d">${d}</span><span>${t}</span></li>`).join("");
+  if (!PI_STATE) piSplit();
+  piRender();
+}
+function piSplit() {
+  const tot = +$("pi-tot").value || 0;
+  PI_STATE = Object.fromEntries(DIV.map((d) => [d.code, Math.round((tot * d.weight) / 100)]));
+  piCats();
+}
+function piCats() {
+  $("pi-cats").innerHTML = DIV.map((d) => `<div class="cat"><label for="pc-${d.code}">${divName(d)}</label><input type="number" id="pc-${d.code}" min="0" step="10" value="${PI_STATE[d.code]}"><span class="r">${sgn(d.forecast_2027, 1)}%</span></div>`).join("");
+  DIV.forEach((d) => $("pc-" + d.code).addEventListener("input", (e) => { PI_STATE[d.code] = +e.target.value || 0; piRender(); }));
+}
+let HH = null; // latest household bills from the household calculator
+function piRates() {
+  const r7 = {}, r8 = {};
+  DIV.forEach((d) => { r7[d.code] = d.forecast_2027; r8[d.code] = d.forecast_2028; });
+  if ($("pi-bills").checked && HH) { r7["04u"] = HH.changePct; PI_STATE["04u"] = Math.round(HH.oldMonth); const el = $("pc-04u"); if (el) el.value = PI_STATE["04u"]; }
+  return { r7, r8 };
+}
+function personal() {
+  if (!PI_STATE) { const tot = 10000; PI_STATE = Object.fromEntries(DIV.map((d) => [d.code, Math.round((tot * d.weight) / 100)])); }
+  const { r7, r8 } = piRates();
+  const tot = Object.values(PI_STATE).reduce((a, b) => a + b, 0) || 1;
+  const p7 = Object.entries(PI_STATE).reduce((s, [k, v]) => s + v * r7[k], 0) / tot;
+  const p8 = Object.entries(PI_STATE).reduce((s, [k, v]) => s + v * r8[k], 0) / tot;
+  return { p7, p8, tot, r7 };
+}
+function piRender() {
+  const { p7, p8, tot, r7 } = personal(), c = C();
+  $("pi-out").innerHTML = `<div><span class="small">${L("تضخمك في 2027", "Your 2027 inflation")}</span><b class="${p7 > HL.headline_2027 ? "up" : "dn"}">${fmt(p7, 2)}%</b><span class="small">${L("العام", "headline")} ${fmt(HL.headline_2027, 2)}%</span></div><div><span class="small">${L("تدفع إضافياً في 2027", "Extra you pay in 2027")}</span><b>${fmt((tot * p7) / 100)}</b><span class="small">${L("ريال شهرياً", "SAR a month")} · ${fmt((12 * tot * p7) / 100)} ${L("سنوياً", "a year")}</span></div><div><span class="small">${L("تضخمك في 2028", "Your 2028 inflation")}</span><b>${fmt(p8, 2)}%</b><span class="small">${L("بعد خروج الصدمة", "after the shock drops out")}</span></div>`;
+  const items = DIV.map((d) => ({ n: divName(d), v: ((PI_STATE[d.code] || 0) * r7[d.code]) / 100 })).filter((x) => x.v !== 0).sort((a, b) => b.v - a.v);
+  mk("c-pi", { type: "bar", data: { labels: items.map((x) => x.n), datasets: [{ label: L("ريال إضافي شهرياً", "Extra SAR a month"), data: items.map((x) => x.v), backgroundColor: items.map((x) => (x.v >= 0 ? c.nw : c.aux)), borderRadius: 2 }] },
+    options: base({ h: true, yt: { font: { size: 10.5 }, autoSkip: false }, tip: { label: (x) => `${sgn(x.raw, 0)} ${L("ريال/شهر", "SAR/mo")}` } }) });
+  salaryRender();
+}
+const GOSI_EMP = A.gosi_employee_rate_saudi_pct.value / 100;
+function takeHome(g0, kind, y, raise, comply) {
+  let g = g0 * Math.pow(1 + raise / 100, Math.max(0, y - 2026));
+  if (kind === "private_saudi" && comply) {
+    if (y === 2027 && g0 < 5000) g = (g * 4 + Math.max(g, 5000) * 8) / 12;
+    else if (y === 2028 && g0 < 6000) g = (Math.max(g, 5000) * 4 + Math.max(g, 6000) * 8) / 12;
+  }
+  let net = kind === "private_saudi" ? g * (1 - GOSI_EMP) : g;
+  if (["gov", "retiree", "ss"].includes(kind) && y >= 2027) net += 500;
+  return net;
+}
+function salaryRender() {
+  const g = +$("sl-g").value || 0, k = $("sl-k").value, r = +$("sl-r").value || 0, comply = $("sl-c").checked, { p7, p8 } = personal();
+  const yrs = [2026, 2027, 2028], lvl = { 2026: 1, 2027: 1 + p7 / 100, 2028: (1 + p7 / 100) * (1 + p8 / 100) };
+  const net = yrs.map((y) => takeHome(g, k, y, r, comply)), real = yrs.map((y, i) => net[i] / lvl[y]);
+  $("t-sal").innerHTML = `<thead><tr><th></th><th class="n">2026</th><th class="n">2027</th><th class="n">2028</th></tr></thead><tbody>
+    <tr><td>${L("صافي الراتب الشهري", "Monthly take-home")}</td>${net.map((v) => `<td class="n">${fmt(v)}</td>`).join("")}</tr>
+    <tr><td>${L("مؤشر تكاليف معيشتك", "Your cost-of-living index")}</td>${yrs.map((y) => `<td class="n">${fmt(lvl[y] * 100, 1)}</td>`).join("")}</tr>
+    <tr class="sel"><td>${L("القيمة الحقيقية بأسعار 2026", "Real value at 2026 prices")}</td>${real.map((v) => `<td class="n">${fmt(v)}</td>`).join("")}</tr>
+    <tr><td>${L("التغير الحقيقي عن 2026", "Real change vs 2026")}</td>${real.map((v) => `<td class="n ${v >= real[0] ? "dn" : "up"}">${sgn((100 * v) / real[0] - 100, 1)}%</td>`).join("")}</tr></tbody>`;
+  const ch = (100 * real[2]) / real[0] - 100, why = k === "private_saudi" ? (g < 6000 && comply ? L("رفع حد نطاقات", "the Nitaqat threshold") : L("لا يشملك رفع الحد", "the threshold does not reach you")) : (k === "expat" ? L("لا يشملك أي تعويض", "no compensation applies to you") : L("بدل 500 ريال", "the 500 SAR allowance"));
+  $("sl-verdict").innerHTML = `<span class="pill ${ch >= 0 ? "good" : "bad"}">${ch >= 0 ? L(`قوتك الشرائية ترتفع ${fmt(ch, 1)}% بحلول 2028 بفضل ${why}`, `Your buying power rises ${fmt(ch, 1)}% by 2028 thanks to ${why}`) : L(`قوتك الشرائية تنخفض ${fmt(-ch, 1)}% بحلول 2028 (${why})`, `Your buying power falls ${fmt(-ch, 1)}% by 2028 (${why})`)}</span>` +
+    (k === "private_saudi" ? `<span class="small"> ${L("بعد خصم التأمينات 9.75%", "after the 9.75% GOSI deduction")}</span>` : "");
   const c = C();
-  mk("c-bz", { type: "bar", data: { labels: ["2027", "2028"], datasets: [
-    { label: L("الكهرباء", "Electricity"), data: [de, de], backgroundColor: c.nw, borderRadius: 3 }, { label: L("أجور نطاقات", "Nitaqat wages"), data: [p1 * 8 / 12, p2], backgroundColor: c.old, borderRadius: 3 }] },
-    options: base({ h: true, stack: true, legend: true, tip: { label: (x) => `${x.dataset.label}: +${fmt(x.raw)} ${L("ريال", "SAR")}` } }) });
+  mk("c-sal", { type: "bar", data: { labels: yrs.map(String), datasets: [
+    { label: L("الصافي الاسمي", "Nominal take-home"), data: net, backgroundColor: c.old, borderRadius: 3 }, { label: L("القيمة الحقيقية", "Real value"), data: real, backgroundColor: c.aux, borderRadius: 3 }] },
+    options: base({ legend: true, tip: { label: (x) => `${x.dataset.label}: ${fmt(x.raw)}` } }) });
 }
-function bizCharts() {
-  const B = BZ.filter((b) => b.revenue_year > 0 && (VIEW !== "industrial" || true)).map((b) => ({ ...b, e: (100 * b.elec_change_year) / b.revenue_year, w: (100 * b.wage_cost_6000_year) / b.revenue_year })).sort((a, b) => b.e + b.w - (a.e + a.w)), c = C();
-  mk("c-biz", { type: "bar", data: { labels: B.map(name), datasets: [{ label: L("الكهرباء", "Electricity"), data: B.map((b) => b.e), backgroundColor: c.nw, borderRadius: 2 }, { label: L("أجور نطاقات 6,000", "Nitaqat 6,000 wages"), data: B.map((b) => b.w), backgroundColor: c.old, borderRadius: 2 }] },
-    options: base({ h: true, stack: true, yt: { font: { size: 11 }, autoSkip: false }, xt: { callback: (v) => v + "%" }, tip: { label: (x) => `${x.dataset.label}: ${fmt(x.raw, 2)}%` } }) });
-  legend("lg-biz", [[c.nw, L("الكهرباء", "Electricity")], [c.old, L("أجور نطاقات (6,000)", "Nitaqat wages (6,000)")]]);
+
+// ---------- BUSINESS CALCULATOR (mirrors src/wattwage/catalog.py) ----------
+const ACT = D.activities, CAT = D.catalog;
+const G = { gosi: A.gosi_employer_rate_saudi_pct.value / 100, gExp: A.expat_wage_growth_pct.value / 100, gSau: A.saudi_wage_growth_pct.value / 100, wRate: A.nonres_water_sar_per_m3.value, wChg: A.nonres_water_change_pct.value / 100, low: A.saudi_low_wage_default.value, mid: A.saudi_mid_wage_default.value, rent: A.rent_inflation_pct.value };
+const breakerFor = (k) => (k < 5000 ? 60 : k < 15000 ? 150 : k < 40000 ? 250 : 350);
+const pyRound = (x) => { const f = Math.floor(x), d = x - f; return d > 0.5 || (d === 0.5 && f % 2 === 1) ? f + 1 : f; };
+function actInputs(a, emp) {
+  const e = emp || a.employees, sa = pyRound(e * a.saudi_share), lo = pyRound(sa * a.saudi_low_share), mi = pyRound(sa * a.saudi_mid_share), hi = Math.max(0, sa - lo - mi), kwh = e * a.kwh_per_emp, rev = e * a.revenue_per_emp;
+  return { tariff: a.tariff, rev, mat: (rev * a.materials_pct) / 100, rent: (rev * a.rent_pct) / 100, kwh, br: breakerFor(kwh), m3: e * a.water_m3_per_emp,
+    n1: lo, w1: G.low, n2: mi, w2: G.mid, n3: hi, w3: a.saudi_high_wage, n4: e - sa, w4: a.expat_wage, margin: a.margin_pct, oth: null };
+}
+const sw = (w, y, comply) => (!comply ? w : y === 2027 ? (w * 4 + Math.max(w, 5000) * 8) / 12 : y === 2028 ? (Math.max(w, 5000) * 4 + Math.max(w, 6000) * 8) / 12 : w);
+function pnlJS(p, inf, comply) {
+  const out = {};
+  [2026, 2027, 2028].forEach((y) => {
+    const k = y - 2026, cum = (key) => (k === 0 ? 1 : (1 + inf[key][0] / 100) * (k === 1 ? 1 : 1 + inf[key][1] / 100));
+    const eb = sectorBill(p.kwh, p.br, p.tariff, y === 2026 ? "2018" : "2027");
+    const swT = 12 * (p.n1 * sw(p.w1, y, comply) + p.n2 * sw(p.w2, y, comply)), swH = 12 * p.n3 * p.w3 * Math.pow(1 + G.gSau, k);
+    out[y] = { materials: 12 * p.mat * cum("materials"), rent: 12 * p.rent * cum("rent"), saudi_wages_threshold: swT, saudi_wages_other: swH, gosi_employer: G.gosi * (swT + swH),
+      expat_wages: 12 * p.n4 * p.w4 * Math.pow(1 + G.gExp, k), electricity: 12 * (eb.energy + eb.fixed), water: 12 * p.m3 * G.wRate * (y === 2026 ? 1 : 1 + G.wChg) };
+  });
+  const base0 = Object.values(out[2026]).reduce((a, b) => a + b, 0), rev = 12 * p.rev;
+  const oth0 = p.oth != null ? 12 * p.oth : Math.max(0, rev * (1 - p.margin / 100) - base0);
+  [2026, 2027, 2028].forEach((y) => { const k = y - 2026; out[y].other = oth0 * (k === 0 ? 1 : (1 + inf.other[0] / 100) * (k === 1 ? 1 : 1 + inf.other[1] / 100)); out[y].total = Object.entries(out[y]).filter(([n]) => n !== "total").reduce((a, [, v]) => a + v, 0); });
+  return { out, rev, oth0 };
+}
+let BSTATE = null;
+function bActOptions() {
+  const g = $("b-grp").value, cur = $("b-act").value;
+  const list = ACT.filter((a) => a.group === g);
+  $("b-act").innerHTML = list.map((a) => `<option value="${a.id}">${name(a)} · ${a.isic}</option>`).join("");
+  if (list.some((a) => a.id === cur)) $("b-act").value = cur;
+}
+function bLoad(keepEmp) {
+  const a = ACT.find((x) => x.id === $("b-act").value) || ACT[0];
+  const emp = keepEmp ? +$("b-emp").value || a.employees : a.employees;
+  $("b-emp").value = emp;
+  const p = actInputs(a, emp), inf = { materials: [HL.headline_2027, HL.headline_2028], other: [HL.headline_2027, HL.headline_2028], rent: [G.rent, G.rent] };
+  const r = pnlJS(p, inf, true);
+  const set = (id, v) => { $(id).value = Math.round(v); };
+  set("b-rev", p.rev); set("b-mat", p.mat); set("b-rent", p.rent); set("b-oth", r.oth0 / 12); set("b-kwh", p.kwh); $("b-br").value = p.br; set("b-m3", p.m3);
+  set("b-n1", p.n1); set("b-w1", p.w1); set("b-n2", p.n2); set("b-w2", p.w2); set("b-n3", p.n3); set("b-w3", p.w3); set("b-n4", p.n4); set("b-w4", p.w4);
+  $("b-im").value = HL.headline_2027; $("b-ir").value = G.rent; $("b-io").value = HL.headline_2027;
+  $("b-note").textContent = (a.note ? a.note + " · " : "") + L(`قيم استرشادية: ${fmt(a.revenue_per_emp)} ريال إيراد و${fmt(a.kwh_per_emp)} كيلوواط ساعة لكل موظف شهرياً، وهامش ربح ${a.margin_pct}%.`, `Indicative: ${fmt(a.revenue_per_emp)} SAR revenue and ${fmt(a.kwh_per_emp)} kWh per employee a month, ${a.margin_pct}% margin.`);
+  BSTATE = { act: a };
+  business();
+}
+function business() {
+  if (!BSTATE) return;
+  const v = (id) => +$(id).value || 0;
+  const p = { tariff: BSTATE.act.tariff, rev: v("b-rev"), mat: v("b-mat"), rent: v("b-rent"), oth: v("b-oth"), kwh: v("b-kwh"), br: +$("b-br").value, m3: v("b-m3"), n1: v("b-n1"), w1: v("b-w1"), n2: v("b-n2"), w2: v("b-w2"), n3: v("b-n3"), w3: v("b-w3"), n4: v("b-n4"), w4: v("b-w4"), margin: BSTATE.act.margin_pct };
+  const inf = { materials: [v("b-im"), HL.headline_2028], rent: [v("b-ir"), v("b-ir")], other: [v("b-io"), HL.headline_2028] }, comply = $("b-comply").checked, priceUp = $("b-price").checked;
+  const { out, rev } = pnlJS(p, inf, comply);
+  const revY = { 2026: rev, 2027: priceUp ? rev * (1 + HL.headline_2027 / 100) : rev, 2028: priceUp ? rev * (1 + HL.headline_2027 / 100) * (1 + HL.headline_2028 / 100) : rev };
+  const prof = (y) => revY[y] - out[y].total, mg = (y) => (revY[y] ? (100 * prof(y)) / revY[y] : 0);
+  const dTot = out[2028].total - out[2026].total;
+  const need = rev ? (100 * (out[2028].total + prof(2026) - rev)) / rev : 0;
+  $("b-kpis").innerHTML = [
+    ["up", sgn((100 * dTot) / (out[2026].total || 1), 1) + "%", L("زيادة التكاليف حتى 2028", "Cost increase to 2028"), `${sgn(dTot)} ${L("ريال/سنة", "SAR/yr")}`],
+    ["up", sgn(out[2027].electricity - out[2026].electricity), L("زيادة الكهرباء سنوياً", "Electricity rise per year"), `${sgn(out[2026].electricity ? (100 * out[2027].electricity) / out[2026].electricity - 100 : 0, 0)}%`],
+    ["up", sgn((out[2028].saudi_wages_threshold - out[2026].saudi_wages_threshold) * (1 + G.gosi)), L("أجور نطاقات + تأمينات (2028)", "Nitaqat wages + GOSI (2028)"), L(`${fmt(p.n1 + p.n2)} موظف سعودي تحت 6,000`, `${fmt(p.n1 + p.n2)} Saudis below 6,000`)],
+    [mg(2028) < mg(2026) ? "up" : "dn", fmt(mg(2026), 1) + "% → " + fmt(mg(2028), 1) + "%", L("هامش الربح 2026 ← 2028", "Margin 2026 → 2028"), priceUp ? L("مع رفع الأسعار بالتضخم", "with prices rising with inflation") : L("بدون تغيير الأسعار", "with prices unchanged")],
+    ["", fmt(need, 2) + "%", L("رفع الأسعار اللازم للحفاظ على الربح", "Price rise needed to keep profit"), L("مقارنة بأسعار 2026", "vs 2026 prices")],
+  ].map(([c, v2, l, s]) => `<div class="kpi ${c}"><div class="l">${l}</div><div class="v">${v2}</div><div class="s">${s}</div></div>`).join("");
+  $("b-verdict").innerHTML = prof(2028) < 0 ? `<span class="pill bad">! ${L("المنشأة تخسر في 2028 إذا لم تتغير الأسعار أو التكاليف", "The business makes a loss in 2028 unless prices or costs change")}</span>` : (need > 5 ? `<span class="pill warn">${L("رفع أسعار يفوق 5% مطلوب للحفاظ على الربح", "More than a 5% price rise is needed to keep profit")}</span>` : `<span class="pill good">✓ ${L("الأثر محدود ويمكن امتصاصه برفع أسعار بسيط", "The impact is modest and a small price rise absorbs it")}</span>`);
+  const LBL = { revenue: L("الإيرادات", "Revenue"), materials: L("المواد والبضاعة", "Materials & goods"), rent: L("الإيجار", "Rent"), saudi_wages_threshold: L("رواتب السعوديين تحت 6,000", "Saudi wages below 6,000"), saudi_wages_other: L("رواتب السعوديين الأخرى", "Other Saudi wages"), gosi_employer: L("تأمينات صاحب العمل", "Employer GOSI"), expat_wages: L("رواتب غير السعوديين", "Non-Saudi wages"), electricity: L("الكهرباء", "Electricity"), water: L("المياه", "Water"), other: L("تكاليف أخرى", "Other costs"), total: L("إجمالي التكاليف", "Total costs"), profit: L("صافي الربح", "Net profit"), margin: L("هامش الربح", "Margin") };
+  const keys = ["materials", "rent", "saudi_wages_threshold", "saudi_wages_other", "gosi_employer", "expat_wages", "electricity", "water", "other"];
+  $("b-pnl").innerHTML = `<thead><tr><th>${L("سنوياً، ريال", "Per year, SAR")}</th><th class="n">2026</th><th class="n">2027</th><th class="n">2028</th><th class="n">${L("التغير", "Change")}</th></tr></thead><tbody>` +
+    `<tr><td>${LBL.revenue}</td>${[2026, 2027, 2028].map((y) => `<td class="n">${fmt(revY[y])}</td>`).join("")}<td class="n">${sgn(revY[2028] - revY[2026])}</td></tr>` +
+    keys.map((k) => `<tr><td>${LBL[k]}</td>${[2026, 2027, 2028].map((y) => `<td class="n">${fmt(out[y][k])}</td>`).join("")}<td class="n ${out[2028][k] > out[2026][k] ? "up" : ""}">${sgn(out[2028][k] - out[2026][k])}</td></tr>`).join("") +
+    `<tr class="sum"><td>${LBL.total}</td>${[2026, 2027, 2028].map((y) => `<td class="n">${fmt(out[y].total)}</td>`).join("")}<td class="n up">${sgn(dTot)}</td></tr>` +
+    `<tr class="sum"><td>${LBL.profit}</td>${[2026, 2027, 2028].map((y) => `<td class="n ${prof(y) < 0 ? "up" : ""}">${fmt(prof(y))}</td>`).join("")}<td class="n">${sgn(prof(2028) - prof(2026))}</td></tr>` +
+    `<tr><td>${LBL.margin}</td>${[2026, 2027, 2028].map((y) => `<td class="n">${fmt(mg(y), 1)}%</td>`).join("")}<td class="n">${sgn(mg(2028) - mg(2026), 1)}</td></tr></tbody>`;
+  const parts = [
+    [L("الكهرباء", "Electricity"), out[2028].electricity - out[2026].electricity, css("--new")],
+    [L("المياه", "Water"), out[2028].water - out[2026].water, css("--aux")],
+    [L("أجور نطاقات + تأمينات", "Nitaqat wages + GOSI"), (out[2028].saudi_wages_threshold - out[2026].saudi_wages_threshold) * (1 + G.gosi), css("--old")],
+    [L("رواتب أخرى", "Other wages"), (out[2028].saudi_wages_other - out[2026].saudi_wages_other) * (1 + G.gosi) + out[2028].expat_wages - out[2026].expat_wages, css("--aux3")],
+    [L("تضخم المواد والإيجار والأخرى", "Inflation on materials, rent, other"), out[2028].materials - out[2026].materials + out[2028].rent - out[2026].rent + out[2028].other - out[2026].other, css("--aux2")],
+  ];
+  mk("c-bsteps", { type: "bar", data: { labels: parts.map((x) => x[0]), datasets: [{ label: L("ريال/سنة", "SAR/yr"), data: parts.map((x) => x[1]), backgroundColor: parts.map((x) => x[2]), borderRadius: 3, barPercentage: 0.6 }] },
+    options: base({ h: true, yt: { font: { size: 11 } }, tip: { label: (x) => `${sgn(x.raw)} ${L("ريال/سنة", "SAR/yr")} (${fmt(dTot ? (100 * x.raw) / dTot : 0, 0)}%)` } }) });
+}
+function openInCalc(id) {
+  const a = ACT.find((x) => x.id === id); if (!a) return;
+  $("b-grp").value = a.group; bActOptions(); $("b-act").value = id;
+  show("business"); bLoad(false);
+  try { history.replaceState(null, "", "#business"); } catch (e) {}
+  window.scrollTo({ top: 0 });
+}
+
+// ---------- CATALOGUE VIEWS ----------
+function catalogView(group) {
+  const c = C(), rows = CAT.filter((r) => r.group === group).map((r) => ({ ...r, k: 100 / r.revenue_year })).sort((a, b) => b.price_rise_to_keep_profit_pct - a.price_rise_to_keep_profit_pct);
+  const parts = [["d_electricity", L("الكهرباء", "Electricity"), c.nw], ["d_water", L("المياه", "Water"), c.aux], ["d_nitaqat_wages", L("أجور نطاقات", "Nitaqat wages"), c.old], ["d_other_wages", L("رواتب أخرى", "Other wages"), c.aux3], ["d_inputs_inflation", L("تضخم المدخلات", "Input inflation"), c.aux2]];
+  const box = $("box-" + group); if (box && group !== "agricultural") box.style.height = Math.max(320, rows.length * 22 + 60) + "px";
+  mk("c-cat-" + group, { type: "bar", data: { labels: rows.map(name), datasets: parts.map(([k, l, col]) => ({ label: l, data: rows.map((r) => r[k] * r.k), backgroundColor: col, borderRadius: 1, barPercentage: 0.75 })) },
+    options: (() => { const o = base({ h: true, stack: true, xt: { callback: (v) => v + "%" }, yt: { font: { size: 11 }, autoSkip: false }, tip: { label: (x) => `${x.dataset.label}: ${fmt(x.raw, 2)}%`, footer: (x) => `${L("الإجمالي", "Total")}: ${fmt(rows[x[0].dataIndex].price_rise_to_keep_profit_pct, 2)}%` } });
+      o.onClick = (e, els) => { if (els && els.length) openInCalc(rows[els[0].index].id); }; return o; })() });
+  legend("lg-cat-" + group, parts.map(([, l, col]) => [col, l]).concat([[c.line, L("% من الإيراد السنوي، 2028 مقابل 2026", "% of annual revenue, 2028 vs 2026")]]));
+  $("t-cat-" + group).innerHTML = `<thead><tr><th>${L("النشاط", "Activity")}</th><th>ISIC</th><th class="n">${L("موظفون", "Staff")}</th><th class="n">${L("الكهرباء % إيراد", "Power % rev.")}</th><th class="n">${L("زيادة الكهرباء", "Power rise")}</th><th class="n">${L("أجور نطاقات", "Nitaqat wages")}</th><th class="n">${L("زيادة التكاليف", "Cost rise")}</th><th class="n">${L("رفع السعر اللازم", "Price rise needed")}</th></tr></thead><tbody>` +
+    rows.map((r) => `<tr data-id="${r.id}" tabindex="0"><td>${name(r)}</td><td class="num small">${r.isic}</td><td class="n">${fmt(r.employees)}</td><td class="n">${fmt(r.elec_share_of_revenue_pct, 2)}%</td><td class="n up">+${fmt(r.d_electricity)}</td><td class="n">+${fmt(r.d_nitaqat_wages)}</td><td class="n">${fmt(r.cost_increase_2028_pct, 1)}%</td><td class="n"><b>${fmt(r.price_rise_to_keep_profit_pct, 2)}%</b></td></tr>`).join("") + "</tbody>";
+  $("t-cat-" + group).querySelectorAll("tbody tr").forEach((tr) => { tr.addEventListener("click", () => openInCalc(tr.dataset.id)); tr.addEventListener("keydown", (e) => { if (e.key === "Enter") openInCalc(tr.dataset.id); }); });
+}
+function tariffTables() {
   $("t-sectors").innerHTML = `<thead><tr><th>${L("القطاع", "Sector")}</th><th class="n">≤6,000 2018</th><th class="n">2027</th><th class="n">&gt;6,000 2018</th><th class="n">2027</th><th class="n">${L("التغير", "Change")}</th></tr></thead><tbody>` +
     TF.sectors.map((s) => `<tr><td>${AR() ? s.sector_ar : s.sector}</td><td class="n">${s.tier1_2018}</td><td class="n">${s.tier1_2027}</td><td class="n">${s.tier2_2018}</td><td class="n">${s.tier2_2027}</td><td class="n up">+${fmt(s.tier1_change_pct, 1)}%</td></tr>`).join("") + "</tbody>";
   const bands = ["20–99 A", "100–199 A", "200–299 A", "300 A+"], fg = (g, s) => D.sector_fees.filter((r) => r.fee_group === g && r.schedule === s), res = TF.electricity_fees.filter((r) => r.schedule === "2027");
@@ -526,26 +885,95 @@ function bizCharts() {
   $("t-fees").innerHTML = `<thead><tr><th>${L("القاطع", "Breaker")}</th><th class="n">${L("قبل 2027", "Before 2027")}</th><th class="n">${L("سكني", "Residential")}</th><th class="n">${L("تجاري/صناعي/حكومي", "Comm./ind./gov.")}</th><th class="n">${L("زراعي/خيري", "Agri./charity")}</th></tr></thead><tbody>` +
     bands.map((b, i) => `<tr><td>${b}</td><td class="n">${old[i].fee_sar}${i === 3 ? "–30" : ""}</td><td class="n">${res[i].fee_sar}</td><td class="n up">${nr[i].fee_sar}</td><td class="n">${ag[i].fee_sar}</td></tr>`).join("") + `</tbody><caption class="small" style="caption-side:bottom;text-align:start;padding-top:6px">${L("ريال شهرياً قبل الضريبة", "SAR a month before VAT")}</caption>`;
 }
-
-// ---------- INDUSTRIAL ----------
-function industrial() {
-  const I = BZ.filter((b) => b.group === "industrial"), c = C(), agg = D.sector_extra, ind = agg.find((r) => r.sector === "industrial"), pt = S.business.passthrough_check;
+function industrialView() {
+  catalogView("industrial");
+  const c = C(), agg = D.sector_extra, ind = agg.find((r) => r.sector === "industrial"), pt = S.business.passthrough_check, I = CAT.filter((r) => r.group === "industrial").sort((a, b) => b.elec_share_of_revenue_pct - a.elec_share_of_revenue_pct);
   $("ind-kpis").innerHTML = [
     ["+27.8%", L("سعر الكيلوواط الصناعي (18 ← 23 هللة)", "Industrial rate (18 → 23 halalas)")],
-    [fmt(ind.total_extra_bn, 1) + L(" مليار", " bn"), L("تكلفة إضافية على الصناعة سنوياً", "Extra cost to industry per year")],
-    [fmt(Math.max(...I.map((b) => b.elec_change_pct_of_revenue)), 2) + "%", L("أعلى أثر على الإيراد (الإسمنت)", "Highest revenue hit (cement)")],
+    [fmt(ind.total_extra_bn, 1) + L(" مليار", " bn"), L("تكلفة كهرباء إضافية على الصناعة سنوياً", "Extra power cost to industry per year")],
+    [fmt(I[0].elec_share_of_revenue_pct, 1) + "%", L(`أعلى حصة كهرباء من الإيراد (${name(I[0])})`, `Highest power share of revenue (${name(I[0])})`)],
     ["900", L("ريال رسم ثابت شهري للقواطع 300+ أمبير", "SAR monthly fixed charge, 300 A+")],
   ].map(([v, l]) => `<div class="kpi up"><div class="l">${l}</div><div class="v">${v}</div></div>`).join("");
   mk("c-ind", { type: "bar", data: { labels: I.map(name), datasets: [
-    { label: L("قبل", "Before"), data: I.map((b) => b.elec_share_of_revenue_old_pct), backgroundColor: c.old, borderRadius: 3 },
-    { label: L("بعد", "After"), data: I.map((b) => b.elec_share_of_revenue_old_pct + b.elec_change_pct_of_revenue), backgroundColor: c.nw, borderRadius: 3 }] },
-    options: base({ legend: true, xt: { autoSkip: false, font: { size: 11 } }, yt: { callback: (v) => v + "%" }, tip: { label: (x) => `${x.dataset.label}: ${fmt(x.raw, 2)}%` } }) });
+    { label: L("الحالي", "Now"), data: I.map((r) => r.elec_share_of_revenue_pct), backgroundColor: c.old, borderRadius: 2 },
+    { label: "2027", data: I.map((r) => r.elec_share_of_revenue_pct + (100 * r.d_electricity) / r.revenue_year), backgroundColor: c.nw, borderRadius: 2 }] },
+    options: base({ h: true, legend: true, yt: { font: { size: 10.5 }, autoSkip: false }, xt: { callback: (v) => v + "%" }, tip: { label: (x) => `${x.dataset.label}: ${fmt(x.raw, 2)}%` } }) });
   mk("c-sec", { type: "bar", data: { labels: agg.map((r) => (AR() ? r.sector_ar : r.sector)), datasets: [
     { label: L("سعر الاستهلاك", "Energy rate"), data: agg.map((r) => r.energy_extra_bn), backgroundColor: c.old, borderRadius: 2 }, { label: L("الرسم الثابت", "Fixed charge"), data: agg.map((r) => r.fixed_extra_bn), backgroundColor: c.aux2, borderRadius: 2 }] },
     options: base({ stack: true, legend: true, tip: { label: (x) => `${x.dataset.label}: ${fmt(x.raw, 2)} ${L("مليار", "bn")}` } }) });
-  $("pt-note").textContent = L(`القطاع الخاص يتحمّل نحو ${fmt(pt.private_sector_extra_bn, 1)} مليار ريال سنوياً. إذا مُرّر نصفها للأسعار، يضيف ذلك نحو ${fmt(pt.cpi_pp_if_50pct_passed, 2)} نقطة للتضخم، قريباً من الأثر غير المباشر المفترض في النموذج (0.31). عدد الحسابات غير السكنية افتراض.`, `Business carries about ${fmt(pt.private_sector_extra_bn, 1)} bn SAR a year. Passing half into prices adds about ${fmt(pt.cpi_pp_if_50pct_passed, 2)} pp to inflation, close to the model's assumed second-round effect (0.31). Non-residential account counts are assumptions.`);
-  $("t-ind").innerHTML = `<thead><tr><th>${L("المنشأة", "Plant")}</th><th class="n">${L("كيلوواط/شهر", "kWh/month")}</th><th class="n">${L("الكهرباء الحالية/سنة", "Electricity now/yr")}</th><th class="n">2027</th><th class="n">${L("الزيادة", "Increase")}</th><th class="n">${L("% إيراد", "% rev.")}</th><th class="n">${L("أجور 6,000", "6,000 wages")}</th><th class="n">${L("% ربح", "% profit")}</th></tr></thead><tbody>` +
-    I.map((b) => `<tr><td>${name(b)}</td><td class="n">${fmt(b.kwh_month)}</td><td class="n">${fmt(b.elec_old_year)}</td><td class="n">${fmt(b.elec_new_year)}</td><td class="n up">+${fmt(b.elec_change_year)}</td><td class="n">${fmt(b.elec_change_pct_of_revenue, 2)}%</td><td class="n">+${fmt(b.wage_cost_6000_year)}</td><td class="n">${fmt(b.total_pct_of_profit, 1)}%</td></tr>`).join("") + "</tbody>";
+  $("pt-note").textContent = L(`القطاع الخاص يتحمّل نحو ${fmt(pt.private_sector_extra_bn, 1)} مليار ريال كهرباء إضافية سنوياً. تمرير نصفها للأسعار يضيف نحو ${fmt(pt.cpi_pp_if_50pct_passed, 2)} نقطة للتضخم. عدد الحسابات غير السكنية افتراض.`, `Business carries about ${fmt(pt.private_sector_extra_bn, 1)} bn SAR of extra power cost a year. Passing half into prices adds about ${fmt(pt.cpi_pp_if_50pct_passed, 2)} pp to inflation. Non-residential account counts are assumptions.`);
+}
+
+// ---------- FAQ & ASK ----------
+function faqItems() {
+  const e = S.electricity, inf = S.inflation, w = S.wages, bd = Object.fromEntries(D.burden.map((r) => [r.id, r])), so = S.society;
+  const Q = [
+    ["household", "متى تبدأ التعرفة الجديدة؟", "When do the new tariffs start?", "من 1 يناير 2027 للكهرباء والمياه. الاستهلاك قبل هذا التاريخ يُحسب بالسعر القديم، وقد تجمع فاتورة يناير بين السعرين.", "On 1 January 2027 for electricity and water. Use before that date is billed at the old price; January bills may mix both."],
+    ["household", "كم يرتفع سعر الكهرباء للمنازل؟", "How much does home electricity go up?", `من 18 إلى 21 هللة حتى 6,000 كيلوواط ساعة، ومن 30 إلى 33 فوقها، مع رسم ثابت 70 – 100 ريال بدل رسم العداد (10 – 30). متوسط الفاتورة السنوية يرتفع ${fmt(e.avg_bill_change_pct, 1)}%.`, `From 18 to 21 halalas up to 6,000 kWh and 30 to 33 above, plus a 70–100 SAR fixed charge replacing the 10–30 SAR meter fee. The average yearly bill rises ${fmt(e.avg_bill_change_pct, 1)}%.`],
+    ["household", "لماذا ترتفع فاتورتي الصغيرة بنسبة أكبر؟", "Why does my small bill rise by a bigger share?", `لأن الرسم الثابت (70 ريالاً على الأقل) لا يتغير مع الاستهلاك. أصغر 10% من المستهلكين يرون +${fmt(e.decile1_change_pct)}% مقابل +${fmt(e.decile10_change_pct)}% لأكبرهم.`, `Because the fixed charge (at least 70 SAR) does not shrink with use. The smallest 10% of users see +${fmt(e.decile1_change_pct)}% vs +${fmt(e.decile10_change_pct)}% for the largest.`],
+    ["household", "من يحصل على بدل 500 ريال؟", "Who gets the 500 SAR allowance?", "الموظفون المدنيون والعسكريون على سلالم الخدمة المدنية، والمتقاعدون، وأفراد أسر المشتركين المتوفين، وأسر الضمان الاجتماعي (500 ريال للأسرة). لا يشمل موظفي القطاع الخاص ولا المقيمين.", "Civil and military employees on civil-service scales, retirees, family members of deceased subscribers, and social-security families (500 SAR per family). Private-sector staff and expatriates are not included."],
+    ["inflation", "كم سيكون التضخم؟", "How high will inflation go?", `نتوقع نحو ${fmt(inf.central_2027, 1)}% في 2027 مقابل ${fmt(inf.baseline_2027, 1)}% بدون القرار، ثم نحو ${fmt(inf.central_2028, 1)}% في 2028. النطاق المرجح ${fmt(inf.mc_p10_p50_p90_2027[0], 1)} – ${fmt(inf.mc_p10_p50_p90_2027[2], 1)}%.`, `About ${fmt(inf.central_2027, 1)}% in 2027 vs ${fmt(inf.baseline_2027, 1)}% without the decision, then about ${fmt(inf.central_2028, 1)}% in 2028. Likely range ${fmt(inf.mc_p10_p50_p90_2027[0], 1)}–${fmt(inf.mc_p10_p50_p90_2027[2], 1)}%.`],
+    ["inflation", "هل ستنخفض الأسعار في 2028؟", "Will prices fall in 2028?", "لا. التضخم ينخفض لأن الأسعار تتوقف عن القفز، لكنها تبقى عند مستواها الأعلى.", "No. Inflation drops because prices stop jumping, but they stay at the higher level."],
+    ["inflation", "ماذا حدث في المرات السابقة؟", "What happened last time?", "في يناير 2016 قفز التضخم 2.3 نقطة، وفي يناير 2018 (مع ضريبة 5%) 4.1 نقطة، وفي يوليو 2020 (ضريبة 15%) 6.1 نقطة. في كل مرة تراجع بالمقدار نفسه تقريباً بعد 12 شهراً.", "Inflation jumped 2.3 pp in Jan 2016, 4.1 pp in Jan 2018 (with 5% VAT) and 6.1 pp in Jul 2020 (15% VAT). Each time it fell back by about the same amount 12 months later."],
+    ["labour", "هل هذا حد أدنى للأجور في القطاع الخاص؟", "Is this a private-sector minimum wage?", "ليس بالضبط. هو الأجر الذي يُحسب عنده السعودي موظفاً كاملاً في نسب التوطين (نطاقات): 5,000 ريال ثم 6,000 ريال. المنشأة تستطيع دفع أقل، لكن الموظف لن يُحتسب كاملاً.", "Not exactly. It is the wage at which a Saudi counts as one full worker for Saudization (Nitaqat): 5,000 then 6,000 SAR. A firm can pay less, but the worker will not count in full."],
+    ["labour", "متى يطبق حد 5,000 و6,000؟", "When do the 5,000 and 6,000 thresholds apply?", "الإعلان: بعد 6 أشهر من بدء الإجراءات لحد 5,000، ثم بعد 12 شهراً لحد 6,000. نفترض أبريل 2027 وأبريل 2028 لأن تاريخ البدء لم يُحدد رسمياً.", "Announced: 5,000 six months after the measures start, then 6,000 twelve months later. We assume April 2027 and April 2028 as the start date was not officially fixed."],
+    ["labour", "كم سعودياً يتأثر؟", "How many Saudis are affected?", `نحو ${fmt(w.workers_below_5000)} تحت 5,000 ريال (${fmt(w.share_below_5000_pct, 1)}%)، ونحو ${fmt(w.workers_below_6000)} تحت 6,000.`, `About ${fmt(w.workers_below_5000)} below 5,000 SAR (${fmt(w.share_below_5000_pct, 1)}%) and about ${fmt(w.workers_below_6000)} below 6,000.`],
+    ["business", "كم ترتفع الكهرباء على المحلات والمصانع؟", "How much does power rise for shops and factories?", "التجاري من 20/30 إلى 25/35 هللة، والصناعي من 18 إلى 23، والحكومي من 32 إلى 35، والزراعي من 16/20 إلى 19/23. والرسم الثابت للتجاري والصناعي يصبح 350 – 900 ريال شهرياً.", "Commercial 20/30 to 25/35 halalas, industrial 18 to 23, government 32 to 35, agricultural 16/20 to 19/23. The commercial and industrial fixed charge becomes 350–900 SAR a month."],
+    ["business", "أملك منشأة، كيف أعرف أثر القرار علي؟", "I own a business, how do I see the impact?", "افتح حاسبة المنشأة، واختر نشاطك من 78 نشاطاً، وأدخل عدد الموظفين ورواتبهم وتكاليفك. ستحصل على قائمة دخل لـ 2026 و2027 و2028، ورفع السعر اللازم للحفاظ على ربحك.", "Open the business calculator, pick your activity from 78, enter your headcount, wages and costs. You get a P&L for 2026–2028 and the price rise needed to keep your profit."],
+    ["business", "أيهما أثقل على المنشأة: الكهرباء أم الأجور؟", "Which weighs more: power or wages?", "في التجزئة والخدمات والمطاعم، رفع حد نطاقات أثقل عادة. وفي الصناعات كثيفة الطاقة (حديد، ألمنيوم، إسمنت، زجاج، مراكز بيانات، مصانع ثلج) الكهرباء أثقل.", "In retail, services and restaurants the Nitaqat threshold usually weighs more. In energy-heavy industry (steel, aluminium, cement, glass, data centres, ice plants) power weighs more."],
+    ["society", "هل يتأثر المقيمون؟", "Are expatriates affected?", `نعم. يدفعون الفواتير الجديدة بدون أي تعويض. أسرة مقيمة نموذجية تخسر نحو ${fmt(-bd.expat_family.net_2028_year)} ريال سنوياً (${fmt(-bd.expat_family.net_pct_income, 1)}% من الدخل).`, `Yes. They pay the new bills with no compensation. A typical expatriate family loses about ${fmt(-bd.expat_family.net_2028_year)} SAR a year (${fmt(-bd.expat_family.net_pct_income, 1)}% of income).`],
+    ["solutions", "كيف أخفف الزيادة؟", "How can I soften the increase?", `ضبط المكيف على 24، وإضاءة LED، وإطفاء الأجهزة، ومرشّدات المياه. تكلفتها نحو 1,350 ريالاً، وتعوّض نحو ${fmt(S.solutions.bundles.typical.offset_pct)}% من زيادة المنزل المتوسط.`, `Set AC to 24°C, LEDs, cut standby, tap aerators. About 1,350 SAR, offsetting about ${fmt(S.solutions.bundles.typical.offset_pct)}% of a typical home's increase.`],
+    ["solutions", "هل تستحق الألواح الشمسية؟", "Is rooftop solar worth it?", "للمنازل، الاسترداد نحو 13 سنة لأن بيع الفائض للشبكة بـ 7 هللات فقط. للمنشآت التجارية أجدى لأن سعر الكيلوواط 25 – 35 هللة.", "For homes, payback is about 13 years because exports earn only 7 halalas. For commercial users it is better, as they pay 25–35 halalas."],
+    ["society", "كم يكلّف البدل الدولة؟", "What does the allowance cost the state?", `نحو ${fmt(S.fiscal.support_cost_bn[1].cost_bn_sar_year, 0)} مليار ريال سنوياً، مقابل نحو ${fmt(S.fiscal.residential_revenue.elec_extra_bn_sar_year, 0)} مليار إيراداً إضافياً من الكهرباء السكنية.`, `About ${fmt(S.fiscal.support_cost_bn[1].cost_bn_sar_year, 0)} bn SAR a year, against about ${fmt(S.fiscal.residential_revenue.elec_extra_bn_sar_year, 0)} bn of extra residential power revenue.`],
+    ["method", "ما مدى دقة هذه الأرقام؟", "How accurate are these figures?", "التعرفة والبدل وحدود نطاقات أرقام رسمية معلنة. أما التضخم وأثر المنشآت فتقديرات من نماذج، وأهم افتراضاتها مذكورة مع نطاقاتها في تبويب المنهجية. قيم الأنشطة استرشادية، وعدّلها لتطابق منشأتك.", "Tariffs, the allowance and the Nitaqat thresholds are official figures. Inflation and business effects are model estimates; key assumptions and ranges are in the Method tab. Activity values are indicative; edit them to match your business."],
+  ];
+  return Q.map(([tab, qa, qe, aa, ae]) => ({ tab, q: L(qa, qe), a: L(aa, ae) }));
+}
+function faqRender() {
+  const s = ($("faq-s").value || "").trim().toLowerCase(), tabN = { household: L("الأفراد", "Households"), inflation: L("التضخم القادم", "Inflation"), labour: L("سوق العمل", "Labour"), business: L("حاسبة المنشأة", "Business calculator"), society: L("المجتمع", "Society"), solutions: L("الحلول", "Solutions"), method: L("المنهجية", "Method") };
+  const items = faqItems().filter((x) => !s || (x.q + " " + x.a).toLowerCase().includes(s));
+  $("faq-list").innerHTML = items.length ? items.map((x, i) => `<details${i === 0 && s ? " open" : ""}><summary>${x.q}</summary><p>${x.a}</p><a href="#${x.tab}" class="go" data-go="${x.tab}">${L("افتح", "Open")}: ${tabN[x.tab] || x.tab}</a></details>`).join("") : `<p class="muted">${L("لا توجد نتيجة. جرّب كلمة أخرى أو اكتب سؤالك أعلاه.", "No match. Try another word or type your question above.")}</p>`;
+  $("faq-list").querySelectorAll("[data-go]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); show(a.dataset.go); window.scrollTo({ top: 0 }); }));
+}
+let SAMPLE = null, ASK_CTRL = null;
+function askContext() {
+  const pick = (o, ks) => Object.fromEntries(ks.map((k) => [k, o[k]]));
+  const ctx = {
+    summary: { electricity: S.electricity, water: S.water, typical_household: S.typical_household, inflation: pick(S.inflation, ["baseline_2027", "central_2027", "central_2028", "mc_p10_p50_p90_2027", "shock_total_pp"]), wages: S.wages, fiscal_support_bn: S.fiscal.support_cost_bn[1].cost_bn_sar_year, society: S.society },
+    tariffs_2027: { residential_halala: "21 up to 6000 kWh, 33 above", residential_fixed_sar: "70/80/90/100 by breaker 20-99/100-199/200-299/300+A", commercial_halala: "25/35", industrial: 23, government: 35, agricultural: "19/23", charities: "17/21", nonres_fixed_sar: "350/500/700/900", agri_charity_fixed_sar: "140/160/180/200", water_residential_sar_m3: "1/2/4/6 by 15 m3 tiers + sewage half + fixed 20+10" },
+    tariffs_before: { residential_halala: "18/30", meter_fee_sar: "10-30", commercial: "20/30", industrial: 18, government: 32, agricultural: "16/20" },
+    support: "500 SAR/month: civil & military employees, retirees, deceased subscribers' families, social-security families. Nitaqat full-count wage 5,000 (~Apr 2027) then 6,000 (~Apr 2028); 2020 precedent: 660,497 below 4,000 then, ~67k now.",
+    inflation_by_category_2027: DIV.map((d) => ({ cat: d.name_en, weight: d.weight, f2027: d.forecast_2027, f2028: d.forecast_2028 })),
+    activities: CAT.map((r) => ({ id: r.id, name: r.name_en, group: r.group, staff: r.employees, revenue_year: r.revenue_year, power_rise: r.d_electricity, nitaqat_wages: r.d_nitaqat_wages, cost_rise_pct: r.cost_increase_2028_pct, price_rise_needed_pct: r.price_rise_to_keep_profit_pct })),
+  };
+  if (BSTATE) ctx.user_business_calculator = { activity: BSTATE.act.name_en, kpis: $("b-kpis").innerText };
+  return JSON.stringify(ctx);
+}
+async function ask() {
+  const q = ($("ask-q").value || "").trim(); if (!q || !SAMPLE) return;
+  if (ASK_CTRL) ASK_CTRL.abort(); ASK_CTRL = new AbortController();
+  $("ask-a").textContent = L("جارٍ التفكير…", "Thinking…"); $("ask-go").disabled = true;
+  const prompt = `You answer questions for "Watt & Wage", a public data site about Saudi Arabia's 25 Oct 2026 decisions (2027 electricity/water tariffs, 500 SAR allowance, Nitaqat wage thresholds).
+Rules: answer in the same language as the question (Saudi readers: clear Modern Standard Arabic or Gulf-friendly wording). Use ONLY the data below; if something is not in it, say the site does not cover it. Give concrete numbers, keep it under 180 words, plain text without markdown headers. For a business question, scale the closest activity's figures by the user's staff count and say it is an estimate and that the Business calculator tab gives a precise result. Never give legal or investment advice.
+DATA: ${askContext()}
+QUESTION: ${q}`;
+  try {
+    const r = await SAMPLE(prompt, { signal: ASK_CTRL.signal, cache: false, modelTier: "default", onText: ({ text }) => { $("ask-a").textContent = text; } });
+    $("ask-a").textContent = r.text;
+  } catch (e) {
+    $("ask-a").textContent = e && e.code === "rate_limited" ? L("طلبات كثيرة، حاول بعد قليل.", "Too many requests, try again shortly.") : e && e.code === "not_granted" ? L("خدمة الأسئلة غير متاحة في هذا العرض.", "Questions are not available in this view.") : (e && e.text) || L("تعذّر الحصول على إجابة. جرّب البحث في الأسئلة الشائعة.", "Could not get an answer. Try the FAQ search.");
+    if (e && e.code === "not_granted") $("ask-box").hidden = true;
+  } finally { $("ask-go").disabled = false; }
+}
+function askInit() {
+  try {
+    if (window.claude && typeof window.claude.use === "function") {
+      window.claude.use("sample").then((s) => { if (s) { SAMPLE = s; $("ask-box").hidden = false; } }).catch(() => {});
+    }
+  } catch (e) {}
+  $("ask-go").addEventListener("click", ask);
+  $("ask-q").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(); } });
+  $("faq-s").addEventListener("input", faqRender);
 }
 
 // ---------- LABOUR ----------
@@ -698,19 +1126,20 @@ function method() {
 }
 
 // ---------- routing & language ----------
-const VIEWS = ["overview", "household", "society", "commercial", "industrial", "labour", "forecast", "solutions", "method"];
-const drawn = {};
+const VIEWS = ["overview", "inflation", "household", "business", "commercial", "industrial", "agri", "society", "labour", "solutions", "faq", "method"];
 function draw(v) {
   if (v === "overview") overview();
+  if (v === "inflation") { inflationPage(); forecastView(); forecastStatic(); }
   if (v === "household") { household(); profilesCharts(); }
+  if (v === "business") business();
+  if (v === "commercial") { catalogView("commercial"); tariffTables(); }
+  if (v === "industrial") industrialView();
+  if (v === "agri") catalogView("agricultural");
   if (v === "society") society();
-  if (v === "commercial") { commercial(); bizCharts(); }
-  if (v === "industrial") industrial();
   if (v === "labour") labour();
-  if (v === "forecast") { forecastView(); forecastStatic(); }
   if (v === "solutions") { solutionsStatic(); solutionsView(); }
+  if (v === "faq") faqRender();
   if (v === "method") method();
-  drawn[v] = LANG;
 }
 function show(v) {
   if (!VIEWS.includes(v)) v = "overview";
@@ -723,35 +1152,49 @@ function show(v) {
 function applyLang() {
   document.documentElement.lang = LANG; document.documentElement.dir = AR() ? "rtl" : "ltr";
   document.querySelectorAll("[data-ar]").forEach((el) => { el.textContent = AR() ? el.dataset.ar : el.dataset.en; });
+  document.querySelectorAll("[data-ph-ar]").forEach((el) => { el.placeholder = AR() ? el.dataset.phAr : el.dataset.phEn; });
+  $("faq-s").placeholder = L("مثال: البدل، نطاقات، مطعم، الطاقة الشمسية", "e.g. allowance, Nitaqat, restaurant, solar");
   $("l-ar").setAttribute("aria-pressed", AR()); $("l-en").setAttribute("aria-pressed", !AR());
   $("gen").textContent = L(" · آخر بناء للبيانات: ", " · Data built: ") + S.generated;
-  const cur = $("bz-a").value;
-  $("bz-a").innerHTML = BZ.map((b) => `<option value="${b.id}">${name(b)}</option>`).join("") + `<option value="custom">${L("أرقامي الخاصة", "My own numbers")}</option>`;
-  $("bz-a").value = cur || "restaurant";
+  bActOptions();
+  miniLang();
+  if (PI_STATE) piCats();
 }
 function setLang(l) { LANG = l; try { localStorage.setItem("ww-lang", l); } catch (e) {} applyLang(); show(VIEW); }
-
-D.business.forEach((b) => { WAGES[b.id] = b.saudi_wages || []; MARGIN[b.id] = b.net_margin_pct; });
+const go = (v) => { show(v); try { history.replaceState(null, "", "#" + v); } catch (er) {} window.scrollTo({ top: 0 }); };
 
 $("l-ar").addEventListener("click", () => setLang("ar"));
 $("l-en").addEventListener("click", () => setLang("en"));
-document.querySelectorAll("#tabs a").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); show(a.dataset.v); try { history.replaceState(null, "", "#" + a.dataset.v); } catch (er) {} window.scrollTo({ top: 0 }); }));
+document.querySelectorAll("#tabs a").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); go(a.dataset.v); }));
+document.querySelectorAll("#roles [data-go]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); if (a.dataset.grp) { $("b-grp").value = a.dataset.grp; bActOptions(); bLoad(false); } go(a.dataset.go); }));
 const link = (a, b, fn) => { $(a).addEventListener("input", () => { $(b).value = $(a).value; fn(); }); $(b).addEventListener("input", () => { $(a).value = $(b).value; fn(); }); };
 link("kwh-r", "kwh", household); link("m3-r", "m3", household);
 ["breaker", "sewage", "who", "ac-n", "ac-s", "ac-w"].forEach((id) => $(id).addEventListener("input", household));
 $("ac-use").addEventListener("click", () => { const v = acEstimate(); $("kwh").value = v; $("kwh-r").value = Math.min(10000, v); household(); });
-$("bz-a").addEventListener("change", () => { if ($("bz-a").value !== "custom") bzLoad($("bz-a").value); commercial(); });
-["bz-sec", "bz-kwh", "bz-br", "bz-rev", "bz-mg", "bz-n1", "bz-w1", "bz-n2", "bz-w2"].forEach((id) => $(id).addEventListener("input", () => { if (id !== "bz-sec") $("bz-a").value = "custom"; commercial(); }));
+$("b-grp").addEventListener("change", () => { bActOptions(); bLoad(false); });
+$("b-act").addEventListener("change", () => bLoad(false));
+$("b-emp").addEventListener("change", () => bLoad(true));
+$("b-reset").addEventListener("click", () => bLoad(true));
+["b-rev", "b-mat", "b-rent", "b-oth", "b-kwh", "b-br", "b-m3", "b-n1", "b-w1", "b-n2", "b-w2", "b-n3", "b-w3", "b-n4", "b-w4", "b-im", "b-ir", "b-io", "b-comply", "b-price"].forEach((id) => $(id).addEventListener("input", business));
+$("b-kwh").addEventListener("change", () => { $("b-br").value = breakerFor(+$("b-kwh").value || 0); business(); });
 ["thr", "comp"].forEach((id) => $(id).addEventListener("input", labour));
 ["s-we", "s-ww", "s-pt", "s-el"].forEach((id) => $(id).addEventListener("input", forecastView));
 $("s-reset").addEventListener("click", () => { $("s-we").value = 1.9; $("s-ww").value = 0.4; $("s-pt").value = 35; $("s-el").value = -0.1; forecastView(); });
 $("sv-p").addEventListener("change", solutionsView);
+$("pi-tot").addEventListener("change", () => { piSplit(); piRender(); });
+$("pi-split").addEventListener("click", () => { piSplit(); piRender(); });
+$("pi-bills").addEventListener("change", () => { if ($("pi-bills").checked && !HH) household(); piRender(); });
+["sl-g", "sl-k", "sl-r", "sl-c"].forEach((id) => $(id).addEventListener("input", salaryRender));
 const redraw = () => draw(VIEW);
 try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", redraw); } catch (e) {}
 new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
+miniInit();
+askInit();
+$("b-grp").value = "commercial";
 applyLang();
-bzLoad("restaurant");
+$("b-act").value = "restaurant";
+bLoad(false);
 const h0 = (location.hash || "").replace("#", "");
 show(VIEWS.includes(h0) ? h0 : "overview");
 })();
