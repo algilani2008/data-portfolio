@@ -207,7 +207,7 @@ def run(make_figures: bool = True) -> dict:
 
 
 def write_index_html() -> None:
-    """dashboard/_page.html is the page body (also published as-is); wrap it as a full document for GitHub Pages."""
+    """dashboard/_page.html holds the page head and body; wrap it as a full document (dashboard/index.html) for GitHub Pages."""
     page = (DASH / "_page.html").read_text(encoding="utf-8")
     cut = page.index('<header class="top')
     head, body = page[:cut], page[cut:]
