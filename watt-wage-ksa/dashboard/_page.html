@@ -1,5 +1,4 @@
 <title>واط وأجر | Watt &amp; Wage</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Reem+Kufi:wght@500;700&display=swap">
 <style>
@@ -584,13 +583,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
 
 <!-- FAQ & ASK -->
 <section class="view" id="v-faq" hidden>
-  <div class="vhead"><h2 data-ar="أسئلة واستفسارات" data-en="Questions"></h2><p class="muted" data-ar="ابحث في الأسئلة الشائعة، أو اكتب سؤالك." data-en="Search the common questions, or type your own."></p></div>
-  <div class="panel ask" id="ask-box" hidden>
-    <label for="ask-q" class="lab" data-ar="اسأل عن القرارات أو أرقام الموقع" data-en="Ask about the decisions or the site's figures"></label>
-    <div class="row"><textarea id="ask-q" rows="2" data-ph-ar="مثال: أملك مطعماً فيه 12 موظفاً، كم تزيد تكاليفي؟" data-ph-en="Example: I run a restaurant with 12 staff, how much will my costs rise?"></textarea><button class="btn solid" type="button" id="ask-go" data-ar="اسأل" data-en="Ask"></button></div>
-    <div class="answer" id="ask-a" aria-live="polite"></div>
-    <p class="small" data-ar="الإجابات مولّدة آلياً من بيانات هذا الموقع وتقديراته، وليست استشارة مالية أو قانونية." data-en="Answers are generated from this site's data and estimates; they are not financial or legal advice."></p>
-  </div>
+  <div class="vhead"><h2 data-ar="أسئلة واستفسارات" data-en="Questions"></h2><p class="muted" data-ar="ابحث في الأسئلة الشائعة بكلمة من سؤالك." data-en="Search the common questions with a word from your question."></p></div>
   <div class="field"><label for="faq-s" class="lab" data-ar="بحث" data-en="Search"></label><input type="search" id="faq-s" class="search"></div>
   <div class="faq" id="faq-list"></div>
 </section>
@@ -1056,49 +1049,10 @@ function faqItems() {
 function faqRender() {
   const s = ($("faq-s").value || "").trim().toLowerCase(), tabN = { household: L("الأفراد", "Households"), inflation: L("التضخم القادم", "Inflation"), labour: L("سوق العمل", "Labour"), business: L("حاسبة المنشأة", "Business calculator"), society: L("المجتمع", "Society"), solutions: L("الحلول", "Solutions"), method: L("المنهجية", "Method"), saudization: L("حاسبة التوطين", "Saudization"), trust: L("مجاراة التضخم والثقة", "Pricing & trust") };
   const items = faqItems().filter((x) => !s || (x.q + " " + x.a).toLowerCase().includes(s));
-  $("faq-list").innerHTML = items.length ? items.map((x, i) => `<details${i === 0 && s ? " open" : ""}><summary>${x.q}</summary><p>${x.a}</p><a href="#${x.tab}" class="go" data-go="${x.tab}">${L("افتح", "Open")}: ${tabN[x.tab] || x.tab}</a></details>`).join("") : `<p class="muted">${L("لا توجد نتيجة. جرّب كلمة أخرى أو اكتب سؤالك أعلاه.", "No match. Try another word or type your question above.")}</p>`;
+  $("faq-list").innerHTML = items.length ? items.map((x, i) => `<details${i === 0 && s ? " open" : ""}><summary>${x.q}</summary><p>${x.a}</p><a href="#${x.tab}" class="go" data-go="${x.tab}">${L("افتح", "Open")}: ${tabN[x.tab] || x.tab}</a></details>`).join("") : `<p class="muted">${L("لا توجد نتيجة. جرّب كلمة أخرى.", "No match. Try another word.")}</p>`;
   $("faq-list").querySelectorAll("[data-go]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); show(a.dataset.go); window.scrollTo({ top: 0 }); }));
 }
-let SAMPLE = null, ASK_CTRL = null;
-function askContext() {
-  const pick = (o, ks) => Object.fromEntries(ks.map((k) => [k, o[k]]));
-  const ctx = {
-    summary: { electricity: S.electricity, water: S.water, typical_household: S.typical_household, inflation: pick(S.inflation, ["baseline_2027", "central_2027", "central_2028", "mc_p10_p50_p90_2027", "shock_total_pp"]), wages: S.wages, fiscal_support_bn: S.fiscal.support_cost_bn[1].cost_bn_sar_year, society: S.society },
-    tariffs_2027: { residential_halala: "21 up to 6000 kWh, 33 above", residential_fixed_sar: "70/80/90/100 by breaker 20-99/100-199/200-299/300+A", commercial_halala: "25/35", industrial: 23, government: 35, agricultural: "19/23", charities: "17/21", nonres_fixed_sar: "350/500/700/900", agri_charity_fixed_sar: "140/160/180/200", water_residential_sar_m3: "1/2/4/6 by 15 m3 tiers + sewage half + fixed 20+10" },
-    tariffs_before: { residential_halala: "18/30", meter_fee_sar: "10-30", commercial: "20/30", industrial: 18, government: 32, agricultural: "16/20" },
-    support: "500 SAR/month: civil & military employees, retirees, deceased subscribers' families, social-security families. Nitaqat full-count wage 5,000 (~Apr 2027) then 6,000 (~Apr 2028); 2020 precedent: 660,497 below 4,000 then, ~67k now.",
-    inflation_by_category_2027: DIV.map((d) => ({ cat: d.name_en, weight: d.weight, f2027: d.forecast_2027, f2028: d.forecast_2028 })),
-    activities: CAT.map((r) => ({ id: r.id, name: r.name_en, group: r.group, staff: r.employees, revenue_year: r.revenue_year, power_rise: r.d_electricity, nitaqat_wages: r.d_nitaqat_wages, cost_rise_pct: r.cost_increase_2028_pct, price_rise_needed_pct: r.price_rise_to_keep_profit_pct })),
-  };
-  ctx.nitaqat = "Required % = m*ln(headcount)+c per activity/band/year (HRSD 2026 Annex 1). Weights: Saudi >= full-count wage (4,000 in 2026, 5,000 from ~Apr 2027, 6,000 from ~Apr 2028) = 1; 3,000 to threshold = 0.5 (assumed after 2026); part-time/student 0.5; flexible 1/3; disabled 4. <=5 workers need 1 Saudi.";
-  ctx.isic_classes_covered = ISIC.length;
-  if (BSTATE) ctx.user_business_calculator = { activity: BSTATE.act.name_en, kpis: $("b-kpis").innerText };
-  return JSON.stringify(ctx);
-}
-async function ask() {
-  const q = ($("ask-q").value || "").trim(); if (!q || !SAMPLE) return;
-  if (ASK_CTRL) ASK_CTRL.abort(); ASK_CTRL = new AbortController();
-  $("ask-a").textContent = L("جارٍ التفكير…", "Thinking…"); $("ask-go").disabled = true;
-  const prompt = `You answer questions for "Watt & Wage", a public data site about Saudi Arabia's 25 Oct 2026 decisions (2027 electricity/water tariffs, 500 SAR allowance, Nitaqat wage thresholds).
-Rules: answer in the same language as the question (Saudi readers: clear Modern Standard Arabic or Gulf-friendly wording). Use ONLY the data below; if something is not in it, say the site does not cover it. Give concrete numbers, keep it under 180 words, plain text without markdown headers. For a business question, scale the closest activity's figures by the user's staff count and say it is an estimate and that the Business calculator tab gives a precise result. Never give legal or investment advice.
-DATA: ${askContext()}
-QUESTION: ${q}`;
-  try {
-    const r = await SAMPLE(prompt, { signal: ASK_CTRL.signal, cache: false, modelTier: "default", onText: ({ text }) => { $("ask-a").textContent = text; } });
-    $("ask-a").textContent = r.text;
-  } catch (e) {
-    $("ask-a").textContent = e && e.code === "rate_limited" ? L("طلبات كثيرة، حاول بعد قليل.", "Too many requests, try again shortly.") : e && e.code === "not_granted" ? L("خدمة الأسئلة غير متاحة في هذا العرض.", "Questions are not available in this view.") : (e && e.text) || L("تعذّر الحصول على إجابة. جرّب البحث في الأسئلة الشائعة.", "Could not get an answer. Try the FAQ search.");
-    if (e && e.code === "not_granted") $("ask-box").hidden = true;
-  } finally { $("ask-go").disabled = false; }
-}
-function askInit() {
-  try {
-    if (window.claude && typeof window.claude.use === "function") {
-      window.claude.use("sample").then((s) => { if (s) { SAMPLE = s; $("ask-box").hidden = false; } }).catch(() => {});
-    }
-  } catch (e) {}
-  $("ask-go").addEventListener("click", ask);
-  $("ask-q").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); ask(); } });
+function faqInit() {
   $("faq-s").addEventListener("input", faqRender);
 }
 
@@ -1516,7 +1470,7 @@ try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", redr
 new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
 miniInit();
-askInit();
+faqInit();
 $("b-grp").value = "commercial";
 applyLang();
 $("b-act").value = "p:restaurant";

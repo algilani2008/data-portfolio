@@ -4,7 +4,7 @@
 
 مشروع تحليل بيانات متكامل عن قرارات 25 أكتوبر 2026: رفع تعرفة الكهرباء والمياه من 1 يناير 2027، وبدل 500 ريال، ورفع حد احتساب السعودي في نطاقات إلى 5,000 ثم 6,000 ريال. يحلل المشروع الأثر على أربعة مستويات: الأسرة، والمجتمع، والقطاع التجاري، والقطاع الصناعي. ويقارن خيارات الحلول للأسر والمنشآت والسياسة العامة، ويقدّم توقعات حتى 2030.
 
-**الموقع التفاعلي:** **https://algilani2008.github.io/data-portfolio/** (ملفاته في [`dashboard/`](dashboard/)). موقع بالعربية والإنجليزية فيه 14 صفحة. يبدأ بصفحة رئيسية تختار فيها وضعك (فرد، تاجر، مصنع، مزرعة). وفيه صفحة **التضخم القادم** مع حاسبة التضخم الشخصي وحاسبة الراتب الحقيقي ومختبر التوقعات، و**حاسبة منشأة لـ 400 فئة نشاط ISIC4** (إضافة إلى 84 ملف تكاليف تفصيلياً)، و**حاسبة التوطين**، وصفحة **مجاراة التضخم وكسب ثقة العملاء** تعطي قائمة دخل لـ 2026 – 2028، وصفحات للقطاعات، وأسئلة شائعة قابلة للبحث، وصندوق أسئلة مدعوم بـ Claude (يعمل عند فتح الصفحة داخل Claude). وفي كل صفحة **حاسبة تضخم سريعة** تحوّل أي مبلغ إلى قيمته في 2027 و2028.
+**الموقع التفاعلي:** **https://algilani2008.github.io/data-portfolio/** (ملفاته في [`dashboard/`](dashboard/)). موقع بالعربية والإنجليزية فيه 14 صفحة. يبدأ بصفحة رئيسية تختار فيها وضعك (فرد، تاجر، مصنع، مزرعة). وفيه صفحة **التضخم القادم** مع حاسبة التضخم الشخصي وحاسبة الراتب الحقيقي ومختبر التوقعات، و**حاسبة منشأة لـ 400 فئة نشاط ISIC4** (إضافة إلى 84 ملف تكاليف تفصيلياً)، و**حاسبة التوطين**، وصفحة **مجاراة التضخم وكسب ثقة العملاء** تعطي قائمة دخل لـ 2026 – 2028، وصفحات للقطاعات، وأسئلة شائعة قابلة للبحث. وفي كل صفحة **حاسبة تضخم سريعة** تحوّل أي مبلغ إلى قيمته في 2027 و2028.
 
 ![التضخم: التاريخ والتوقع](reports/figures/cpi_forecast.png)
 
@@ -224,7 +224,7 @@ An end-to-end data project on Saudi Arabia's 25 October 2026 package: higher ele
 
 **Society:** low-paid private-sector Saudis gain most once Nitaqat lifts their pay; expatriate families lose about 3% of income; only about 44% of metered households get an allowance. **Business:** extra electricity cost is about 8.5 bn SAR for commerce (mostly the new 350–900 SAR fixed charges) and 3.5 bn for industry; for small shops the wage threshold costs far more than power, for heavy industry the reverse. **Solutions:** near-free household steps offset about 64% of a typical home's increase; bill-based policy options (lifeline block, lower small-breaker charge, rebate to small users) cost about 3 bn SAR a year and reach expatriates, against 32 bn for the announced package.
 
-**Site:** a coming-inflation page with personal-inflation and real-salary calculators, a quick inflation converter on every page, a P&L calculator covering all 400 licensable ISIC4 classes plus 84 detailed cost profiles, a Nitaqat Mutawar Saudization calculator (2026-2028 bands under the rising full-count wage), a pricing-and-trust planner with a customer-message generator, a searchable FAQ and a Claude-powered question box.
+**Site:** a coming-inflation page with personal-inflation and real-salary calculators, a quick inflation converter on every page, a P&L calculator covering all 400 licensable ISIC4 classes plus 84 detailed cost profiles, a Nitaqat Mutawar Saudization calculator (2026-2028 bands under the rising full-count wage), a pricing-and-trust planner with a customer-message generator and a searchable FAQ.
 
 **Stack:** Python (pandas, statsmodels ARIMA, NumPy Monte Carlo), SQL (SQLite window functions), and a bilingual 9-tab Chart.js dashboard with live calculators and an inflation lab. Every input row carries its source, and every assumption has a range in `data/raw/assumptions.json`.
 
