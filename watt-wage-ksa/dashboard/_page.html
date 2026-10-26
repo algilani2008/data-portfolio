@@ -29,6 +29,16 @@
   --good: #4cc79a; --bad: #f08a5d; --warn: #f0a050; color-scheme: dark }
 
 * { box-sizing: border-box }
+[hidden] { display: none !important }
+@media (max-width: 600px) {
+  table { font-size: 12px } th, td { padding: 6px 5px }
+  table.pnl th:nth-child(3), table.pnl td:nth-child(3), table.pnl th:nth-child(5), table.pnl td:nth-child(5) { display: none }
+  table.pnl td:first-child { white-space: normal; min-width: 110px }
+  .tablewrap { margin-inline: -6px }
+  .kpi .v { font-size: 20px }
+  h2 { font-size: 19px }
+}
+html { -webkit-text-size-adjust: 100% }
 body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.6; margin: 0 }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--panel) }
 .gut { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
@@ -595,7 +605,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
 </div></main>
 <footer class="gut"><div class="inner"><span data-ar="مشروع تحليل بيانات مستقل للأغراض التعليمية. الأرقام تقديرات مبنية على المصادر المذكورة وليست توقعات رسمية." data-en="Independent, educational data project. Figures are estimates built on the sources listed, not official forecasts."></span> <span class="num" id="gen"></span></div></footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="chart.umd.js"></script>
 <script src="data.js"></script>
 <script>
 (function () {
@@ -635,12 +645,12 @@ function sectorBill(kwh, amps, sector, sched) {
 const yearElec = (kwh, amps, sched, frac = 0) => SEASON.reduce((s, f) => s + elecBill(kwh * f * (1 - frac), amps, sched), 0);
 
 // ---------- charts ----------
-Chart.defaults.font.family = '"IBM Plex Sans Arabic", system-ui, sans-serif';
+if (window.Chart) Chart.defaults.font.family = '"IBM Plex Sans Arabic", system-ui, sans-serif';
 const charts = {};
-function mk(id, cfg) { if (charts[id]) charts[id].destroy(); const el = $(id); if (!el) return; charts[id] = new Chart(el, cfg); }
+function mk(id, cfg) { if (!window.Chart) return; try { if (charts[id]) charts[id].destroy(); const el = $(id); if (!el) return; charts[id] = new Chart(el, cfg); } catch (e) { console.error("chart " + id, e); } }
 function base(o = {}) {
   const ink2 = css("--ink-2"), line = css("--line"), rtl = AR();
-  return { responsive: true, maintainAspectRatio: false, animation: false, interaction: { mode: "index", intersect: false }, indexAxis: o.h ? "y" : "x",
+  return { responsive: true, maintainAspectRatio: false, animation: false, layout: { padding: { left: 14, right: 14 } }, interaction: { mode: "index", intersect: false }, indexAxis: o.h ? "y" : "x",
     plugins: { legend: { display: !!o.legend, labels: { color: ink2, boxWidth: 14, boxHeight: 3 } },
       tooltip: { rtl, backgroundColor: css("--panel"), titleColor: css("--ink"), bodyColor: ink2, borderColor: line, borderWidth: 1, callbacks: o.tip || {} } },
     scales: {
@@ -936,7 +946,7 @@ function business() {
     ["up", sgn((100 * dTot) / (out[2026].total || 1), 1) + "%", L("زيادة التكاليف حتى 2028", "Cost increase to 2028"), `${sgn(dTot)} ${L("ريال/سنة", "SAR/yr")}`],
     ["up", sgn(out[2027].electricity - out[2026].electricity), L("زيادة الكهرباء سنوياً", "Electricity rise per year"), `${sgn(out[2026].electricity ? (100 * out[2027].electricity) / out[2026].electricity - 100 : 0, 0)}%`],
     ["up", sgn((out[2028].saudi_wages_threshold - out[2026].saudi_wages_threshold) * (1 + G.gosi)), L("أجور نطاقات + تأمينات (2028)", "Nitaqat wages + GOSI (2028)"), L(`${fmt(p.n1 + p.n2)} موظف سعودي تحت 6,000`, `${fmt(p.n1 + p.n2)} Saudis below 6,000`)],
-    [mg(2028) < mg(2026) ? "up" : "dn", fmt(mg(2026), 1) + "% → " + fmt(mg(2028), 1) + "%", L("هامش الربح 2026 ← 2028", "Margin 2026 → 2028"), priceUp ? L("مع رفع الأسعار بالتضخم", "with prices rising with inflation") : L("بدون تغيير الأسعار", "with prices unchanged")],
+    [mg(2028) < mg(2026) ? "up" : "dn", fmt(mg(2028), 1) + "%", L("هامش الربح في 2028", "Margin in 2028"), L(`كان ${fmt(mg(2026), 1)}% في 2026`, `was ${fmt(mg(2026), 1)}% in 2026`) + " · " + (priceUp ? L("مع رفع الأسعار", "with price rises") : L("بدون تغيير الأسعار", "prices unchanged"))],
     ["", fmt(need, 2) + "%", L("رفع الأسعار اللازم للحفاظ على الربح", "Price rise needed to keep profit"), L("مقارنة بأسعار 2026", "vs 2026 prices")],
   ].map(([c, v2, l, s]) => `<div class="kpi ${c}"><div class="l">${l}</div><div class="v">${v2}</div><div class="s">${s}</div></div>`).join("");
   $("b-verdict").innerHTML = prof(2028) < 0 ? `<span class="pill bad">! ${L("المنشأة تخسر في 2028 إذا لم تتغير الأسعار أو التكاليف", "The business makes a loss in 2028 unless prices or costs change")}</span>` : (need > 5 ? `<span class="pill warn">${L("رفع أسعار يفوق 5% مطلوب للحفاظ على الربح", "More than a 5% price rise is needed to keep profit")}</span>` : `<span class="pill good">✓ ${L("الأثر محدود ويمكن امتصاصه برفع أسعار بسيط", "The impact is modest and a small price rise absorbs it")}</span>`);
@@ -1425,6 +1435,7 @@ function openClass(code) {
 // ---------- routing & language ----------
 const VIEWS = ["overview", "inflation", "household", "business", "saudization", "trust", "commercial", "industrial", "agri", "society", "labour", "solutions", "faq", "method"];
 function draw(v) {
+  try {
   if (v === "overview") overview();
   if (v === "inflation") { inflationPage(); forecastView(); forecastStatic(); }
   if (v === "household") { household(); profilesCharts(); }
@@ -1439,6 +1450,7 @@ function draw(v) {
   if (v === "solutions") { solutionsStatic(); solutionsView(); }
   if (v === "faq") faqRender();
   if (v === "method") method();
+  } catch (e) { console.error("view " + v, e); }
 }
 function show(v) {
   if (!VIEWS.includes(v)) v = "overview";
