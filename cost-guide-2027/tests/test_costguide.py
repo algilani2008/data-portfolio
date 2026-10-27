@@ -234,3 +234,19 @@ def test_isic_classes_complete():
     acts = set(data.activity_catalog()["id"])
     assert set(d["profile"]) <= acts
     assert set(d["nitaqat_id"]) <= set(data.nitaqat_activities()["id"])
+
+
+# --- water: network vs tankers -----------------------------------------------
+from costguide import water
+
+
+def test_tanker_cost_and_need():
+    t = water.tanker_cost(143, 19, 2, rise_pct=10)
+    assert t["old_month"] == 286 and t["new_month"] == pytest.approx(314.6)
+    assert water.tankers_needed(43, 19) == 2.5
+    assert water.monthly_m3(6, 240) == pytest.approx(43.2)
+
+
+def test_network_cost_matches_tariff():
+    n = water.network_cost(30)
+    assert n["new_month"] == pytest.approx((15 * 1.5 + 15 * 3 + 30) * 1.15)

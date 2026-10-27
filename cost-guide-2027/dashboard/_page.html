@@ -58,6 +58,7 @@ header.top .inner { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items:
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--panel) }
 .seg button { border: 0; background: transparent; color: var(--ink-2); padding: 6px 14px; font: inherit; font-size: 13px; cursor: pointer }
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink) }
+.seg.wide { display: grid; grid-template-columns: 1fr 1fr; border-radius: 10px } .seg.wide button { padding: 9px 10px; font-size: 14px }
 
 nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--panel); border-bottom: 1px solid var(--line) }
 nav.tabs .inner { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none }
@@ -202,7 +203,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
 <nav class="tabs gut" aria-label="Sections"><div class="inner" id="tabs">
   <a href="#overview" data-v="overview" data-ar="الرئيسية" data-en="Home"></a>
   <a href="#inflation" data-v="inflation" data-ar="التضخم القادم" data-en="Coming inflation"></a>
-  <a href="#household" data-v="household" data-ar="الأفراد والرواتب" data-en="Households &amp; pay"></a>
+  <a href="#household" data-v="household" data-ar="ميزانيتي والفواتير" data-en="My budget &amp; bills"></a>
   <a href="#business" data-v="business" data-ar="حاسبة المنشأة" data-en="Business calculator"></a>
   <a href="#commercial" data-v="commercial" data-ar="التجاري" data-en="Commercial"></a>
   <a href="#industrial" data-v="industrial" data-ar="الصناعي" data-en="Industrial"></a>
@@ -226,7 +227,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
       <p class="muted" data-ar="اختر وضعك واحسب الأثر بأرقامك: فاتورة البيت، والراتب، والتضخم، وتكاليف منشأتك مهما كان نشاطها." data-en="Pick your situation and work out the impact with your own numbers: home bills, pay, inflation, and your business costs whatever its activity."></p>
     </div>
     <div class="roles" id="roles">
-      <a href="#household" data-go="household" class="role"><b data-ar="فرد أو أسرة" data-en="Individual or family"></b><span data-ar="الفاتورة، والراتب، والتضخم الشخصي" data-en="Bills, pay and personal inflation"></span></a>
+      <a href="#household" data-go="household" class="role"><b data-ar="فرد أو أسرة" data-en="Individual or family"></b><span data-ar="ميزانيتك وراتبك، والكهرباء، والمياه أو الوايتات" data-en="Your budget and pay, power, water or tankers"></span></a>
       <a href="#business" data-go="business" data-grp="commercial" class="role"><b data-ar="منشأة تجارية أو خدمية" data-en="Shop or service business"></b><span data-ar="أكثر من 200 نشاط: تجزئة، مطاعم، صحة، تعليم..." data-en="200+ activities: retail, food, health, education..."></span></a>
       <a href="#business" data-go="business" data-grp="industrial" class="role"><b data-ar="مصنع" data-en="Factory"></b><span data-ar="160 صناعة: أغذية، كيماويات، حديد، إسمنت..." data-en="160 industries: food, chemicals, steel, cement..."></span></a>
       <a href="#saudization" data-go="saudization" class="role"><b data-ar="حاسبة التوطين" data-en="Saudization calculator"></b><span data-ar="نطاقك في نطاقات 2026 – 2028 وكم تحتاج" data-en="Your Nitaqat band 2026–2028 and what you need"></span></a>
@@ -314,7 +315,44 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
 
 <!-- HOUSEHOLD -->
 <section class="view" id="v-household" hidden>
-  <div class="vhead"><h2 data-ar="احسب فاتورتك" data-en="Work out your bill"></h2><p class="muted" data-ar="أدخل استهلاكك أو قدّره من عدد المكيفات. الحساب يشمل الرسوم الثابتة وضريبة 15%، والسنة كاملة بفرق الصيف والشتاء." data-en="Enter your use or estimate it from your air conditioners. Includes fixed charges and 15% VAT, over a full year with summer and winter use."></p></div>
+  <div class="vhead"><h2 data-ar="ميزانيتك الشهرية: كم تزيد مصاريفك وكم تأخذ من راتبك؟" data-en="Your monthly budget: how much do your expenses rise and what share of your pay?"></h2>
+    <p class="muted" data-ar="أدخل راتبك ووضعك الوظيفي ومصاريفك الشهرية. تحسب الحاسبة كم تزيد كل مصروف في 2027 و2028، وكم الزيادة كنسبة من راتبك، وكم يبقى لك بعد البدل أو رفع حد نطاقات. الكهرباء والمياه تُحسب من الحاسبتين أسفل الصفحة." data-en="Enter your salary, job situation and monthly expenses. The calculator shows how much each expense rises in 2027 and 2028, the increase as a share of your pay, and what is left after the allowance or the Nitaqat threshold. Electricity and water come from the two calculators further down."></p></div>
+  <div class="g-ctl">
+    <div class="panel ctl">
+      <fieldset class="fs"><legend data-ar="الراتب" data-en="Salary"></legend>
+        <div class="row2">
+          <div class="field"><label for="bg-sal" data-ar="الراتب الشهري الإجمالي (ريال)" data-en="Gross monthly salary (SAR)"></label><input type="number" id="bg-sal" min="0" step="100" value="12000"></div>
+          <div class="field"><label for="bg-oth" data-ar="دخل آخر شهرياً (ريال)" data-en="Other monthly income (SAR)"></label><input type="number" id="bg-oth" min="0" step="100" value="0"></div>
+        </div>
+        <div class="field"><label for="bg-kind" data-ar="الوضع الوظيفي" data-en="Job situation"></label>
+          <select id="bg-kind">
+            <option value="gov" data-ar="موظف حكومي (مدني أو عسكري)" data-en="State employee (civil or military)"></option>
+            <option value="private_saudi" data-ar="سعودي في القطاع الخاص" data-en="Saudi, private sector"></option>
+            <option value="retiree" data-ar="متقاعد" data-en="Retiree"></option>
+            <option value="ss" data-ar="مستفيد من الضمان الاجتماعي" data-en="Social-security beneficiary"></option>
+            <option value="expat" data-ar="مقيم (غير سعودي)" data-en="Expatriate"></option>
+          </select></div>
+        <div class="row2">
+          <div class="field"><label for="bg-raise" data-ar="زيادة سنوية متوقعة في الراتب %" data-en="Expected yearly raise %"></label><input type="number" id="bg-raise" min="0" max="30" step="0.5" value="0"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="bg-comply" checked><span data-ar="منشأتي تلتزم بحد نطاقات (للقطاع الخاص)" data-en="My employer complies with Nitaqat (private sector)"></span></label>
+      </fieldset>
+      <fieldset class="fs"><legend data-ar="مصاريفك الشهرية (ريال)" data-en="Your monthly expenses (SAR)"></legend>
+        <div class="cats" id="bg-items"></div>
+        <button class="btn" type="button" id="bg-reset" data-ar="أعد القيم المثالية" data-en="Reset example values"></button>
+      </fieldset>
+    </div>
+    <div class="panel">
+      <div class="kpis kpis-s" id="bg-kpis"></div>
+      <div id="bg-verdict" style="display:grid;gap:6px"></div>
+      <div class="tablewrap"><table id="t-bg-sum"></table></div>
+      <h3 data-ar="الزيادة في كل مصروف (ريال شهرياً)" data-en="Increase in each expense (SAR a month)"></h3>
+      <div class="chart"><canvas id="c-bg"></canvas></div>
+      <div class="tablewrap"><table id="t-bg-items"></table></div>
+    </div>
+  </div>
+
+  <div class="vhead"><h2 data-ar="فاتورة الكهرباء" data-en="Electricity bill"></h2><p class="muted" data-ar="أدخل استهلاكك أو قدّره من عدد المكيفات. المياه تُحسب من حاسبة المياه أسفل هذه الحاسبة. الحساب يشمل الرسوم الثابتة وضريبة 15%، والسنة كاملة بفرق الصيف والشتاء." data-en="Enter your use or estimate it from your air conditioners. Includes fixed charges and 15% VAT, over a full year with summer and winter use."></p></div>
   <div class="g-ctl">
     <div class="panel ctl">
       <div class="field"><label for="kwh" data-ar="متوسط الاستهلاك الشهري (كيلوواط ساعة)" data-en="Average monthly use (kWh)"></label>
@@ -328,9 +366,6 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
         </div></details>
       <div class="field"><label for="breaker" data-ar="سعة القاطع" data-en="Breaker size"></label>
         <select id="breaker"><option value="60">20 – 99 A</option><option value="150" selected>100 – 199 A</option><option value="250">200 – 299 A</option><option value="350">300 A +</option></select></div>
-      <div class="field"><label for="m3" data-ar="استهلاك المياه الشهري (م³)" data-en="Monthly water use (m³)"></label>
-        <div class="row"><input type="range" id="m3-r" min="0" max="150" step="1" value="43" aria-label="m3"><input type="number" id="m3" min="0" max="500" value="43"></div></div>
-      <label class="check"><input type="checkbox" id="sewage" checked><span data-ar="مشترك في الصرف الصحي" data-en="Connected to sewage"></span></label>
       <div class="field"><label for="who" data-ar="وضع الأسرة" data-en="Household situation"></label>
         <select id="who">
           <option value="none" data-ar="بدون بدل (موظف قطاع خاص، مقيم...)" data-en="No allowance (private sector, expatriate...)"></option>
@@ -342,6 +377,49 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
       <div class="readout" id="readout"></div>
       <div id="verdict" style="display:grid;gap:6px"></div>
       <div class="chart s"><canvas id="c-month"></canvas></div>
+    </div>
+  </div>
+
+  <div class="vhead"><h2 data-ar="حاسبة المياه: شبكة حكومية أو وايتات" data-en="Water calculator: government network or tankers"></h2>
+    <p class="muted" data-ar="اختر مصدر مياه بيتك. للشبكة: تعرفة شركة المياه الوطنية الحالية و2027 بالشرائح والرسوم الثابتة. للوايتات: حجم الوايت وسعره وعدد المرات في الشهر." data-en="Pick your home's water source. Network: the National Water Company's current and 2027 tiered tariff with fixed fees. Tankers: tanker size, price and trips a month."></p></div>
+  <div class="g-ctl">
+    <div class="panel ctl">
+      <div class="seg wide" role="group" aria-label="source"><button type="button" id="ws-net" aria-pressed="true" data-ar="شبكة المياه الحكومية" data-en="Government network"></button><button type="button" id="ws-tank" aria-pressed="false" data-ar="وايتات (صهاريج)" data-en="Tankers"></button></div>
+      <div class="field"><label for="w-ppl" data-ar="عدد أفراد البيت" data-en="People in the home"></label><input type="number" id="w-ppl" min="1" max="40" value="6"></div>
+      <div class="field"><label for="w-lpd" id="w-lpd-l"></label><input type="range" id="w-lpd" min="100" max="400" step="10" value="240"></div>
+      <p class="small" id="w-est"></p>
+      <div id="w-net-box" style="display:grid;gap:10px">
+        <div class="field"><label for="m3" data-ar="استهلاك المياه الشهري (م³)" data-en="Monthly water use (m³)"></label>
+          <div class="row"><input type="range" id="m3-r" min="0" max="150" step="1" value="43" aria-label="m3"><input type="number" id="m3" min="0" max="500" value="43"></div></div>
+        <button class="btn" type="button" id="w-use-est" data-ar="استخدم التقدير من عدد الأفراد" data-en="Use the estimate from household size"></button>
+        <label class="check"><input type="checkbox" id="sewage" checked><span data-ar="مشترك في الصرف الصحي" data-en="Connected to sewage"></span></label>
+      </div>
+      <div id="w-tank-box" style="display:grid;gap:10px" hidden>
+        <div class="field"><label for="t-size" data-ar="حجم الوايت" data-en="Tanker size"></label>
+          <select id="t-size">
+            <option value="6|120" data-ar="6 طن (خاص) · نحو 120 ريال" data-en="6 t (private) · about 120 SAR"></option>
+            <option value="12|160" data-ar="12 طن (خاص) · نحو 160 ريال" data-en="12 t (private) · about 160 SAR"></option>
+            <option value="18|200" data-ar="18 طن (خاص) · نحو 200 ريال" data-en="18 t (private) · about 200 SAR"></option>
+            <option value="19|143" selected data-ar="19 م³ (المياه الوطنية) · نحو 114–135 ريال + الضريبة" data-en="19 m³ (National Water Co.) · about 114–135 SAR + VAT"></option>
+            <option value="20|220" data-ar="20 طن (خاص) · نحو 220 ريال" data-en="20 t (private) · about 220 SAR"></option>
+            <option value="30|259" data-ar="30 م³ فأكثر (المياه الوطنية) · حتى 225 ريال + الضريبة" data-en="30 m³+ (National Water Co.) · up to 225 SAR + VAT"></option>
+            <option value="32|300" data-ar="32 طن (خاص) · نحو 300 ريال" data-en="32 t (private) · about 300 SAR"></option>
+          </select></div>
+        <div class="row2">
+          <div class="field"><label for="t-price" data-ar="سعر الوايت الذي تدفعه (ريال)" data-en="Price you pay per tanker (SAR)"></label><input type="number" id="t-price" min="0" step="5" value="143"></div>
+          <div class="field"><label for="t-cap" data-ar="سعة الوايت (م³ = طن)" data-en="Tanker capacity (m³ = t)"></label><input type="number" id="t-cap" min="1" step="1" value="19"></div>
+          <div class="field"><label for="t-n" data-ar="عدد الوايتات في الشهر" data-en="Tankers a month"></label><input type="number" id="t-n" min="0" step="0.5" value="2"></div>
+        </div>
+        <button class="btn" type="button" id="t-use-est" data-ar="احسب العدد من عدد الأفراد" data-en="Work out the number from household size"></button>
+        <div class="field"><label for="t-inc" id="t-inc-l"></label><input type="range" id="t-inc" min="0" max="50" step="5" value="10"></div>
+        <p class="small" data-ar="لم تُعلن أسعار جديدة للوايتات في قرار 2027. سعر الوايت يشمل الماء من محطة التعبئة والنقل، فحرّك النسبة حسب ما تتوقعه أو حسب ما يبلغك به المورّد." data-en="No new tanker prices were announced with the 2027 decision. A tanker's price covers the water at the filling station plus transport; set the rise to what you expect or what your supplier tells you."></p>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="kpis kpis-s" id="w-kpis"></div>
+      <div class="tablewrap"><table id="t-w"></table></div>
+      <div class="chart s"><canvas id="c-w"></canvas></div>
+      <p class="small" id="w-note"></p>
     </div>
   </div>
   <div class="g2">
@@ -692,16 +770,16 @@ function overview() {
 function acEstimate() { const n = +$("ac-n").value || 0, s = +$("ac-s").value || 0, w = +$("ac-w").value || 0; return Math.round(350 + n * 2.0 * 0.7 * 30 * (s * 5 + w * 7) / 12); }
 function household() {
   $("ac-out").textContent = L(`التقدير: نحو ${fmt(acEstimate())} كيلوواط ساعة شهرياً في المتوسط`, `Estimate: about ${fmt(acEstimate())} kWh a month on average`);
-  const kwh = Math.max(0, +$("kwh").value || 0), amps = +$("breaker").value, m3 = Math.max(0, +$("m3").value || 0), sew = $("sewage").checked, who = $("who").value;
+  const kwh = Math.max(0, +$("kwh").value || 0), amps = +$("breaker").value, who = $("who").value, W = waterCalc();
   const eoM = SEASON.map((f) => elecBill(kwh * f, amps, "2018")), enM = SEASON.map((f) => elecBill(kwh * f, amps, "2027"));
   const eo = eoM.reduce((a, b) => a + b, 0), en = enM.reduce((a, b) => a + b, 0);
-  const wo = 12 * waterBill(m3, "2016", sew), wn = 12 * waterBill(m3, "2027", sew);
+  const wo = 12 * W.oldM, wn = 12 * W.newM;
   const to = eo + wo, tn = en + wn, inc = tn - to;
   HH = { oldMonth: to / 12, changePct: to ? 100 * (tn / to - 1) : 0 };
   const pc = (a, b) => (a > 0 ? ` <span class="small">(${sgn(100 * (b / a - 1))}%)</span>` : "");
   $("readout").innerHTML = `<div class="h">${L("سنوياً (ريال)", "Per year (SAR)")}</div><div class="h" style="text-align:end">${L("الحالي", "Current")}</div><div class="h" style="text-align:end">2027</div>
     <div class="k">${L("الكهرباء", "Electricity")}</div><div class="o">${fmt(eo)}</div><div class="n">${fmt(en)}${pc(eo, en)}</div>
-    <div class="k">${L("المياه والصرف", "Water & sewage")}</div><div class="o">${fmt(wo)}</div><div class="n">${fmt(wn)}${pc(wo, wn)}</div>
+    <div class="k">${W.src === "tank" ? L("المياه (وايتات)", "Water (tankers)") : L("المياه والصرف", "Water & sewage")}</div><div class="o">${fmt(wo)}</div><div class="n">${fmt(wn)}${pc(wo, wn)}</div>
     <div class="k tot">${L("الإجمالي", "Total")}</div><div class="o tot">${fmt(to)}</div><div class="n tot">${fmt(tn)}${pc(to, tn)}</div>`;
   let gain = 0, gl = "";
   if (who === "allow") { gain = 6000; gl = L("بدل 500 ريال شهرياً", "500 SAR monthly allowance"); }
@@ -726,6 +804,139 @@ function profilesCharts() {
     options: base({ xtitle: L("الشريحة (1 = الأصغر)", "Decile (1 = smallest)"), yt: { callback: (v) => v + "%" }, tip: { label: (x) => `+${fmt(x.raw, 1)}% · ${fmt(Q[x.dataIndex].avg_kwh_month)} kWh · +${fmt(Q[x.dataIndex].change_sar)} ${L("ريال", "SAR")}` } }) });
   $("t-profiles").innerHTML = `<thead><tr><th>${L("الأسرة", "Household")}</th><th class="n">kWh</th><th class="n">m³</th><th class="n">${L("الحالي/سنة", "Now/yr")}</th><th class="n">2027</th><th class="n">${L("الزيادة", "Increase")}</th><th class="n">%</th><th class="n">${L("مع ترشيد الاستهلاك", "With price response")}</th></tr></thead><tbody>` +
     P.map((p) => `<tr><td>${name(p)}</td><td class="n">${fmt(p.kwh_month)}</td><td class="n">${p.water_m3}</td><td class="n">${fmt(p.total_old_year)}</td><td class="n">${fmt(p.total_new_year)}</td><td class="n up">+${fmt(p.increase_year)}</td><td class="n up">+${fmt(p.increase_pct, 1)}%</td><td class="n">+${fmt(p.increase_year_with_response)}</td></tr>`).join("") + "</tbody>";
+}
+
+// ---------- WATER CALCULATOR (network or tankers) ----------
+let WS = "net";
+const waterEstM3 = () => Math.max(0, (+$("w-ppl").value || 0) * (+$("w-lpd").value || 0) * 30 / 1000);
+function waterCalc() {
+  const sew = $("sewage").checked;
+  if (WS === "net") {
+    const m3 = Math.max(0, +$("m3").value || 0);
+    const oldM = waterBill(m3, "2016", sew), newM = waterBill(m3, "2027", sew);
+    return { src: "net", m3, oldM, newM, perM3Old: m3 ? oldM / m3 : 0, perM3New: m3 ? newM / m3 : 0 };
+  }
+  const price = Math.max(0, +$("t-price").value || 0), cap = Math.max(1, +$("t-cap").value || 1), n = Math.max(0, +$("t-n").value || 0), inc = (+$("t-inc").value || 0) / 100;
+  return { src: "tank", m3: n * cap, n, cap, price, inc, oldM: n * price, newM: n * price * (1 + inc), perM3Old: price / cap, perM3New: price * (1 + inc) / cap };
+}
+function waterView() {
+  $("ws-net").setAttribute("aria-pressed", WS === "net"); $("ws-tank").setAttribute("aria-pressed", WS === "tank");
+  $("w-net-box").hidden = WS !== "net"; $("w-tank-box").hidden = WS !== "tank";
+  const ppl = +$("w-ppl").value || 0, lpd = +$("w-lpd").value || 0, est = waterEstM3();
+  $("w-lpd-l").textContent = L(`استهلاك الفرد يومياً: ${fmt(lpd)} لتر`, `Use per person per day: ${fmt(lpd)} litres`);
+  $("t-inc-l").textContent = L(`الزيادة المتوقعة في سعر الوايت 2027: ${fmt(+$("t-inc").value)}%`, `Expected 2027 rise in tanker price: ${fmt(+$("t-inc").value)}%`);
+  $("w-est").textContent = L(`التقدير: نحو ${fmt(est, 1)} م³ شهرياً لـ ${fmt(ppl)} أفراد (متوسط المملكة نحو 263 لتراً للفرد يومياً).`, `Estimate: about ${fmt(est, 1)} m³ a month for ${fmt(ppl)} people (the Saudi average is about 263 litres per person a day).`);
+  const W = waterCalc(), c = C(), sew = $("sewage").checked;
+  const days = W.src === "tank" && ppl && lpd ? (W.cap * 1000) / (ppl * lpd) : null;
+  $("w-kpis").innerHTML = [
+    ["", fmt(W.oldM), L("تكلفة المياه الشهرية الآن", "Monthly water cost now"), L("ريال شاملة الضريبة", "SAR incl. VAT")],
+    ["up", fmt(W.newM), L("في 2027", "In 2027"), `${sgn(W.newM - W.oldM)} ${L("ريال", "SAR")} (${sgn(W.oldM ? 100 * (W.newM / W.oldM - 1) : 0, 0)}%)`],
+    ["", fmt(W.perM3New, 2), L("ريال لكل م³ في 2027", "SAR per m³ in 2027"), L(`الآن ${fmt(W.perM3Old, 2)}`, `now ${fmt(W.perM3Old, 2)}`)],
+    days != null ? ["", fmt(days, 0), L("يوماً يكفي الوايت الواحد", "days one tanker lasts"), L(`${fmt(W.n, 1)} وايت شهرياً`, `${fmt(W.n, 1)} tankers a month`)] : ["", fmt(W.m3), L("م³ شهرياً", "m³ a month"), sew ? L("مع الصرف الصحي", "with sewage") : L("بدون صرف صحي", "no sewage")],
+  ].map(([k, v, l, s2]) => `<div class="kpi ${k}"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s2}</div></div>`).join("");
+  $("t-w").innerHTML = `<thead><tr><th></th><th class="n">${L("الآن", "Now")}</th><th class="n">2027</th><th class="n">${L("الزيادة", "Increase")}</th></tr></thead><tbody>
+    <tr><td>${L("شهرياً", "Per month")}</td><td class="n">${fmt(W.oldM)}</td><td class="n">${fmt(W.newM)}</td><td class="n up">${sgn(W.newM - W.oldM)}</td></tr>
+    <tr><td>${L("سنوياً", "Per year")}</td><td class="n">${fmt(12 * W.oldM)}</td><td class="n">${fmt(12 * W.newM)}</td><td class="n up">${sgn(12 * (W.newM - W.oldM))}</td></tr></tbody>`;
+  // compare both sources for the same monthly volume
+  const m3 = W.src === "tank" ? W.m3 : W.m3, tp = +$("t-price").value || 0, tc = Math.max(1, +$("t-cap").value || 1), ti = (+$("t-inc").value || 0) / 100;
+  const netOld = waterBill(m3, "2016", sew), netNew = waterBill(m3, "2027", sew), tankOld = (m3 / tc) * tp, tankNew = tankOld * (1 + ti);
+  mk("c-w", { type: "bar", data: { labels: [L("الشبكة", "Network"), L("الوايتات", "Tankers")], datasets: [
+    { label: L("الآن", "Now"), data: [netOld, tankOld], backgroundColor: c.old, borderRadius: 3 }, { label: "2027", data: [netNew, tankNew], backgroundColor: c.nw, borderRadius: 3 }] },
+    options: base({ legend: true, tip: { label: (x) => `${x.dataset.label}: ${fmt(x.raw)} ${L("ريال/شهر", "SAR/month")}` } }) });
+  $("w-note").textContent = L(`المقارنة لنفس الكمية (${fmt(m3, 1)} م³ شهرياً). تعرفة الشبكة 2027: 1 و2 و4 و6 ريالات للمتر حسب الشريحة، والصرف بنصف السعر، ورسم ثابت 20 + 10 ريالات. أسعار الوايتات تقريبية وتختلف حسب المدينة والمسافة.`, `Compared for the same volume (${fmt(m3, 1)} m³ a month). 2027 network tariff: 1, 2, 4 and 6 SAR per m³ by tier, sewage at half, fixed fees 20 + 10 SAR. Tanker prices are approximate and vary by city and distance.`);
+}
+
+// ---------- MONTHLY BUDGET ----------
+const BG_ITEMS = [
+  ["rent", "إيجار السكن", "Rent", "04h", 2500],
+  ["elec", "فاتورة الكهرباء", "Electricity bill", "elec", 0],
+  ["water", "المياه (فاتورة أو وايتات)", "Water (bill or tankers)", "water", 0],
+  ["food", "الأكل والمشتريات المنزلية", "Groceries", "01", 1800],
+  ["rest", "المطاعم والمقاهي والتوصيل", "Restaurants, cafés, delivery", "11", 500],
+  ["fuel", "البنزين والمواصلات وصيانة السيارة", "Fuel, transport, car upkeep", "07", 700],
+  ["loan", "أقساط السيارة والقروض (ثابتة)", "Car and loan instalments (fixed)", "none", 1200],
+  ["tel", "الجوال والإنترنت", "Mobile and internet", "08", 300],
+  ["edu", "المدارس ورسوم التعليم", "School and tuition fees", "10", 400],
+  ["health", "العلاج والأدوية", "Health and medicine", "06", 100],
+  ["cloth", "الملابس والأحذية", "Clothes and shoes", "03", 250],
+  ["furn", "الأثاث والأجهزة المنزلية", "Furniture and appliances", "05", 150],
+  ["fun", "الترفيه والسفر", "Leisure and travel", "09", 300],
+  ["care", "العناية الشخصية والعاملة المنزلية", "Personal care and domestic help", "13", 800],
+  ["ins", "التأمين", "Insurance", "12", 100],
+  ["other", "مصاريف أخرى", "Other", "all", 200],
+];
+let BG = null, BG_LINK = true;
+function bgDefaults() { BG = Object.fromEntries(BG_ITEMS.map(([id, , , , v]) => [id, v])); }
+function bgItemsHtml() {
+  $("bg-items").innerHTML = `<label class="check"><input type="checkbox" id="bg-link" ${BG_LINK ? "checked" : ""}><span>${L("خذ الكهرباء والمياه من الحاسبتين أدناه", "Take electricity and water from the calculators below")}</span></label>` +
+    BG_ITEMS.map(([id, ar, en, code]) => { const auto = BG_LINK && (code === "elec" || code === "water"); const rate = code === "elec" || code === "water" || code === "none" ? "" : sgn(divRate(code === "all" ? "all" : code, 2027), 1) + "%";
+      return `<div class="cat"><label for="bg-${id}">${L(ar, en)}</label><input type="number" id="bg-${id}" min="0" step="10" value="${Math.round(BG[id])}" ${auto ? "disabled" : ""}><span class="r">${code === "none" ? "0%" : rate || L("تلقائي", "auto")}</span></div>`; }).join("");
+  BG_ITEMS.forEach(([id]) => $("bg-" + id).addEventListener("input", (e) => { BG[id] = +e.target.value || 0; budget(); }));
+  $("bg-link").addEventListener("change", (e) => { BG_LINK = e.target.checked; budgetSync(); bgItemsHtml(); budget(); });
+}
+function bisect(f, target, lo, hi) { for (let i = 0; i < 50; i++) { const m = (lo + hi) / 2; if (f(m) < target) lo = m; else hi = m; } return (lo + hi) / 2; }
+function budgetSync() {
+  if (!BG_LINK) return;
+  const amps = +$("breaker").value, kwh = Math.max(0, +$("kwh").value || 0), W = waterCalc();
+  BG.elec = yearElec(kwh, amps, "2018") / 12; BG.water = W.oldM;
+  BG._elecNew = yearElec(kwh, amps, "2027") / 12; BG._waterNew = W.newM;
+  ["elec", "water"].forEach((k) => { const el = $("bg-" + k); if (el) el.value = Math.round(BG[k]); });
+}
+function itemNew(id, code, v) {
+  if (code === "elec") {
+    if (BG_LINK) return BG._elecNew;
+    const amps = +$("breaker").value, k = bisect((x) => yearElec(x, amps, "2018") / 12, v, 0, 80000);
+    return v > 0 ? yearElec(k, amps, "2027") / 12 : 0;
+  }
+  if (code === "water") {
+    if (BG_LINK) return BG._waterNew;
+    if (WS === "tank") return v * (1 + (+$("t-inc").value || 0) / 100);
+    const sew = $("sewage").checked, m = bisect((x) => waterBill(x, "2016", sew), v, 0, 2000);
+    return v > 0 ? waterBill(m, "2027", sew) : 0;
+  }
+  if (code === "none") return v;
+  return v * (1 + divRate(code, 2027) / 100);
+}
+function budget() {
+  if (!BG) { bgDefaults(); }
+  budgetSync();
+  const g = Math.max(0, +$("bg-sal").value || 0), oth = Math.max(0, +$("bg-oth").value || 0), kind = $("bg-kind").value, raise = +$("bg-raise").value || 0, comply = $("bg-comply").checked;
+  const rows = BG_ITEMS.map(([id, ar, en, code]) => {
+    const v = BG[id] || 0, v27 = itemNew(id, code, v);
+    const v28 = code === "elec" || code === "water" || code === "none" ? v27 : v27 * (1 + divRate(code, 2028) / 100);
+    return { id, name: L(ar, en), v, v27, v28 };
+  });
+  const E = { 2026: 0, 2027: 0, 2028: 0 }; rows.forEach((r) => { E[2026] += r.v; E[2027] += r.v27; E[2028] += r.v28; });
+  const I = {}; [2026, 2027, 2028].forEach((y) => { I[y] = takeHome(g, kind, y, raise, comply) + oth; });
+  const dE27 = E[2027] - E[2026], dE28 = E[2028] - E[2026], dI27 = I[2027] - I[2026], dI28 = I[2028] - I[2026];
+  const pctSal = (x) => (I[2026] ? (100 * x) / I[2026] : 0);
+  const save = (y) => I[y] - E[y];
+  $("bg-kpis").innerHTML = [
+    ["up", sgn(dE27), L("زيادة مصاريفك الشهرية 2027", "Rise in monthly expenses, 2027"), L(`ريال (${sgn(E[2026] ? (100 * dE27) / E[2026] : 0, 1)}% من مصاريفك)`, `SAR (${sgn(E[2026] ? (100 * dE27) / E[2026] : 0, 1)}% of spending)`)],
+    ["up", fmt(pctSal(dE27), 1) + "%", L("الزيادة كنسبة من راتبك الصافي", "Rise as a share of take-home pay"), L(`${fmt(pctSal(dE28), 1)}% بحلول 2028`, `${fmt(pctSal(dE28), 1)}% by 2028`)],
+    [dI27 > 0 ? "dn" : "", sgn(dI27), L("تغير دخلك الشهري 2027", "Change in monthly income, 2027"), dI27 > 0 ? (kind === "private_saudi" ? L("رفع حد نطاقات", "Nitaqat threshold") : L("بدل 500 ريال", "500 SAR allowance")) : L("بدون تعويض", "no compensation")],
+    [dI27 - dE27 >= 0 ? "dn" : "up", sgn(dI27 - dE27), L("صافي الأثر الشهري 2027", "Net monthly effect, 2027"), L(`2028: ${sgn(dI28 - dE28)} ريال`, `2028: ${sgn(dI28 - dE28)} SAR`)],
+    [save(2027) < 0 ? "up" : "", fmt(save(2027)), L("المتبقي من دخلك شهرياً 2027", "Left over each month, 2027"), L(`كان ${fmt(save(2026))} ريال`, `was ${fmt(save(2026))} SAR`)],
+  ].map(([k, v, l, s2]) => `<div class="kpi ${k}"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s2}</div></div>`).join("");
+  const net27 = dI27 - dE27;
+  $("bg-verdict").innerHTML = (net27 >= 0
+    ? `<span class="pill good">✓ ${L(`زيادة دخلك (${sgn(dI27)} ريال) تغطي زيادة مصاريفك (${sgn(dE27)} ريال)`, `Your income rise (${sgn(dI27)} SAR) covers your spending rise (${sgn(dE27)} SAR)`)}</span>`
+    : `<span class="pill bad">! ${L(`الزيادة تأخذ ${fmt(pctSal(-net27), 1)}% من دخلك الصافي، أي ${fmt(-net27)} ريال شهرياً و${fmt(-12 * net27)} ريال سنوياً`, `The rise takes ${fmt(pctSal(-net27), 1)}% of your take-home pay: ${fmt(-net27)} SAR a month, ${fmt(-12 * net27)} SAR a year`)}</span>`) +
+    (save(2027) < 0 ? `<span class="pill warn">${L("مصاريفك أكبر من دخلك. راجع صفحة الحلول لخفض الفواتير.", "Your spending exceeds your income. See the Solutions page to cut bills.")}</span>` : "") +
+    (kind === "private_saudi" ? `<span class="small">${L("الراتب الصافي بعد خصم التأمينات 9.75%.", "Take-home pay after the 9.75% GOSI deduction.")}</span>` : "");
+  $("t-bg-sum").innerHTML = `<thead><tr><th>${L("شهرياً، ريال", "Per month, SAR")}</th><th class="n">2026</th><th class="n">2027</th><th class="n">2028</th></tr></thead><tbody>
+    <tr><td>${L("صافي الدخل", "Take-home income")}</td>${[2026, 2027, 2028].map((y) => `<td class="n">${fmt(I[y])}</td>`).join("")}</tr>
+    <tr><td>${L("إجمالي المصاريف", "Total expenses")}</td>${[2026, 2027, 2028].map((y) => `<td class="n">${fmt(E[y])}</td>`).join("")}</tr>
+    <tr class="sel"><td>${L("المتبقي (الادخار)", "Left over (savings)")}</td>${[2026, 2027, 2028].map((y) => `<td class="n ${save(y) < 0 ? "up" : ""}">${fmt(save(y))}</td>`).join("")}</tr>
+    <tr><td>${L("المصاريف من الدخل", "Expenses as % of income")}</td>${[2026, 2027, 2028].map((y) => `<td class="n">${fmt(I[y] ? (100 * E[y]) / I[y] : 0, 1)}%</td>`).join("")}</tr>
+    <tr><td>${L("زيادة المصاريف عن 2026", "Expense rise vs 2026")}</td><td class="n">–</td><td class="n up">${sgn(dE27)}</td><td class="n up">${sgn(dE28)}</td></tr>
+    <tr><td>${L("الزيادة كنسبة من دخل 2026", "Rise as % of 2026 income")}</td><td class="n">–</td><td class="n">${fmt(pctSal(dE27), 1)}%</td><td class="n">${fmt(pctSal(dE28), 1)}%</td></tr></tbody>`;
+  const ch = rows.map((r) => ({ n: r.name, d: r.v27 - r.v })).filter((r) => Math.abs(r.d) >= 0.5).sort((a, b) => b.d - a.d), c = C();
+  mk("c-bg", { type: "bar", data: { labels: ch.map((r) => r.n), datasets: [{ label: L("ريال شهرياً", "SAR a month"), data: ch.map((r) => r.d), backgroundColor: ch.map((r) => (r.d >= 0 ? c.nw : c.aux)), borderRadius: 2 }] },
+    options: base({ h: true, yt: { font: { size: 11 }, autoSkip: false }, tip: { label: (x) => `${sgn(x.raw)} ${L("ريال/شهر", "SAR/mo")} · ${fmt(pctSal(x.raw), 2)}% ${L("من الراتب", "of pay")}` } }) });
+  $("t-bg-items").innerHTML = `<thead><tr><th>${L("المصروف", "Expense")}</th><th class="n">${L("الآن", "Now")}</th><th class="n">2027</th><th class="n">${L("الزيادة", "Rise")}</th><th class="n">%</th><th class="n">${L("% من الراتب", "% of pay")}</th></tr></thead><tbody>` +
+    rows.map((r) => `<tr><td>${r.name}</td><td class="n">${fmt(r.v)}</td><td class="n">${fmt(r.v27)}</td><td class="n ${r.v27 > r.v ? "up" : ""}">${sgn(r.v27 - r.v)}</td><td class="n">${r.v ? sgn((100 * (r.v27 - r.v)) / r.v, 1) + "%" : "–"}</td><td class="n">${fmt(pctSal(r.v27 - r.v), 2)}%</td></tr>`).join("") +
+    `<tr class="sum"><td>${L("الإجمالي", "Total")}</td><td class="n">${fmt(E[2026])}</td><td class="n">${fmt(E[2027])}</td><td class="n up">${sgn(dE27)}</td><td class="n">${E[2026] ? sgn((100 * dE27) / E[2026], 1) + "%" : "–"}</td><td class="n">${fmt(pctSal(dE27), 2)}%</td></tr></tbody>`;
 }
 
 // ---------- SOCIETY ----------
@@ -1042,6 +1253,8 @@ function faqItems() {
     ["saudization", "كيف تُحسب النسبة المطلوبة في نطاقات المطوّر؟", "How is the required Nitaqat rate set?", "النسبة المطلوبة = م × لو(عدد العاملين) + ث، بثوابت لكل نشاط ونطاق وسنة من الدليل الإجرائي 2026. المنشآت التي فيها 5 عمال أو أقل تحتاج سعودياً واحداً.", "Required % = m × ln(headcount) + c, with constants per activity, band and year from the 2026 procedural guide. Establishments with 5 or fewer workers need one Saudi."],
     ["trust", "كيف أرفع أسعاري بدون أن أخسر عملائي؟", "How do I raise prices without losing customers?", "ارفع بقدر التكلفة الحقيقية فقط، وأعلن قبل التطبيق مع السبب، وثبّت أسعار المنتجات الأساسية، وتدرّج على دفعتين مرتبطتين بموعدي التعرفة ونطاقات، ولا تخفض الجودة أو الكمية سراً. صفحة مجاراة التضخم تعطيك خطة ورسالة جاهزة.", "Raise only by your real cost, announce ahead with the reason, keep essentials fixed, go in two steps tied to the tariff and Nitaqat dates, and never cut quality or size quietly. The pricing page gives you a plan and a ready message."],
     ["business", "هل كل أنشطة المركز السعودي للأعمال موجودة؟", "Are all Saudi Business Center activities covered?", "الموقع يضم كل فئات التصنيف الدولي ISIC4 المرخصة في المملكة (400 فئة)، وكل نشاط تفصيلي في المركز السعودي للأعمال من 6 خانات يقع تحت إحداها: ابحث بأول 4 أرقام من رمز نشاطك أو باسمه.", "The site covers every ISIC4 class licensable in the Kingdom (400 classes). Every 6-digit Saudi Business Center activity sits under one of them: search by the first four digits of your activity code or by name."],
+    ["household", "أعتمد على الوايتات، كم تزيد تكلفتي؟", "I rely on water tankers, how much will it cost?", "لم تُعلن أسعار جديدة للوايتات مع قرار 2027. حاسبة المياه في صفحة الأفراد تحسب تكلفتك الشهرية حسب حجم الوايت وسعره وعدد المرات، وتقارنها بتكلفة الشبكة لنفس الكمية، مع نسبة زيادة تحددها أنت. وايت المياه الوطنية 19 م³ بنحو 114 – 135 ريالاً قبل الضريبة.", "No new tanker prices were announced with the 2027 decision. The water calculator on the Households page works out your monthly cost from tanker size, price and trips, compares it with the network for the same volume, and lets you set the expected rise. A 19 m³ National Water Company tanker costs about 114–135 SAR before VAT."],
+    ["household", "كم تأخذ الزيادة من راتبي؟", "How much of my salary does the rise take?", "حاسبة الميزانية في صفحة الأفراد: أدخل راتبك ووضعك ومصاريفك الشهرية، وتعرف زيادة كل مصروف، والإجمالي كنسبة من راتبك الصافي، وكم يبقى لك بعد البدل أو رفع حد نطاقات.", "The budget calculator on the Households page: enter your salary, situation and monthly expenses to see the rise in each, the total as a share of take-home pay, and what is left after the allowance or the Nitaqat threshold."],
     ["method", "ما مدى دقة هذه الأرقام؟", "How accurate are these figures?", "التعرفة والبدل وحدود نطاقات أرقام رسمية معلنة. أما التضخم وأثر المنشآت فتقديرات من نماذج، وأهم افتراضاتها مذكورة مع نطاقاتها في تبويب المنهجية. قيم الأنشطة استرشادية، وعدّلها لتطابق منشأتك.", "Tariffs, the allowance and the Nitaqat thresholds are official figures. Inflation and business effects are model estimates; key assumptions and ranges are in the Method tab. Activity values are indicative; edit them to match your business."],
   ];
   return Q.map(([tab, qa, qe, aa, ae]) => ({ tab, q: L(qa, qe), a: L(aa, ae) }));
@@ -1392,7 +1605,7 @@ function draw(v) {
   try {
   if (v === "overview") overview();
   if (v === "inflation") { inflationPage(); forecastView(); forecastStatic(); }
-  if (v === "household") { household(); profilesCharts(); }
+  if (v === "household") { waterView(); household(); budget(); profilesCharts(); }
   if (v === "business") business();
   if (v === "commercial") { catalogView("commercial"); tariffTables(); sectorSearch("commercial"); }
   if (v === "industrial") { industrialView(); sectorSearch("industrial"); }
@@ -1428,6 +1641,8 @@ function applyLang() {
   $("ms-name").placeholder = L("مثال: مطعم الواحة", "e.g. Oasis Restaurant");
   miniLang();
   if (PI_STATE) piCats();
+  if (!BG) bgDefaults();
+  budgetSync(); bgItemsHtml();
 }
 function setLang(l) { LANG = l; try { localStorage.setItem("ww-lang", l); } catch (e) {} applyLang(); show(VIEW); }
 const go = (v) => { show(v); try { history.replaceState(null, "", "#" + v); } catch (er) {} window.scrollTo({ top: 0 }); };
@@ -1437,9 +1652,17 @@ $("l-en").addEventListener("click", () => setLang("en"));
 document.querySelectorAll("#tabs a").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); go(a.dataset.v); }));
 document.querySelectorAll("#roles [data-go]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); if (a.dataset.grp) { $("b-grp").value = a.dataset.grp; bActOptions(); bLoad(false); } go(a.dataset.go); }));
 const link = (a, b, fn) => { $(a).addEventListener("input", () => { $(b).value = $(a).value; fn(); }); $(b).addEventListener("input", () => { $(a).value = $(b).value; fn(); }); };
-link("kwh-r", "kwh", household); link("m3-r", "m3", household);
-["breaker", "sewage", "who", "ac-n", "ac-s", "ac-w"].forEach((id) => $(id).addEventListener("input", household));
-$("ac-use").addEventListener("click", () => { const v = acEstimate(); $("kwh").value = v; $("kwh-r").value = Math.min(10000, v); household(); });
+const hhAll = () => { waterView(); household(); budget(); };
+link("kwh-r", "kwh", hhAll); link("m3-r", "m3", hhAll);
+["breaker", "sewage", "who", "ac-n", "ac-s", "ac-w", "w-ppl", "w-lpd", "t-price", "t-cap", "t-n", "t-inc"].forEach((id) => $(id).addEventListener("input", hhAll));
+$("ws-net").addEventListener("click", () => { WS = "net"; hhAll(); });
+$("ws-tank").addEventListener("click", () => { WS = "tank"; hhAll(); });
+$("t-size").addEventListener("change", () => { const [cap, price] = $("t-size").value.split("|"); $("t-cap").value = cap; $("t-price").value = price; hhAll(); });
+$("w-use-est").addEventListener("click", () => { const v = Math.round(waterEstM3()); $("m3").value = v; $("m3-r").value = Math.min(150, v); hhAll(); });
+$("t-use-est").addEventListener("click", () => { $("t-n").value = Math.max(0.5, Math.round((2 * waterEstM3()) / Math.max(1, +$("t-cap").value || 1)) / 2); hhAll(); });
+["bg-sal", "bg-oth", "bg-kind", "bg-raise", "bg-comply"].forEach((id) => $(id).addEventListener("input", budget));
+$("bg-reset").addEventListener("click", () => { bgDefaults(); BG_LINK = true; budgetSync(); bgItemsHtml(); budget(); });
+$("ac-use").addEventListener("click", () => { const v = acEstimate(); $("kwh").value = v; $("kwh-r").value = Math.min(10000, v); hhAll(); });
 $("b-grp").addEventListener("change", () => { bActOptions(); bLoad(false); });
 $("b-act").addEventListener("change", () => bLoad(false));
 $("b-q").addEventListener("input", () => { bActOptions(); if ($("b-act").value) bLoad(false); });
