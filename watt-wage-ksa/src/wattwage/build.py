@@ -211,6 +211,13 @@ def write_index_html() -> None:
     page = (DASH / "_page.html").read_text(encoding="utf-8")
     cut = page.index('<header class="top')
     head, body = page[:cut], page[cut:]
+    # inline the chart library and the data so index.html works as one downloaded file
+    def inline(src: str) -> str:
+        code = (DASH / src).read_text(encoding="utf-8").replace("</script", "<\\/script")
+        return "<script>/* " + src + " */\n" + code + "\n</script>"
+    body = body.replace('<script src="chart.umd.js"></script>', inline("chart.umd.js"))
+    body = body.replace('<script src="data.js"></script>', inline("data.js"))
+    assert '<script src="' not in body
     html = ('<!doctype html>\n<html lang="ar" dir="rtl">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
             + head + "</head>\n<body>\n" + body + "</body>\n</html>\n")
