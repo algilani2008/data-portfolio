@@ -1,0 +1,6 @@
+schedule,from_year,to_year,tier_from_kwh,tier_to_kwh,rate_halala,confidence,source
+flat,1960,1994,0,,5,low,"Flat 5 halalas reported for the 1980s; earlier years assumed the same (MDPI Energies 16(3):1458, 2023)"
+1995,1995,2000,0,2000,5,low,"Tiered tariff with a 20-halala top rate from 1995; middle tiers approximated"
+1995,1995,2000,2000,4000,10,low,"same"
+1995,1995,2000,4000,6000,15,low,"same"
+1995,1995,2000,6000,,20,low,"same"

@@ -219,6 +219,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
 <nav class="tabs gut" aria-label="Sections"><div class="inner" id="tabs">
   <a href="#overview" data-v="overview" data-ar="الرئيسية" data-en="Home"></a>
   <a href="#inflation" data-v="inflation" data-ar="التضخم القادم" data-en="Coming inflation"></a>
+  <a href="#years" data-v="years" data-ar="عبر السنين" data-en="Through the years"></a>
   <a href="#household" data-v="household" data-ar="ميزانيتي والفواتير" data-en="My budget &amp; bills"></a>
   <a href="#business" data-v="business" data-ar="حاسبة المنشأة" data-en="Business calculator"></a>
   <a href="#commercial" data-v="commercial" data-ar="التجاري" data-en="Commercial"></a>
@@ -246,6 +247,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
       <a href="#household" data-go="household" class="role"><b data-ar="فرد أو أسرة" data-en="Individual or family"></b><span data-ar="ميزانيتك وراتبك، والكهرباء، والمياه أو الوايتات" data-en="Your budget and pay, power, water or tankers"></span></a>
       <a href="#business" data-go="business" data-grp="commercial" class="role"><b data-ar="منشأة تجارية أو خدمية" data-en="Shop or service business"></b><span data-ar="أكثر من 200 نشاط: تجزئة، مطاعم، صحة، تعليم..." data-en="200+ activities: retail, food, health, education..."></span></a>
       <a href="#business" data-go="business" data-grp="industrial" class="role"><b data-ar="مصنع" data-en="Factory"></b><span data-ar="160 صناعة: أغذية، كيماويات، حديد، إسمنت..." data-en="160 industries: food, chemicals, steel, cement..."></span></a>
+      <a href="#years" data-go="years" class="role"><b data-ar="الماضي والحاضر والمستقبل" data-en="Past, present and future"></b><span data-ar="اختر أي سنة من 1964 إلى 2050: الأسعار والفواتير والبنزين والرواتب" data-en="Pick any year from 1964 to 2050: prices, bills, fuel and pay"></span></a>
       <a href="#saudization" data-go="saudization" class="role"><b data-ar="حاسبة التوطين" data-en="Saudization calculator"></b><span data-ar="نطاقك في نطاقات 2026 – 2028 وكم تحتاج" data-en="Your Nitaqat band 2026–2028 and what you need"></span></a>
       <a href="#trust" data-go="trust" class="role"><b data-ar="الأسعار وثقة العملاء" data-en="Prices &amp; customer trust"></b><span data-ar="خطة رفع أسعار ورسالة جاهزة لعملائك" data-en="A price plan and a ready message for customers"></span></a>
       <a href="#business" data-go="business" data-grp="agricultural" class="role"><b data-ar="مزرعة" data-en="Farm"></b><span data-ar="37 نشاطاً: بيوت محمية، نخيل، دواجن، ألبان..." data-en="37 activities: greenhouses, dates, poultry, dairy..."></span></a>
@@ -327,6 +329,43 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
     <div class="panel"><h3 data-ar="2,000 محاكاة لتضخم 2027" data-en="2,000 simulations of 2027 inflation"></h3><div class="chart s"><canvas id="c-mc"></canvas></div><p class="small" id="mc-note"></p></div>
     <div class="panel"><h3 data-ar="أكثر المدخلات تأثيراً (نقطة مئوية)" data-en="Most influential inputs (pp)"></h3><div class="chart s"><canvas id="c-tornado"></canvas></div></div>
   </div>
+</section>
+
+<!-- THROUGH THE YEARS -->
+<section class="view" id="v-years" hidden>
+  <div class="vhead"><h2 data-ar="التكاليف عبر السنين: الماضي والحاضر والمستقبل" data-en="Costs through the years: past, present and future"></h2>
+    <p class="muted" data-ar="اختر أي سنة من 1964 إلى 2050 وقارنها بأي سنة أخرى: كم كانت قيمة الريال، وكم كانت فاتورة الكهرباء والمياه وتعبئة البنزين، وكم كانت الرواتب، وكم تساوي اليوم. السنوات الماضية بيانات منشورة، والقادمة توقعات وافتراضات موضحة." data-en="Pick any year from 1964 to 2050 and compare it with any other: what a riyal was worth, what electricity, water and a tank of fuel cost, what people were paid, and what that equals today. Past years use published data; future years are labelled forecasts and assumptions."></p></div>
+  <div class="g-ctl">
+    <div class="panel ctl">
+      <div class="field"><label for="yr-y" data-ar="السنة" data-en="Year"></label><input type="number" id="yr-y" min="1964" max="2050" step="1" value="2006"></div>
+      <input type="range" id="yr-r" min="1964" max="2050" step="1" value="2006" aria-label="year">
+      <div class="chips" id="yr-quick"></div>
+      <div class="field"><label for="yr-ref" data-ar="قارنها بسنة" data-en="Compare with year"></label><input type="number" id="yr-ref" min="1964" max="2050" step="1" value="2026"></div>
+      <div class="field"><label for="yr-amt" data-ar="مبلغ (ريال بأسعار سنة المقارنة)" data-en="An amount (SAR in the comparison year)"></label><input type="number" id="yr-amt" min="0" step="100" value="1000"></div>
+      <div class="field"><label for="yr-sal" data-ar="راتبك الشهري (بأسعار سنة المقارنة)" data-en="Your monthly pay (comparison-year SAR)"></label><input type="number" id="yr-sal" min="0" step="100" value="8000"></div>
+      <div class="row2">
+        <div class="field"><label for="yr-kwh" data-ar="كهرباء شهرياً (ك.و.س)" data-en="Power a month (kWh)"></label><input type="number" id="yr-kwh" min="0" step="100" value="2000"></div>
+        <div class="field"><label for="yr-m3" data-ar="مياه شهرياً (م³)" data-en="Water a month (m³)"></label><input type="number" id="yr-m3" min="0" step="1" value="30"></div>
+        <div class="field"><label for="yr-tank" data-ar="خزان السيارة (لتر)" data-en="Car tank (litres)"></label><input type="number" id="yr-tank" min="0" step="5" value="60"></div>
+        <div class="field"><label for="yr-amps" data-ar="سعة القاطع (أمبير)" data-en="Breaker (amps)"></label><input type="number" id="yr-amps" min="0" step="10" value="60"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div id="yr-era" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"></div>
+      <div class="kpis" id="yr-kpis"></div>
+      <div class="tablewrap"><table id="t-yr"></table></div>
+    </div>
+  </div>
+  <div class="g2">
+    <div class="panel"><h3 data-ar="مستوى الأسعار (2026 = 100)" data-en="Price level (2026 = 100)"></h3><div class="legend" id="lg-yr-p"></div><div class="chart"><canvas id="c-yr-p"></canvas></div>
+      <p class="small" data-ar="الخط المتصل بيانات فعلية، والمتقطع توقعات (حتى 2030) ثم افتراض تضخم 2% سنوياً." data-en="Solid line: actual data. Dashed: forecasts (to 2030), then an assumed 2% a year."></p></div>
+    <div class="panel"><h3 data-ar="التضخم السنوي (%)" data-en="Annual inflation (%)"></h3><div class="chart"><canvas id="c-yr-i"></canvas></div>
+      <p class="small" data-ar="طفرة السبعينيات تجاوزت 30%، وتراجعت الأسعار في أغلب الثمانينيات، ثم قفزة 2008." data-en="The 1970s boom passed 30%, prices fell through most of the 1980s, then came the 2008 spike."></p></div>
+  </div>
+  <div class="panel"><h3 data-ar="الرواتب: بالريال في وقتها وبقيمتها في سنة المقارنة" data-en="Pay: in riyals of the time and in comparison-year riyals"></h3><div class="legend" id="lg-yr-w"></div><div class="chart"><canvas id="c-yr-w"></canvas></div></div>
+  <div class="panel"><h3 data-ar="لقطات عبر العقود" data-en="Snapshots across the decades"></h3><p class="small" data-ar="اضغط أي سنة لعرض تفاصيلها." data-en="Tap any year to see it in detail."></p><div class="tablewrap"><table id="t-yr-dec" class="clickable"></table></div></div>
+  <div class="panel"><h3 data-ar="محطات غيّرت التكاليف" data-en="Moments that changed costs"></h3><div class="chips" id="yr-ev" style="max-height:none"></div></div>
+  <p class="small" id="yr-note"></p>
 </section>
 
 <!-- HOUSEHOLD -->
@@ -990,32 +1029,121 @@ const DIV = D.divisions, HL = S.inflation_by_category;
 const divName = (d) => (AR() ? d.name_ar : d.name_en);
 function divRate(code, year) { if (!code || code === "all") return year === 2027 ? HL.headline_2027 : HL.headline_2028; const d = DIV.find((x) => x.code === code); return d ? d["forecast_" + year] : 0; }
 
-// mini converter injected at the top of every view
+// ---------- PAST, PRESENT, FUTURE (any year) ----------
+const HI = D.history, Y0 = HI.years[0], Y1 = HI.years[HI.years.length - 1];
+const yClamp = (y) => { y = Math.round(parseFloat(y)); return isNaN(y) ? HI.base : Math.min(Y1, Math.max(Y0, y)); };
+const yI = (y) => yClamp(y) - Y0;
+// price level for a year; a spending category swaps in its own 2027/2028 forecast
+function pIdx(y, code) {
+  let v = HI.index[yI(y)];
+  if (code && code !== "all") for (const t of [2027, 2028]) if (y >= t) v *= (1 + divRate(code, t) / 100) / (1 + HI.infl[t - Y0] / 100);
+  return v;
+}
+const conv = (a, from, to, code) => a * pIdx(to, code) / pIdx(from, code);
+const KIND = { actual: ["فعلي", "actual"], derived: ["محسوب من سلّم الرواتب", "from the pay scale"], interpolated: ["تقدير بين قراءتين", "between two readings"], estimate: ["تقدير", "estimate"], partial: ["أشهر 2026 المنشورة", "2026 months so far"], forecast: ["توقع", "forecast"], assumed: ["افتراض", "assumption"] };
+const kindL = (k) => (k ? L(KIND[k][0], KIND[k][1]) : "");
+const kindTag = (k) => (k ? `<span class="small" style="color:var(--ink-3)"> · ${kindL(k)}</span>` : "");
+function elecYear(kwh, amps, y) {
+  const i = yI(y), sch = HI.esched[i], vat = HI.vat[i] / 100;
+  if (sch === "flat" || sch === "1995") {
+    const rows = HI.elec_hist.filter((r) => r.schedule === sch).map((r) => ({ ...r, sar: r.rate_halala / 100 }));
+    return (prog(kwh, rows, "tier_from_kwh", "tier_to_kwh", "sar") + band(TF.electricity_fees.filter((r) => r.schedule === "2018"), amps)) * (1 + vat);
+  }
+  return elecBill(kwh, amps, sch) / (1 + VAT) * (1 + vat);
+}
+function waterYear(m3, y) { const i = yI(y), sch = HI.wsched[i]; return sch ? waterBill(m3, sch, true) / (1 + VAT) * (1 + HI.vat[i] / 100) : null; }
+const WS_DEF = [["private_saudi_avg", ["متوسط أجر السعودي في القطاع الخاص", "Average Saudi pay, private sector"]], ["saudi_all_sectors_avg", ["متوسط أجر السعودي في كل القطاعات", "Average Saudi pay, all sectors"]], ["gov_grade6_start", ["بداية المرتبة السادسة الحكومية (أساسي)", "Civil-service grade 6, starting basic"]], ["private_nonsaudi_avg", ["متوسط أجر غير السعودي في القطاع الخاص", "Average non-Saudi pay, private sector"]]];
+const wv = (key, y) => HI.wages[key].v[yI(y)], wk = (key, y) => HI.wages[key].k[yI(y)];
+const era = (y) => (y < 2026 ? ["الماضي", "Past", "warn"] : y === 2026 ? ["الحاضر", "Present", "good"] : ["المستقبل", "Future", "bad"]);
+function yearsSet(y) { y = yClamp(y); $("yr-y").value = y; $("yr-r").value = y; years(); }
+function years() {
+  const Y = yClamp($("yr-y").value), R = yClamp($("yr-ref").value), iY = yI(Y), iR = yI(R);
+  const amt = +$("yr-amt").value || 0, sal = +$("yr-sal").value || 0, kwh = +$("yr-kwh").value || 0, m3 = +$("yr-m3").value || 0, tank = +$("yr-tank").value || 0, amps = +$("yr-amps").value || 60;
+  if (+$("yr-r").value !== Y && document.activeElement !== $("yr-r")) $("yr-r").value = Y;
+  const ratio = HI.index[iY] / HI.index[iR], e = era(Y), SAR = L("ريال", "SAR");
+  $("yr-quick").innerHTML = [1970, 1980, 1990, 2000, 2006, 2010, 2016, 2020, 2026, 2027, 2028, 2030, 2040, 2050].map((q) => `<button type="button" class="chip" data-y="${q}"${q === Y ? ' style="border-color:var(--accent);background:var(--accent-soft)"' : ""}>${q}</button>`).join("");
+  $("yr-era").innerHTML = `<span class="pill ${e[2]}">${L(e[0], e[1])} · ${Y}</span><span class="small">${L("مستوى الأسعار", "Price level")}: ${kindL(HI.kind[iY])} · ${L("التضخم في تلك السنة", "inflation that year")} ${sgn(HI.infl[iY], 1)}%</span>`;
+  const eY = elecYear(kwh, amps, Y), eR = elecYear(kwh, amps, R), wY = waterYear(m3, Y), wR = waterYear(m3, R);
+  const f91 = (y) => HI.fuel91[yI(y)], fY = f91(Y), fR = f91(R);
+  const pv = wv("private_saudi_avg", Y) ?? wv("saudi_all_sectors_avg", Y) ?? wv("gov_grade6_start", Y);
+  const pvKey = wv("private_saudi_avg", Y) != null ? "private_saudi_avg" : wv("saudi_all_sectors_avg", Y) != null ? "saudi_all_sectors_avg" : "gov_grade6_start";
+  const pct = (a, b) => (a != null && b ? sgn(100 * (a / b - 1), 0) + "%" : "–");
+  $("yr-kpis").innerHTML = [
+    [fmt(amt * ratio), L(`${fmt(amt)} ريال في ${R} تعادل في ${Y}`, `${fmt(amt)} SAR in ${R} equals in ${Y}`), Y < R ? L(`الأسعار في ${Y} أقل`, `prices lower in ${Y}`) : Y > R ? L(`الأسعار في ${Y} أعلى`, `prices higher in ${Y}`) : ""],
+    [fmt(sal * ratio), L(`راتب يعادل ${fmt(sal)} ريال اليوم في ${Y}`, `Pay equal to ${fmt(sal)} SAR in ${Y}`), L("نفس القدرة الشرائية", "same buying power")],
+    [fmt(eY), L(`فاتورة الكهرباء الشهرية في ${Y}`, `Monthly power bill in ${Y}`), `${L("في", "in")} ${R}: ${fmt(eR)} ${SAR} (${pct(eY, eR)})`],
+    [wY == null ? "–" : fmt(wY, 1), L(`فاتورة المياه والصرف في ${Y}`, `Water & sewage bill in ${Y}`), wY == null ? L("لا توجد تعرفة منشورة قبل 1994", "no published tariff before 1994") : `${L("في", "in")} ${R}: ${fmt(wR, 1)} ${SAR}`],
+    [fY == null ? "–" : fmt(fY * tank, 1), L(`تعبئة ${fmt(tank)} لتر بنزين 91 في ${Y}`, `Filling ${fmt(tank)} L of 91 in ${Y}`), fY == null ? "" : `${fmt(fY, 2)} ${L("ريال/لتر", "SAR/L")} · ${L("في", "in")} ${R}: ${fmt(fR * tank, 1)}`],
+    [pv == null ? "–" : fmt(pv), WS_DEF.find((w) => w[0] === pvKey)[1][AR() ? 0 : 1] + ` (${Y})`, pv == null ? L("لا توجد بيانات لهذه السنة", "no data for this year") : `${kindL(wk(pvKey, Y))} · ${L("بقيمة", "worth")} ${fmt(pv / ratio)} ${L("بأسعار", "in")} ${R}`],
+  ].map(([v, l, sub]) => `<div class="kpi"><span class="v">${v}</span><span class="l">${l}</span><span class="s">${sub}</span></div>`).join("");
+  // detail table
+  const row = (label, vy, vr, kind, money, d = 0) => `<tr><td>${label}${kindTag(kind)}</td><td class="n">${vy == null ? "–" : fmt(vy, d)}</td><td class="n">${vr == null ? "–" : fmt(vr, d)}</td><td class="n">${pct(vy, vr)}</td><td class="n">${money && vy != null ? fmt(vy / ratio, d) : ""}</td></tr>`;
+  $("t-yr").innerHTML = `<thead><tr><th>${L("البند", "Item")}</th><th class="n">${Y}</th><th class="n">${R}</th><th class="n">${L("الفرق", "Diff.")}</th><th class="n">${L(`قيمة ${Y} بأسعار ${R}`, `${Y} in ${R} SAR`)}</th></tr></thead><tbody>` +
+    row(L("مستوى الأسعار (2026 = 100)", "Price level (2026 = 100)"), HI.index[iY], HI.index[iR], HI.kind[iY], false, 1) +
+    row(L("فاتورة الكهرباء الشهرية", "Monthly power bill"), eY, eR, null, true, 0) +
+    row(L("فاتورة المياه الشهرية", "Monthly water bill"), wY, wR, null, true, 1) +
+    row(L("لتر بنزين 91", "Litre of 91 gasoline"), fY, fR, null, true, 2) +
+    row(L("لتر بنزين 95", "Litre of 95 gasoline"), HI.fuel95[iY], HI.fuel95[iR], null, true, 2) +
+    WS_DEF.map(([k, nm]) => row(nm[AR() ? 0 : 1], wv(k, Y), wv(k, R), wk(k, Y), true)).join("") +
+    row(L("حد الاحتساب الكامل في نطاقات", "Nitaqat full-count wage"), HI.nitaqat[iY], HI.nitaqat[iR], null, false) +
+    `<tr><td>${L("ضريبة القيمة المضافة", "VAT")}</td><td class="n">${HI.vat[iY]}%${Y === 2020 ? L(" (5% ثم 15%)", " (5% then 15%)") : ""}</td><td class="n">${HI.vat[iR]}%</td><td></td><td></td></tr></tbody>`;
+  // charts
+  const c = C(), yrs = HI.years, dash = (ctx) => (["forecast", "assumed"].includes(HI.kind[ctx.p1DataIndex]) ? [5, 4] : undefined);
+  const pts = (arr) => arr.map((_, i) => (yrs[i] === Y ? 6 : yrs[i] === R ? 4 : 0));
+  legend("lg-yr-p", [[c.nw, `${Y}`], [c.old, `${R}`]]);
+  mk("c-yr-p", { type: "line", data: { labels: yrs, datasets: [{ label: L("مستوى الأسعار", "Price level"), data: HI.index, borderColor: c.old, borderWidth: 2, segment: { borderDash: dash },
+    pointRadius: pts(HI.index), pointBackgroundColor: yrs.map((y) => (y === Y ? c.nw : c.old)), pointBorderColor: yrs.map((y) => (y === Y ? c.nw : c.old)) }] },
+    options: base({ xt: { maxTicksLimit: 9 }, tip: { label: (x) => `${fmt(x.raw, 1)} · ${kindL(HI.kind[x.dataIndex])}` } }) });
+  mk("c-yr-i", { type: "bar", data: { labels: yrs, datasets: [{ label: "%", data: HI.infl, backgroundColor: yrs.map((y, i) => (y === Y ? c.nw : ["forecast", "assumed"].includes(HI.kind[i]) ? c.line : c.old)), categoryPercentage: 1, barPercentage: 0.85 }] },
+    options: base({ xt: { maxTicksLimit: 9 }, yt: { callback: (v) => v + "%" }, tip: { label: (x) => `${fmt(x.raw, 2)}% · ${kindL(HI.kind[x.dataIndex])}` } }) });
+  const ws = [["private_saudi_avg", c.nw], ["gov_grade6_start", c.aux]];
+  legend("lg-yr-w", ws.flatMap(([k, col]) => { const nm = WS_DEF.find((w) => w[0] === k)[1][AR() ? 0 : 1]; return [[col, nm, true], [col, nm + L(` بأسعار ${R}`, ` in ${R} SAR`)]]; }));
+  mk("c-yr-w", { type: "line", data: { labels: yrs, datasets: ws.flatMap(([k, col]) => {
+    const nm = WS_DEF.find((w) => w[0] === k)[1][AR() ? 0 : 1], v = HI.wages[k].v, real = v.map((x, i) => (x == null ? null : x * HI.index[iR] / HI.index[i]));
+    const seg = { borderDash: (ctx) => (["assumed", "estimate"].includes(HI.wages[k].k[ctx.p1DataIndex]) ? [5, 4] : undefined) };
+    return [{ label: nm, data: v, borderColor: col, backgroundColor: col, borderWidth: 2.5, pointRadius: pts(v), segment: seg, spanGaps: false },
+      { label: nm + L(` بأسعار ${R}`, ` in ${R} SAR`), data: real, borderColor: col, backgroundColor: col, borderWidth: 1, pointRadius: 0, borderDash: [2, 3] }]; }) },
+    options: base({ xt: { maxTicksLimit: 9 }, xmin: undefined, tip: { label: (x) => (x.raw == null ? "" : `${x.dataset.label}: ${fmt(x.raw)} ${SAR}`) } }) });
+  // decade table
+  const dec = [1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025, 2026, 2027, 2028, 2030, 2035, 2040, 2045, 2050];
+  if (!dec.includes(Y)) dec.push(Y);
+  dec.sort((a, b) => a - b);
+  $("t-yr-dec").innerHTML = `<thead><tr><th>${L("السنة", "Year")}</th><th class="n">${L(`${fmt(amt)} ريال من ${R}`, `${fmt(amt)} SAR of ${R}`)}</th><th class="n">${L("فاتورة الكهرباء", "Power bill")}</th><th class="n">${L("لتر 91", "Litre 91")}</th><th class="n">${L("أجر السعودي (خاص)", "Saudi pay (private)")}</th><th class="n">${L("المرتبة السادسة", "Grade 6")}</th><th class="n">${L("حد نطاقات", "Nitaqat")}</th></tr></thead><tbody>` +
+    dec.map((y) => `<tr data-y="${y}" class="${y === Y ? "sel" : ""}"><td class="num">${y} <span class="small" style="color:var(--ink-3)">${kindL(HI.kind[yI(y)])}</span></td><td class="n">${fmt(amt * HI.index[yI(y)] / HI.index[iR])}</td><td class="n">${fmt(elecYear(kwh, amps, y))}</td><td class="n">${HI.fuel91[yI(y)] == null ? "–" : fmt(HI.fuel91[yI(y)], 2)}</td><td class="n">${wv("private_saudi_avg", y) == null ? "–" : fmt(wv("private_saudi_avg", y))}</td><td class="n">${wv("gov_grade6_start", y) == null ? "–" : fmt(wv("gov_grade6_start", y))}</td><td class="n">${HI.nitaqat[yI(y)] == null ? "–" : fmt(HI.nitaqat[yI(y)])}</td></tr>`).join("") + "</tbody>";
+  $("yr-ev").innerHTML = HI.events.map((ev) => `<button type="button" class="chip" data-y="${ev.year}"${ev.year === Y ? ' style="border-color:var(--accent);background:var(--accent-soft)"' : ""}><span class="num">${ev.year}</span> ${AR() ? ev.title_ar : ev.title_en}</button>`).join("");
+  $("yr-note").textContent = L(
+    "المصادر: التضخم السنوي 1964–2025 من البنك الدولي (FRED)، و2026 متوسط الأشهر المنشورة، و2027–2030 من نموذج هذا المشروع، وبعدها افتراض 2% سنوياً. أجور القطاع الخاص 2010–2015 من إحصاءات وزارة العمل، و2026 من المرصد الوطني للعمل، وما بينها تقدير؛ والمصدران مختلفان عن مسح القوى العاملة (كل القطاعات). المرتبة السادسة محسوبة من سلّم الرواتب الحالي بعد خصم زيادة 2005 وغلاء المعيشة 2008–2010. أسعار البنزين من الأخبار الرسمية المنشورة، ومتوسطات 2019–2021 تقريبية. فواتير ما قبل 2016 تقريبية، والرسوم الثابتة قبل 2018 مفترضة مثل جدول 2018. بعد آخر قراءة: أجور السعوديين تنمو 3% وغير السعوديين 2% سنوياً، وسلّم الرواتب وسعر البنزين والتعرفة ثابتة ما لم تتغير بقرار. الأرقام المستقبلية افتراضات وليست توقعات رسمية.",
+    "Sources: annual inflation 1964–2025 from the World Bank (FRED); 2026 is the average of published months; 2027–2030 from this project's model; after that an assumed 2% a year. Private-sector pay 2010–2015 from Ministry of Labour statistics and 2026 from the National Labor Observatory, with years between estimated; these differ from the labour-force survey (all sectors). Grade 6 is worked out from today's civil-service scale less the 2005 raise and the 2008–2010 cost-of-living allowance. Gasoline prices from published news; 2019–2021 averages are approximate. Bills before 2016 are approximate, and meter fees before 2018 are assumed equal to the 2018 table. After the last reading, Saudi pay grows 3% and non-Saudi pay 2% a year, while the pay scale, fuel price and tariffs stay as they are unless a decision changes them. Future values are assumptions, not official forecasts.");
+}
+
+// mini converter injected at the top of every view: any amount, from any year to any year
 let MINI_N = 0;
 function miniInit() {
   document.querySelectorAll("section.view").forEach((sec) => {
     if (["v-method", "v-faq"].includes(sec.id)) return;
     const n = ++MINI_N, box = document.createElement("div");
     box.className = "mini"; box.dataset.mini = n;
-    box.innerHTML = `<b class="mini-t"></b><input type="number" id="mi-a${n}" min="0" step="10" value="1000" aria-label="amount"><select id="mi-c${n}" aria-label="category"></select><span class="mo" id="mi-o${n}"></span>`;
+    box.innerHTML = `<b class="mini-t"></b><input type="number" id="mi-a${n}" min="0" step="10" value="1000" aria-label="amount"><span class="mi-l1"></span><input type="number" id="mi-f${n}" min="${Y0}" max="${Y1}" value="2026" style="width:72px" aria-label="from year"><span class="mi-l2"></span><input type="number" id="mi-t${n}" min="${Y0}" max="${Y1}" value="2028" style="width:72px" aria-label="to year"><select id="mi-c${n}" aria-label="category"></select><span class="mo" id="mi-o${n}"></span>`;
     sec.prepend(box);
-    $(`mi-a${n}`).addEventListener("input", () => miniRender(n));
+    [`mi-a${n}`, `mi-f${n}`, `mi-t${n}`].forEach((id) => $(id).addEventListener("input", () => miniRender(n)));
     $(`mi-c${n}`).addEventListener("change", () => miniRender(n));
   });
 }
 function miniLang() {
   for (let n = 1; n <= MINI_N; n++) {
-    const sel = $(`mi-c${n}`), cur = sel.value || "all";
+    const sel = $(`mi-c${n}`), cur = sel.value || "all", box = document.querySelector(`[data-mini="${n}"]`);
     sel.innerHTML = `<option value="all">${L("كل الإنفاق (التضخم العام)", "All spending (headline)")}</option>` + DIV.map((d) => `<option value="${d.code}">${divName(d)}</option>`).join("");
     sel.value = cur;
-    document.querySelector(`[data-mini="${n}"] .mini-t`).textContent = L("حاسبة التضخم السريعة: مبلغ اليوم", "Quick inflation calculator: today's amount");
+    box.querySelector(".mini-t").textContent = L("حاسبة التضخم: مبلغ", "Inflation calculator: amount");
+    box.querySelector(".mi-l1").textContent = L("ريال في سنة", "SAR in");
+    box.querySelector(".mi-l2").textContent = L("إلى سنة", "to");
     miniRender(n);
   }
 }
 function miniRender(n) {
-  const a = +$(`mi-a${n}`).value || 0, c = $(`mi-c${n}`).value, r7 = divRate(c, 2027), r8 = divRate(c, 2028);
-  const v7 = a * (1 + r7 / 100), v8 = v7 * (1 + r8 / 100);
-  $(`mi-o${n}`).textContent = L(`← ${fmt(v7, 0)} ريال في 2027 (${sgn(r7, 1)}%) ← ${fmt(v8, 0)} ريال في 2028`, `→ ${fmt(v7, 0)} SAR in 2027 (${sgn(r7, 1)}%) → ${fmt(v8, 0)} SAR in 2028`);
+  const a = +$(`mi-a${n}`).value || 0, c = $(`mi-c${n}`).value, f = yClamp($(`mi-f${n}`).value), t = yClamp($(`mi-t${n}`).value);
+  const v = conv(a, f, t, c), p = a ? 100 * (v / a - 1) : 0, k = HI.kind[yI(t)], note = k === "actual" ? "" : ` · ${kindL(k)}`;
+  $(`mi-o${n}`).textContent = L(`= ${fmt(v, 0)} ريال في ${t} (${sgn(p, 1)}%)${note}`, `= ${fmt(v, 0)} SAR in ${t} (${sgn(p, 1)}%)${note}`);
 }
 
 // ---------- COMING INFLATION PAGE ----------
@@ -1639,11 +1767,12 @@ document.addEventListener("input", (e) => LAST_INPUT.set(e.target, Date.now()), 
 document.addEventListener("change", (e) => { const el = e.target; if (!el || !(el.tagName === "SELECT" || el.type === "checkbox")) return; if (Date.now() - (LAST_INPUT.get(el) || 0) > 80) el.dispatchEvent(new Event("input", { bubbles: true })); });
 
 // ---------- routing & language ----------
-const VIEWS = ["overview", "inflation", "household", "business", "saudization", "trust", "commercial", "industrial", "agri", "society", "labour", "solutions", "faq", "method"];
+const VIEWS = ["overview", "inflation", "years", "household", "business", "saudization", "trust", "commercial", "industrial", "agri", "society", "labour", "solutions", "faq", "method"];
 function draw(v) {
   try {
   if (v === "overview") overview();
   if (v === "inflation") { inflationPage(); forecastView(); forecastStatic(); }
+  if (v === "years") years();
   if (v === "household") { waterView(); household(); budget(); profilesCharts(); }
   if (v === "business") business();
   if (v === "commercial") { catalogView("commercial"); tariffTables(); sectorSearch("commercial"); }
@@ -1733,6 +1862,10 @@ $("pi-tot").addEventListener("change", () => { piSplit(); piRender(); });
 $("pi-split").addEventListener("click", () => { piSplit(); piRender(); });
 $("pi-bills").addEventListener("change", () => { if ($("pi-bills").checked && !HH) household(); piRender(); });
 ["sl-g", "sl-k", "sl-r", "sl-c"].forEach((id) => $(id).addEventListener("input", salaryRender));
+["yr-y", "yr-ref", "yr-amt", "yr-sal", "yr-kwh", "yr-m3", "yr-tank", "yr-amps"].forEach((id) => $(id).addEventListener("input", years));
+$("yr-r").addEventListener("input", () => { $("yr-y").value = $("yr-r").value; years(); });
+["yr-quick", "yr-ev"].forEach((id) => $(id).addEventListener("click", (e) => { const b = e.target.closest("[data-y]"); if (b) yearsSet(+b.dataset.y); }));
+$("t-yr-dec").addEventListener("click", (e) => { const r = e.target.closest("tr[data-y]"); if (r) yearsSet(+r.dataset.y); });
 const redraw = () => draw(VIEW);
 try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", redraw); } catch (e) {}
 new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });

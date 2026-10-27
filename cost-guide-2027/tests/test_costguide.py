@@ -250,3 +250,43 @@ def test_tanker_cost_and_need():
 def test_network_cost_matches_tariff():
     n = water.network_cost(30)
     assert n["new_month"] == pytest.approx((15 * 1.5 + 15 * 3 + 30) * 1.15)
+
+
+# --- history: past, present and future ---------------------------------------
+from costguide import history
+
+
+def test_price_index_chains_published_inflation():
+    idx = history.price_index().set_index("year")
+    assert idx.loc[2026, "index"] == pytest.approx(100)
+    # 2025 -> 2026 step equals 2026 inflation; 2024 -> 2025 equals the published 2.04%
+    assert idx.loc[2025, "index"] / idx.loc[2024, "index"] == pytest.approx(1.0204)
+    assert idx.loc[1990, "kind"] == "actual" and idx.loc[2027, "kind"] == "forecast" and idx.loc[2040, "kind"] == "assumed"
+    # 1,000 SAR in 2006 is worth more today, and less in 1980s deflation years
+    assert history.convert(1000, 2006, 2026) > 1600
+    assert history.convert(1000, 1983, 1987) < 1000
+    assert history.convert(history.convert(500, 1999, 2035), 2035, 1999) == pytest.approx(500)
+
+
+def test_wage_series_keep_published_points():
+    w = history.wage_table()
+    y = history.YEARS
+    priv = w["private_saudi_avg"]
+    assert priv["v"][y.index(2015)] == 4967 and priv["k"][y.index(2015)] == "actual"
+    assert priv["k"][y.index(2020)] == "interpolated" and 4967 < priv["v"][y.index(2020)] < 9493
+    assert priv["k"][y.index(2005)] == "estimate" and priv["v"][y.index(1990)] is None
+    gov = w["gov_grade6_start"]
+    assert gov["v"][y.index(2026)] == 6065 and gov["v"][y.index(2004)] == 4586
+    assert gov["v"][y.index(2030)] == 6065 and gov["k"][y.index(2030)] == "assumed"
+
+
+def test_era_rules_and_bills():
+    assert history.vat_pct(2017) == 0 and history.vat_pct(2019) == 5 and history.vat_pct(2022) == 15
+    assert history.nitaqat_wage(2010) is None and history.nitaqat_wage(2015) == 3000
+    assert history.nitaqat_wage(2027) == 5000 and history.nitaqat_wage(2031) == 6000
+    assert history.fuel(2010)[0] == 0.45 and history.fuel(2023)[0] == 2.18
+    # 2,000 kWh: flat 5 halalas + 10 SAR meter fee, no VAT
+    assert history.elec_bill(2000, 70, 1990) == pytest.approx(110)
+    # 2027 schedule matches the main tariff engine
+    assert history.elec_bill(1000, 60, 2027) == pytest.approx(322)
+    assert history.water_bill(30, 1980) is None
