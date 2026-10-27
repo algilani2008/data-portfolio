@@ -34,6 +34,7 @@
 
 * { box-sizing: border-box }
 [hidden] { display: none !important }
+.boot-err { background: #fde8e1; color: #7a1f05; border-bottom: 2px solid #c2410c; padding: 12px 16px; font-size: 14px; line-height: 1.6; word-break: break-word }
 @media (max-width: 600px) {
   table { font-size: 12px } th, td { padding: 6px 5px }
   table.pnl th:nth-child(3), table.pnl td:nth-child(3), table.pnl th:nth-child(5), table.pnl td:nth-child(5) { display: none }
@@ -196,6 +197,21 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important } }
 </style>
 
+<noscript><div class="boot-err">يحتاج هذا الموقع تفعيل JavaScript في المتصفح. · This site needs JavaScript enabled.</div></noscript>
+<div id="boot-err" class="boot-err" hidden></div>
+<script>
+(function () {
+  var shown = false;
+  function show(msg) {
+    if (shown) return; shown = true;
+    var el = document.getElementById("boot-err"); if (!el) return;
+    el.hidden = false;
+    el.textContent = "حدث خطأ أثناء تشغيل الموقع. حدّث الصفحة، وإذا استمر أرسل صورة هذه الرسالة. · Something went wrong loading the site. Reload the page; if it persists, send a screenshot of this message. — " + msg + " — " + navigator.userAgent;
+  }
+  window.addEventListener("error", function (e) { show((e && e.message) || "script error"); });
+  window.addEventListener("load", function () { setTimeout(function () { if (!window.WW_DATA) show("data not loaded"); else { var v = document.querySelector("section.view:not([hidden])"); if (!v || v.innerText.length < 80) show("page did not render"); } }, 2500); });
+})();
+</script>
 </head>
 <body>
 <header class="top gut"><div class="inner">
