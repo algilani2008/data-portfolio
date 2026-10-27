@@ -93,8 +93,8 @@ main { padding-block: 22px 60px }
 .field > label, .field > .lab { font-size: 12.5px; font-weight: 600; color: var(--ink-2) }
 .row { display: flex; gap: 10px; align-items: center }
 input[type=range] { flex: 1; accent-color: var(--accent); min-width: 0 }
-input[type=number], select { font: inherit; font-size: 14px; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px }
-input[type=number] { font-family: var(--mono); width: 104px }
+input[type=number], input[data-num], select { font: inherit; font-size: 14px; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px }
+input[type=number], input[data-num] { font-family: var(--mono); width: 104px; direction: ltr; text-align: end }
 select { width: 100% }
 .check { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; cursor: pointer }
 .check input { accent-color: var(--accent); width: 17px; height: 17px; margin-top: 3px; flex: 0 0 auto }
@@ -154,7 +154,7 @@ footer { padding-block: 16px 30px; border-top: 1px solid var(--line); font-size:
 .mini b { font-weight: 600 } .mini .mo { font-family: var(--mono); font-variant-numeric: tabular-nums }
 .mini input { width: 110px } .mini select { width: auto; max-width: 220px }
 .row2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px }
-.row2 input[type=number] { width: 100% }
+.row2 input[type=number], .row2 input[data-num] { width: 100% }
 .fs { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px 10px; margin: 0; display: grid; gap: 8px; background: var(--panel) }
 .fs legend { font-size: 12.5px; font-weight: 600; color: var(--ink-2); padding: 0 4px }
 .staff { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) minmax(0, 1fr); gap: 6px 8px; align-items: center }
@@ -389,12 +389,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
         </div></details>
       <div class="field"><label for="breaker" data-ar="سعة القاطع" data-en="Breaker size"></label>
         <select id="breaker"><option value="60">20 – 99 A</option><option value="150" selected>100 – 199 A</option><option value="250">200 – 299 A</option><option value="350">300 A +</option></select></div>
-      <div class="field"><label for="who" data-ar="وضع الأسرة" data-en="Household situation"></label>
-        <select id="who">
-          <option value="none" data-ar="بدون بدل (موظف قطاع خاص، مقيم...)" data-en="No allowance (private sector, expatriate...)"></option>
-          <option value="allow" data-ar="مستحق لبدل 500 ريال (حكومي، متقاعد، ضمان)" data-en="Gets the 500 SAR allowance (state, retiree, social security)"></option>
-          <option value="nitaqat" data-ar="موظف قطاع خاص راتبه 4,200 ريال" data-en="Private-sector worker on 4,200 SAR"></option>
-        </select></div>
+      <p class="small" data-ar="التعويض (البدل أو رفع الراتب) يُحسب من وضعك في الميزانية أعلى الصفحة." data-en="Compensation (allowance or pay rise) comes from your situation in the budget at the top of the page."></p>
     </div>
     <div class="panel">
       <div class="readout" id="readout"></div>
@@ -414,7 +409,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
       <div id="w-net-box" style="display:grid;gap:10px">
         <div class="field"><label for="m3" data-ar="استهلاك المياه الشهري (م³)" data-en="Monthly water use (m³)"></label>
           <div class="row"><input type="range" id="m3-r" min="0" max="150" step="1" value="43" aria-label="m3"><input type="number" id="m3" min="0" max="500" value="43"></div></div>
-        <button class="btn" type="button" id="w-use-est" data-ar="استخدم التقدير من عدد الأفراد" data-en="Use the estimate from household size"></button>
+        <p class="small" id="w-m3-st"></p><button class="btn" type="button" id="w-use-est" data-ar="أرجِع الحساب التلقائي من عدد الأفراد" data-en="Go back to the estimate from household size"></button>
         <label class="check"><input type="checkbox" id="sewage" checked><span data-ar="مشترك في الصرف الصحي" data-en="Connected to sewage"></span></label>
       </div>
       <div id="w-tank-box" style="display:grid;gap:10px" hidden>
@@ -433,7 +428,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
           <div class="field"><label for="t-cap" data-ar="سعة الوايت (م³ = طن)" data-en="Tanker capacity (m³ = t)"></label><input type="number" id="t-cap" min="1" step="1" value="19"></div>
           <div class="field"><label for="t-n" data-ar="عدد الوايتات في الشهر" data-en="Tankers a month"></label><input type="number" id="t-n" min="0" step="0.5" value="2"></div>
         </div>
-        <button class="btn" type="button" id="t-use-est" data-ar="احسب العدد من عدد الأفراد" data-en="Work out the number from household size"></button>
+        <p class="small" id="t-n-st"></p><button class="btn" type="button" id="t-use-est" data-ar="أرجِع الحساب التلقائي للعدد" data-en="Go back to the automatic number"></button>
         <div class="field"><label for="t-inc" id="t-inc-l"></label><input type="range" id="t-inc" min="0" max="50" step="5" value="10"></div>
         <p class="small" data-ar="لم تُعلن أسعار جديدة للوايتات في قرار 2027. سعر الوايت يشمل الماء من محطة التعبئة والنقل، فحرّك النسبة حسب ما تتوقعه أو حسب ما يبلغك به المورّد." data-en="No new tanker prices were announced with the 2027 decision. A tanker's price covers the water at the filling station plus transport; set the rise to what you expect or what your supplier tells you."></p>
       </div>
@@ -813,7 +808,7 @@ function overview() {
 function acEstimate() { const n = +$("ac-n").value || 0, s = +$("ac-s").value || 0, w = +$("ac-w").value || 0; return Math.round(350 + n * 2.0 * 0.7 * 30 * (s * 5 + w * 7) / 12); }
 function household() {
   $("ac-out").textContent = L(`التقدير: نحو ${fmt(acEstimate())} كيلوواط ساعة شهرياً في المتوسط`, `Estimate: about ${fmt(acEstimate())} kWh a month on average`);
-  const kwh = Math.max(0, +$("kwh").value || 0), amps = +$("breaker").value, who = $("who").value, W = waterCalc();
+  const kwh = Math.max(0, +$("kwh").value || 0), amps = +$("breaker").value, W = waterCalc();
   const eoM = SEASON.map((f) => elecBill(kwh * f, amps, "2018")), enM = SEASON.map((f) => elecBill(kwh * f, amps, "2027"));
   const eo = eoM.reduce((a, b) => a + b, 0), en = enM.reduce((a, b) => a + b, 0);
   const wo = 12 * W.oldM, wn = 12 * W.newM;
@@ -824,9 +819,8 @@ function household() {
     <div class="k">${L("الكهرباء", "Electricity")}</div><div class="o">${fmt(eo)}</div><div class="n">${fmt(en)}${pc(eo, en)}</div>
     <div class="k">${W.src === "tank" ? L("المياه (وايتات)", "Water (tankers)") : L("المياه والصرف", "Water & sewage")}</div><div class="o">${fmt(wo)}</div><div class="n">${fmt(wn)}${pc(wo, wn)}</div>
     <div class="k tot">${L("الإجمالي", "Total")}</div><div class="o tot">${fmt(to)}</div><div class="n tot">${fmt(tn)}${pc(to, tn)}</div>`;
-  let gain = 0, gl = "";
-  if (who === "allow") { gain = 6000; gl = L("بدل 500 ريال شهرياً", "500 SAR monthly allowance"); }
-  if (who === "nitaqat") { gain = 21600; gl = L("رفع الراتب من 4,200 إلى 6,000 (2028، إذا التزمت المنشأة)", "Salary 4,200 → 6,000 (2028, if the employer complies)"); }
+  const inc0 = budgetIncome(), gain = 12 * (inc0[2027] - inc0[2026]), kindNow = $("bg-kind").value;
+  const gl = kindNow === "private_saudi" ? L("رفع راتبك عبر حد نطاقات (2027)", "Your Nitaqat pay rise (2027)") : (gain > 0 ? L("بدل 500 ريال شهرياً", "500 SAR monthly allowance") : "");
   const net = gain - inc;
   $("verdict").innerHTML = `<div class="small">${L("الزيادة السنوية", "Yearly increase")} · ${fmt(inc / 12)} ${L("ريال شهرياً", "SAR a month")}</div><div class="big">+${fmt(inc)} ${L("ريال", "SAR")}</div>` +
     (gain ? `<div>${gl}: <span class="num">+${fmt(gain)}</span> · ${L("الصافي", "Net")}: <b class="num">${sgn(net)}</b></div><span class="pill ${net >= 0 ? "good" : "bad"}">${net >= 0 ? "✓ " + L("التعويض يغطي الزيادة", "Compensation covers the increase") : "! " + L("التعويض لا يغطي الزيادة", "Compensation falls short")}</span>`
@@ -850,7 +844,7 @@ function profilesCharts() {
 }
 
 // ---------- WATER CALCULATOR (network or tankers) ----------
-let WS = "net";
+let WS = "net", W_AUTO = true, T_AUTO = true;
 const waterEstM3 = () => Math.max(0, (+$("w-ppl").value || 0) * (+$("w-lpd").value || 0) * 30 / 1000);
 function waterCalc() {
   const sew = $("sewage").checked;
@@ -862,7 +856,15 @@ function waterCalc() {
   const price = Math.max(0, +$("t-price").value || 0), cap = Math.max(1, +$("t-cap").value || 1), n = Math.max(0, +$("t-n").value || 0), inc = (+$("t-inc").value || 0) / 100;
   return { src: "tank", m3: n * cap, n, cap, price, inc, oldM: n * price, newM: n * price * (1 + inc), perM3Old: price / cap, perM3New: price * (1 + inc) / cap };
 }
+function waterAuto() {
+  const est = waterEstM3();
+  if (W_AUTO) { $("m3").value = Math.round(est); $("m3-r").value = Math.min(150, Math.round(est)); }
+  if (T_AUTO) $("t-n").value = Math.max(0.5, Math.ceil((2 * est) / Math.max(1, +$("t-cap").value || 1)) / 2);
+  $("w-m3-st").textContent = W_AUTO ? L("يُحسب تلقائياً من عدد الأفراد", "Calculated from household size") : L("أدخلته يدوياً", "Entered by you");
+  $("t-n-st").textContent = T_AUTO ? L("يُحسب تلقائياً من عدد الأفراد وسعة الوايت", "Calculated from household size and tanker size") : L("أدخلته يدوياً", "Entered by you");
+}
 function waterView() {
+  waterAuto();
   $("ws-net").setAttribute("aria-pressed", WS === "net"); $("ws-tank").setAttribute("aria-pressed", WS === "tank");
   $("w-net-box").hidden = WS !== "net"; $("w-tank-box").hidden = WS !== "tank";
   const ppl = +$("w-ppl").value || 0, lpd = +$("w-lpd").value || 0, est = waterEstM3();
@@ -914,7 +916,7 @@ function bgItemsHtml() {
   $("bg-items").innerHTML = `<label class="check"><input type="checkbox" id="bg-link" ${BG_LINK ? "checked" : ""}><span>${L("خذ الكهرباء والمياه من الحاسبتين أدناه", "Take electricity and water from the calculators below")}</span></label>` +
     BG_ITEMS.map(([id, ar, en, code]) => { const auto = BG_LINK && (code === "elec" || code === "water"); const rate = code === "elec" || code === "water" || code === "none" ? "" : sgn(divRate(code === "all" ? "all" : code, 2027), 1) + "%";
       return `<div class="cat"><label for="bg-${id}">${L(ar, en)}</label><input type="number" id="bg-${id}" min="0" step="10" value="${Math.round(BG[id])}" ${auto ? "disabled" : ""}><span class="r">${code === "none" ? "0%" : rate || L("تلقائي", "auto")}</span></div>`; }).join("");
-  BG_ITEMS.forEach(([id]) => $("bg-" + id).addEventListener("input", (e) => { BG[id] = +e.target.value || 0; budget(); }));
+  BG_ITEMS.forEach(([id]) => { const f = (e) => { BG[id] = Math.max(0, +e.target.value || 0); budget(); }; $("bg-" + id).addEventListener("input", f); $("bg-" + id).addEventListener("change", f); });
   $("bg-link").addEventListener("change", (e) => { BG_LINK = e.target.checked; budgetSync(); bgItemsHtml(); budget(); });
 }
 function bisect(f, target, lo, hi) { for (let i = 0; i < 50; i++) { const m = (lo + hi) / 2; if (f(m) < target) lo = m; else hi = m; } return (lo + hi) / 2; }
@@ -940,6 +942,11 @@ function itemNew(id, code, v) {
   if (code === "none") return v;
   return v * (1 + divRate(code, 2027) / 100);
 }
+function budgetIncome() {
+  const g = Math.max(0, +$("bg-sal").value || 0), oth = Math.max(0, +$("bg-oth").value || 0), kind = $("bg-kind").value, raise = +$("bg-raise").value || 0, comply = $("bg-comply").checked, I = {};
+  [2026, 2027, 2028].forEach((y) => { I[y] = takeHome(g, kind, y, raise, comply) + oth; });
+  return I;
+}
 function budget() {
   if (!BG) { bgDefaults(); }
   budgetSync();
@@ -950,13 +957,13 @@ function budget() {
     return { id, name: L(ar, en), v, v27, v28 };
   });
   const E = { 2026: 0, 2027: 0, 2028: 0 }; rows.forEach((r) => { E[2026] += r.v; E[2027] += r.v27; E[2028] += r.v28; });
-  const I = {}; [2026, 2027, 2028].forEach((y) => { I[y] = takeHome(g, kind, y, raise, comply) + oth; });
+  const I = budgetIncome();
   const dE27 = E[2027] - E[2026], dE28 = E[2028] - E[2026], dI27 = I[2027] - I[2026], dI28 = I[2028] - I[2026];
   const pctSal = (x) => (I[2026] ? (100 * x) / I[2026] : 0);
   const save = (y) => I[y] - E[y];
   $("bg-kpis").innerHTML = [
     ["up", sgn(dE27), L("زيادة مصاريفك الشهرية 2027", "Rise in monthly expenses, 2027"), L(`ريال (${sgn(E[2026] ? (100 * dE27) / E[2026] : 0, 1)}% من مصاريفك)`, `SAR (${sgn(E[2026] ? (100 * dE27) / E[2026] : 0, 1)}% of spending)`)],
-    ["up", fmt(pctSal(dE27), 1) + "%", L("الزيادة كنسبة من راتبك الصافي", "Rise as a share of take-home pay"), L(`${fmt(pctSal(dE28), 1)}% بحلول 2028`, `${fmt(pctSal(dE28), 1)}% by 2028`)],
+    ["up", fmt(pctSal(dE27), 1) + "%", L("الزيادة كنسبة من دخلك الصافي", "Rise as a share of take-home income"), L(`${fmt(pctSal(dE28), 1)}% بحلول 2028`, `${fmt(pctSal(dE28), 1)}% by 2028`)],
     [dI27 > 0 ? "dn" : "", sgn(dI27), L("تغير دخلك الشهري 2027", "Change in monthly income, 2027"), dI27 > 0 ? (kind === "private_saudi" ? L("رفع حد نطاقات", "Nitaqat threshold") : L("بدل 500 ريال", "500 SAR allowance")) : L("بدون تعويض", "no compensation")],
     [dI27 - dE27 >= 0 ? "dn" : "up", sgn(dI27 - dE27), L("صافي الأثر الشهري 2027", "Net monthly effect, 2027"), L(`2028: ${sgn(dI28 - dE28)} ريال`, `2028: ${sgn(dI28 - dE28)} SAR`)],
     [save(2027) < 0 ? "up" : "", fmt(save(2027)), L("المتبقي من دخلك شهرياً 2027", "Left over each month, 2027"), L(`كان ${fmt(save(2026))} ريال`, `was ${fmt(save(2026))} SAR`)],
@@ -1642,6 +1649,22 @@ function openClass(code) {
   window.scrollTo({ top: 0 });
 }
 
+// ---------- robust number entry (Arabic digits, commas) ----------
+function normDigits(v) {
+  return String(v).replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+    .replace(/[٫]/g, ".").replace(/[,،٬\s]/g, "").replace(/[^0-9.\-]/g, "");
+}
+function numericInputs(root) {
+  (root || document).querySelectorAll('input[type="number"]').forEach((el) => { el.type = "text"; el.setAttribute("inputmode", "decimal"); el.dataset.num = "1"; el.setAttribute("autocomplete", "off"); });
+}
+document.addEventListener("input", (e) => { const el = e.target; if (el && el.dataset && el.dataset.num) { const n = normDigits(el.value); if (n !== el.value) el.value = n; } }, true);
+document.addEventListener("change", (e) => { const el = e.target; if (el && el.dataset && el.dataset.num) { const n = normDigits(el.value); if (n !== el.value) el.value = n; } }, true);
+new MutationObserver((ms) => ms.forEach((m) => m.addedNodes.forEach((n) => { if (n.querySelectorAll) numericInputs(n); }))).observe(document.body, { childList: true, subtree: true });
+// Safari: make every select and checkbox also raise "input" listeners on "change"
+const LAST_INPUT = new WeakMap();
+document.addEventListener("input", (e) => LAST_INPUT.set(e.target, Date.now()), true);
+document.addEventListener("change", (e) => { const el = e.target; if (!el || !(el.tagName === "SELECT" || el.type === "checkbox")) return; if (Date.now() - (LAST_INPUT.get(el) || 0) > 80) el.dispatchEvent(new Event("input", { bubbles: true })); });
+
 // ---------- routing & language ----------
 const VIEWS = ["overview", "inflation", "household", "business", "saudization", "trust", "commercial", "industrial", "agri", "society", "labour", "solutions", "faq", "method"];
 function draw(v) {
@@ -1696,14 +1719,20 @@ document.querySelectorAll("#tabs a").forEach((a) => a.addEventListener("click", 
 document.querySelectorAll("#roles [data-go]").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); if (a.dataset.grp) { $("b-grp").value = a.dataset.grp; bActOptions(); bLoad(false); } go(a.dataset.go); }));
 const link = (a, b, fn) => { $(a).addEventListener("input", () => { $(b).value = $(a).value; fn(); }); $(b).addEventListener("input", () => { $(a).value = $(b).value; fn(); }); };
 const hhAll = () => { waterView(); household(); budget(); };
-link("kwh-r", "kwh", hhAll); link("m3-r", "m3", hhAll);
-["breaker", "sewage", "who", "ac-n", "ac-s", "ac-w", "w-ppl", "w-lpd", "t-price", "t-cap", "t-n", "t-inc"].forEach((id) => $(id).addEventListener("input", hhAll));
+const onEdit = (ids, fn) => ids.forEach((id) => { $(id).addEventListener("input", fn); $(id).addEventListener("change", fn); });
+$("kwh-r").addEventListener("input", () => { $("kwh").value = $("kwh-r").value; hhAll(); });
+onEdit(["kwh"], () => { $("kwh-r").value = Math.min(10000, +$("kwh").value || 0); hhAll(); });
+onEdit(["ac-n", "ac-s", "ac-w"], () => { const v = acEstimate(); $("kwh").value = v; $("kwh-r").value = Math.min(10000, v); hhAll(); });
+$("m3-r").addEventListener("input", () => { W_AUTO = false; $("m3").value = $("m3-r").value; hhAll(); });
+onEdit(["m3"], () => { W_AUTO = false; $("m3-r").value = Math.min(150, +$("m3").value || 0); hhAll(); });
+onEdit(["t-n"], () => { T_AUTO = false; hhAll(); });
+onEdit(["breaker", "sewage", "w-ppl", "w-lpd", "t-price", "t-cap", "t-inc"], hhAll);
 $("ws-net").addEventListener("click", () => { WS = "net"; hhAll(); });
 $("ws-tank").addEventListener("click", () => { WS = "tank"; hhAll(); });
 $("t-size").addEventListener("change", () => { const [cap, price] = $("t-size").value.split("|"); $("t-cap").value = cap; $("t-price").value = price; hhAll(); });
-$("w-use-est").addEventListener("click", () => { const v = Math.round(waterEstM3()); $("m3").value = v; $("m3-r").value = Math.min(150, v); hhAll(); });
-$("t-use-est").addEventListener("click", () => { $("t-n").value = Math.max(0.5, Math.round((2 * waterEstM3()) / Math.max(1, +$("t-cap").value || 1)) / 2); hhAll(); });
-["bg-sal", "bg-oth", "bg-kind", "bg-raise", "bg-comply"].forEach((id) => $(id).addEventListener("input", budget));
+$("w-use-est").addEventListener("click", () => { W_AUTO = true; hhAll(); });
+$("t-use-est").addEventListener("click", () => { T_AUTO = true; hhAll(); });
+onEdit(["bg-sal", "bg-oth", "bg-kind", "bg-raise", "bg-comply"], () => { budget(); household(); });
 $("bg-reset").addEventListener("click", () => { bgDefaults(); BG_LINK = true; budgetSync(); bgItemsHtml(); budget(); });
 $("ac-use").addEventListener("click", () => { const v = acEstimate(); $("kwh").value = v; $("kwh-r").value = Math.min(10000, v); hhAll(); });
 $("b-grp").addEventListener("change", () => { bActOptions(); bLoad(false); });
@@ -1735,6 +1764,7 @@ const redraw = () => draw(VIEW);
 try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", redraw); } catch (e) {}
 new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
+numericInputs();
 miniInit();
 faqInit();
 $("b-grp").value = "commercial";
