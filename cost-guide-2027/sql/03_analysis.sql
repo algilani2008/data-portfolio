@@ -1,4 +1,4 @@
--- watt-wage-ksa: analysis queries (SQLite 3.25+ for window functions)
+-- cost-guide-2027: analysis queries (SQLite 3.25+ for window functions)
 
 -- 1. Monthly electricity bill (before VAT) for 1,000 / 2,000 / 7,000 kWh under each schedule.
 --    Progressive tiers: each rate applies only to the kWh inside its band.

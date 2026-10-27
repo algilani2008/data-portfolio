@@ -1,4 +1,4 @@
--- watt-wage-ksa: schema (SQLite)
+-- cost-guide-2027: schema (SQLite)
 DROP TABLE IF EXISTS electricity_tariffs;
 DROP TABLE IF EXISTS electricity_fees;
 DROP TABLE IF EXISTS water_tariffs;

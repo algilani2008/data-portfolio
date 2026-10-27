@@ -1,5 +1,5 @@
 [project]
-name = "wattwage"
+name = "costguide"
 version = "1.0.0"
 description = "Saudi utility tariffs, wages and their impact: history, analysis and 2027-2028 forecasts"
 requires-python = ">=3.10"
