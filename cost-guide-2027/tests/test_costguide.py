@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from wattwage import data, fiscal, forecast, impact, tariffs, wages
+from costguide import data, fiscal, forecast, impact, tariffs, wages
 
 
 # --- tariffs: worked examples published with the 2027 announcement --------
@@ -75,7 +75,7 @@ def test_cpi_series_complete():
 
 
 def test_seasonality_mean_is_one():
-    from wattwage.household import seasonality
+    from costguide.household import seasonality
     assert seasonality().mean() == pytest.approx(1.0)
 
 
@@ -116,7 +116,7 @@ def test_arima_beats_naive_backtest():
 
 
 # --- business, society, solutions, outlook ---------------------------------
-from wattwage import business, outlook, society, solutions
+from costguide import business, outlook, society, solutions
 
 
 def test_commercial_fixed_charges_2027():
@@ -168,7 +168,7 @@ def test_outlook_years():
 
 
 # --- inflation by category, salary, activity catalogue -----------------------
-from wattwage import catalog, inflation, salary
+from costguide import catalog, inflation, salary
 
 
 def test_division_forecast_adds_up_to_headline():
@@ -204,7 +204,7 @@ def test_catalog_pnl_lines():
 
 
 # --- Nitaqat calculator ------------------------------------------------------
-from wattwage import nitaqat
+from costguide import nitaqat
 
 
 def test_nitaqat_formula_matches_published_example():

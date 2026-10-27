@@ -1,4 +1,4 @@
-"""watt-wage-ksa: Saudi utility tariffs, wages and their impact.
+"""cost-guide-2027: Saudi utility tariffs, wages and their impact.
 
 Modules
 -------

@@ -1,6 +1,6 @@
-# واط وأجر: تعرفة الكهرباء والمياه والأجور في السعودية
+# دليل التكاليف 2027: تعرفة الكهرباء والمياه والأجور في السعودية
 
-**Watt & Wage: Saudi utility tariffs, wages and their impact on households, society, commerce and industry (2016 – 2030)**
+**Cost Guide 2027: Saudi utility tariffs, wages and their impact on households, society, commerce and industry (2016 – 2030)**
 
 مشروع تحليل بيانات متكامل عن قرارات 25 أكتوبر 2026: رفع تعرفة الكهرباء والمياه من 1 يناير 2027، وبدل 500 ريال، ورفع حد احتساب السعودي في نطاقات إلى 5,000 ثم 6,000 ريال. يحلل المشروع الأثر على أربعة مستويات: الأسرة، والمجتمع، والقطاع التجاري، والقطاع الصناعي. ويقارن خيارات الحلول للأسر والمنشآت والسياسة العامة، ويقدّم توقعات حتى 2030.
 
@@ -138,7 +138,7 @@
 | المجلد | المحتوى |
 |---|---|
 | [`data/raw/`](data/raw/) | بيانات خام موثّقة، ولكل صف مصدره: التعرفة السكنية (4 جداول زمنية)، والقطاعية، والرسوم الثابتة لكل القطاعات، والمياه، والتضخم الشهري 2014 – 2026، والقرارات، وأجور السعوديين، و14 منشأة نموذجية، وإجراءات الترشيد، وأنماط الأسر، و[`assumptions.json`](data/raw/assumptions.json) |
-| [`src/wattwage/`](src/wattwage/) | حزمة Python: حاسبة الفواتير، ومحاكاة الأسر، ودراسة الأحداث، والتوقع، والأجور، والمالية العامة |
+| [`src/costguide/`](src/costguide/) | حزمة Python: حاسبة الفواتير، ومحاكاة الأسر، ودراسة الأحداث، والتوقع، والأجور، والمالية العامة |
 | [`outputs/`](outputs/) | 22 جدول نتائج CSV و`summary.json` |
 | [`dashboard/`](dashboard/) | لوحة تفاعلية ثنائية اللغة بـ 9 تبويبات (HTML + Chart.js) |
 | [`sql/`](sql/) | الجداول و7 استعلامات تحليلية (`LAG()`، `RANK()`، شرائح تصاعدية) |
@@ -167,9 +167,9 @@
 ## التشغيل
 
 ```bash
-cd watt-wage-ksa
+cd cost-guide-2027
 pip install -r requirements.txt
-PYTHONPATH=src python -m wattwage.build     # يعيد بناء كل النتائج واللوحة والرسوم
+PYTHONPATH=src python -m costguide.build     # يعيد بناء كل النتائج واللوحة والرسوم
 python -m pytest -q                          # 32 اختباراً
 
 # SQL
@@ -228,4 +228,6 @@ An end-to-end data project on Saudi Arabia's 25 October 2026 package: higher ele
 
 **Stack:** Python (pandas, statsmodels ARIMA, NumPy Monte Carlo), SQL (SQLite window functions), and a bilingual 9-tab Chart.js dashboard with live calculators and an inflation lab. Every input row carries its source, and every assumption has a range in `data/raw/assumptions.json`.
 
-*Independent, educational analysis. Figures are model estimates, not official forecasts.*
+*Independent, educational analysis, not affiliated with any government body or company. Figures are model estimates, not official figures or forecasts.*
+
+> مشروع مستقل للأغراض التعليمية، غير تابع لأي جهة حكومية أو شركة. الأرقام تقديرات وليست أرقاماً رسمية.

@@ -1,4 +1,4 @@
-<title>واط وأجر | Watt &amp; Wage</title>
+<title>دليل التكاليف 2027 | Cost Guide 2027</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Reem+Kufi:wght@500;700&display=swap">
 <style>
@@ -192,8 +192,8 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
 
 <header class="top gut"><div class="inner">
   <div class="brand">
-    <div class="kicker" data-ar="تحليل بيانات · قرارات 25 أكتوبر 2026" data-en="Data analysis · 25 October 2026 decisions"></div>
-    <h1 data-ar="واط وأجر" data-en="Watt &amp; Wage"></h1>
+    <div class="kicker" data-ar="مشروع مستقل · تحليل قرارات 25 أكتوبر 2026" data-en="Independent project · analysis of the 25 October 2026 decisions"></div>
+    <h1 data-ar="دليل التكاليف 2027" data-en="Cost Guide 2027"></h1>
     <p class="lede" data-ar="تعرفة الكهرباء والمياه 2027، وبدل 500 ريال، ورفع حد نطاقات: الأثر على الأسر والمجتمع والتجارة والصناعة، والحلول، والتوقعات حتى 2030." data-en="2027 electricity and water tariffs, the 500 SAR allowance and the higher Nitaqat threshold: impact on households, society, commerce and industry, the options, and forecasts to 2030."></p>
   </div>
   <div class="seg" role="group" aria-label="Language"><button id="l-ar" type="button" aria-pressed="true">عربي</button><button id="l-en" type="button" aria-pressed="false">English</button></div>
@@ -522,7 +522,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
 
 <!-- INDUSTRIAL CATALOGUE -->
 <section class="view" id="v-industrial" hidden>
-  <div class="vhead"><h2 data-ar="القطاع الصناعي: 28 صناعة" data-en="Industry: 28 industries"></h2><p class="muted" data-ar="التعرفة الصناعية ترتفع من 18 إلى 23 هللة (+28%) والرسم الثابت إلى 900 ريال للقواطع الكبيرة. كلما زادت كثافة الطاقة زاد الأثر." data-en="The industrial rate rises from 18 to 23 halalas (+28%) and the fixed charge to 900 SAR for large breakers. The more energy-intensive, the bigger the hit."></p></div>
+  <div class="vhead"><h2 data-ar="القطاع الصناعي" data-en="Industry"></h2><p class="muted" data-ar="التعرفة الصناعية ترتفع من 18 إلى 23 هللة (+28%) والرسم الثابت إلى 900 ريال للقواطع الكبيرة. كلما زادت كثافة الطاقة زاد الأثر." data-en="The industrial rate rises from 18 to 23 halalas (+28%) and the fixed charge to 900 SAR for large breakers. The more energy-intensive, the bigger the hit."></p></div>
   <div class="kpis" id="ind-kpis"></div>
   <div class="panel"><div class="legend" id="lg-cat-industrial"></div><div class="chart xl" id="box-industrial"><canvas id="c-cat-industrial"></canvas></div></div>
   <div class="g2">
@@ -596,7 +596,7 @@ pre.msg { white-space: pre-wrap; font: inherit; font-size: 14.5px; line-height: 
 </section>
 
 </div></main>
-<footer class="gut"><div class="inner"><span data-ar="مشروع تحليل بيانات مستقل للأغراض التعليمية. الأرقام تقديرات مبنية على المصادر المذكورة وليست توقعات رسمية." data-en="Independent, educational data project. Figures are estimates built on the sources listed, not official forecasts."></span> <span class="num" id="gen"></span></div></footer>
+<footer class="gut"><div class="inner"><span data-ar="مشروع تحليل بيانات مستقل للأغراض التعليمية، غير تابع لأي جهة حكومية أو شركة. الأرقام تقديرات مبنية على المصادر المذكورة وليست أرقاماً أو توقعات رسمية، وللأرقام الرسمية راجع الجهات المختصة." data-en="Independent, educational data project, not affiliated with any government body or company. Figures are estimates built on the sources listed, not official figures or forecasts; check the relevant authorities for official numbers."></span> <span class="num" id="gen"></span></div></footer>
 
 <script src="chart.umd.js"></script>
 <script src="data.js"></script>
@@ -614,7 +614,7 @@ const sgn = (v, d = 0) => (v > 0 ? "+" : v < 0 ? "−" : "") + fmt(Math.abs(v), 
 const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const name = (o) => (AR() ? o.name_ar : o.name_en);
 
-// ---------- tariff engine (mirrors src/wattwage/tariffs.py) ----------
+// ---------- tariff engine (mirrors src/costguide/tariffs.py) ----------
 const TF = D.tariffs, SEASON = D.seasonality, VAT = 0.15;
 function prog(q, rows, lo, hi, rate) { let s = 0; for (const r of rows) { const a = r[lo], b = r[hi] == null ? Infinity : r[hi]; if (q > a) s += (Math.min(q, b) - a) * r[rate]; } return s; }
 function band(rows, amps) { for (const r of rows) { const hi = r.breaker_to_a == null ? Infinity : r.breaker_to_a; if (amps >= r.breaker_from_a && amps < hi) return r.fee_sar; } return rows[rows.length - 1].fee_sar; }
@@ -882,7 +882,7 @@ function salaryRender() {
     options: base({ legend: true, tip: { label: (x) => `${x.dataset.label}: ${fmt(x.raw)}` } }) });
 }
 
-// ---------- BUSINESS CALCULATOR (mirrors src/wattwage/catalog.py) ----------
+// ---------- BUSINESS CALCULATOR (mirrors src/costguide/catalog.py) ----------
 const ACT = D.activities, CAT = D.catalog;
 const G = { gosi: A.gosi_employer_rate_saudi_pct.value / 100, gExp: A.expat_wage_growth_pct.value / 100, gSau: A.saudi_wage_growth_pct.value / 100, wRate: A.nonres_water_sar_per_m3.value, wChg: A.nonres_water_change_pct.value / 100, low: A.saudi_low_wage_default.value, mid: A.saudi_mid_wage_default.value, rent: A.rent_inflation_pct.value };
 const breakerFor = (k) => (k < 5000 ? 60 : k < 15000 ? 150 : k < 40000 ? 250 : 350);

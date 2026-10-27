@@ -1,5 +1,5 @@
 {
-  "_note": "Every value here is either a published figure (type=fact, with source) or a modelling assumption (type=assumption, with a range used in sensitivity and Monte Carlo runs). Change a value and re-run `python -m wattwage.build`.",
+  "_note": "Every value here is either a published figure (type=fact, with source) or a modelling assumption (type=assumption, with a range used in sensitivity and Monte Carlo runs). Change a value and re-run `python -m costguide.build`.",
   "residential_electricity_gwh_2024": {
     "type": "fact",
     "value": 161207,
