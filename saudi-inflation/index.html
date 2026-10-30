@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>التضخم في السعودية حسب فئات الإنفاق</title>
+<meta name="description" content="تحليل الرقم القياسي لأسعار المستهلك في السعودية عبر 13 فئة إنفاق: أي الفئات ترتفع أسرع، ومن يساهم أكثر في التضخم، وحاسبة لأثر التضخم على ميزانية أسرتك.">
+<meta property="og:title" content="التضخم في السعودية حسب فئات الإنفاق">
+<meta property="og:description" content="13 فئة إنفاق، المساهمة في التضخم، الاتجاه الشهري، وحاسبة أثر التضخم على ميزانية الأسرة.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Reem+Kufi:wght@500;700&display=swap">
+<link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">📈 التضخم في السعودية</a>
+    <nav>
+      <a href="#divisions">الفئات</a>
+      <a href="#trend">الاتجاه</a>
+      <a href="#calc">الحاسبة</a>
+      <a href="#data">البيانات</a>
+      <button class="btn-ghost theme-toggle" data-theme-toggle aria-label="تبديل الوضع الداكن">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">تحليل بيانات • الرقم القياسي لأسعار المستهلك (2023 = 100)</p>
+      <h1>أي الأسعار ترتفع أسرع في السعودية؟</h1>
+      <p class="lead">تحليل 13 فئة إنفاق في سلة المستهلك: كم ارتفعت أسعار كل فئة، وكم تساهم في التضخم العام، وكم يكلّف التضخم ميزانية أسرتك — من بيانات الهيئة العامة للإحصاء والبنك المركزي السعودي.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Excel</span><span class="chip">Chart.js</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid g4" id="kpis"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>أهم النتائج</h2>
+      <p class="sub">الربع الأول 2026 مقارنة بالربع الأول 2025</p>
+      <ul class="findings" id="findings"></ul>
+    </div>
+  </section>
+
+  <section class="section" id="divisions">
+    <div class="wrap">
+      <h2>فئات الإنفاق</h2>
+      <p class="sub">التغير السنوي في أسعار كل فئة، ومساهمتها في التضخم العام (الوزن × تغير الفئة)</p>
+      <div class="card">
+        <div class="btns" style="justify-content: space-between; align-items: center">
+          <div class="seg" id="divMetric" role="group" aria-label="المؤشر">
+            <button data-m="yoy" aria-pressed="true">التغير السنوي %</button>
+            <button data-m="contrib" aria-pressed="false">المساهمة (نقطة مئوية)</button>
+            <button data-m="weight" aria-pressed="false">الوزن في السلة %</button>
+          </div>
+          <span class="note" id="divNote"></span>
+        </div>
+        <div class="chart tall"><canvas id="divChart" aria-label="رسم بياني لفئات الإنفاق" role="img"></canvas></div>
+      </div>
+      <div class="table-wrap" style="margin-top: 12px">
+        <table id="divTable">
+          <thead><tr><th>الفئة</th><th class="n">الوزن</th><th class="n">ر.ق Q1 2025</th><th class="n">ر.ق Q1 2026</th><th class="n">ربعي</th><th class="n">سنوي</th><th class="n">المساهمة</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="trend">
+    <div class="wrap">
+      <h2>الاتجاه الشهري</h2>
+      <p class="sub">التضخم السنوي (مقارنة بنفس الشهر من العام السابق) والتغير الشهري، يناير 2025 – يونيو 2026</p>
+      <div class="card"><div class="chart"><canvas id="trendChart" aria-label="رسم الاتجاه الشهري للتضخم" role="img"></canvas></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="calc">
+    <div class="wrap">
+      <h2>حاسبة أثر التضخم على أسرتك</h2>
+      <p class="sub">اكتب إنفاق أسرتك الشهري في كل فئة (أو وزّع مبلغاً على أوزان السلة الرسمية)، وتحسب الزيادة السنوية في التكلفة ومعدل التضخم الخاص بأسرتك.</p>
+      <div class="grid g2">
+        <div class="card">
+          <div class="btns" style="align-items: end">
+            <label class="field">إجمالي الإنفاق الشهري (ريال)
+              <input type="number" id="totalSpend" min="0" step="500" value="10000">
+            </label>
+            <button class="btn sec" id="distribute">وزّع حسب السلة الرسمية</button>
+          </div>
+          <div class="table-wrap" style="margin-top: 12px; max-height: 470px">
+            <table><thead><tr><th>الفئة</th><th class="n">شهرياً (ريال)</th><th class="n">التضخم</th></tr></thead><tbody id="calcRows"></tbody></table>
+          </div>
+        </div>
+        <div class="card" style="display: grid; gap: 14px; align-content: start">
+          <div>
+            <p class="note">الزيادة السنوية في تكلفة نفس المشتريات</p>
+            <p><span class="big" id="extraYear">0</span> <span class="note">ريال / سنة</span></p>
+            <p class="note"><span class="mono" id="extraMonth">0</span> ريال شهرياً</p>
+          </div>
+          <div>
+            <p class="note">معدل التضخم الخاص بأسرتك</p>
+            <p><span class="big" id="personalRate">0%</span></p>
+            <p class="note" id="vsGeneral"></p>
+          </div>
+          <div>
+            <p class="note" style="margin-bottom: 6px">أكثر ما يرفع تكلفتك</p>
+            <ul class="findings" id="calcTop"></ul>
+          </div>
+          <p class="note">يفترض استمرار معدل التضخم الحالي لكل فئة لمدة سنة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="data">
+    <div class="wrap">
+      <h2>البيانات والمنهجية</h2>
+      <div class="grid g2" style="margin-top: 12px">
+        <div class="card">
+          <h3>الملفات</h3>
+          <ul style="margin: 8px 0 0; padding-inline-start: 18px; line-height: 2">
+            <li><a href="https://github.com/algilani2008/saudi-inflation/raw/main/%D8%A7%D9%84%D8%AA%D8%B6%D8%AE%D9%85_%D9%81%D9%8A_%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9_%D8%AD%D8%B3%D8%A8_%D9%81%D8%A6%D8%A7%D8%AA_%D8%A7%D9%84%D8%A5%D9%86%D9%81%D8%A7%D9%82.xlsx">ملف Excel</a> — لوحة مؤشرات وحاسبة بمعادلات حيّة</li>
+            <li><a href="https://github.com/algilani2008/saudi-inflation/tree/main/data/clean">CSV</a> — الفئات والأوزان، والتضخم الشهري</li>
+            <li><a href="https://github.com/algilani2008/saudi-inflation/tree/main/sql">SQL</a> — الجداول و6 استعلامات تحليل</li>
+            <li><a href="https://github.com/algilani2008/saudi-inflation">المستودع على GitHub</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>المنهجية</h3>
+          <ul style="margin: 8px 0 0; padding-inline-start: 18px">
+            <li>المساهمة = وزن الفئة × (ر.ق الفئة الآن − قبل سنة) ÷ الرقم العام قبل سنة. مجموع المساهمات أعلى من التضخم المنشور بنحو 0.1 نقطة بسبب تحديث الأوزان بالأسعار والتقريب.</li>
+            <li>مجموع الأوزان = 100%، وتراكم التغيرات الشهرية لآخر 12 شهراً يطابق التغير السنوي المنشور.</li>
+            <li>السلة: 582 سلعة وخدمة، والأوزان من مسح دخل وإنفاق الأسرة 2023.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note" style="margin-top: 12px">المصادر: البنك المركزي السعودي، <a href="https://www.sama.gov.sa/en-US/Publications/EconomicReports/InflationReports/Inflation_Q1_2026-En.pdf">تقرير التضخم للربع الأول 2026</a>؛ الهيئة العامة للإحصاء، نشرة الرقم القياسي لأسعار المستهلك يونيو 2026.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>جزء من <a href="https://github.com/algilani2008">ملف أعمال تحليل البيانات</a> — مشاريع مبنية على بيانات رسمية منشورة.</p>
+  </div>
+</footer>
+
+<script src="chart.umd.min.js"></script>
+<script src="portfolio.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
