@@ -1,0 +1,8 @@
+{
+  "source": "https://raw.githubusercontent.com/owid/energy-data/master/owid-energy-data.csv",
+  "license": "CC BY 4.0 (Our World in Data)",
+  "sha256": "266f2e2baad7975351bc9bb4aa061d22b1da9fe4c47d51d2ac6071e01e171f76",
+  "rows_in_source": 23377,
+  "latest_common_year": 2024,
+  "generated_utc": "2026-11-01T17:44Z"
+}
