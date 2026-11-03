@@ -1,0 +1,15 @@
+{
+  "end_year": 2024,
+  "start_year": 2000,
+  "licence": "CC BY 4.0",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/owid/energy-data/master/owid-energy-data.csv",
+      "sha256": "266f2e2baad7975351bc9bb4aa061d22b1da9fe4c47d51d2ac6071e01e171f76"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv",
+      "sha256": "7f78e2b218ce4bb8c538bbec04fdc9a7982e8d40bff972e650df603899edd5f6"
+    }
+  ]
+}

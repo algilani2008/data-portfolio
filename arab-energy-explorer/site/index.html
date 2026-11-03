@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مستكشف الطاقة العربي | Arab Energy Explorer</title>
+<meta name="description" content="قارن كهرباء وانبعاثات الدول العربية من 2000. Compare electricity and CO2 across Arab countries since 2000.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-row">
+    <div>
+      <p class="eyebrow" data-t="eyebrow"></p>
+      <h1 data-t="title"></h1>
+      <p class="lede" data-t="lede"></p>
+    </div>
+    <button id="lang" class="btn" type="button"></button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section aria-labelledby="h-high">
+    <h2 id="h-high" data-t="hHigh"></h2>
+    <ol id="highlights" class="highlights"></ol>
+  </section>
+
+  <section aria-labelledby="h-compare">
+    <h2 id="h-compare" data-t="hCompare"></h2>
+    <div class="filters">
+      <label><span data-t="metric"></span><select id="metric"></select></label>
+      <label><span data-t="addCountry"></span><select id="add"></select></label>
+      <label class="check"><input id="world" type="checkbox"> <span data-t="showWorld"></span></label>
+    </div>
+    <ul id="chips" class="chips"></ul>
+    <p class="hint" id="metric-note"></p>
+    <figure class="chart" id="chart" dir="ltr">
+      <div id="tip" class="tip" hidden></div>
+    </figure>
+    <ul id="legend" class="legend"></ul>
+    <div class="row-actions">
+      <button id="csv" class="btn" type="button" data-t="csv"></button>
+      <button id="share" class="btn" type="button" data-t="share"></button>
+      <span id="share-ok" class="hint" role="status"></span>
+    </div>
+    <details class="tbl">
+      <summary data-t="asTable"></summary>
+      <div class="scroll"><table id="table"></table></div>
+    </details>
+  </section>
+
+  <section aria-labelledby="h-rank">
+    <h2 id="h-rank" data-t="hRank"></h2>
+    <div class="filters">
+      <label class="grow"><span><span data-t="year"></span>: <b id="rank-year"></b></span>
+        <input id="year" type="range" dir="ltr"></label>
+    </div>
+    <p class="hint" id="rank-title"></p>
+    <ol id="rank" class="rank"></ol>
+    <p class="hint" id="rank-missing"></p>
+  </section>
+
+  <section aria-labelledby="h-profile">
+    <h2 id="h-profile" data-t="hProfile"></h2>
+    <div class="filters">
+      <label><span data-t="country"></span><select id="profile"></select></label>
+    </div>
+    <p id="profile-text"></p>
+    <div id="tiles" class="tiles"></div>
+    <div id="mix"></div>
+    <ul id="mix-legend" class="legend"></ul>
+  </section>
+
+  <section aria-labelledby="h-whatif">
+    <h2 id="h-whatif" data-t="hWhatif"></h2>
+    <p data-t="whatifLede"></p>
+    <div class="filters">
+      <label><span data-t="country"></span><select id="wi-country"></select></label>
+      <label class="grow"><span><span data-t="wiShare"></span>: <b id="wi-share-v"></b></span>
+        <input id="wi-share" type="range" min="0" max="100" step="5" value="20" dir="ltr"></label>
+      <label class="grow"><span><span data-t="wiCf"></span>: <b id="wi-cf-v"></b></span>
+        <input id="wi-cf" type="range" min="12" max="30" step="1" value="20" dir="ltr"></label>
+    </div>
+    <div id="wi-out" class="tiles"></div>
+    <p class="hint" data-t="wiNote"></p>
+  </section>
+
+  <section aria-labelledby="h-terms">
+    <h2 id="h-terms" data-t="hTerms"></h2>
+    <dl class="terms" id="terms"></dl>
+  </section>
+
+  <section aria-labelledby="h-about">
+    <h2 id="h-about" data-t="hAbout"></h2>
+    <ul class="notes" id="notes"></ul>
+  </section>
+</main>
+<footer class="wrap foot"><p id="foot"></p></footer>
+<script src="data.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
