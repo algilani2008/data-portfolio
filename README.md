@@ -1,4 +1,27 @@
-# Data Portfolio | ملف أعمال تحليل البيانات
+# عبدالكريم الجيلاني | ملف الأعمال
+
+**محلل بيانات · أخصائي عمليات وشؤون إدارية · دعم الموارد البشرية**، مكة المكرمة. متاح للعمل في مكة أو جدة أو عن بعد.
+
+**🌐 صفحة ملف الأعمال:** https://algilani2008.github.io/data-portfolio/portfolio/ · ✉️ algilani2008@gmail.com
+
+أكثر من 12 سنة في العمليات والإدارة، منها 8 سنوات في تحليل البيانات (Power BI، Excel، SQL، Python).
+
+## كل المشاريع المنشورة
+
+| المشروع | الموقع | الكود |
+|---|---|---|
+| سوق العمل السعودي: التوظيف والتوطين | [فتح](https://algilani2008.github.io/saudi-labor-market/) | [GitHub](https://github.com/algilani2008/saudi-labor-market) |
+| التضخم في السعودية حسب فئات الإنفاق | [فتح](https://algilani2008.github.io/saudi-inflation/) | [GitHub](https://github.com/algilani2008/saudi-inflation) |
+| دليل التكاليف 2027: الكهرباء والمياه والأجور | [فتح](https://algilani2008.github.io/cost-guide-2027/) | [GitHub](https://github.com/algilani2008/cost-guide-2027) |
+| مستكشف الطاقة العربي | [فتح](https://algilani2008.github.io/arab-energy-explorer/) | [GitHub](https://github.com/algilani2008/arab-energy-explorer) |
+| تحول الكهرباء في دول الخليج | [فتح](https://algilani2008.github.io/gcc-electricity-transition/) | [GitHub](https://github.com/algilani2008/gcc-electricity-transition) |
+| تصنيف مشاعر المراجعات العربية | [فتح](https://algilani2008.github.io/arabic-review-sentiment/) | [GitHub](https://github.com/algilani2008/arabic-review-sentiment) |
+| محرك مسابقات Kaggle الآلي | [فتح](https://algilani2008.github.io/Kaggle-Quantum-AI/) | [GitHub](https://github.com/algilani2008/Kaggle-Quantum-AI) |
+| فحص معايرة النماذج (calibcheck) | [فتح](https://algilani2008.github.io/calibration-check/) | [GitHub](https://github.com/algilani2008/calibration-check) |
+| حلّال ألغاز ARC-AGI-2 | [فتح](https://algilani2008.github.io/arc-agi-2-solver/) | [GitHub](https://github.com/algilani2008/arc-agi-2-solver) |
+| QuickOrder: منيو وطلبات واتساب | [فتح](https://algilani2008.github.io/quickorder-menu/) | [GitHub](https://github.com/algilani2008/quickorder-menu) |
+
+## المشاريع داخل هذا المستودع
 
 مشاريع تحليل بيانات مبنية على بيانات حقيقية منشورة، مع المنهجية والمصادر.
 
