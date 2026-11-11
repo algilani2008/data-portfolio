@@ -1,0 +1,11 @@
+code,country,gdp_per_capita_1995,latest_year,gdp_per_capita_latest,cagr_per_capita_1995_latest_pct,population_growth_1995_latest_pct_per_year
+SAU,Saudi Arabia,10786.0,2023,31676.0,3.92,3.38
+ARE,United Arab Emirates,27003.0,2023,48091.0,2.08,5.35
+QAT,Qatar,15823.0,2022,88724.0,6.59,6.27
+KWT,Kuwait,16168.0,2023,33332.0,2.62,3.86
+OMN,Oman,6509.0,2023,21427.0,4.35,3.15
+BHR,Bahrain,11901.0,2023,27396.0,3.02,3.77
+NOR,Norway,34876.0,2023,87962.0,3.36,0.85
+EGY,Egypt,916.0,2023,3457.0,4.86,2.01
+JOR,Jordan,1416.0,2023,4442.0,4.17,3.19
+WLD,World,5429.0,2023,13077.0,3.19,1.22

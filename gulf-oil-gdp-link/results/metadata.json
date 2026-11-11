@@ -1,0 +1,27 @@
+{
+  "sources": {
+    "gdp": {
+      "url": "https://raw.githubusercontent.com/datasets/gdp/main/data/gdp.csv",
+      "sha256": "8d84ef6bcaccf740c01c5ed7566aae8f7b149d0e2c20001e441efd3cb5b2fa86",
+      "bytes": 562767,
+      "fetched_utc": "2026-11-11T17:43:34+00:00"
+    },
+    "population": {
+      "url": "https://raw.githubusercontent.com/datasets/population/main/data/population.csv",
+      "sha256": "2c697c3e668c8cb06ee467cd0d475b37b52844fdc48cb7725b79b58f18bf0b02",
+      "bytes": 556718,
+      "fetched_utc": "2026-11-11T17:43:34+00:00"
+    },
+    "brent_monthly": {
+      "url": "https://raw.githubusercontent.com/datasets/oil-prices/main/data/brent-monthly.csv",
+      "sha256": "f1137bb60139f1db2bcf614c15b1ad6eb6f5901db8fd2ef415c43e8c44fab6a2",
+      "bytes": 8553,
+      "fetched_utc": "2026-11-11T17:43:50+00:00"
+    }
+  },
+  "brent_years": [
+    1988,
+    2025
+  ],
+  "gdp_last_year": 2023
+}
