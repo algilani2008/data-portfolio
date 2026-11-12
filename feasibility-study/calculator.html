@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الحاسبة | دراسة جدوى مقهى مختص في جدة</title>
+<meta name="description" content="حاسبة جدوى تفاعلية لمقهى في جدة: رأس المال والربح ونقطة التعادل والاسترداد.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><i>☕</i>جدوى مقهى جدة</a>
+  <button class="burger" aria-label="القائمة" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+  <ul class="menu"><li><a href="index.html" class="">الرئيسية</a></li><li><a href="study.html" class="">الدراسة</a></li><li><a href="calculator.html" class="on">الحاسبة</a></li><li><a href="services.html" class="">خدماتي</a></li><li><a href="contact.html" class=" btn">تواصل</a></li></ul>
+</div></nav>
+<header class="hero"><div class="wrap"><span class="tag">الحاسبة التفاعلية</span><h1>جرّب أرقامك</h1><p>غيّر عدد الطلبات والفاتورة والإيجار والموظفين، أو اختر سيناريو جاهز، وتتحدث كل النتائج والرسوم مباشرة.</p></div></header>
+<main class="wrap">
+  <div class="kpis" id="kpis"></div>
+  <div class="verdict" id="verdict"></div>
+
+  <section class="grid2">
+    <div class="card inputs">
+      <h2>غيّر الافتراضات</h2>
+      <div class="btns" id="scen">
+        <button data-s="low">متشائم</button><button data-s="base" class="on">متوقع</button><button data-s="high">متفائل</button>
+      </div>
+      <div id="inputs"></div>
+      <p class="note">الأسعار قبل ضريبة القيمة المضافة. الأشهر الستة الأولى تبدأ بـ 55% من الطلبات وتوصل للمعدل الكامل في الشهر السابع.</p>
+    </div>
+    <div>
+      <div class="card">
+        <h2>قائمة الدخل الشهرية (بعد ما يستقر المقهى)</h2>
+        <table id="pl"></table>
+      </div>
+      <section class="charts">
+        <div class="card"><h2>متى يرجع رأس المال؟</h2><div class="chartbox"><canvas id="cCash"></canvas></div><p class="note">الرصيد التراكمي من يوم الافتتاح لخمس سنوات. المشروع يسترد رأس ماله لما يقطع الخط الأسود (صفر).</p></div>
+        <div class="card"><h2>وين تروح كل 100 ريال مبيعات؟</h2><div class="chartbox"><canvas id="cSplit"></canvas></div></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="charts">
+    <div class="card"><h2>رأس المال المطلوب</h2><table id="capex"></table></div>
+    <div class="card"><h2>أكثر رقم يأثر على ربحك</h2><div class="chartbox"><canvas id="cSens"></canvas></div><p class="note">التغير في صافي الربح السنوي إذا تحسن أو ساء كل عامل بنسبة 10%، والباقي ثابت.</p></div>
+  </section>
+
+  <section class="card">
+    <h2>الخلاصة والتوصيات</h2>
+    <ul class="list" id="recs"></ul>
+  </section>
+
+  <section class="card">
+    <h2>مقارنة السيناريوهات</h2>
+    <div style="overflow-x:auto"><table id="scTable"></table></div>
+  </section>
+<section class="cta"><div><h2>الأرقام تختلف من موقع لموقع</h2><p>أجهز لك الحاسبة نفسها بأرقام مشروعك، مع دراسة مكتوبة وملف Excel.</p></div><div><a class="b1" href="contact.html">اطلب دراستك</a></div></section></main>
+<footer class="foot"><div class="wrap">
+  <div>إعداد وتحليل: <b style="color:#fff">عبدالكريم الجيلاني</b> · 12 سنة تشغيل مطاعم ومقاهي و8 سنوات تحليل بيانات</div>
+  <div>واتساب <bdi dir="ltr">0569184730</bdi> · <a href="mailto:algilani2008@gmail.com">algilani2008@gmail.com</a></div>
+</div></footer>
+<script src="model.js?v=2"></script>
+<script src="chart.umd.js"></script>
+<script src="calc.js?v=2"></script>
+</body></html>
