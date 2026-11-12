@@ -3,62 +3,74 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>دراسة جدوى مقهى مختص في جدة</title>
-<meta name="description" content="دراسة جدوى كاملة لمقهى مختص في جدة: رأس المال، الأرباح، نقطة التعادل، وحاسبة تفاعلية تغير فيها الأرقام.">
+<title>جدوى | دراسات جدوى المشاريع في السعودية</title>
+<meta name="description" content="دراسات جدوى للمشاريع الصغيرة والمتوسطة في السعودية: رأس المال، الأرباح، نقطة التعادل، وفترة الاسترداد، مع حاسبة تفاعلية لكل نوع مشروع.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="index.html"><i>☕</i>جدوى مقهى جدة</a>
+  <a class="brand" href="index.html"><i>📊</i>جدوى · دراسات المشاريع</a>
   <button class="burger" aria-label="القائمة" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
-  <ul class="menu"><li><a href="index.html" class="on">الرئيسية</a></li><li><a href="study.html" class="">الدراسة</a></li><li><a href="calculator.html" class="">الحاسبة</a></li><li><a href="services.html" class="">خدماتي</a></li><li><a href="contact.html" class=" btn">تواصل</a></li></ul>
+  <ul class="menu"><li><a href="index.html" class="on">الرئيسية</a></li><li><a href="calculator.html" class="">الحاسبة</a></li><li><a href="study.html" class="">نموذج دراسة</a></li><li><a href="services.html" class="">خدماتي</a></li><li><a href="contact.html" class=" btn">تواصل</a></li></ul>
 </div></nav>
 <header class="hero big"><div class="wrap">
-  <span class="tag">دراسة جدوى · جدة 2026–2027</span>
-  <h1>تبي تفتح مقهى؟<br>اعرف قبل ما تدفع: هل يربح، ومتى يرجع رأس مالك.</h1>
-  <p>دراسة جدوى كاملة لمقهى مختص مساحته نحو 90 م² في جدة، بكل التكاليف اللي ينساها أغلب الناس: المقابل المالي، عمولة التطبيقات، وأشهر البداية الضعيفة. ومعها حاسبة تجرب فيها أرقامك.</p>
-  <div class="actions"><a class="b1" href="study.html">اقرأ الدراسة</a><a class="b2" href="calculator.html">جرّب الحاسبة</a></div>
+  <span class="tag">دراسات جدوى · السعودية 2026–2027</span>
+  <h1>دراسة جدوى لمشروعك<br>قبل ما تدفع أول ريال.</h1>
+  <p>اعرف كم تحتاج رأس مال، كم بيبقى لك كل شهر، كم زبون تحتاج عشان ما تخسر، ومتى يرجع مالك. بكل التكاليف اللي ينساها أغلب الناس: المقابل المالي، التأمينات، عمولة التطبيقات، وأشهر البداية الضعيفة.</p>
+  <div class="actions"><a class="b1" href="calculator.html">جرّب الحاسبة على مشروعك</a><a class="b2" href="contact.html">اطلب دراسة جدوى</a></div>
 </div></header>
 <main class="wrap">
-  <div class="kpis">
-    <div class="k"><span>رأس المال المطلوب</span><b><span data-v="capex"></span> ريال</b><small>شامل الإيجار المقدم والاحتياطي</small></div>
-    <div class="k"><span>صافي الربح الشهري</span><b class="pos"><span data-v="net"></span> ريال</b><small>بعد ما يستقر المقهى</small></div>
-    <div class="k"><span>نقطة التعادل</span><b><span data-v="be"></span> طلب يوميًا</b><small>من <span data-v="orders"></span> طلب متوقع</small></div>
-    <div class="k"><span>استرداد رأس المال</span><b data-v="pb"></b><small>في السيناريو المتوقع</small></div>
-  </div>
+  <section style="margin-top:-60px">
+    <div class="types" id="typeCards"></div>
+    <p class="note">أرقام تقريبية لسوق جدة بالافتراضات الأساسية لكل نشاط. اضغط على أي نشاط وغيّر الأرقام على حسب مشروعك.</p>
+  </section>
   <section>
-    <h2>وش في الموقع؟</h2>
+    <h2>وش تشمل دراسة الجدوى؟</h2>
     <div class="feat">
-      <a class="card" href="study.html"><div class="ic">📑</div><h3>الدراسة كاملة</h3><p>الفكرة، السوق، التشغيل، رأس المال، قائمة الدخل، السيناريوهات، المخاطر، والتوصيات.</p></a>
-      <a class="card" href="calculator.html"><div class="ic">🧮</div><h3>الحاسبة التفاعلية</h3><p>غيّر عدد الطلبات والأسعار والإيجار والموظفين، وتتحدث النتائج والرسوم مباشرة.</p></a>
-      <a class="card" href="services.html"><div class="ic">🤝</div><h3>دراسة لمشروعك</h3><p>أجهز لك دراسة بنفس المستوى بأرقام موقعك ونشاطك، جاهزة لممول أو شريك.</p></a>
+      <div class="card"><div class="ic">📍</div><h3>السوق والموقع</h3><p>المنافسين حولك، حركة الزباين، ونقطة التعادل اللي لازم الموقع يحققها.</p></div>
+      <div class="card"><div class="ic">💰</div><h3>رأس المال</h3><p>الديكور والمعدات والتراخيص والمخزون والإيجار المقدم واحتياطي التشغيل.</p></div>
+      <div class="card"><div class="ic">📊</div><h3>قائمة الدخل</h3><p>المبيعات والتكاليف بند بند: الرواتب، المقابل المالي، الإيجار، الكهرباء، العمولات، والزكاة.</p></div>
+      <div class="card"><div class="ic">⏳</div><h3>الاسترداد والعائد</h3><p>متى يرجع رأس المال، وصافي القيمة الحالية على 5 سنوات.</p></div>
+      <div class="card"><div class="ic">🔀</div><h3>السيناريوهات</h3><p>متشائم ومتوقع ومتفائل، وأكثر رقم يأثر على ربحك.</p></div>
+      <div class="card"><div class="ic">✅</div><h3>المخاطر والتوصيات</h3><p>وش ممكن يخرب المشروع وكيف تتجنبه، بكلام واضح تقدر تعرضه على ممول أو شريك.</p></div>
     </div>
   </section>
   <section>
-    <h2>أهم ثلاث نتائج</h2>
-    <div class="feat">
-      <div class="card"><h3>الهامش أضيق مما تتوقع</h3><p>من كل 100 ريال مبيعات يبقى نحو <b><span data-v="margin"></span> ريال</b> صافي. الرواتب والمواد وحدها تاخذ قرابة 60%.</p></div>
-      <div class="card"><h3>أخطر رقم: الطلبات اليومية</h3><p>تحتاج <b><span data-v="be"></span> طلب يوميًا</b> عشان ما تخسر. لو الموقع ما يجيب هالعدد، لا الديكور ولا الأسعار تنقذ المشروع.</p></div>
-      <div class="card"><h3>التطبيقات تاكل ربحك</h3><p>عمولة تطبيقات التوصيل قرابة <b><span data-v="comm"></span> ريال</b> في السنة. موقع طلبات خاص يوفر جزء كبير منها.</p></div>
+    <h2>نموذج من أعمالي</h2>
+    <a class="card sample" href="study.html">
+      <div><span class="tag" style="background:var(--soft);border-color:var(--line);color:var(--brand)">نموذج دراسة كاملة</span><h3>دراسة جدوى مقهى مختص في جدة</h3><p>الفكرة، السوق، التشغيل والموظفين، رأس المال، قائمة الدخل، السيناريوهات، المخاطر، والتوصيات.</p><b style="color:var(--brand)">اقرأ الدراسة ←</b></div>
+      <div class="hl" style="grid-template-columns:1fr 1fr"><div><span>رأس المال</span><b><span data-v="capex"></span></b></div><div><span>صافي الربح الشهري</span><b class="pos"><span data-v="net"></span></b></div><div><span>نقطة التعادل</span><b><span data-v="be"></span> طلب/يوم</b></div><div><span>الاسترداد</span><b data-v="pb"></b></div></div>
+    </a>
+  </section>
+  <section>
+    <h2>كيف نشتغل؟</h2>
+    <div class="steps">
+      <div class="card"><h3>نتكلم عن مشروعك</h3><p>النشاط، المدينة والحي، الميزانية، وهدفك من الدراسة.</p></div>
+      <div class="card"><h3>نجمع الأرقام</h3><p>الإيجارات والأسعار والموردين والمنافسين في موقعك.</p></div>
+      <div class="card"><h3>أجهز الدراسة</h3><p>تقرير مكتوب، وحاسبة تفاعلية، وملف Excel تعدل فيه.</p></div>
+      <div class="card"><h3>نراجعها سوا</h3><p>أشرح لك النتائج وأعدل اللي تحتاجه قبل ما تقرر.</p></div>
     </div>
   </section>
   <section class="cta">
-    <div><h2>تبي دراسة جدوى لمشروعك؟</h2><p>مقهى، مطعم، محل، مغسلة، أو أي نشاط. بأرقام حقيقية لموقعك، مع ملف Excel تعدل فيه.</p></div>
+    <div><h2>عندك فكرة مشروع؟</h2><p>أرسل لي نوع النشاط والمدينة، وأرد عليك بعرض ووقت التسليم.</p></div>
     <div><a class="b1" href="contact.html">تواصل معي</a></div>
   </section>
 </main>
 <footer class="foot"><div class="wrap">
-  <div>إعداد وتحليل: <b style="color:#fff">عبدالكريم الجيلاني</b> · 12 سنة تشغيل مطاعم ومقاهي و8 سنوات تحليل بيانات</div>
+  <div>إعداد وتحليل: <b style="color:#fff">عبدالكريم الجيلاني</b> · 12 سنة إدارة وتشغيل مشاريع و8 سنوات تحليل بيانات</div>
   <div>واتساب <bdi dir="ltr">0569184730</bdi> · <a href="mailto:algilani2008@gmail.com">algilani2008@gmail.com</a></div>
 </div></footer>
-<script src="model.js?v=2"></script>
+<script src="model.js?v=3"></script>
 <script>
 const M0=model({...DEF}),st0=M0.steady;
 const yA=n=>n===1?'سنة':n===2?'سنتين':n+' سنوات', mA=n=>n===1?'شهر':n===2?'شهرين':n<=10?n+' أشهر':n+' شهر';
 const PB=m=>m?[Math.floor(m/12)?yA(Math.floor(m/12)):'',m%12?mA(m%12):''].filter(Boolean).join(' و'):'أكثر من 5 سنوات';
 const V={capex:fmt(M0.capexTotal),net:fmt(st0.net),netY:fmt(st0.net*12),be:fmt(M0.be),pb:PB(M0.payback),rev:fmt(st0.rev),revY:fmt(st0.rev*12),orders:DEF.orders,ticket:DEF.ticket,margin:(st0.net/st0.rev*100).toFixed(0),safety:((DEF.orders-M0.be)/DEF.orders*100).toFixed(0),npv:fmt(M0.npv),ebitda:fmt(st0.ebitda),staff:fmt(M0.staff),rent:fmt(DEF.rent),comm:fmt(st0.comm*12)};
 document.querySelectorAll('[data-v]').forEach(e=>e.textContent=V[e.dataset.v]);
+</script><script>
+const yA2=n=>n===1?'سنة':n===2?'سنتين':n+' سنوات';
+typeCards.innerHTML=Object.entries(TYPES).map(([k,p])=>{const m=model({type:k,...BASE,...p});return `<a class="card tcard" href="calculator.html?type=${k}"><div class="ic">${p.ic}</div><h3>${p.name}</h3><dl><dt>رأس المال</dt><dd>${fmt(Math.round(m.capexTotal/10000)*10000)} ريال</dd><dt>الربح الشهري</dt><dd>${fmt(Math.round(m.steady.net/500)*500)} ريال</dd><dt>الاسترداد</dt><dd>${m.payback?Math.round(m.payback)+' شهر':'+60 شهر'}</dd></dl><b>احسب مشروعك ←</b></a>`}).join('');
 </script>
 </body></html>
