@@ -20,6 +20,8 @@
 | فحص معايرة النماذج (calibcheck) | [فتح](https://algilani2008.github.io/calibration-check/) | [GitHub](https://github.com/algilani2008/calibration-check) |
 | حلّال ألغاز ARC-AGI-2 | [فتح](https://algilani2008.github.io/arc-agi-2-solver/) | [GitHub](https://github.com/algilani2008/arc-agi-2-solver) |
 | QuickOrder: منيو وطلبات واتساب | [فتح](https://algilani2008.github.io/quickorder-menu/) | [GitHub](https://github.com/algilani2008/quickorder-menu) |
+| لوحة مؤشرات الموارد البشرية | [فتح](https://algilani2008.github.io/data-portfolio/hr-kpi-dashboard/) | [GitHub](hr-kpi-dashboard/) |
+| نموذج تكلفة الأكل وهندسة المنيو (Excel) | [تحميل](restaurant-food-cost/food_cost_model.xlsx) | [GitHub](restaurant-food-cost/) |
 
 ## المشاريع داخل هذا المستودع
 
