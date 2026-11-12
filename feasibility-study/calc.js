@@ -7,7 +7,7 @@ function setType(t){
   const box=document.getElementById('inputs');
   box.innerHTML=FIELDS.map(([k,l,mn,mx,st,u,h])=>`<div class="inp"><label for="i_${k}">${l}<output id="o_${k}"></output></label><input type="range" id="i_${k}" min="${mn}" max="${mx}" step="${st}" value="${S[k]}">${h?`<div class="hint">${h}</div>`:''}</div>`).join('');
   FIELDS.forEach(([k])=>{const el=document.getElementById('i_'+k);el.oninput=()=>{S[k]=+el.value;document.querySelectorAll('#scen button').forEach(b=>b.classList.remove('on'));render()};});
-  document.getElementById('ptitle').textContent=TYPES[t].ic+' '+TYPES[t].name;
+  document.getElementById('ptitle').innerHTML=TYPES[t].ic+' '+TYPES[t].name;
   document.getElementById('parea').textContent=TYPES[t].area;
   try{history.replaceState(null,'','?type='+t)}catch(e){}
   render();
@@ -62,14 +62,14 @@ function render(){
     ['الاسترداد',([,m])=>m.payback?m.payback+' شهر':'أكثر من 60 شهر'],['صافي القيمة الحالية (خصم 12%)',([,m])=>`<span class="${m.npv<0?'neg':'pos'}">${money(m.npv)}</span>`],
   ].map(([l,f])=>`<tr><td>${l}</td>${sc.map(x=>`<td class="n">${f(x)}</td>`).join('')}</tr>`).join('')+`<tr><td colspan="4" class="note">السيناريوهات تغير العدد اليومي والفاتورة وتكلفة البضاعة فقط، والباقي من اختياراتك.</td></tr>`;
   // الرسوم
-  Chart.defaults.font.family='Tajawal,"Segoe UI",Tahoma';Chart.defaults.color='#7a6a5c';
+  Chart.defaults.font.family='"IBM Plex Sans Arabic",Tajawal,"Segoe UI",Tahoma';Chart.defaults.color='#5B6B7A';
   const labels=[...Array(61).keys()].map(m=>m%12===0?('سنة '+m/12):'');
-  const cols={low:'#b42318',base:'#6f4518',high:'#1f7a4d'};
+  const cols={low:'#b42318',base:'#1D5263',high:'#1f7a4d'};
   const ds=sc.map(([k,m])=>({label:names[k],data:m.series,borderColor:cols[k],backgroundColor:cols[k],pointRadius:0,borderWidth:k==='base'?3:2,tension:.2}));
   const baseS=sc.find(x=>x[0]==='base')[1].series, yMax=Math.ceil(Math.max(250000,...baseS)*1.5/250000)*250000;
-  if(charts.cash){charts.cash.data.datasets=ds;charts.cash.options.scales.y.max=yMax;charts.cash.update()}else charts.cash=new Chart(cCash,{type:'line',data:{labels,datasets:ds},options:{maintainAspectRatio:false,layout:{padding:{left:18}},interaction:{mode:'index',intersect:false},scales:{x:{reverse:true,ticks:{autoSkip:false,maxRotation:0},grid:{display:false}},y:{position:'right',max:yMax,ticks:{maxTicksLimit:7,callback:v=>(v/1000)+' ألف'},grid:{color:c=>c.tick.value===0?'#2a1f17':'#eee'}}},plugins:{legend:{position:'bottom'},tooltip:{callbacks:{title:i=>'الشهر '+i[0].dataIndex,label:c=>c.dataset.label+': '+money(c.raw)+' ريال'}}}}});
+  if(charts.cash){charts.cash.data.datasets=ds;charts.cash.options.scales.y.max=yMax;charts.cash.update()}else charts.cash=new Chart(cCash,{type:'line',data:{labels,datasets:ds},options:{maintainAspectRatio:false,layout:{padding:{left:18}},interaction:{mode:'index',intersect:false},scales:{x:{reverse:true,ticks:{autoSkip:false,maxRotation:0},grid:{display:false}},y:{position:'right',max:yMax,ticks:{maxTicksLimit:7,callback:v=>(v/1000)+' ألف'},grid:{color:c=>c.tick.value===0?'#102B3F':'#eee'}}},plugins:{legend:{position:'bottom'},tooltip:{callbacks:{title:i=>'الشهر '+i[0].dataIndex,label:c=>c.dataset.label+': '+money(c.raw)+' ريال'}}}}});
   const split=[['البضاعة والمواد',st.cogs],['الرواتب',M.staff],['الإيجار',M.fixed.rent],['التطبيقات والبطاقات',st.comm+st.card],['تشغيل وتسويق',st.mkt+M.fixed.util+M.fixed.maint+M.fixed.systems+M.fixed.acct+M.fixed.gov],['استهلاك وزكاة',st.dep+st.zakat],['صافي الربح',Math.max(0,st.net)]];
-  const sd={labels:split.map(x=>x[0]),datasets:[{data:split.map(x=>+(x[1]/st.rev*100).toFixed(1)),backgroundColor:['#b9824a','#6f4518','#a0522d','#d97706','#c9b8a6','#8c7b6b','#1f7a4d']}]};
+  const sd={labels:split.map(x=>x[0]),datasets:[{data:split.map(x=>+(x[1]/st.rev*100).toFixed(1)),backgroundColor:['#D6AD63','#1D5263','#2E6F82','#7FB8C7','#C3CFD8','#8796A3','#1f7a4d']}]};
   if(charts.split){charts.split.data=sd;charts.split.update()}else charts.split=new Chart(cSplit,{type:'doughnut',data:sd,options:{maintainAspectRatio:false,plugins:{legend:{position:'right'},tooltip:{callbacks:{label:c=>c.label+': '+c.raw+'%'}}}}});
   // الحساسية
   const baseNet=st.net*12, tests=[['المبيعات اليومية','orders',1],['متوسط الفاتورة','ticket',1],['تكلفة البضاعة','cogs',-1],['الرواتب','expatSal',-1],['الإيجار','rent',-1]];

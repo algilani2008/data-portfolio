@@ -3,38 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>جدوى | دراسات جدوى المشاريع في السعودية</title>
+<title>مِعيار | دراسات الجدوى والتحليل المالي</title>
 <meta name="description" content="دراسات جدوى للمشاريع الصغيرة والمتوسطة في السعودية: رأس المال، الأرباح، نقطة التعادل، وفترة الاسترداد، مع حاسبة تفاعلية لكل نوع مشروع.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#102B3F">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a class="brand" href="index.html"><i>📊</i>جدوى · دراسات المشاريع</a>
+  <a class="brand" href="index.html"><img src="logo-mark.svg" alt=""><span>مِعيار<small>MIYAAR</small></span></a>
   <button class="burger" aria-label="القائمة" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
-  <ul class="menu"><li><a href="index.html" class="on">الرئيسية</a></li><li><a href="calculator.html" class="">الحاسبة</a></li><li><a href="study.html" class="">نموذج دراسة</a></li><li><a href="services.html" class="">خدماتي</a></li><li><a href="contact.html" class=" btn">تواصل</a></li></ul>
+  <ul class="menu"><li><a href="index.html" class="on">الرئيسية</a></li><li><a href="calculator.html" class="">الحاسبة</a></li><li><a href="study.html" class="">نموذج دراسة</a></li><li><a href="services.html" class="">الخدمات</a></li><li><a href="contact.html" class=" btn">تواصل</a></li></ul>
 </div></nav>
 <header class="hero big"><div class="wrap">
-  <span class="tag">دراسات جدوى · السعودية 2026–2027</span>
-  <h1>دراسة جدوى لمشروعك<br>قبل ما تدفع أول ريال.</h1>
-  <p>اعرف كم تحتاج رأس مال، كم بيبقى لك كل شهر، كم زبون تحتاج عشان ما تخسر، ومتى يرجع مالك. بكل التكاليف اللي ينساها أغلب الناس: المقابل المالي، التأمينات، عمولة التطبيقات، وأشهر البداية الضعيفة.</p>
+  <p class="tagline">مِعيار · دراسات الجدوى والتحليل المالي</p>
+  <h1>قرارك الاستثماري<br>يبدأ من الأرقام.</h1>
+  <p>قبل ما تدفع أول ريال، اعرف كم تحتاج رأس مال، كم بيبقى لك كل شهر، كم زبون تحتاج عشان ما تخسر، ومتى يرجع مالك. بكل التكاليف اللي ينساها أغلب الناس: المقابل المالي، التأمينات، عمولة التطبيقات، وأشهر البداية الضعيفة.</p>
   <div class="actions"><a class="b1" href="calculator.html">جرّب الحاسبة على مشروعك</a><a class="b2" href="contact.html">اطلب دراسة جدوى</a></div>
 </div></header>
 <main class="wrap">
-  <section style="margin-top:-60px">
+  <section style="margin-top:-60px;position:relative;z-index:2">
     <div class="types" id="typeCards"></div>
     <p class="note">أرقام تقريبية لسوق جدة بالافتراضات الأساسية لكل نشاط. اضغط على أي نشاط وغيّر الأرقام على حسب مشروعك.</p>
   </section>
   <section>
     <h2>وش تشمل دراسة الجدوى؟</h2>
     <div class="feat">
-      <div class="card"><div class="ic">📍</div><h3>السوق والموقع</h3><p>المنافسين حولك، حركة الزباين، ونقطة التعادل اللي لازم الموقع يحققها.</p></div>
-      <div class="card"><div class="ic">💰</div><h3>رأس المال</h3><p>الديكور والمعدات والتراخيص والمخزون والإيجار المقدم واحتياطي التشغيل.</p></div>
-      <div class="card"><div class="ic">📊</div><h3>قائمة الدخل</h3><p>المبيعات والتكاليف بند بند: الرواتب، المقابل المالي، الإيجار، الكهرباء، العمولات، والزكاة.</p></div>
-      <div class="card"><div class="ic">⏳</div><h3>الاسترداد والعائد</h3><p>متى يرجع رأس المال، وصافي القيمة الحالية على 5 سنوات.</p></div>
-      <div class="card"><div class="ic">🔀</div><h3>السيناريوهات</h3><p>متشائم ومتوقع ومتفائل، وأكثر رقم يأثر على ربحك.</p></div>
-      <div class="card"><div class="ic">✅</div><h3>المخاطر والتوصيات</h3><p>وش ممكن يخرب المشروع وكيف تتجنبه، بكلام واضح تقدر تعرضه على ممول أو شريك.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div><h3>السوق والموقع</h3><p>المنافسين حولك، حركة الزباين، ونقطة التعادل اللي لازم الموقع يحققها.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9v.01M18 15v.01"/></svg></div><h3>رأس المال</h3><p>الديكور والمعدات والتراخيص والمخزون والإيجار المقدم واحتياطي التشغيل.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>قائمة الدخل</h3><p>المبيعات والتكاليف بند بند: الرواتب، المقابل المالي، الإيجار، الكهرباء، العمولات، والزكاة.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>الاسترداد والعائد</h3><p>متى يرجع رأس المال، وصافي القيمة الحالية على 5 سنوات.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></div><h3>السيناريوهات</h3><p>متشائم ومتوقع ومتفائل، وأكثر رقم يأثر على ربحك.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3>المخاطر والتوصيات</h3><p>وش ممكن يخرب المشروع وكيف تتجنبه، بكلام واضح تقدر تعرضه على ممول أو شريك.</p></div>
     </div>
   </section>
   <section>
@@ -43,6 +45,20 @@
       <div><span class="tag" style="background:var(--soft);border-color:var(--line);color:var(--brand)">نموذج دراسة كاملة</span><h3>دراسة جدوى مقهى مختص في جدة</h3><p>الفكرة، السوق، التشغيل والموظفين، رأس المال، قائمة الدخل، السيناريوهات، المخاطر، والتوصيات.</p><b style="color:var(--brand)">اقرأ الدراسة ←</b></div>
       <div class="hl" style="grid-template-columns:1fr 1fr"><div><span>رأس المال</span><b><span data-v="capex"></span></b></div><div><span>صافي الربح الشهري</span><b class="pos"><span data-v="net"></span></b></div><div><span>نقطة التعادل</span><b><span data-v="be"></span> طلب/يوم</b></div><div><span>الاسترداد</span><b data-v="pb"></b></div></div>
     </a>
+  </section>
+  <section class="card about">
+    <div class="av"><img src="logo-mark.svg" alt=""></div>
+    <div><h2 style="margin-bottom:4px">من وراء مِعيار؟</h2>
+    <p style="margin:0">عبدالكريم الجيلاني، مستشار دراسات جدوى ومحلل بيانات. اشتغلت 12 سنة في إدارة وتشغيل المطاعم والمقاهي والفنادق والخدمات، فأعرف الأرقام اللي تفرق على أرض الواقع، و8 سنوات في تحليل البيانات وبناء النماذج المالية.</p>
+    <div class="facts"><span>12 سنة تشغيل</span><span>8 سنوات تحليل بيانات</span><span>Excel وPower BI وPython</span><span>السوق السعودي</span></div></div>
+  </section>
+  <section>
+    <h2>منهجيتنا</h2>
+    <div class="method">
+      <div class="card"><h3>أرقام من السوق</h3><p>الإيجارات والأسعار والرواتب من موقع مشروعك، والرسوم الحكومية من الأنظمة المعلنة.</p></div>
+      <div class="card"><h3>افتراضات مكتوبة</h3><p>كل رقم في الدراسة مكتوب مصدره وافتراضه، وتقدر تغيره بنفسك في ملف Excel.</p></div>
+      <div class="card"><h3>تحديث مستمر</h3><p>البيانات محدثة إلى نوفمبر 2026، وتشمل تغييرات 2027: المقابل المالي، تعرفة الكهرباء، وحد الأجر في نطاقات.</p></div>
+    </div>
   </section>
   <section>
     <h2>كيف نشتغل؟</h2>
@@ -59,10 +75,10 @@
   </section>
 </main>
 <footer class="foot"><div class="wrap">
-  <div>إعداد وتحليل: <b style="color:#fff">عبدالكريم الجيلاني</b> · 12 سنة إدارة وتشغيل مشاريع و8 سنوات تحليل بيانات</div>
+  <div><b style="color:#fff">مِعيار</b> · دراسات الجدوى والتحليل المالي · المستشار: عبدالكريم الجيلاني</div>
   <div>واتساب <bdi dir="ltr">0569184730</bdi> · <a href="mailto:algilani2008@gmail.com">algilani2008@gmail.com</a></div>
 </div></footer>
-<script src="model.js?v=3"></script>
+<script src="model.js?v=5"></script>
 <script>
 const M0=model({...DEF}),st0=M0.steady;
 const yA=n=>n===1?'سنة':n===2?'سنتين':n+' سنوات', mA=n=>n===1?'شهر':n===2?'شهرين':n<=10?n+' أشهر':n+' شهر';

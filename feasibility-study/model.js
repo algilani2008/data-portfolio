@@ -5,22 +5,22 @@ const r5=n=>Math.round(n/5)*5;
 // أنواع المشاريع: افتراضات تقديرية لسوق جدة 2026–2027، وكلها قابلة للتعديل
 // unit: اسم وحدة البيع، cogsHint: وش تشمل تكلفة البضاعة، food: هل يناسبه موقع طلبات خاص
 const TYPES={
- cafe:{name:'مقهى مختص',ic:'☕',unit:'طلب',orders:180,ticket:25,cogs:30,delivery:15,commission:22,rent:150000,saudi:3,expat:3,capexFit:220000,
+ cafe:{name:'مقهى مختص',ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 10h2a2.5 2.5 0 0 1 0 5h-2M8 3v3M12 3v3"/></svg>',unit:'طلب',orders:180,ticket:25,cogs:30,delivery:15,commission:22,rent:150000,saudi:3,expat:3,capexFit:220000,
    equip:165000,equipL:'المعدات (مكينة إسبريسو، مطاحن، ثلاجات، فرن، نقاط بيع)',furn:45000,furnL:'الأثاث والجلسات',lic:25000,inv:20000,mktOpen:20000,util:3200,maint:2000,
    cogsHint:'بن، حليب، أكواب، حلويات',staffHint:'باريستا وخدمة',area:'90 م²',food:true},
- restaurant:{name:'مطعم',ic:'🍽️',unit:'طلب',orders:165,ticket:45,cogs:32,delivery:35,commission:22,rent:180000,saudi:3,expat:7,capexFit:280000,
+ restaurant:{name:'مطعم',ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 1-3 4-3 7h3v11"/></svg>',unit:'طلب',orders:165,ticket:45,cogs:32,delivery:35,commission:22,rent:180000,saudi:3,expat:7,capexFit:280000,
    equip:240000,equipL:'معدات المطبخ (أفران، شوايات، ثلاجات، شفاطات، نقاط بيع)',furn:60000,furnL:'الأثاث والجلسات',lic:35000,inv:30000,mktOpen:25000,util:6500,maint:3000,
    cogsHint:'لحوم، أرز، خضار، تغليف',staffHint:'طباخين وخدمة',area:'150 م²',food:true},
- laundry:{name:'مغسلة ملابس',ic:'🧺',unit:'فاتورة',orders:70,ticket:45,cogs:12,delivery:0,commission:0,rent:72000,saudi:1,expat:4,capexFit:80000,
+ laundry:{name:'مغسلة ملابس',ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="4.5"/><path d="M8 6h.01M11 6h.01"/></svg>',unit:'فاتورة',orders:70,ticket:45,cogs:12,delivery:0,commission:0,rent:72000,saudi:1,expat:4,capexFit:80000,
    equip:190000,equipL:'المعدات (غسالات صناعية، نشافات، مكاوي بخار، غلاية)',furn:12000,furnL:'الكاونتر والرفوف',lic:15000,inv:8000,mktOpen:10000,util:7500,maint:3000,
    cogsHint:'منظفات، تغليف، علاقات',staffHint:'عمال غسيل وكي',area:'100 م²',food:false},
- salon:{name:'صالون حلاقة رجالي',ic:'💈',unit:'زبون',orders:45,ticket:55,cogs:8,delivery:0,commission:0,rent:60000,saudi:1,expat:4,capexFit:90000,
+ salon:{name:'صالون حلاقة رجالي',ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.2 16 18 3M15.8 16 6 3"/></svg>',unit:'زبون',orders:45,ticket:55,cogs:8,delivery:0,commission:0,rent:60000,saudi:1,expat:4,capexFit:90000,
    equip:55000,equipL:'المعدات (كراسي حلاقة، مغاسل، أدوات، تعقيم)',furn:25000,furnL:'الأثاث وصالة الانتظار',lic:15000,inv:5000,mktOpen:10000,util:2200,maint:1000,
    cogsHint:'منتجات العناية والمستهلكات',staffHint:'حلاقين',area:'60 م²',food:false},
- grocery:{name:'بقالة / ميني ماركت',ic:'🛒',unit:'فاتورة',orders:380,ticket:32,cogs:76,delivery:10,commission:15,rent:90000,saudi:1,expat:3,capexFit:60000,
+ grocery:{name:'بقالة / ميني ماركت',ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h11l2-8H6.2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>',unit:'فاتورة',orders:380,ticket:32,cogs:76,delivery:10,commission:15,rent:90000,saudi:1,expat:3,capexFit:60000,
    equip:110000,equipL:'المعدات (ثلاجات عرض، رفوف، كاشير، كاميرات)',furn:0,furnL:'الأثاث',lic:15000,inv:150000,mktOpen:8000,util:5500,maint:1500,
    cogsHint:'تكلفة شراء البضاعة',staffHint:'كاشير وعمال',area:'120 م²',food:false},
- retail:{name:'محل تجزئة (ملابس / عطور)',ic:'🛍️',unit:'فاتورة',orders:28,ticket:190,cogs:52,delivery:5,commission:15,rent:140000,saudi:2,expat:1,capexFit:140000,
+ retail:{name:'محل تجزئة (ملابس / عطور)',ic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 13H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',unit:'فاتورة',orders:28,ticket:190,cogs:52,delivery:5,commission:15,rent:140000,saudi:2,expat:1,capexFit:140000,
    equip:20000,equipL:'المعدات (كاشير، كاميرات، إنارة عرض)',furn:40000,furnL:'الرفوف وفترينات العرض',lic:15000,inv:120000,mktOpen:20000,util:2500,maint:1000,
    cogsHint:'تكلفة شراء البضاعة',staffHint:'بائعين',area:'70 م²',food:false},
 };
