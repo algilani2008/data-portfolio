@@ -95,3 +95,17 @@ footer{padding:24px 0 40px;font-size:14px;color:var(--muted)}
 @media(max-width:560px){.feat,.svc,.steps,.contact{grid-template-columns:1fr}}
 .doc article .card{overflow-x:auto;min-width:0}.doc article{min-width:0}
 .cta a.b1{color:#2a1f17}
+.types{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tcard{text-decoration:none;color:inherit;box-shadow:0 6px 20px rgba(60,35,10,.07);transition:transform .15s}
+.tcard:hover{transform:translateY(-3px)}
+.tcard .ic{font-size:30px}.tcard h3{margin:4px 0 8px;font-size:18px}
+.tcard dl{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin:0 0 10px;font-size:14.5px}
+.tcard dt{color:var(--muted)}.tcard dd{margin:0;font-weight:700;text-align:left;direction:ltr}
+.tcard>b{color:var(--brand);font-size:14.5px}
+.types-bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.types-bar button{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:7px 14px;font:inherit;font-size:14.5px;cursor:pointer}
+.types-bar button.on{background:#f6c58d;color:#2a1f17;border-color:#f6c58d;font-weight:800}
+.sample{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:center;text-decoration:none;color:inherit}
+.sample h3{margin:8px 0 6px;font-size:21px}.sample p{color:var(--muted);margin:0 0 8px}
+@media(max-width:980px){.types{grid-template-columns:1fr 1fr}.sample{grid-template-columns:1fr}}
+@media(max-width:560px){.types{grid-template-columns:1fr}}
