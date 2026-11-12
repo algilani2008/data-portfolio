@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>لوحة مؤشرات الموارد البشرية</title>
+<script src="chart.umd.js"></script>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1d2433;--muted:#667085;--line:#e4e7ec;--brand:#1f3a5f;--a2:#2e7d6b;--warn:#b54708}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--card:#1b2029;--ink:#e8ebf1;--muted:#98a2b3;--line:#2b3240;--brand:#7aa7e0;--a2:#5cc2a7;--warn:#f79009}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif}
+.wrap{max-width:1100px;margin:auto;padding:24px 16px}
+h1{margin:0 0 4px;font-size:24px}.sub{color:var(--muted);margin:0 0 20px;font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.k b{display:block;font-size:24px;margin-top:4px}.k span{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.c h2{font-size:15px;margin:0 0 10px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:right}th{color:var(--muted);font-weight:600}
+.flag{color:var(--warn);font-weight:600}
+.ins li{margin-bottom:6px}.note{color:var(--muted);font-size:12px;margin-top:18px}
+</style>
+</head>
+<body><div class="wrap">
+<h1>لوحة مؤشرات الموارد البشرية</h1>
+<p class="sub">شركة خدمات افتراضية في جدة · آخر 12 شهر (نوفمبر 2025 – أكتوبر 2026) · بيانات تجريبية</p>
+<div class="kpis" id="kpis"></div>
+<div class="grid">
+ <div class="c"><h2>عدد الموظفين ونسبة السعودة حسب القسم</h2><canvas id="c1" height="220"></canvas></div>
+ <div class="c"><h2>الموظفين المغادرين شهرياً</h2><canvas id="c2" height="220"></canvas></div>
+ <div class="c"><h2>الجنسيات</h2><canvas id="c3" height="220"></canvas></div>
+ <div class="c" style="grid-column:1/-1"><h2>تفاصيل الأقسام</h2><div style="overflow-x:auto"><table id="t"></table></div></div>
+</div>
+<div class="c" style="margin-top:16px"><h2>ملاحظات للإدارة</h2><ul class="ins" id="ins"></ul></div>
+<p class="note">إعداد: عبدالكريم الجيلاني · Python لتجهيز البيانات وحساب المؤشرات، وChart.js للعرض. البيانات مولّدة للتوضيح وليست لشركة حقيقية.</p>
+</div>
+<script>
+const D={"headcount": 169, "saudization": 43.8, "turnover_12m": 15.3, "avg_salary": 6886, "payroll_m": 1.16, "absence_rate": 2.28, "women_pct": 17.8, "dept": [{"name": "العمليات", "head": 61, "saudi": 39.3, "avg_sal": 5798, "ot": 14.1, "turn": 24.6}, {"name": "المالية", "head": 11, "saudi": 81.8, "avg_sal": 10477, "ot": 6.3, "turn": 9.1}, {"name": "المبيعات", "head": 31, "saudi": 38.7, "avg_sal": 7324, "ot": 6.7, "turn": 6.5}, {"name": "المشتريات والمخازن", "head": 15, "saudi": 40.0, "avg_sal": 6227, "ot": 2.8, "turn": 13.3}, {"name": "الموارد البشرية", "head": 7, "saudi": 85.7, "avg_sal": 9186, "ot": 6.3, "turn": 42.9}, {"name": "تقنية المعلومات", "head": 10, "saudi": 40.0, "avg_sal": 11625, "ot": 5.5, "turn": 0.0}, {"name": "خدمة العملاء", "head": 34, "saudi": 38.2, "avg_sal": 5701, "ot": 11.7, "turn": 14.7}], "nat": [{"name": "سعودي", "n": 74}, {"name": "هندي", "n": 26}, {"name": "مصري", "n": 25}, {"name": "فلبيني", "n": 14}, {"name": "يمني", "n": 13}, {"name": "سوداني", "n": 10}, {"name": "باكستاني", "n": 7}], "months": [{"m": "2025-11", "leavers": 1}, {"m": "2025-12", "leavers": 1}, {"m": "2026-01", "leavers": 1}, {"m": "2026-02", "leavers": 2}, {"m": "2026-03", "leavers": 0}, {"m": "2026-04", "leavers": 3}, {"m": "2026-05", "leavers": 3}, {"m": "2026-06", "leavers": 4}, {"m": "2026-07", "leavers": 5}, {"m": "2026-08", "leavers": 4}, {"m": "2026-09", "leavers": 1}, {"m": "2026-10", "leavers": 3}]};
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const fmt=n=>n.toLocaleString('en-US');
+const K=[["عدد الموظفين",fmt(D.headcount)],["نسبة السعودة",D.saudization+"%"],["معدل الدوران السنوي",D.turnover_12m+"%"],["متوسط الراتب",fmt(D.avg_salary)+" ريال"],["الرواتب الشهرية",D.payroll_m+" مليون"],["نسبة الغياب",D.absence_rate+"%"],["نسبة النساء",D.women_pct+"%"]];
+kpis.innerHTML=K.map(([a,b])=>`<div class="k"><span>${a}</span><b>${b}</b></div>`).join("");
+Chart.defaults.font.family='"Segoe UI",Tahoma,Arial';Chart.defaults.color=css('--muted');
+new Chart(c1,{data:{labels:D.dept.map(d=>d.name),datasets:[{type:'bar',label:'عدد الموظفين',data:D.dept.map(d=>d.head),backgroundColor:css('--brand'),yAxisID:'y'},{type:'line',label:'السعودة %',data:D.dept.map(d=>d.saudi),borderColor:css('--a2'),backgroundColor:css('--a2'),yAxisID:'y1'}]},options:{scales:{y:{beginAtZero:true},y1:{position:'right',min:0,max:100,grid:{display:false}}}}});
+new Chart(c2,{type:'line',data:{labels:D.months.map(m=>m.m),datasets:[{label:'مغادرين',data:D.months.map(m=>m.leavers),borderColor:css('--warn'),backgroundColor:css('--warn'),tension:.3}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});
+new Chart(c3,{type:'bar',data:{labels:D.nat.map(n=>n.name),datasets:[{data:D.nat.map(n=>n.n),backgroundColor:css('--brand')}]},options:{indexAxis:'y',plugins:{legend:{display:false}}}});
+const avgS=D.saudization;
+t.innerHTML="<tr><th>القسم</th><th>الموظفين</th><th>السعودة</th><th>متوسط الراتب</th><th>إضافي/شهر</th><th>الدوران</th></tr>"+D.dept.map(d=>`<tr><td>${d.name}</td><td>${d.head}</td><td class="${d.saudi<avgS?'flag':''}">${d.saudi}%</td><td>${fmt(d.avg_sal)}</td><td class="${d.ot>12?'flag':''}">${d.ot} س</td><td class="${d.turn>20?'flag':''}">${d.turn}%</td></tr>`).join("");
+const low=D.dept.filter(d=>d.saudi<avgS).sort((a,b)=>a.saudi-b.saudi).map(d=>d.name+' ('+d.saudi+'%)'), ot=D.dept.filter(d=>d.ot>12).map(d=>d.name), tr=[...D.dept].sort((a,b)=>b.turn-a.turn)[0];
+ins.innerHTML=[
+ `نسبة السعودة تتراوح بين ${Math.min(...D.dept.map(d=>d.saudi))}% و${Math.max(...D.dept.map(d=>d.saudi))}%. الأقسام الأقل من متوسط الشركة (${avgS}%): <b>${low.join("، ")}</b>. هذي أولوية التوظيف القادم عشان نطاقات، وأكبرها العمليات لأن فيها أكثر الموظفين.`,
+ ot.length?`ساعات العمل الإضافي عالية في <b>${ot.join("، ")}</b> (أكثر من 12 ساعة شهرياً للموظف)، وهذا مؤشر نقص موظفين أو جداول تحتاج ترتيب.`:"",
+ `أعلى معدل دوران في <b>${tr.name}</b> (${tr.turn}%). يستاهل مقابلات خروج ومراجعة الرواتب فيه.`,
+ `معدل الدوران العام ${D.turnover_12m}%، وتكلفة كل مغادر عادة 3 إلى 6 رواتب شهرية بين التوظيف والتدريب.`
+].filter(Boolean).map(x=>`<li>${x}</li>`).join("");
+</script>
+</body></html>
