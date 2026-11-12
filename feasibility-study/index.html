@@ -3,280 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>دراسة جدوى مقهى مختص في جدة | حاسبة تفاعلية</title>
-<meta name="description" content="دراسة جدوى تفاعلية لمقهى مختص في جدة: رأس المال المطلوب، الربح الشهري، نقطة التعادل، ومتى يرجع رأس المال. غيّر الأرقام وتتحدث النتائج مباشرة.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>دراسة جدوى مقهى مختص في جدة</title>
+<meta name="description" content="دراسة جدوى كاملة لمقهى مختص في جدة: رأس المال، الأرباح، نقطة التعادل، وحاسبة تفاعلية تغير فيها الأرقام.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-<script src="chart.umd.js"></script>
-<style>
-:root{--bg:#f7f4ef;--card:#fff;--ink:#2a1f17;--muted:#7a6a5c;--line:#e8dfd4;--brand:#6f4518;--brand2:#b9824a;--good:#1f7a4d;--bad:#b42318;--soft:#fbf3e8}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.75 Tajawal,"Segoe UI",Tahoma,sans-serif}
-a{color:var(--brand)}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-header.hero{background:linear-gradient(135deg,#3b2414,#6f4518);color:#fff;padding:44px 0 92px}
-.hero h1{margin:0 0 8px;font-size:clamp(28px,4vw,42px);font-weight:800;line-height:1.3}
-.hero p{margin:0;max-width:760px;opacity:.92;font-size:17px}
-.hero .tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:2px 12px;font-size:13px;margin-bottom:14px}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-62px}
-.k{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 6px 20px rgba(60,35,10,.07)}
-.k>span{display:block;color:var(--muted);font-size:14px}
-.k b{display:block;font-size:clamp(22px,2.6vw,30px);font-weight:800;margin-top:2px;direction:rtl}
-.k small{color:var(--muted);font-size:13px}
-.verdict{margin:16px 0 0;background:var(--card);border:1px solid var(--line);border-inline-start:6px solid var(--good);border-radius:14px;padding:14px 18px;font-size:16.5px}
-.verdict.warn{border-inline-start-color:#d97706}.verdict.bad{border-inline-start-color:var(--bad)}
-section{margin:30px 0}
-h2{font-size:22px;margin:0 0 12px;font-weight:800}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
-.intro{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.intro .card h3{margin:0 0 6px;font-size:16px;color:var(--brand)}
-.intro .card p{margin:0;font-size:15px}
-.grid2{display:grid;grid-template-columns:360px 1fr;gap:18px;align-items:start}
-.inputs{position:sticky;top:12px}
-.inp{margin-bottom:14px}
-.inp label{display:flex;justify-content:space-between;font-size:14.5px;font-weight:500}
-.inp label output{font-weight:800;color:var(--brand)}
-.inp input[type=range]{width:100%;accent-color:var(--brand)}
-.inp .hint{font-size:12.5px;color:var(--muted);margin-top:-4px}
-.btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.btns button{flex:1;border:1px solid var(--line);background:var(--soft);border-radius:10px;padding:8px 6px;font:inherit;font-size:14px;cursor:pointer}
-.btns button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
-table{width:100%;border-collapse:collapse;font-size:15px}
-th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right}
-td.n,th.n{text-align:left;direction:ltr;font-variant-numeric:tabular-nums;white-space:nowrap}
-tr.sub td{font-weight:800;background:var(--soft)}
-tr.tot td{font-weight:800;font-size:16px;border-top:2px solid var(--ink)}
-.neg{color:var(--bad)}.pos{color:var(--good)}
-.charts{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.chartbox{position:relative;height:300px}
-.list li{margin-bottom:8px}
-.note{font-size:13.5px;color:var(--muted)}
-.cta{background:#2a1f17;color:#fff;border-radius:18px;padding:26px;display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center}
-.cta h2{color:#fff}.cta p{margin:0 0 8px;opacity:.9}.cta a{color:#f6c58d}
-.cta ul{margin:0;padding-inline-start:18px;opacity:.95}
-footer{padding:24px 0 40px;font-size:14px;color:var(--muted)}
-@media(max-width:980px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2,.charts,.cta,.intro{grid-template-columns:1fr}.inputs{position:static}}
-@media(max-width:480px){.kpis{grid-template-columns:1fr 1fr;gap:10px}.k{padding:12px}}
-</style>
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
-<header class="hero"><div class="wrap">
-  <span class="tag">دراسة جدوى تفاعلية</span>
-  <h1>مقهى مختص في جدة: هل يربح؟ ومتى يرجع رأس المال؟</h1>
-  <p>دراسة جدوى مالية كاملة لمقهى مساحته نحو 90 م² في شارع تجاري بجدة. غيّر عدد الطلبات والأسعار والإيجار والموظفين، وتتحدث كل النتائج مباشرة: رأس المال، الربح الشهري، نقطة التعادل، وفترة الاسترداد.</p>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><i>☕</i>جدوى مقهى جدة</a>
+  <button class="burger" aria-label="القائمة" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+  <ul class="menu"><li><a href="index.html" class="on">الرئيسية</a></li><li><a href="study.html" class="">الدراسة</a></li><li><a href="calculator.html" class="">الحاسبة</a></li><li><a href="services.html" class="">خدماتي</a></li><li><a href="contact.html" class=" btn">تواصل</a></li></ul>
+</div></nav>
+<header class="hero big"><div class="wrap">
+  <span class="tag">دراسة جدوى · جدة 2026–2027</span>
+  <h1>تبي تفتح مقهى؟<br>اعرف قبل ما تدفع: هل يربح، ومتى يرجع رأس مالك.</h1>
+  <p>دراسة جدوى كاملة لمقهى مختص مساحته نحو 90 م² في جدة، بكل التكاليف اللي ينساها أغلب الناس: المقابل المالي، عمولة التطبيقات، وأشهر البداية الضعيفة. ومعها حاسبة تجرب فيها أرقامك.</p>
+  <div class="actions"><a class="b1" href="study.html">اقرأ الدراسة</a><a class="b2" href="calculator.html">جرّب الحاسبة</a></div>
 </div></header>
-
 <main class="wrap">
-  <div class="kpis" id="kpis"></div>
-  <div class="verdict" id="verdict"></div>
-
-  <section class="intro">
-    <div class="card"><h3>الفكرة</h3><p>أغلب اللي يفتحون مقهى يحسبون الإيجار والديكور وينسون الباقي: المقابل المالي، عمولة تطبيقات التوصيل، أشهر البداية الضعيفة. هالدراسة تحسب كل شي في مكان واحد.</p></div>
-    <div class="card"><h3>وش تطلع منها</h3><p>كم تحتاج رأس مال، كم يبقى لك كل شهر، كم طلب يومي تحتاج عشان ما تخسر، ومتى يرجع مالك، مع ثلاث سيناريوهات وأكثر رقم يأثر على ربحك.</p></div>
-    <div class="card"><h3>من وين الأرقام</h3><p>افتراضات تقديرية لسوق جدة 2026–2027. الرسوم الحكومية من الأنظمة المعلنة (المقابل المالي 800 ريال للعامل شهريًا)، وتعرفة الكهرباء التجارية 2027. كل رقم قابل للتعديل.</p></div>
-  </section>
-
-  <section class="grid2">
-    <div class="card inputs">
-      <h2>غيّر الافتراضات</h2>
-      <div class="btns" id="scen">
-        <button data-s="low">متشائم</button><button data-s="base" class="on">متوقع</button><button data-s="high">متفائل</button>
-      </div>
-      <div id="inputs"></div>
-      <p class="note">الأسعار قبل ضريبة القيمة المضافة. الأشهر الستة الأولى تبدأ بـ 55% من الطلبات وتوصل للمعدل الكامل في الشهر السابع.</p>
-    </div>
-    <div>
-      <div class="card">
-        <h2>قائمة الدخل الشهرية (بعد ما يستقر المقهى)</h2>
-        <table id="pl"></table>
-      </div>
-      <section class="charts">
-        <div class="card"><h2>متى يرجع رأس المال؟</h2><div class="chartbox"><canvas id="cCash"></canvas></div><p class="note">الرصيد التراكمي من يوم الافتتاح لخمس سنوات. المشروع يسترد رأس ماله لما يقطع الخط الأسود (صفر).</p></div>
-        <div class="card"><h2>وين تروح كل 100 ريال مبيعات؟</h2><div class="chartbox"><canvas id="cSplit"></canvas></div></div>
-      </section>
+  <div class="kpis">
+    <div class="k"><span>رأس المال المطلوب</span><b><span data-v="capex"></span> ريال</b><small>شامل الإيجار المقدم والاحتياطي</small></div>
+    <div class="k"><span>صافي الربح الشهري</span><b class="pos"><span data-v="net"></span> ريال</b><small>بعد ما يستقر المقهى</small></div>
+    <div class="k"><span>نقطة التعادل</span><b><span data-v="be"></span> طلب يوميًا</b><small>من <span data-v="orders"></span> طلب متوقع</small></div>
+    <div class="k"><span>استرداد رأس المال</span><b data-v="pb"></b><small>في السيناريو المتوقع</small></div>
+  </div>
+  <section>
+    <h2>وش في الموقع؟</h2>
+    <div class="feat">
+      <a class="card" href="study.html"><div class="ic">📑</div><h3>الدراسة كاملة</h3><p>الفكرة، السوق، التشغيل، رأس المال، قائمة الدخل، السيناريوهات، المخاطر، والتوصيات.</p></a>
+      <a class="card" href="calculator.html"><div class="ic">🧮</div><h3>الحاسبة التفاعلية</h3><p>غيّر عدد الطلبات والأسعار والإيجار والموظفين، وتتحدث النتائج والرسوم مباشرة.</p></a>
+      <a class="card" href="services.html"><div class="ic">🤝</div><h3>دراسة لمشروعك</h3><p>أجهز لك دراسة بنفس المستوى بأرقام موقعك ونشاطك، جاهزة لممول أو شريك.</p></a>
     </div>
   </section>
-
-  <section class="charts">
-    <div class="card"><h2>رأس المال المطلوب</h2><table id="capex"></table></div>
-    <div class="card"><h2>أكثر رقم يأثر على ربحك</h2><div class="chartbox"><canvas id="cSens"></canvas></div><p class="note">التغير في صافي الربح السنوي إذا تحسن أو ساء كل عامل بنسبة 10%، والباقي ثابت.</p></div>
+  <section>
+    <h2>أهم ثلاث نتائج</h2>
+    <div class="feat">
+      <div class="card"><h3>الهامش أضيق مما تتوقع</h3><p>من كل 100 ريال مبيعات يبقى نحو <b><span data-v="margin"></span> ريال</b> صافي. الرواتب والمواد وحدها تاخذ قرابة 60%.</p></div>
+      <div class="card"><h3>أخطر رقم: الطلبات اليومية</h3><p>تحتاج <b><span data-v="be"></span> طلب يوميًا</b> عشان ما تخسر. لو الموقع ما يجيب هالعدد، لا الديكور ولا الأسعار تنقذ المشروع.</p></div>
+      <div class="card"><h3>التطبيقات تاكل ربحك</h3><p>عمولة تطبيقات التوصيل قرابة <b><span data-v="comm"></span> ريال</b> في السنة. موقع طلبات خاص يوفر جزء كبير منها.</p></div>
+    </div>
   </section>
-
-  <section class="card">
-    <h2>الخلاصة والتوصيات</h2>
-    <ul class="list" id="recs"></ul>
-  </section>
-
-  <section class="card">
-    <h2>مقارنة السيناريوهات</h2>
-    <div style="overflow-x:auto"><table id="scTable"></table></div>
-  </section>
-
   <section class="cta">
-    <div>
-      <h2>تبي دراسة جدوى لمشروعك؟</h2>
-      <p>أجهز دراسة جدوى بنفس الطريقة لمشروعك (مقهى، مطعم، محل، مغسلة، أو أي نشاط) بأرقام موقعك وأسعارك، مع ملف Excel تقدر تعدل فيه، وجاهزة تقدمها لممول أو شريك.</p>
-      <p>واتساب <bdi dir="ltr">0569184730</bdi> · <a href="mailto:algilani2008@gmail.com">algilani2008@gmail.com</a></p>
-    </div>
-    <ul>
-      <li>تحليل السوق والموقع والمنافسين</li>
-      <li>رأس المال وقائمة الدخل والتدفق النقدي 5 سنوات</li>
-      <li>نقطة التعادل وفترة الاسترداد والعائد</li>
-      <li>سيناريوهات وتحليل حساسية</li>
-    </ul>
+    <div><h2>تبي دراسة جدوى لمشروعك؟</h2><p>مقهى، مطعم، محل، مغسلة، أو أي نشاط. بأرقام حقيقية لموقعك، مع ملف Excel تعدل فيه.</p></div>
+    <div><a class="b1" href="contact.html">تواصل معي</a></div>
   </section>
 </main>
-<footer><div class="wrap">إعداد وتحليل: عبدالكريم الجيلاني · خبرة 12 سنة في تشغيل المطاعم والمقاهي و8 سنوات في تحليل البيانات. الأرقام تقديرية للعرض، وكل مشروع يحتاج أرقام موقعه الفعلية.</div></footer>
-
+<footer class="foot"><div class="wrap">
+  <div>إعداد وتحليل: <b style="color:#fff">عبدالكريم الجيلاني</b> · 12 سنة تشغيل مطاعم ومقاهي و8 سنوات تحليل بيانات</div>
+  <div>واتساب <bdi dir="ltr">0569184730</bdi> · <a href="mailto:algilani2008@gmail.com">algilani2008@gmail.com</a></div>
+</div></footer>
+<script src="model.js?v=2"></script>
 <script>
-const fmt=n=>Math.round(n).toLocaleString('en-US');
-const money=n=>(n<0?'−':'')+fmt(Math.abs(n));
-// الافتراضات
-const DEF={orders:180,ticket:25,cogs:30,delivery:15,commission:22,rent:150000,saudi:3,expat:3,saudiSal:5000,expatSal:3500,capexFit:220000};
-const SCEN={low:{orders:130,ticket:23,cogs:33,rent:150000},base:{orders:180,ticket:25,cogs:30,rent:150000},high:{orders:240,ticket:27,cogs:28,rent:150000}};
-const FIELDS=[
- ['orders','عدد الطلبات يوميًا',60,400,5,'',''],
- ['ticket','متوسط الفاتورة',15,45,1,' ريال',''],
- ['cogs','تكلفة المواد من المبيعات',20,45,1,'%','بن، حليب، أكواب، حلويات'],
- ['delivery','نسبة الطلبات من تطبيقات التوصيل',0,60,5,'%',''],
- ['commission','عمولة التطبيقات',10,30,1,'%',''],
- ['rent','الإيجار السنوي',60000,300000,5000,' ريال',''],
- ['saudi','موظفين سعوديين',0,6,1,'','يشمل المدير'],
- ['expat','موظفين غير سعوديين',0,8,1,'','باريستا وخدمة'],
- ['capexFit','الديكور والتجهيز',100000,450000,10000,' ريال',''],
-];
-let S={...DEF};
-const box=document.getElementById('inputs');
-box.innerHTML=FIELDS.map(([k,l,mn,mx,st,u,h])=>`<div class="inp"><label for="i_${k}">${l}<output id="o_${k}"></output></label><input type="range" id="i_${k}" min="${mn}" max="${mx}" step="${st}" value="${S[k]}">${h?`<div class="hint">${h}</div>`:''}</div>`).join('');
-FIELDS.forEach(([k,,,,,u])=>{const el=document.getElementById('i_'+k);el.oninput=()=>{S[k]=+el.value;document.querySelectorAll('#scen button').forEach(b=>b.classList.remove('on'));render()};});
-document.querySelectorAll('#scen button').forEach(b=>b.onclick=()=>{S={...DEF,...SCEN[b.dataset.s]};document.querySelectorAll('#scen button').forEach(x=>x.classList.toggle('on',x===b));FIELDS.forEach(([k])=>document.getElementById('i_'+k).value=S[k]);render()});
-
-function model(s){
-  // رأس المال
-  const capex=[
-    ['الديكور والتشطيب والتكييف',s.capexFit],
-    ['المعدات (مكينة إسبريسو، مطاحن، ثلاجات، فرن، نقاط بيع)',165000],
-    ['الأثاث والجلسات',45000],
-    ['التراخيص والدفاع المدني والتصميم',25000],
-    ['مخزون البداية',20000],
-    ['تسويق الافتتاح',20000],
-    ['إيجار أول 6 أشهر (يدفع مقدم)',s.rent/2],
-    ['احتياطي تشغيل أول شهرين (رواتب ومصاريف)',0],
-  ];
-  const fixedStaff=s.saudi>0?(8000+(s.saudi-1)*s.saudiSal)*1.12:0; // المدير 8,000 + التأمينات 12%
-  const expatCost=s.expat*(s.expatSal+1000+800+450); // سكن ومواصلات + مقابل مالي + إقامة وتأمين طبي
-  const cleaner=2500;
-  const staff=fixedStaff+expatCost+cleaner;
-  const fixed={rent:s.rent/12,staff,util:3200,maint:2000,systems:900,acct:1500,gov:1000};
-  const fixedSum=Object.values(fixed).reduce((a,b)=>a+b,0);
-  capex[7][1]=Math.round(fixedSum*2/1000)*1000;
-  const capexSum=capex.reduce((a,c)=>a+c[1],0)*1.0;
-  const contingency=Math.round(capexSum*0.05/1000)*1000;
-  capex.push(['احتياطي طوارئ 5%',contingency]);
-  const capexTotal=capexSum+contingency;
-  // نسب متغيرة من المبيعات
-  const varPct=s.cogs/100+(s.delivery/100)*(s.commission/100)+0.012+0.03; // مواد + عمولة + رسوم بطاقات + تسويق
-  function month(orders){
-    const rev=orders*s.ticket*30;
-    const cogs=rev*s.cogs/100, comm=rev*(s.delivery/100)*(s.commission/100), card=rev*0.012, mkt=rev*0.03;
-    const ebitda=rev-cogs-comm-card-mkt-fixedSum;
-    const dep=(capexTotal-s.rent/2-capex[7][1]-20000)/60; // استهلاك الأصول 5 سنوات
-    const zakat=Math.max(0,(ebitda-dep))*0.025;
-    return {rev,cogs,comm,card,mkt,ebitda,dep,zakat,net:ebitda-dep-zakat,cash:ebitda-zakat};
-  }
-  const steady=month(s.orders);
-  const be=fixedSum/(s.ticket*30*(1-varPct)); // طلبات يومية للتعادل (قبل الاستهلاك)
-  // تدفق 60 شهر: صعود تدريجي 6 أشهر، نمو 5% سنويًا بعد السنة الأولى، تضخم تكاليف ثابتة 2%
-  let cum=-capexTotal+capex[7][1]; // الاحتياطي يبقى نقد في الحساب حتى يُصرف
-  const series=[-capexTotal]; let payback=null;
-  const ramp=[.55,.62,.7,.78,.86,.94];
-  for(let m=1;m<=60;m++){
-    const y=Math.floor((m-1)/12);
-    const o=s.orders*(m<=6?ramp[m-1]:1)*Math.pow(1.05,y);
-    const mm=month(o); const extraFixed=fixedSum*(Math.pow(1.02,y)-1);
-    // الإيجار المدفوع مقدمًا لأول 6 أشهر محسوب في رأس المال، والاحتياطي كذلك يغطي أول 3 أشهر
-    let cash=mm.cash-extraFixed;
-    if(m<=6) cash+=fixed.rent;
-    cum+=cash; series.push(cum);
-    if(payback===null&&cum>=0) payback=m;
-  }
-  const yr1=series[12]-series[0];
-  const npv=(()=>{let v=-capexTotal;for(let m=1;m<=60;m++)v+=(series[m]-series[m-1])/Math.pow(1.12,m/12);return v})();
-  return {capex,capexTotal,fixed,fixedSum,staff,steady,be,series,payback,varPct,npv,yr1};
-}
-
-let charts={};
-function render(){
-  FIELDS.forEach(([k,,,,,u])=>document.getElementById('o_'+k).textContent=(k==='rent'||k==='capexFit'?fmt(S[k]):S[k])+u);
-  const M=model(S), st=M.steady;
-  const yA=n=>n===1?'سنة':n===2?'سنتين':n+' سنوات', mA=n=>n===1?'شهر':n===2?'شهرين':n<=10?n+' أشهر':n+' شهر';
-  const pb=M.payback?[Math.floor(M.payback/12)?yA(Math.floor(M.payback/12)):'',M.payback%12?mA(M.payback%12):''].filter(Boolean).join(' و'):'أكثر من 5 سنوات';
-  document.getElementById('kpis').innerHTML=[
-    ['رأس المال المطلوب',fmt(M.capexTotal)+' ريال','شامل الإيجار المقدم والاحتياطي'],
-    ['صافي الربح الشهري',`<span class="${st.net<0?'neg':'pos'}">${money(st.net)}</span> ريال`,'بعد ما يستقر المقهى'],
-    ['نقطة التعادل',fmt(M.be)+' طلب يوميًا',`من ${S.orders} طلب متوقع`],
-    ['استرداد رأس المال',pb,'من يوم الافتتاح'],
-  ].map(([a,b,c])=>`<div class="k"><span>${a}</span><b>${b}</b><small>${c}</small></div>`).join('');
-  const margin=st.net/st.rev*100, safety=(S.orders-M.be)/S.orders*100;
-  const v=document.getElementById('verdict');
-  v.className='verdict'+(st.net<0?' bad':(!M.payback||M.payback>36?' warn':''));
-  v.innerHTML=st.net<0?`<b>المشروع يخسر بهالأرقام.</b> تحتاج ${fmt(M.be)} طلب يوميًا عشان تغطي المصاريف، والمتوقع ${S.orders} فقط.`
-   :`<b>${!M.payback||M.payback>36?'مربح لكن الاسترداد بطيء':'المشروع مجدي بهالأرقام'}.</b> هامش صافي ${margin.toFixed(0)}%، وهامش الأمان ${safety.toFixed(0)}%: يعني الطلبات تقدر تنزل ${safety.toFixed(0)}% قبل ما يبدأ المقهى يخسر.`;
-  // قائمة الدخل
-  const R=[
-    ['المبيعات',st.rev,'sub'],
-    ['تكلفة المواد',-st.cogs],
-    ['عمولة تطبيقات التوصيل',-st.comm],
-    ['رسوم الدفع بالبطاقة (1.2%)',-st.card],
-    ['مجمل الربح',st.rev-st.cogs-st.comm-st.card,'sub'],
-    [`رواتب ${S.saudi+S.expat+1} موظفين (شامل التأمينات والمقابل المالي والسكن)`,-M.staff],
-    ['الإيجار',-M.fixed.rent],
-    ['الكهرباء والمياه والإنترنت',-M.fixed.util],
-    ['التسويق (3%)',-st.mkt],
-    ['الصيانة والمستهلكات',-M.fixed.maint],
-    ['أنظمة ومحاسبة ورسوم بلدية',-(M.fixed.systems+M.fixed.acct+M.fixed.gov)],
-    ['الربح التشغيلي',st.ebitda,'sub'],
-    ['استهلاك الأصول (5 سنوات)',-st.dep],
-    ['الزكاة (2.5%)',-st.zakat],
-    ['صافي الربح',st.net,'tot'],
-  ];
-  document.getElementById('pl').innerHTML='<tr><th>البند</th><th class="n">ريال/شهر</th><th class="n">من المبيعات</th></tr>'+R.map(([a,b,c])=>`<tr class="${c||''}"><td>${a}</td><td class="n ${b<0&&c?'neg':''}">${money(b)}</td><td class="n">${(b/st.rev*100).toFixed(1)}%</td></tr>`).join('');
-  document.getElementById('capex').innerHTML='<tr><th>البند</th><th class="n">ريال</th></tr>'+M.capex.map(([a,b])=>`<tr><td>${a}</td><td class="n">${fmt(b)}</td></tr>`).join('')+`<tr class="tot"><td>الإجمالي</td><td class="n">${fmt(M.capexTotal)}</td></tr>`;
-  // السيناريوهات
-  const sc=Object.entries(SCEN).map(([k,v])=>[k,model({...S,...v})]);
-  const names={low:'متشائم',base:'متوقع',high:'متفائل'};
-  document.getElementById('scTable').innerHTML=`<tr><th></th>${sc.map(([k])=>`<th class="n">${names[k]}</th>`).join('')}</tr>`+[
-    ['الطلبات يوميًا',([k])=>SCEN[k].orders],['متوسط الفاتورة',([k])=>SCEN[k].ticket+' ريال'],['تكلفة المواد',([k])=>SCEN[k].cogs+'%'],
-    ['المبيعات الشهرية',([,m])=>fmt(m.steady.rev)],['صافي الربح الشهري',([,m])=>`<span class="${m.steady.net<0?'neg':'pos'}">${money(m.steady.net)}</span>`],
-    ['الاسترداد',([,m])=>m.payback?m.payback+' شهر':'أكثر من 60 شهر'],['صافي القيمة الحالية (خصم 12%)',([,m])=>`<span class="${m.npv<0?'neg':'pos'}">${money(m.npv)}</span>`],
-  ].map(([l,f])=>`<tr><td>${l}</td>${sc.map(x=>`<td class="n">${f(x)}</td>`).join('')}</tr>`).join('')+`<tr><td colspan="4" class="note">السيناريوهات تغير الطلبات والفاتورة وتكلفة المواد فقط، والباقي من اختياراتك.</td></tr>`;
-  // الرسوم
-  Chart.defaults.font.family='Tajawal,"Segoe UI",Tahoma';Chart.defaults.color='#7a6a5c';
-  const labels=[...Array(61).keys()].map(m=>m%12===0?('سنة '+m/12):'');
-  const cols={low:'#b42318',base:'#6f4518',high:'#1f7a4d'};
-  const ds=sc.map(([k,m])=>({label:names[k],data:m.series,borderColor:cols[k],backgroundColor:cols[k],pointRadius:0,borderWidth:k==='base'?3:2,tension:.2}));
-  const baseS=sc.find(x=>x[0]==='base')[1].series, yMax=Math.ceil(Math.max(250000,...baseS)*1.5/250000)*250000;
-  if(charts.cash){charts.cash.data.datasets=ds;charts.cash.options.scales.y.max=yMax;charts.cash.update()}else charts.cash=new Chart(cCash,{type:'line',data:{labels,datasets:ds},options:{maintainAspectRatio:false,layout:{padding:{left:18}},interaction:{mode:'index',intersect:false},scales:{x:{reverse:true,ticks:{autoSkip:false,maxRotation:0},grid:{display:false}},y:{position:'right',max:yMax,ticks:{maxTicksLimit:7,callback:v=>(v/1000)+' ألف'},grid:{color:c=>c.tick.value===0?'#2a1f17':'#eee'}}},plugins:{legend:{position:'bottom'},tooltip:{callbacks:{title:i=>'الشهر '+i[0].dataIndex,label:c=>c.dataset.label+': '+money(c.raw)+' ريال'}}}}});
-  const split=[['المواد',st.cogs],['الرواتب',M.staff],['الإيجار',M.fixed.rent],['التطبيقات والبطاقات',st.comm+st.card],['تشغيل وتسويق',st.mkt+M.fixed.util+M.fixed.maint+M.fixed.systems+M.fixed.acct+M.fixed.gov],['استهلاك وزكاة',st.dep+st.zakat],['صافي الربح',Math.max(0,st.net)]];
-  const sd={labels:split.map(x=>x[0]),datasets:[{data:split.map(x=>+(x[1]/st.rev*100).toFixed(1)),backgroundColor:['#b9824a','#6f4518','#a0522d','#d97706','#c9b8a6','#8c7b6b','#1f7a4d']}]};
-  if(charts.split){charts.split.data=sd;charts.split.update()}else charts.split=new Chart(cSplit,{type:'doughnut',data:sd,options:{maintainAspectRatio:false,plugins:{legend:{position:'right'},tooltip:{callbacks:{label:c=>c.label+': '+c.raw+'%'}}}}});
-  // الحساسية
-  const baseNet=st.net*12, tests=[['الطلبات اليومية','orders',1],['متوسط الفاتورة','ticket',1],['تكلفة المواد','cogs',-1],['الرواتب','expatSal',-1],['الإيجار','rent',-1]];
-  const sens=tests.map(([l,k,d])=>{const up=model({...S,[k]:S[k]*(1+.1*d),...(k==='expatSal'?{saudiSal:S.saudiSal*0.9}:{})}).steady.net*12-baseNet;return [l,Math.round(up)]}).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1]));
-  const sv={labels:sens.map(x=>x[0]),datasets:[{label:'تحسن 10%',data:sens.map(x=>x[1]),backgroundColor:'#1f7a4d'},{label:'تراجع 10%',data:sens.map(x=>-x[1]),backgroundColor:'#b42318'}]};
-  if(charts.sens){charts.sens.data=sv;charts.sens.update()}else charts.sens=new Chart(cSens,{type:'bar',data:sv,options:{indexAxis:'y',maintainAspectRatio:false,scales:{x:{stacked:true,ticks:{maxTicksLimit:5,callback:v=>(v/1000)+' ألف'}},y:{stacked:true,position:'right'}},plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>c.dataset.label+': '+money(c.raw)+' ريال/سنة'}}}}});
-  // التوصيات
-  const appCost=st.comm*12, top=sens[0][0];
-  document.getElementById('recs').innerHTML=[
-    `<b>أهم رقم في المشروع هو ${top}:</b> تغيره 10% يحرك صافي الربح ${fmt(Math.abs(sens[0][1]))} ريال في السنة. ركّز عليه قبل أي شي ثاني.`,
-    `<b>نقطة التعادل ${fmt(M.be)} طلب يوميًا.</b> قبل ما توقع عقد الإيجار، عدّ الزباين اللي يمرون قدام الموقع في ساعات الذروة وتأكد إن ${fmt(M.be)} طلب رقم واقعي.`,
-    S.delivery>0?`<b>تطبيقات التوصيل تاخذ نحو ${fmt(appCost)} ريال في السنة.</b> موقع طلبات خاص بالمقهى (<a href="https://algilani2008.github.io/quickorder-menu/">مثل هذا</a>) يحول جزء منها لطلبات مباشرة بدون عمولة.`:'',
-    `<b>جهز رأس مال يكفي أول 6 أشهر.</b> المقهى يبدأ بنحو نصف طلباته المتوقعة، فلا تحسب الربح من أول شهر.`,
-    `<b>الرسوم الحكومية:</b> المقابل المالي 800 ريال شهريًا لكل عامل غير سعودي محسوب في الرواتب، وإعفاء المنشآت الصغيرة ينتهي 21 يناير 2027. الموظف السعودي يحسب في نطاقات إذا راتبه 5,000 ريال فأكثر من 25 أبريل 2027.`,
-  ].filter(Boolean).map(x=>`<li>${x}</li>`).join('');
-}
-render();
+const M0=model({...DEF}),st0=M0.steady;
+const yA=n=>n===1?'سنة':n===2?'سنتين':n+' سنوات', mA=n=>n===1?'شهر':n===2?'شهرين':n<=10?n+' أشهر':n+' شهر';
+const PB=m=>m?[Math.floor(m/12)?yA(Math.floor(m/12)):'',m%12?mA(m%12):''].filter(Boolean).join(' و'):'أكثر من 5 سنوات';
+const V={capex:fmt(M0.capexTotal),net:fmt(st0.net),netY:fmt(st0.net*12),be:fmt(M0.be),pb:PB(M0.payback),rev:fmt(st0.rev),revY:fmt(st0.rev*12),orders:DEF.orders,ticket:DEF.ticket,margin:(st0.net/st0.rev*100).toFixed(0),safety:((DEF.orders-M0.be)/DEF.orders*100).toFixed(0),npv:fmt(M0.npv),ebitda:fmt(st0.ebitda),staff:fmt(M0.staff),rent:fmt(DEF.rent),comm:fmt(st0.comm*12)};
+document.querySelectorAll('[data-v]').forEach(e=>e.textContent=V[e.dataset.v]);
 </script>
-</body>
-</html>
+</body></html>
