@@ -206,8 +206,8 @@ INSERT INTO policy_events (date, category, title_ar, title_en) VALUES ('2020-11-
 INSERT INTO policy_events (date, category, title_ar, title_en) VALUES ('2026-10-25', 'support', 'حزمة الدعم الملكية', 'Royal support package');
 INSERT INTO policy_events (date, category, title_ar, title_en) VALUES ('2027-01-01', 'electricity', 'تعرفة الكهرباء 2027', '2027 electricity tariff');
 INSERT INTO policy_events (date, category, title_ar, title_en) VALUES ('2027-01-01', 'water', 'تعرفة المياه 2027', '2027 water tariff');
-INSERT INTO policy_events (date, category, title_ar, title_en) VALUES ('2027-04-25', 'wages', 'حد نطاقات 5000 ريال (متوقع)', 'Nitaqat threshold 5000 SAR (expected)');
-INSERT INTO policy_events (date, category, title_ar, title_en) VALUES ('2028-04-25', 'wages', 'حد نطاقات 6000 ريال (متوقع)', 'Nitaqat threshold 6000 SAR (expected)');
+INSERT INTO policy_events (date, category, title_ar, title_en) VALUES ('2027-04-25', 'wages', 'حد نطاقات 5000 ريال', 'Nitaqat threshold 5000 SAR');
+INSERT INTO policy_events (date, category, title_ar, title_en) VALUES ('2028-04-25', 'wages', 'حد نطاقات 6000 ريال', 'Nitaqat threshold 6000 SAR');
 INSERT INTO household_profiles (id, name_ar, kwh_month, water_m3, total_old_year, total_new_year) VALUES ('apartment', 'شقة صغيرة', 800, 25, 2363, 4423);
 INSERT INTO household_profiles (id, name_ar, kwh_month, water_m3, total_old_year, total_new_year) VALUES ('typical', 'منزل متوسط (متوسط المملكة)', 1550, 43, 5206, 8018);
 INSERT INTO household_profiles (id, name_ar, kwh_month, water_m3, total_old_year, total_new_year) VALUES ('villa', 'فيلا كبيرة', 3500, 70, 12741, 17078);
