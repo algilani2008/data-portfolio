@@ -1,0 +1,7 @@
+{
+  "source": "https://raw.githubusercontent.com/datasets/population/main/data/population.csv",
+  "sha256": "2c697c3e668c8cb06ee467cd0d475b37b52844fdc48cb7725b79b58f18bf0b02",
+  "first_year": 1960,
+  "last_year": 2025,
+  "countries": 22
+}
