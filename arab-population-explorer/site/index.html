@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>كم كنّا؟ مستكشف سكان الدول العربية</title>
+  <meta name="description" content="How the population of the 22 Arab countries changed since 1960, from World Bank data. Arabic and English.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-row">
+      <div>
+        <h1 data-i18n="title">كم كنّا؟</h1>
+        <p class="sub" data-i18n="subtitle">مستكشف سكان الدول العربية الـ22 منذ 1960</p>
+      </div>
+      <button id="lang" class="btn" type="button" aria-label="Switch language">English</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card" id="since">
+      <h2 data-i18n="sinceTitle">من سنة ميلادك إلى اليوم</h2>
+      <p class="hint" data-i18n="sinceHint">اختر بلداً وسنة (مثلاً سنة ميلادك) وشف كيف تغيّر عدد السكان من وقتها.</p>
+      <div class="controls">
+        <label><span data-i18n="country">البلد</span>
+          <select id="sinceCountry"></select></label>
+        <label><span data-i18n="year">السنة</span>
+          <select id="sinceYear"></select></label>
+      </div>
+      <div class="stats" id="sinceStats" aria-live="polite"></div>
+      <p class="sentence" id="sinceSentence"></p>
+    </section>
+
+    <section class="card" id="compare">
+      <h2 data-i18n="compareTitle">قارن بين الدول</h2>
+      <p class="hint" data-i18n="compareHint">اختر حتى 6 دول. «المؤشر» يبدأ كل دولة من 100 عشان تقارن سرعة النمو مهما كان حجمها.</p>
+      <div class="chips" id="chips" role="group"></div>
+      <div class="controls">
+        <label><span data-i18n="mode">طريقة العرض</span>
+          <select id="mode">
+            <option value="index" data-i18n="modeIndex">مؤشر (سنة البداية = 100)</option>
+            <option value="abs" data-i18n="modeAbs">عدد السكان (مليون)</option>
+          </select></label>
+        <label><span data-i18n="from">من سنة</span>
+          <select id="fromYear"></select></label>
+        <label class="check"><input type="checkbox" id="logScale"> <span data-i18n="log">مقياس لوغاريتمي (كل خط أفقي ضعف اللي تحته)</span></label>
+      </div>
+      <div id="chart" class="chart" role="img"></div>
+      <div id="legend" class="legend"></div>
+    </section>
+
+    <section class="card" id="ranking">
+      <h2 data-i18n="rankTitle">الترتيب</h2>
+      <div class="controls">
+        <label><span data-i18n="measure">المقياس</span>
+          <select id="rankMeasure">
+            <option value="times" data-i18n="rankTimes">كم ضعف كبر من سنة البداية</option>
+            <option value="rate" data-i18n="rankRate">متوسط النمو السنوي %</option>
+            <option value="pop" data-i18n="rankPop">عدد السكان في آخر سنة</option>
+          </select></label>
+        <label><span data-i18n="from">من سنة</span>
+          <select id="rankFrom"></select></label>
+      </div>
+      <ol id="bars" class="bars"></ol>
+      <p class="note" id="rankNote"></p>
+    </section>
+
+    <section class="card" id="doubling">
+      <h2 data-i18n="dblTitle">حاسبة التضاعف</h2>
+      <p class="hint" data-i18n="dblHint">إذا زاد شيء بنسبة ثابتة كل سنة، متى يصير ضعف؟ تنفع للسكان وللمدخرات وأي نمو.</p>
+      <div class="controls">
+        <label><span data-i18n="rate">النمو السنوي %</span>
+          <input id="rate" type="number" step="0.1" min="-10" max="50" value="2" inputmode="decimal"></label>
+      </div>
+      <div class="stats" id="dblStats" aria-live="polite"></div>
+      <h3 data-i18n="dblCountries">لو استمرت كل دولة بنفس سرعة آخر 10 سنوات</h3>
+      <p class="hint" data-i18n="dblCountriesHint">توضيح حسابي فقط، مو توقع: معدلات النمو تتغير مع الزمن.</p>
+      <div class="table-wrap"><table id="dblTable"></table></div>
+    </section>
+
+    <section class="card" id="about">
+      <h2 data-i18n="aboutTitle">المصدر والملاحظات</h2>
+      <ul id="notes"></ul>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p><span data-i18n="footer">بيانات مفتوحة · بدون تتبع · يعمل بدون إنترنت بعد التحميل</span> · <a href="https://github.com/algilani2008/data-portfolio/tree/main/arab-population-explorer">GitHub</a></p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="calc.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
