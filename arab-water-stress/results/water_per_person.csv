@@ -1,0 +1,21 @@
+geo,v1962,v2022,ratio,class_start,class_end,name_en,name_ar
+kwt,0.00,0.00,,Absolute scarcity,Absolute scarcity,Kuwait,الكويت
+bhr,22.30,2.62,0.12,Absolute scarcity,Absolute scarcity,Bahrain,البحرين
+egy,35.29,8.88,0.25,Absolute scarcity,Absolute scarcity,Egypt,مصر
+are,1034.87,14.89,0.01,Stress,Absolute scarcity,United Arab Emirates,الإمارات
+qat,1254.76,21.07,0.02,Stress,Absolute scarcity,Qatar,قطر
+yem,363.18,54.94,0.15,Absolute scarcity,Absolute scarcity,Yemen,اليمن
+jor,725.10,60.59,0.08,Scarcity,Absolute scarcity,Jordan,الأردن
+sau,915.71,74.59,0.08,Scarcity,Absolute scarcity,Saudi Arabia,السعودية
+mrt,460.20,82.04,0.18,Absolute scarcity,Absolute scarcity,Mauritania,موريتانيا
+lby,431.58,96.90,0.22,Absolute scarcity,Absolute scarcity,Libya,ليبيا
+dza,953.07,247.31,0.26,Scarcity,Absolute scarcity,Algeria,الجزائر
+dji,3216.02,263.83,0.08,No stress,Absolute scarcity,Djibouti,جيبوتي
+omn,2545.73,295.97,0.12,No stress,Absolute scarcity,Oman,عُمان
+syr,1438.09,317.51,0.22,Stress,Absolute scarcity,Syria,سوريا
+som,1980.14,337.04,0.17,No stress,Absolute scarcity,Somalia,الصومال
+tun,960.14,346.14,0.36,Scarcity,Absolute scarcity,Tunisia,تونس
+mar,2366.75,776.87,0.33,No stress,Scarcity,Morocco,المغرب
+irq,4747.85,798.72,0.17,No stress,Scarcity,Iraq,العراق
+lbn,2513.64,835.58,0.33,No stress,Scarcity,Lebanon,لبنان
+com,5862.18,1438.52,0.25,No stress,Stress,Comoros,جزر القمر

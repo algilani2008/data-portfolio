@@ -1,0 +1,90 @@
+{
+  "source_repo": "https://github.com/open-numbers/ddf--open_numbers--world_development_indicators",
+  "commit": "1bd7fac42b3d5012353607bf2464a485557fd049",
+  "license": "CC BY 4.0 (World Bank WDI; water series from FAO AQUASTAT)",
+  "indicators": {
+    "er_h2o_fwst_zs": {
+      "title": "Level of water stress (% of available freshwater), SDG 6.4.2",
+      "url": "https://raw.githubusercontent.com/open-numbers/ddf--open_numbers--world_development_indicators/1bd7fac42b3d5012353607bf2464a485557fd049/datapoints/ddf--datapoints--er_h2o_fwst_zs--by--geo--time.csv",
+      "sha256": "a4912b8a6b94db3bc4621d759846fa16982b5d8e63a3149100f839364a2c7dd1",
+      "rows": 6167
+    },
+    "er_h2o_intr_pc": {
+      "title": "Renewable internal freshwater per capita (m3)",
+      "url": "https://raw.githubusercontent.com/open-numbers/ddf--open_numbers--world_development_indicators/1bd7fac42b3d5012353607bf2464a485557fd049/datapoints/ddf--datapoints--er_h2o_intr_pc--by--geo--time.csv",
+      "sha256": "9e3ccb44b931d28d6392d8f758c2dee76f86db4f8c4b4b1c86d2e16721fcb8f9",
+      "rows": 10376
+    },
+    "er_h2o_intr_k3": {
+      "title": "Renewable internal freshwater resources (billion m3)",
+      "url": "https://raw.githubusercontent.com/open-numbers/ddf--open_numbers--world_development_indicators/1bd7fac42b3d5012353607bf2464a485557fd049/datapoints/ddf--datapoints--er_h2o_intr_k3--by--geo--time.csv",
+      "sha256": "474db270996bff469c8b66ef103c8e92e1c4c08c3dd8a3b94d47aa2b4254dfb7",
+      "rows": 10405
+    },
+    "er_h2o_fwtl_k3": {
+      "title": "Annual freshwater withdrawals, total (billion m3)",
+      "url": "https://raw.githubusercontent.com/open-numbers/ddf--open_numbers--world_development_indicators/1bd7fac42b3d5012353607bf2464a485557fd049/datapoints/ddf--datapoints--er_h2o_fwtl_k3--by--geo--time.csv",
+      "sha256": "608cec16d2f84a1d9955f84d17fdda771e87ebd0c524de4aa04e215b91fe392a",
+      "rows": 6251
+    },
+    "er_h2o_fwag_zs": {
+      "title": "Withdrawals, agriculture (% of total)",
+      "url": "https://raw.githubusercontent.com/open-numbers/ddf--open_numbers--world_development_indicators/1bd7fac42b3d5012353607bf2464a485557fd049/datapoints/ddf--datapoints--er_h2o_fwag_zs--by--geo--time.csv",
+      "sha256": "3e3f6a28fcb039565c1a2656a4894f14d6cb5729c26afc184927535832eda781",
+      "rows": 5794
+    },
+    "er_h2o_fwin_zs": {
+      "title": "Withdrawals, industry (% of total)",
+      "url": "https://raw.githubusercontent.com/open-numbers/ddf--open_numbers--world_development_indicators/1bd7fac42b3d5012353607bf2464a485557fd049/datapoints/ddf--datapoints--er_h2o_fwin_zs--by--geo--time.csv",
+      "sha256": "7b508c28d82b112aea0c6d871d0fa8e0c6b3c92343a1cb86a46894da1e54c0b8",
+      "rows": 5657
+    },
+    "er_h2o_fwdm_zs": {
+      "title": "Withdrawals, domestic (% of total)",
+      "url": "https://raw.githubusercontent.com/open-numbers/ddf--open_numbers--world_development_indicators/1bd7fac42b3d5012353607bf2464a485557fd049/datapoints/ddf--datapoints--er_h2o_fwdm_zs--by--geo--time.csv",
+      "sha256": "7b2ad9a899636afe4ac83729332e2faefa609fc74bdf9742e3c427537fd2149b",
+      "rows": 5779
+    },
+    "er_gdp_fwtl_m3_kd": {
+      "title": "Water productivity (constant 2015 US$ GDP per m3 withdrawn)",
+      "url": "https://raw.githubusercontent.com/open-numbers/ddf--open_numbers--world_development_indicators/1bd7fac42b3d5012353607bf2464a485557fd049/datapoints/ddf--datapoints--er_gdp_fwtl_m3_kd--by--geo--time.csv",
+      "sha256": "c596c0ad2dd12ef8c99140f9d833c1432caf468dec8c0fabc2b96aeaff199616",
+      "rows": 6083
+    },
+    "sp_pop_totl": {
+      "title": "Population, total",
+      "url": "https://raw.githubusercontent.com/open-numbers/ddf--open_numbers--world_development_indicators/1bd7fac42b3d5012353607bf2464a485557fd049/datapoints/ddf--datapoints--sp_pop_totl--by--geo--time.csv",
+      "sha256": "bb44a1d10e9bb5bb118d25bf8999bcbbf61d8593a1c4aba868b3e1c7187e30c1",
+      "rows": 14160
+    }
+  },
+  "countries": [
+    "dza",
+    "bhr",
+    "com",
+    "dji",
+    "egy",
+    "irq",
+    "jor",
+    "kwt",
+    "lbn",
+    "lby",
+    "mrt",
+    "mar",
+    "omn",
+    "pse",
+    "qat",
+    "sau",
+    "som",
+    "sdn",
+    "syr",
+    "tun",
+    "are",
+    "yem"
+  ],
+  "per_person_years": [
+    1962,
+    2022
+  ],
+  "per_capita_recompute_median_rel_diff": 0.0
+}
